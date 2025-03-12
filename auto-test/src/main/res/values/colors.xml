@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pin_shadow">#FF102838</color>
+
+    <!--result bill-->
+    <color name="result_overlap_bg_color">#FFFFFFFF</color>
+    <color name="result_bill_item_success_text">#3955EE</color>
+    <color name="result_bill_item_failed_text">#EE4DAD</color>
+    <color name="result_bill_item_bg_color">#FFFFFFFF</color>
+    <color name="result_bill_item_amount_color">#FFFF0000</color>
+
+    <color name="settle_item_gray">#F4F5F9</color>
+
+    <!--theme primary color-->
+    <color name="primary_gradient_start">#607CFF</color>
+    <color name="primary_gradient_end">#78CBF5</color>
+
+    <!--accent color-->
+    <color name="colorAccent">#75BDFF</color>
+    <!--background-->
+    <color name="background">#fff3f3f5</color>
+    <!--text primary color-->
+    <color name="primaryText">#363842</color>
+    <!--text secondary color-->
+    <color name="secondaryText">#656569</color>
+
+    <!--press mask-->
+    <color name="press_mask">#6FCCCCCC</color>
+    <!--disable color-->
+    <color name="disable_color">#FFD9D9D9</color>
+    <!--waring color-->
+    <color name="warning">#FF554C</color>
+
+    <color name="menu_sale_background">#FFF2EF</color>
+    <color name="menu_pre_auth_background">#ffe7f3ff</color>
+    <color name="menu_auth_complete_background">#fffff2ef</color>
+    <color name="menu_void_sale_background">#ffddf5f8</color>
+    <color name="menu_refund_background">#ffe7f3ff</color>
+    <color name="menu_void_pre_auth_background">#ffe7e9f8</color>
+    <color name="menu_void_auth_complete_background">#fffff2ef</color>
+    <color name="menu_settle_background">#ffddf5f8</color>
+    <color name="menu_balance_background">#ffe7f3ff</color>
+    <color name="menu_settings_background">#ffe7e9f8</color>
+    <color name="menu_reprint_last_receipt_background">#fffff2ef</color>
+    <color name="menu_reprint_receipt_background">#ffddf5f8</color>
+    <color name="menu_reprint_settle_background">#ffe7e9f8</color>
+    <color name="menu_print_detail_background">#fffff2ef</color>
+    <color name="menu_installment_background">#ffddf5f8</color>
+    <color name="menu_void_installment_background">#ffe7f3ff</color>
+    <color name="menu_about_background">#ffe7e9f8</color>
+    <color name="menu_scan_pay_background">#ffe7f3ff</color>
+    <color name="menu_qr_code_background">#ffe7f3ff</color>
+    <color name="menu_qr_refund_background">#fffff2ef</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#009688</color>
+
+    <color name="black_text">#424843</color>
+    <color name="light_blue">#2595e1</color>
+    <color name="common_bg">#f1f2f7</color>
+    <color name="main_menu_item_press">#e5e5e5</color>
+    <color name="main_gv_bg">#cfcfcf</color>
+
+    <color name="enter_amount_bg">#B7B7B7</color>
+    <color name="colorPrimary">#313131</color>
+    <color name="keyboard_pressed_bg">#E8E8E8</color>
+    <color name="yellow_ffb940">#ffb940</color>
+
+    <color name="light_black">#333333</color>
+    <color name="colorPrimaryDark">#313131</color>
+    <color name="gray">#cfcfcf</color>
+    <color name="colorClick">#3F000000</color>
+    <color name="gray_font">#979797</color>
+    <color name="windowBackground">#ededed</color>
+    <color name="red">#FF0000</color>
+    <color name="translucent">#9000</color>
+    <color name="Transparent">#000000</color>
+</resources>
