@@ -1,0 +1,91 @@
+package com.newland.autotest.base.activity;
+
+import static com.newland.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
+
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
+import com.newland.autotest.R;
+import com.newland.autotest.annotation.Navigation;
+import com.newland.autotest.constant.ShowMessage;
+import com.newland.autotest.fragment.ExecutionDetailsFragment;
+import com.newland.autotest.fragment.HomeFragment;
+import com.newland.autotest.adapter.MyPagerAdapter;
+import com.newland.autotest.util.ReflectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class BaseMainActivity extends AppCompatActivity {
+    private List<Fragment> finalFragmentList = new ArrayList<>();
+    public static LinearLayout llMessage;
+    public static TabLayout tabLayout;
+    public static ViewPager viewPager;
+    public static MutableLiveData<ShowMessage> mShowMessage = new MutableLiveData<>();
+    public static final ArrayList<String> pageTitlesList = new ArrayList<>();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.auto_test_activity_main);
+
+        List<Fragment> fragmentList = new ArrayList<>();
+        fragmentList.add(new HomeFragment());
+        addNavFragment(fragmentList);
+        for (int i = 0; i < fragmentList.size(); i++) {
+            Class<? extends Fragment> cls = fragmentList.get(i).getClass();
+            if (cls.isAnnotationPresent(Navigation.class) && Fragment.class.isAssignableFrom(cls)) {
+                finalFragmentList.add(fragmentList.get(i));
+                pageTitlesList.add(ReflectionUtils.getAnnotationValue(cls, Navigation.class, "name"));
+            }
+        }
+
+        tabLayout = findViewById(R.id.tab_layout);
+        viewPager = findViewById(R.id.viewPager);
+
+        viewPager.setAdapter(new MyPagerAdapter(getApplicationContext(), getFragments(), getSupportFragmentManager()));
+        tabLayout.setupWithViewPager(viewPager);
+        mShowMessage.observe(this, message -> setLlMessage(message.getColor(), message.getMessage()));
+    }
+
+    public void setLlMessage(int color, String message){
+        runOnUiThread(() -> {
+            TextView textView = new TextView(this);
+            textView.setText(message);
+            textView.setTextColor(color);
+            llMessage.addView(textView, 0);
+        });
+    }
+
+    private List<Fragment> getFragments(){
+        return finalFragmentList;
+    }
+
+
+
+    public abstract void addNavFragment(List<Fragment> list);
+
+
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            ExecutionDetailsFragment fragment = (ExecutionDetailsFragment) getSupportFragmentManager().findFragmentByTag(EXECUTION_DETAIL_TAG);
+            if (fragment != null) {
+                fragment.onBackPressedLongPress();
+            }
+            return true;
+        }
+        return super.onKeyLongPress(keyCode, event);
+    }
+
+
+}
