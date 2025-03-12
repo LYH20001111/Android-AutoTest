@@ -4,11 +4,11 @@ plugins {
 
 
 android {
-    namespace 'com.newland.autotest'
+    namespace 'com.hudou.autotest'
     compileSdk 34
 
     defaultConfig {
-        //applicationId "com.newland.autotest"
+        //applicationId "com.hudou.autotest"
         minSdk 29
         targetSdk 34
         versionCode 1

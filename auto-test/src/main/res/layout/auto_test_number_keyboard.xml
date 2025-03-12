@@ -22,7 +22,7 @@
 
 
 
-    <com.newland.autotest.customUI.keyboard.NumberKeyBoardView
+    <com.hudou.autotest.customUI.keyboard.NumberKeyBoardView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/view_keyboard"
         android:layout_width="match_parent"
