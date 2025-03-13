@@ -19,3 +19,42 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+
+# 保持 native 方法不被混淆
+-keepclasseswithmembernames class * {
+   native <methods>;
+}
+# 不混淆资源类
+-keepclassmembers class *.R$ {
+public static *;
+}
+# 保留注解
+-keepattributes *Annotation*
+
+## 保留对外暴露的类和方法
+#-keep class com.hudou.autotest.annotation.** { *; }
+#-keep public class com.hudou.autotest.fragment.TestListFragment {
+#    public *;
+#}
+#-keep public class com.hudou.autotest.base.item.BaseTestItem {
+#    public *;
+#}
+#-keep class com.hudou.autotest.base.activity.BaseMainActivity { *; }
+
+# 保留对外暴露的类和方法
+-keep public class com.hudou.autotest.** {
+    public *;
+}
+
+## 保留所有 ViewBinding 类
+#-keep class * extends androidx.viewbinding.ViewBinding { *; }
+#
+## 保留所有 ViewBinding 类的 inflate 方法
+#-keepclassmembers class * extends androidx.viewbinding.ViewBinding {
+#    public static * inflate(...);
+#}
+
+
+
+

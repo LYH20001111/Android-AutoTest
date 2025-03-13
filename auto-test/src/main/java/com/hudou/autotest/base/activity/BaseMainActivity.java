@@ -2,6 +2,7 @@ package com.hudou.autotest.base.activity;
 
 import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
@@ -27,9 +28,10 @@ import java.util.List;
 
 public abstract class BaseMainActivity extends AppCompatActivity {
     private List<Fragment> finalFragmentList = new ArrayList<>();
+    @SuppressLint("StaticFieldLeak")
     public static LinearLayout llMessage;
-    public static TabLayout tabLayout;
-    public static ViewPager viewPager;
+    private static TabLayout tabLayout;
+    private static ViewPager viewPager;
     public static MutableLiveData<ShowMessage> mShowMessage = new MutableLiveData<>();
     public static final ArrayList<String> pageTitlesList = new ArrayList<>();
 
@@ -57,7 +59,7 @@ public abstract class BaseMainActivity extends AppCompatActivity {
         mShowMessage.observe(this, message -> setLlMessage(message.getColor(), message.getMessage()));
     }
 
-    public void setLlMessage(int color, String message){
+    private void setLlMessage(int color, String message){
         runOnUiThread(() -> {
             TextView textView = new TextView(this);
             textView.setText(message);
