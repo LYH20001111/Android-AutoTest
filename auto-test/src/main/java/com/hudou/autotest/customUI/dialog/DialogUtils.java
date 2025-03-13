@@ -77,7 +77,7 @@ public class DialogUtils {
             final EditText editText = new EditText(context);
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
             editText.setHint(hint);
-            editText.setBackgroundResource(R.drawable.border_input_box);
+            editText.setBackgroundResource(R.drawable.auto_test_border_input_box);
             editTextDialog = new AlertDialog.Builder(context)
                     .setView(editText)
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {

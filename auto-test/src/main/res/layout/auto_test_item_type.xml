@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_gravity="center"
-            android:background="@drawable/navigate_next"/>
+            android:background="@drawable/auto_test_navigate_next"/>
 
     </LinearLayout>
 

@@ -2,27 +2,45 @@ plugins {
     id 'com.android.library'
 }
 
+def appVersionCode = 2
+def appVersionName = '1.0.2'
+
 
 android {
     namespace 'com.hudou.autotest'
     compileSdk 34
 
     defaultConfig {
-        //applicationId "com.hudou.autotest"
         minSdk 29
         targetSdk 34
         versionCode 1
-        versionName "1.0"
+        versionCode = appVersionCode
+        versionName = appVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }//打包aar时，protected权限的方法自动变为了public。
+        // 这是因为proguard-android-optimize.txt配置-allowaccessmodification，这项配置的作用是“是否允许改变作用域
+        //而proguard-android.txt中没有-allowaccessmodification 配置
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    android.libraryVariants.all{
+        variant -> variant.outputs.all {
+            if("debug" == variant.buildType.name){
+                outputFileName = "hudou-autotest-" + defaultConfig.versionName + "-" + variant.buildType.name + ".aar"
+            }else {
+                outputFileName = "hudou-autotest-" + defaultConfig.versionName + ".aar"
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -72,4 +90,10 @@ configurations.all {
         force 'com.google.guava:guava:18.0'
         exclude group: 'com.google.guava', module: 'listenablefuture'
     }
+}
+
+task assembleAutoTestRelease(type: GradleBuild) {
+    dir = project(':auto-test').projectDir
+    tasks = ['assembleRelease']
+    description = "Builds the release version of the auto-test library"
 }
