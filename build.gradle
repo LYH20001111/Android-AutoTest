@@ -6,6 +6,9 @@ buildscript {
             allowInsecureProtocol = true
             url'http://192.168.33.231:8081/repository/maven-releases/'
         }
+        maven {
+            url "https://jitpack.io"
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:8.0.0"
