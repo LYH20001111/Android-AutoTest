@@ -4,7 +4,7 @@ plugins {
 }
 
 def appVersionCode = 3
-def appVersionName = '1.0.3'
+def appVersionName = '1.0.4'
 
 
 android {
@@ -58,14 +58,26 @@ android {
     }
 }
 
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = 'com.github.LYH20001111' // 替换为你的 GitHub 用户名
+//                artifactId = 'Android-AutoTest' // 替换为你的库名称
+//                version = '1.0.4' // 替换为你的版本号
+//            }
+//        }
+//    }
+//}
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                //from components.release
-                groupId = 'com.github.LYH20001111' // 替换为你的 GitHub 用户名
-                artifactId = 'Android-AutoTest' // 替换为你的库名称
-                version = '1.0.3' // 替换为你的版本号
+                from components.findByName("release") // 显式查找 release 组件
+                groupId = 'com.github.LYH20001111'
+                artifactId = 'Android-AutoTest'
+                version = '1.0.4'
             }
         }
     }
