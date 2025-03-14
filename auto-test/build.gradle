@@ -2,30 +2,9 @@ plugins {
     id 'com.android.library'
     id 'maven-publish'
 }
-def GROUP_ID = "com.hudou"
-def ARTIFACT_ID = "auto-test"
-def VERSION = "1.0.0"
 
-afterEvaluate {
-    publishing {
-        repositories {
-            maven {
-                url "https://jitpack.io"
-            }
-        }
-        publications {
-            release(MavenPublication) {
-                groupId GROUP_ID
-                artifactId ARTIFACT_ID
-                version VERSION
-                artifact(tasks.getByName("bundleReleaseAar")) // 动态获取 AAR 文件
-            }
-        }
-    }
-}
-
-def appVersionCode = 2
-def appVersionName = '1.0.2'
+def appVersionCode = 3
+def appVersionName = '1.0.3'
 
 
 android {
@@ -76,6 +55,19 @@ android {
 
     buildFeatures {
         viewBinding = true
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                //from components.release
+                groupId = 'com.github.LYH20001111' // 替换为你的 GitHub 用户名
+                artifactId = 'Android-AutoTest' // 替换为你的库名称
+                version = '1.0.3' // 替换为你的版本号
+            }
+        }
     }
 }
 
