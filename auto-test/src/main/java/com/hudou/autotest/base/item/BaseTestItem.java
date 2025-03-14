@@ -3,6 +3,8 @@ package com.hudou.autotest.base.item;
 import android.graphics.Color;
 
 //import com.hudou.autotest.MainActivity;
+import androidx.annotation.Nullable;
+
 import com.hudou.autotest.base.activity.BaseMainActivity;
 import com.hudou.autotest.constant.ShowMessage;
 
@@ -10,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Method;
 
-import javax.annotation.Nullable;
+
 
 public class BaseTestItem extends BaseTestCase{
 
