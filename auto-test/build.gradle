@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 3
-def appVersionName = '1.0.4'
+def appVersionCode = 5
+def appVersionName = '1.0.5'
 
 
 android {
@@ -12,7 +12,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        minSdk 29
+        minSdk 24
         targetSdk 34
         versionCode 1
         versionCode = appVersionCode
@@ -120,13 +120,7 @@ configurations.all {
     }
 }
 
-task assembleAutoTestRelease(type: GradleBuild) {
-    dir = project(':auto-test').projectDir
-    tasks = ['assembleRelease']
-    description = "Builds the release version of the auto-test library"
-}
-
-task cleanExistAAR {
+task assembleAutoTest {
     def outputDir = new File(project.buildDir, "outputs/aar")
     if (outputDir.exists()) {
         outputDir.listFiles().each { file ->
@@ -136,10 +130,6 @@ task cleanExistAAR {
             }
         }
     }
-}
-
-task assembleAutoTest {
-    dependsOn cleanExistAAR
     dependsOn project(':auto-test').tasks.matching { task ->
         task.name.contains('assemble') && (task.name.contains('Release') || task.name.contains('Debug'))
     }
