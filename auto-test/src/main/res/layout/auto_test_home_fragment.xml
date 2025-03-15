@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/auto_test_gradient"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -9,6 +13,17 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Auto Test"
+        android:textStyle="italic|bold"
+        android:textColor="@color/white"
         android:textSize="50dp"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="欢迎使用自动测试框架"
+        android:textStyle="italic"
+        android:textColor="@color/white"
+        android:textSize="25dp"/>
 </LinearLayout>
