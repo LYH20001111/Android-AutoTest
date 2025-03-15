@@ -1,6 +1,8 @@
 package com.hudou.autotest;
 
 
+import android.util.Log;
+
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.annotation.TestItemClass;
 import com.hudou.autotest.fragment.TestListFragment;
