@@ -27,32 +27,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseMainActivity extends AppCompatActivity {
-    private List<Fragment> finalFragmentList = new ArrayList<>();
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout llMessage;
-    private static TabLayout tabLayout;
-    private static ViewPager viewPager;
     public static MutableLiveData<ShowMessage> mShowMessage = new MutableLiveData<>();
     public static final ArrayList<String> pageTitlesList = new ArrayList<>();
+    private static boolean isFirst = true;
+    private static List<Fragment> finalFragmentList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auto_test_activity_main);
 
-        List<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new HomeFragment());
-        addNavFragment(fragmentList);
-        for (int i = 0; i < fragmentList.size(); i++) {
-            Class<? extends Fragment> cls = fragmentList.get(i).getClass();
-            if (cls.isAnnotationPresent(Navigation.class) && Fragment.class.isAssignableFrom(cls)) {
-                finalFragmentList.add(fragmentList.get(i));
-                pageTitlesList.add(ReflectionUtils.getAnnotationValue(cls, Navigation.class, "name"));
+        if (isFirst) {
+            List<Fragment> fragmentList = new ArrayList<>();
+            finalFragmentList = new ArrayList<>();
+            fragmentList.add(new HomeFragment());
+            addNavFragment(fragmentList);
+            for (Fragment fragment : fragmentList) {
+                Class<? extends Fragment> cls = fragment.getClass();
+                if (cls.isAnnotationPresent(Navigation.class)) {
+                    finalFragmentList.add(fragment);
+                    pageTitlesList.add(ReflectionUtils.getAnnotationValue(cls, Navigation.class, "name"));
+                }
             }
+            isFirst = false;
         }
 
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.viewPager);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        ViewPager viewPager = findViewById(R.id.viewPager);
 
         viewPager.setAdapter(new MyPagerAdapter(getApplicationContext(), getFragments(), getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
