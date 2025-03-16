@@ -31,8 +31,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecycleV
     @Override
     public RecycleAdapter.RecycleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.auto_test_item_type, parent, false);
-        RecycleAdapter.RecycleViewHolder myViewHolder = new RecycleAdapter.RecycleViewHolder(view);
-        return myViewHolder;
+        return new RecycleViewHolder(view);
     }
 
     @Override
@@ -59,7 +58,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecycleV
         return itemList.size();
     }
 
-    class RecycleViewHolder extends RecyclerView.ViewHolder{
+    static class RecycleViewHolder extends RecyclerView.ViewHolder{
         TextView tvItem;
         TextView tvDescription;
         ImageButton imgBtnDetail;

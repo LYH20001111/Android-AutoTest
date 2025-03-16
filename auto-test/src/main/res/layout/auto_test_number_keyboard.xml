@@ -9,7 +9,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="#00000000" />
 
@@ -27,7 +27,6 @@
         android:id="@+id/view_keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="#b0b0b0"
         android:focusable="true"
         android:focusableInTouchMode="true"

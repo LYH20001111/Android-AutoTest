@@ -24,5 +24,10 @@ public class TestItem2 extends BaseTestItem {
         recordNormal("Hello World");
     }
 
+    @TestCase(name = "TestItem2 test2_001")
+    private void test2_001(){
+        recordNormal("Ni Hao Shi Jie");
+    }
+
     
 }

@@ -36,7 +36,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
     @Override
     protected void initData() {
-        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description"));
+        viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description")));
         BaseMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
@@ -45,7 +45,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         viewBinding.viewKeyboard.setIOnKeyboardListener(new NumberKeyBoardView.IOnKeyboardListener() {
             @Override
             public void onInsertKeyEvent(String text) {
-                viewBinding.tvCaseId.setText(viewBinding.tvCaseId.getText() + text);
+                viewBinding.tvCaseId.setText(String.format("%s%s", viewBinding.tvCaseId.getText(), text));
             }
 
             @Override
@@ -97,7 +97,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
             if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == -1){
                 Toast.makeText(getContext(), "输入的起始案例号不符合", Toast.LENGTH_SHORT).show();
             }else {
-                viewBinding.btnBeginId.setText("起始案例号 : " + message);
+                viewBinding.btnBeginId.setText(String.format("起始案例号 : %s", message));
             }
         })));
         viewBinding.btnEndId.setOnClickListener(v -> DialogUtils.createEditTextDialog(getContext(), "请输入结束案例号", message -> getActivity().runOnUiThread(() -> {
@@ -108,7 +108,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
             if (endId >= testItem.testItemCasesNum(clz) || endId == -1 || endId <= beginId){
                 Toast.makeText(getContext(), "输入的结束案例号不符合", Toast.LENGTH_SHORT).show();
             }else {
-                viewBinding.btnEndId.setText("结束案例号 : " + message);
+                viewBinding.btnEndId.setText(String.format("结束案例号 : %s", message));
                 if (beginId != -1){
                     ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, beginId, endId);
                     getActivity().runOnUiThread(() -> {
@@ -140,7 +140,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case "4":
-                viewBinding.tvItem.setText("当前查看项 ： " + ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description"));
+                viewBinding.tvItem.setText(String.format("当前查看项 ： %s", ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description")));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
