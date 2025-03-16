@@ -16,6 +16,8 @@ import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestExcutionDetailsFragmentBinding;
 import com.hudou.autotest.util.ReflectionUtils;
 
+import java.text.MessageFormat;
+
 public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetailsFragmentBinding> {
 
     private final Class<? extends BaseTestCase> clz;
@@ -48,13 +50,13 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     @Override
     protected void initActionAfterInitData() {
         if (testID == -2){
-            viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + "0  ~  " + (testItem.testItemCasesNum(clz) - 1));
+            viewBinding.tvLine2Message.setText(MessageFormat.format("{0}0  ~  {1}", viewBinding.tvLine2Message.getText().toString(), testItem.testItemCasesNum(clz) - 1));
             testItem.runAllCases(clz);
         }else if (testID != -1 ) {
-            viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + testID);
+            viewBinding.tvLine2Message.setText(MessageFormat.format("{0}{1}", viewBinding.tvLine2Message.getText().toString(), testID));
             testItem.runCase(clz, testID);
         }else if (beginID != -1 && endID != -1){
-            viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + beginID + "  ~  " + endID);
+            viewBinding.tvLine2Message.setText(MessageFormat.format("{0}{1}  ~  {2}", viewBinding.tvLine2Message.getText().toString(), beginID, endID));
             testItem.runPartContinueCases(clz, beginID, endID);
         }
 

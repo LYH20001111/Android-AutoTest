@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/ll_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight="1">
 
@@ -19,13 +19,13 @@
 
             <TextView
                 android:id="@+id/tv_item"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/light_blue"
-                android:text="当前测试项 ："/>
+                android:text="@string/execution_details_item"/>
 
         </LinearLayout>
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="#FF5722"
-                android:text="当前测试的案例号 ："/>
+                android:text="@string/execution_details_line2_message"/>
         </LinearLayout>
 
         <View
@@ -68,7 +68,7 @@
             <LinearLayout
                 android:id="@+id/ll_message"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical" />
         </ScrollView>
 
