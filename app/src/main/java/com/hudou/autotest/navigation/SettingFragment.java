@@ -1,10 +1,9 @@
-package com.hudou.autotest;
+package com.hudou.autotest.navigation;
 
 import com.hudou.autotest.annotation.Navigation;
-import com.hudou.autotest.annotation.TestItemClass;
 import com.hudou.autotest.fragment.TestListFragment;
 
-@Navigation(name = "PS2")
+@Navigation(name = "Setting")
 //@TestItemClass(clz = {TestItem2.class})
 public class SettingFragment extends TestListFragment {
 }

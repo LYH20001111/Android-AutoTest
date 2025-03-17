@@ -13,4 +13,6 @@
     <string name="exit_application_title">您确定要退出应用吗？</string>
     <string name="sure">确定</string>
     <string name="cancel">取消</string>
+    <string name="pause_tes">您确定要中断测试吗</string>
+    <string name="pause_positive">此案例结束后中断测试</string>
 </resources>

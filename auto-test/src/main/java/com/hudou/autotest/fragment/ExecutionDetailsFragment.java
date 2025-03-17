@@ -6,6 +6,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.FragmentManager;
 
 //import com.hudou.autotest.MainActivity;
+import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.activity.BaseMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
@@ -50,7 +51,11 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     @Override
     protected void initActionAfterInitData() {
         if (testID == -2){
-            viewBinding.tvLine2Message.setText(MessageFormat.format("{0}0  ~  {1}", viewBinding.tvLine2Message.getText().toString(), testItem.testItemCasesNum(clz) - 1));
+            if (testItem.testItemCasesNum(clz) == 0){
+                viewBinding.tvLine2Message.setText(String.format("%s未找到任何案例", viewBinding.tvLine2Message.getText()));
+            }else {
+                viewBinding.tvLine2Message.setText(MessageFormat.format("{0}0  ~  {1}", viewBinding.tvLine2Message.getText().toString(), testItem.testItemCasesNum(clz) - 1));
+            }
             testItem.runAllCases(clz);
         }else if (testID != -1 ) {
             viewBinding.tvLine2Message.setText(MessageFormat.format("{0}{1}", viewBinding.tvLine2Message.getText().toString(), testID));
@@ -103,16 +108,16 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     }
 
     public void onBackPressedLongPress() {
-        DialogUtils.createNotifyOptionsDialog(getContext(), "您确定要中断测试吗", new NotifyOptionDialogListener() {
+        DialogUtils.createNotifyOptionsDialog(getContext(), getString(R.string.pause_tes), new NotifyOptionDialogListener() {
             @Override
             public void onPositive() {
                 BaseTestItem.isPaused = true;
-                Toast.makeText(getContext(), "此案例结束后中断测试", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.pause_positive, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNegative() {
-                Toast.makeText(getContext(), "取消", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.cancel, Toast.LENGTH_SHORT).show();
             }
         });
     }
