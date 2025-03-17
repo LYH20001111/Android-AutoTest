@@ -1,4 +1,4 @@
-package com.hudou.autotest;
+package com.hudou.autotest.item;
 
 
 import com.hudou.autotest.annotation.TestItem;

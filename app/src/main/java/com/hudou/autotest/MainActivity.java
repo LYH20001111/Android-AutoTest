@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 
 import com.hudou.autotest.base.activity.BaseMainActivity;
+import com.hudou.autotest.navigation.PSFragment;
+import com.hudou.autotest.navigation.SettingFragment;
 
 import java.util.List;
 
