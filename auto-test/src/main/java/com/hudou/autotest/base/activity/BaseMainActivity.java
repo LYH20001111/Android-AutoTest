@@ -14,13 +14,16 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
 import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.fragment.ExecutionDetailsFragment;
+import com.hudou.autotest.fragment.ExecutionFragment;
 import com.hudou.autotest.fragment.HomeFragment;
 import com.hudou.autotest.adapter.MyPagerAdapter;
+import com.hudou.autotest.fragment.OptionsFragment;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.util.ArrayList;
@@ -79,6 +82,29 @@ public abstract class BaseMainActivity extends AppCompatActivity {
 
     public abstract void addNavFragment(List<Fragment> list);
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            boolean exitAble = true;
+            for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+                if ((!(fragment instanceof OptionsFragment) &&
+                        !(fragment instanceof ExecutionFragment) &&
+                        !(fragment instanceof ExecutionDetailsFragment))) {
+                    continue;
+                }
+                exitAble = false;
+            }
+            if (exitAble){
+                new MaterialAlertDialogBuilder(BaseMainActivity.this)
+                        .setTitle(R.string.exit_application_title)
+                        .setPositiveButton(R.string.sure, (dialog, which) -> finish())
+                        .setNegativeButton(R.string.cancel, (dialog, which) -> {})
+                        .show();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     @Override
     public boolean onKeyLongPress(int keyCode, KeyEvent event) {

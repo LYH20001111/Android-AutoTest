@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 6
-def appVersionName = '1.0.6'
+def appVersionCode = 7
+def appVersionName = '1.0.7'
 
 
 android {
@@ -125,7 +125,6 @@ task assembleAutoTest {
     if (outputDir.exists()) {
         outputDir.listFiles().each { file ->
             if (file.name.endsWith('.aar')) {
-                println "Deleting file: ${file.path}"
                 file.delete()
             }
         }

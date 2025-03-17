@@ -19,5 +19,6 @@ public class MainActivity extends BaseMainActivity {
     @Override
     public void addNavFragment(List<Fragment> list) {
         list.add(new PSFragment());
+        list.add(new SettingFragment());
     }
 }
