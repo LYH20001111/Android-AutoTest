@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@color/gray"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,34 +15,37 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_item"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
                 android:gravity="left"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_gravity="left"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:text="@string/payment"
+                android:text="@string/item_name"
                 tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:gravity="right"
-                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="left"
+                android:layout_gravity="left"
                 android:textStyle="italic"
                 android:textSize="13sp"
-                android:textColor="@color/gray"/>
+                android:text="@string/item_description"
+                android:textColor="#422A2A"/>
 
         </LinearLayout>
 
@@ -59,8 +62,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="@color/gray"
-        android:layout_height="10dp"/>
+        android:background="#BFB3B3"
+        android:layout_height="1dp"/>
 
 
 </LinearLayout>
