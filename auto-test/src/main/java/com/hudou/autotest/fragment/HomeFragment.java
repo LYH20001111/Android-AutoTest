@@ -4,6 +4,6 @@ import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.databinding.AutoTestHomeFragmentBinding;
 
-@Navigation(name = "Home")
+@Navigation(name = "首页")
 public class HomeFragment extends BaseFragment<AutoTestHomeFragmentBinding> {
 }
