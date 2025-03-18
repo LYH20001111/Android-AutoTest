@@ -42,7 +42,7 @@ public class DialogUtils {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
                     .setTitle(title)
-                    .setPositiveButton("确定", (dialog, which) -> {
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onAction();
                     })
@@ -57,11 +57,11 @@ public class DialogUtils {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
                     .setTitle(title)
-                    .setPositiveButton("确定", (dialog, which) -> {
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onPositive();
                     })
-                    .setNegativeButton("取消", (dialog, which) -> {
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onNegative();
                     })
@@ -80,7 +80,7 @@ public class DialogUtils {
             editText.setBackgroundResource(R.drawable.auto_test_border_input_box);
             editTextDialog = new AlertDialog.Builder(context)
                     .setView(editText)
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.sure, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             callback.onResult(editText.getText().toString());
@@ -113,11 +113,11 @@ public class DialogUtils {
                     .setTitle(titleId)
                     .setSingleChoiceItems(items, 0,// 第二个参数是默认选项，此处设置为0
                             (dialog, which) -> yourChoice = which)
-                     .setPositiveButton("确定", (dialog, which) -> {
+                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                          singleDialog.dismiss();
                          callback.onResult(yourChoice);
                      })
-                    .setNegativeButton("取消", (dialog, which) -> {
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         singleDialog.dismiss();
                         callback.onResult(-1);
                     })
@@ -153,7 +153,7 @@ public class DialogUtils {
                                     choiceItems[which] = 0;
                                 }
                             })
-                    .setPositiveButton("确定", (arg0, arg1) -> {
+                    .setPositiveButton(R.string.sure, (arg0, arg1) -> {
                         multiDialog.dismiss();
                         for (int i = 0; i < choiceItems.length; i++) {
                             if (choiceItems[i] == 1) {
@@ -166,7 +166,7 @@ public class DialogUtils {
                             e.printStackTrace();
                         }
                     })
-                    .setNegativeButton("取消", (arg0, arg1) -> multiDialog.dismiss())
+                    .setNegativeButton(R.string.cancel, (arg0, arg1) -> multiDialog.dismiss())
                     .setCancelable(false)
                     .create();
             multiDialog.show();
@@ -196,7 +196,7 @@ public class DialogUtils {
             customSingleDialog = singleChoiceDialog
                     .setTitle(titleId)
                     .setView(view)
-                    .setPositiveButton("确定",
+                    .setPositiveButton(R.string.sure,
                             (dialog, which) -> {
                                 customSingleDialog.dismiss();
                                 try {
@@ -205,7 +205,7 @@ public class DialogUtils {
                                     e.printStackTrace();
                                 }
                             })
-                    .setNegativeButton("取消", (dialog, which) -> {
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         customSingleDialog.dismiss();
                         try {
                             callback.onResult(-1, view);
@@ -234,7 +234,7 @@ public class DialogUtils {
             customSingleDialog = singleChoiceDialog
                     .setTitle(title)
                     .setView(view)
-                    .setPositiveButton("确定", (dialog, which) -> {
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
                         customSingleDialog.dismiss();
                         try {
                             callback.onResult(yourChoice, view);
@@ -242,7 +242,7 @@ public class DialogUtils {
                             e.printStackTrace();
                         }
                     })
-                    .setNegativeButton("取消", (dialog, which) -> customSingleDialog.dismiss())
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> customSingleDialog.dismiss())
                     .setCancelable(false)
                     .create();
             customSingleDialog.show();

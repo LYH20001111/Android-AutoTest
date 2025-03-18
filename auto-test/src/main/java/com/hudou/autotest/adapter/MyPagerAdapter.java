@@ -81,4 +81,8 @@ public class MyPagerAdapter extends PagerAdapter {
     public CharSequence getPageTitle(int position) {
         return pageTitles[position];
     }
+
+    public Fragment getItem(int position){
+        return fragmentList.get(position);
+    }
 }

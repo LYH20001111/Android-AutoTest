@@ -18,24 +18,24 @@ import com.hudou.autotest.fragment.OptionsFragment;
 
 import java.util.ArrayList;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecycleViewHolder>{
+public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.RecycleViewHolder>{
     private OptionsFragment testCaseFragment = null;
     private ArrayList<Item> itemList;
     private FragmentActivity activity;
-    public RecycleAdapter(FragmentActivity activity, ArrayList<Item> itemList){
+    public MyRecycleAdapter(FragmentActivity activity, ArrayList<Item> itemList){
         this.activity = activity;
         this.itemList = itemList;
     }
 
     @NonNull
     @Override
-    public RecycleAdapter.RecycleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyRecycleAdapter.RecycleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.auto_test_item_type, parent, false);
         return new RecycleViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleAdapter.RecycleViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull MyRecycleAdapter.RecycleViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.tvItem.setText(itemList.get(position).getName());
         holder.tvDescription.setText(itemList.get(position).getDescription());
 

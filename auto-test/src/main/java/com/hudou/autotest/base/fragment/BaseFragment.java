@@ -11,11 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewbinding.ViewBinding;
 
+import com.hudou.autotest.base.fragment.listener.FragmentInterface;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-public abstract class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> extends Fragment {
+public class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> extends Fragment implements FragmentInterface {
     public VB viewBinding;
     //public VM viewModel;
 
@@ -83,8 +85,19 @@ public abstract class BaseFragment<VB extends ViewBinding/*, VM extends ViewMode
         }
     }
 
-    protected abstract void initData();
-    protected abstract void initActionAfterInitData();
+    @Override
+    public void initData() {
 
+    }
+
+    @Override
+    public void initActionAfterInitData() {
+
+    }
+
+    @Override
+    public void onFragmentVisibility() {
+
+    }
 
 }

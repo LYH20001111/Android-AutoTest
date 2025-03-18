@@ -9,7 +9,7 @@
     >
 
 
-        <androidx.viewpager.widget.ViewPager
+        <com.hudou.autotest.adapter.MyViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

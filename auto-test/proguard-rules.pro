@@ -47,6 +47,10 @@ public static *;
     public *;
 }
 
+-keepclassmembers class * {
+    protected abstract void *();
+}
+
 ## 保留所有 ViewBinding 类
 #-keep class * extends androidx.viewbinding.ViewBinding { *; }
 #

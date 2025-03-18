@@ -17,7 +17,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
 import com.hudou.autotest.R;
+import com.hudou.autotest.adapter.MyViewPager;
 import com.hudou.autotest.annotation.Navigation;
+import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.fragment.ExecutionDetailsFragment;
 import com.hudou.autotest.fragment.ExecutionFragment;
@@ -58,10 +60,46 @@ public abstract class BaseMainActivity extends AppCompatActivity {
         }
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
-        ViewPager viewPager = findViewById(R.id.viewPager);
+        MyViewPager viewPager = findViewById(R.id.viewPager);
 
-        viewPager.setAdapter(new MyPagerAdapter(getApplicationContext(), getFragments(), getSupportFragmentManager()));
+        viewPager.setOffscreenPageLimit(0); // 设置为0，不预加载任何页面，实际上没有效果
+        MyPagerAdapter pagerAdapter = new MyPagerAdapter(getApplicationContext(), getFragments(), getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                // 根据当前页面位置加载数据
+                Fragment fragment = pagerAdapter.getItem(position);
+                if (fragment instanceof BaseFragment) {
+                    ((BaseFragment<?>) fragment).onFragmentVisibility();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition(), false);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
         mShowMessage.observe(this, message -> setLlMessage(message.getColor(), message.getMessage()));
     }
 

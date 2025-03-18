@@ -26,4 +26,9 @@
         android:textStyle="italic"
         android:textColor="@color/white"
         android:textSize="25sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="invisible"/>
 </LinearLayout>
