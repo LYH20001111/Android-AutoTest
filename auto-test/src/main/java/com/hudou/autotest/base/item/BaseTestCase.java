@@ -6,6 +6,7 @@ import android.graphics.Color;
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.BaseMainActivity;
 import com.hudou.autotest.constant.ShowMessage;
+import com.hudou.autotest.util.ReflectionUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -55,6 +56,7 @@ public abstract class BaseTestCase {
                         latch.countDown(); // 直接减少倒计时，跳过当前任务
                         return;
                     }
+                    postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, "name") + "\n");
                     // 执行前置方法
                     onCaseStart(method);
 
@@ -64,6 +66,7 @@ public abstract class BaseTestCase {
 
                     // 执行后置方法
                     onCaseFinish(method);
+                    postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, "name") + "，执行结束");
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 } finally {
@@ -79,7 +82,7 @@ public abstract class BaseTestCase {
             try {
                 latch.await(); // 等待所有任务完成
                 isCompleted = true;
-                BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.YELLOW, "案例执行完毕，可点击返回按钮继续\n"));
+                postValue(Color.YELLOW, "案例执行完毕，可点击返回按钮继续\n");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -104,6 +107,21 @@ public abstract class BaseTestCase {
         return Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
                 .toArray(Method[]::new).length;
+    }
+
+
+    protected void postValue(int color, String message){
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        BaseMainActivity.mShowMessage.postValue(new ShowMessage(color, message));
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

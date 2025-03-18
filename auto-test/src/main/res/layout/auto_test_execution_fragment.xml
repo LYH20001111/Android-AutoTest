@@ -63,26 +63,26 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_begin_id"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/gray"
-                android:textColor="#FF5722"
+                android:background="@drawable/auto_test_button_background"
+                android:textColor="@color/white"
                 android:text="@string/execution_begin_id"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_end_id"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/gray"
-                android:textColor="#FF5722"
+                android:background="@drawable/auto_test_button_background"
+                android:textColor="@color/white"
                 android:text="@string/execution_end_id"/>
         </LinearLayout>
 

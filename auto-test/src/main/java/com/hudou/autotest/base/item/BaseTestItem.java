@@ -18,28 +18,16 @@ public class BaseTestItem extends BaseTestCase{
 
 
     public void recordPass(@Nullable String message){
-        BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.GREEN, "测试通过" + (message == null ? "" : message)));
-        waitMessage();
+        postValue(Color.GREEN, "测试通过" + (message == null ? "" : message));
     }
 
     public void recordFail(@Nullable String message){
-        BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.RED, "测试失败" + (message == null ? "" : message)));
-        waitMessage();
+        postValue(Color.RED, "测试失败" + (message == null ? "" : message));
     }
 
     public void recordNormal(@NotNull String message){
-        BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLACK, message));
-        waitMessage();
+        postValue(Color.BLACK, message);
     }
-
-    private void waitMessage(){
-        try {
-            Thread.sleep(15);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 
     @Override
     public void onCaseStart(Method method) {

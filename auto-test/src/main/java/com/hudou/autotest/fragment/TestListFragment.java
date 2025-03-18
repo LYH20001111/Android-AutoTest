@@ -3,7 +3,7 @@ package com.hudou.autotest.fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hudou.autotest.adapter.RecycleAdapter;
+import com.hudou.autotest.adapter.MyRecycleAdapter;
 import com.hudou.autotest.annotation.TestItemClass;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestItem;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class TestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
 
     @Override
-    protected void initData() {
+    public void initData() {
         ArrayList<Item> items = new ArrayList<>();
         Class<?> fragmentClass = this.getClass();
         if (fragmentClass.isAnnotationPresent(TestItemClass.class)) {
@@ -30,12 +30,9 @@ public class TestListFragment extends BaseFragment<AutoTestTestListFragmentBindi
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         viewBinding.rvType.setLayoutManager(linearLayoutManager);
-        viewBinding.rvType.setAdapter(new RecycleAdapter(getActivity(), items));
+        viewBinding.rvType.setAdapter(new MyRecycleAdapter(getActivity(), items));
     }
 
-    @Override
-    protected void initActionAfterInitData() {
 
-    }
 
 }

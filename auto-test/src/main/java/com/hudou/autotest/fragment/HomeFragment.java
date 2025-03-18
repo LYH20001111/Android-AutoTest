@@ -6,13 +6,4 @@ import com.hudou.autotest.databinding.AutoTestHomeFragmentBinding;
 
 @Navigation(name = "Home")
 public class HomeFragment extends BaseFragment<AutoTestHomeFragmentBinding> {
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void initActionAfterInitData() {
-
-    }
 }

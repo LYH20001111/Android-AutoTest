@@ -35,7 +35,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description")));
         BaseMainActivity.llMessage = viewBinding.llMessage;
         initAction();
@@ -87,7 +87,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     }
 
     @Override
-    protected void initActionAfterInitData() {
+    public void initActionAfterInitData() {
         actionByOption(option);
         viewBinding.btnBeginId.setOnClickListener(v -> DialogUtils.createEditTextDialog(getContext(), "请输入起始案例号", message -> getActivity().runOnUiThread(() -> {
             try {

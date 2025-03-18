@@ -12,6 +12,7 @@ public class TestItem2 extends BaseTestItem {
     @Override
     public void onCaseStart(Method method) {
         super.onCaseStart(method);
+        recordNormal("=============" + method.getName() + "=============");
     }
 
     @Override
