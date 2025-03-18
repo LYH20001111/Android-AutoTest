@@ -11,6 +11,9 @@ import com.hudou.autotest.constant.Item;
 import com.hudou.autotest.databinding.AutoTestTestListFragmentBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class TestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
 
@@ -21,10 +24,13 @@ public class TestListFragment extends BaseFragment<AutoTestTestListFragmentBindi
         if (fragmentClass.isAnnotationPresent(TestItemClass.class)) {
             TestItemClass annotation = fragmentClass.getAnnotation(TestItemClass.class);
             Class<? extends BaseTestItem>[] testItemClasses = annotation.clz();
-            if (testItemClasses != null) {
-                for (Class<? extends BaseTestItem> testItemClass : testItemClasses) {
-                    items.add(new Item(testItemClass));
-                }
+
+            //去除重复的class
+            Set<Class<? extends BaseTestItem>> testItemSet = new LinkedHashSet<>(Arrays.asList(testItemClasses));
+            Class<? extends BaseTestItem>[] testItems = testItemSet.toArray(new Class[0]);
+
+            for (Class<? extends BaseTestItem> testItemClass : testItems) {
+                items.add(new Item(testItemClass));
             }
         }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
