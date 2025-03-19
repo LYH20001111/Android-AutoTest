@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@drawable/auto_test_ripple_effect"
         android:padding="5dp">
 
 
@@ -18,7 +19,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/auto_test_ripple_effect"
             android:orientation="vertical">
 
             <TextView
@@ -58,7 +58,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_gravity="center"
-            android:background="@drawable/auto_test_navigate_next"/>
+            android:background="@drawable/auto_test_navigate_next"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
     </LinearLayout>
 

@@ -18,7 +18,7 @@ import java.util.Set;
 public abstract class TestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
 
     @Override
-    public void initData() {
+    public void onInitData() {
         ArrayList<Item> items = new ArrayList<>();
         Class<?> fragmentClass = this.getClass();
         if (fragmentClass.isAnnotationPresent(TestItemClass.class)) {
