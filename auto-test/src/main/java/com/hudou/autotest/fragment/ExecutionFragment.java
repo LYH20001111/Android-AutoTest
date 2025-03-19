@@ -36,7 +36,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
     @Override
     public void initData() {
-        viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description")));
+        viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
         BaseMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
@@ -140,7 +140,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case "4":
-                viewBinding.tvItem.setText(String.format("当前查看项 ： %s", ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description")));
+                viewBinding.tvItem.setText(String.format("当前查看项 ： %s", ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));

@@ -4,8 +4,8 @@
     <string name="execution_details_line2_message">当前测试的案例号 ：</string>
     <string name="execution_item">当前测试项 ：</string>
     <string name="execution_line2">请输入测试案例号 ：</string>
-    <string name="execution_begin_id">请输入连续测试起始案例号</string>
-    <string name="execution_end_id">请输入连续测试结束案例号</string>
+    <string name="execution_begin_id">点击输入起始案例号</string>
+    <string name="execution_end_id">点击输入结束案例号</string>
     <string name="auto_test">Auto Test</string>
     <string name="home_welcome">欢迎使用自动化测试框架</string>
     <string name="item_name">这是案例项名字</string>

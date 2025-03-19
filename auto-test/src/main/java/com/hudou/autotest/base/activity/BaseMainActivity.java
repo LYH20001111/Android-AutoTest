@@ -27,6 +27,7 @@ import com.hudou.autotest.fragment.HomeFragment;
 import com.hudou.autotest.adapter.MyPagerAdapter;
 import com.hudou.autotest.fragment.OptionsFragment;
 import com.hudou.autotest.util.ReflectionUtils;
+import com.hudou.autotest.util.SharedPreferencesUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,7 @@ public abstract class BaseMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferencesUtil.init(getApplicationContext());
         setContentView(R.layout.auto_test_activity_main);
 
         if (isFirst) {
@@ -62,7 +64,7 @@ public abstract class BaseMainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         MyViewPager viewPager = findViewById(R.id.viewPager);
 
-        viewPager.setOffscreenPageLimit(0); // 设置为0，不预加载任何页面，实际上没有效果
+        viewPager.setOffscreenPageLimit(getFragments().size()); // 设置为0，不预加载任何页面，实际上没有效果
         MyPagerAdapter pagerAdapter = new MyPagerAdapter(getApplicationContext(), getFragments(), getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -156,5 +158,9 @@ public abstract class BaseMainActivity extends AppCompatActivity {
         return super.onKeyLongPress(keyCode, event);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SharedPreferencesUtil.clear();
+    }
 }
