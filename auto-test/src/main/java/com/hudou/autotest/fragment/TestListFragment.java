@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class TestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
+public abstract class TestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
 
     @Override
     public void initData() {
@@ -37,7 +37,13 @@ public class TestListFragment extends BaseFragment<AutoTestTestListFragmentBindi
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         viewBinding.rvType.setLayoutManager(linearLayoutManager);
         viewBinding.rvType.setAdapter(new MyRecycleAdapter(getActivity(), items));
+        String applicationName = nameApplicationName();
+        if (applicationName != null && !applicationName.equals("")) {
+            viewBinding.tvAppName.setText(applicationName);
+        }
     }
+
+    public abstract String nameApplicationName();
 
 
 

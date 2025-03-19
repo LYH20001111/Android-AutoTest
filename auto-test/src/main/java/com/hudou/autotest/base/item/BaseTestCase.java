@@ -112,13 +112,13 @@ public abstract class BaseTestCase {
 
     protected void postValue(int color, String message){
         try {
-            Thread.sleep(10);
+            Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         BaseMainActivity.mShowMessage.postValue(new ShowMessage(color, message));
         try {
-            Thread.sleep(10);
+            Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

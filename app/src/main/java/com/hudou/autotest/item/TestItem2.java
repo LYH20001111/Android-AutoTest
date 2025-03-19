@@ -12,22 +12,25 @@ public class TestItem2 extends BaseTestItem {
     @Override
     public void onCaseStart(Method method) {
         super.onCaseStart(method);
-        recordNormal("=============" + method.getName() + "=============");
+        recordMessage("=============" + method.getName() + "=============");
     }
 
     @Override
     public void onCaseFinish(Method method) {
         super.onCaseFinish(method);
+        recordPass();
     }
 
     @TestCase(name = "TestItem2 test2_000")
     private void test2_000(){
-        recordNormal("Hello World");
+        for (int i = 0; i < 100; i++) {
+            recordMessage("Hello World" + i);
+        }
     }
 
     @TestCase(name = "TestItem2 test2_001")
     private void test2_001(){
-        recordNormal("Ni Hao Shi Jie");
+        recordMessage("Ni Hao Shi Jie");
     }
 
     

@@ -30,7 +30,7 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
                 "2. 运行某个案例 \n " +
                 "3. 运行部分连续案例 \n " +
                 "4. 查看所有案例详情",
-                ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description")));
+                ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
     }
 
     @Override
