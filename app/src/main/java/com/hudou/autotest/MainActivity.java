@@ -6,8 +6,6 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.hudou.autotest.base.activity.BaseMainActivity;
-import com.hudou.autotest.fragment.BaseSettingFragment;
-import com.hudou.autotest.navigation.ExtensionSettingFragment;
 import com.hudou.autotest.navigation.PSFragment;
 import com.hudou.autotest.navigation.SettingFragment;
 
@@ -27,6 +25,5 @@ public class MainActivity extends BaseMainActivity {
     public void addNavFragment(List<Fragment> list) {
         list.add(new PSFragment());
         list.add(new SettingFragment());
-        list.add(new ExtensionSettingFragment());
     }
 }

@@ -46,8 +46,8 @@ public class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> exte
     @Override
     public void onResume() {
         super.onResume();
-        initData();
-        initActionAfterInitData();
+        onInitData();
+        onActionAfterInitData();
     }
 
     @Override
@@ -86,12 +86,12 @@ public class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> exte
     }
 
     @Override
-    public void initData() {
+    public void onInitData() {
 
     }
 
     @Override
-    public void initActionAfterInitData() {
+    public void onActionAfterInitData() {
 
     }
 

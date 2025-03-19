@@ -22,7 +22,7 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
     }
 
     @Override
-    public void initData() {
+    public void onInitData() {
         viewBinding.tvOptions.setText(String.format("当前测试项 ： %s" +
                 "\n" +
                 "\n " +
@@ -34,7 +34,7 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
     }
 
     @Override
-    public void initActionAfterInitData() {
+    public void onActionAfterInitData() {
         viewBinding.viewKeyboard.setIOnKeyboardListener(new NumberKeyBoardView.IOnKeyboardListener() {
             @Override
             public void onInsertKeyEvent(String text) {

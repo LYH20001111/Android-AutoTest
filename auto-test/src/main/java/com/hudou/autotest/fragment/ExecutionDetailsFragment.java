@@ -42,14 +42,14 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     }
 
     @Override
-    public void initData() {
+    public void onInitData() {
         viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
         BaseMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
 
     @Override
-    public void initActionAfterInitData() {
+    public void onActionAfterInitData() {
         if (testID == -2){
             if (testItem.testItemCasesNum(clz) == 0){
                 viewBinding.tvLine2Message.setText(String.format("%s未找到任何案例", viewBinding.tvLine2Message.getText()));

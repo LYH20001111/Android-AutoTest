@@ -18,6 +18,7 @@ import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.databinding.AutoTestExecutionFragmentBinding;
 import com.hudou.autotest.customUI.dialog.DialogUtils;
 import com.hudou.autotest.customUI.keyboard.NumberKeyBoardView;
+import com.hudou.autotest.listener.MyOnClickListener;
 import com.hudou.autotest.util.ReflectionUtils;
 
 public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBinding> {
@@ -35,7 +36,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     }
 
     @Override
-    public void initData() {
+    public void onInitData() {
         viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
         BaseMainActivity.llMessage = viewBinding.llMessage;
         initAction();
@@ -87,44 +88,51 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     }
 
     @Override
-    public void initActionAfterInitData() {
+    public void onActionAfterInitData() {
         actionByOption(option);
-        viewBinding.btnBeginId.setOnClickListener(v -> DialogUtils.createEditTextDialog(getContext(), "请输入起始案例号", message -> getActivity().runOnUiThread(() -> {
-            try {
-                beginId = Integer.parseInt(message);
-            }catch (NumberFormatException ignored){
+        viewBinding.btnBeginId.setOnClickListener(new MyOnClickListener() {
+            @Override
+            public void dealClick(View v) {
+                DialogUtils.createEditTextDialog(getContext(), "请输入起始案例号", message -> getActivity().runOnUiThread(() -> {
+                    try {
+                        beginId = Integer.parseInt(message);
+                    }catch (NumberFormatException ignored){
+                    }
+                    if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == -1){
+                        Toast.makeText(getContext(), "输入的起始案例号不符合", Toast.LENGTH_SHORT).show();
+                    }else {
+                        viewBinding.btnBeginId.setText(String.format("起始案例号 : %s", message));
+                    }
+                }));
             }
-            if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == -1){
-                Toast.makeText(getContext(), "输入的起始案例号不符合", Toast.LENGTH_SHORT).show();
-            }else {
-                viewBinding.btnBeginId.setText(String.format("起始案例号 : %s", message));
+        });
+        viewBinding.btnEndId.setOnClickListener(new MyOnClickListener() {
+            @Override
+            public void dealClick(View v) {
+                DialogUtils.createEditTextDialog(getContext(), "请输入结束案例号", message -> getActivity().runOnUiThread(() -> {
+                    try {
+                        endId = Integer.parseInt(message);
+                    }catch (NumberFormatException ignored){
+                    }
+                    if (endId >= testItem.testItemCasesNum(clz) || endId == -1 || endId <= beginId){
+                        Toast.makeText(getContext(), "输入的结束案例号不符合", Toast.LENGTH_SHORT).show();
+                    }else {
+                        viewBinding.btnEndId.setText(String.format("结束案例号 : %s", message));
+                        if (beginId != -1){
+                            ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, beginId, endId);
+                            getActivity().runOnUiThread(() -> {
+                                FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
+                                supportFragmentManager.beginTransaction()
+                                        .replace(R.id.main_layout, executionDetailsFragment, EXECUTION_DETAIL_TAG)
+                                        .addToBackStack(executionDetailsFragment.getClass().getSimpleName())
+                                        .commit();
+                                supportFragmentManager.executePendingTransactions();
+                            });
+                        }
+                    }
+                }));
             }
-        })));
-        viewBinding.btnEndId.setOnClickListener(v -> DialogUtils.createEditTextDialog(getContext(), "请输入结束案例号", message -> getActivity().runOnUiThread(() -> {
-            try {
-                endId = Integer.parseInt(message);
-            }catch (NumberFormatException ignored){
-            }
-            if (endId >= testItem.testItemCasesNum(clz) || endId == -1 || endId <= beginId){
-                Toast.makeText(getContext(), "输入的结束案例号不符合", Toast.LENGTH_SHORT).show();
-            }else {
-                viewBinding.btnEndId.setText(String.format("结束案例号 : %s", message));
-                if (beginId != -1){
-                    ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, beginId, endId);
-                    getActivity().runOnUiThread(() -> {
-                        FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
-                        supportFragmentManager.beginTransaction()
-                                .replace(R.id.main_layout, executionDetailsFragment, EXECUTION_DETAIL_TAG)
-                                .addToBackStack(executionDetailsFragment.getClass().getSimpleName())
-                                .commit();
-                        supportFragmentManager.executePendingTransactions();
-                    });
-                }
-
-
-
-            }
-        })));
+        });
     }
 
 

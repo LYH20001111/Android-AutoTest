@@ -17,4 +17,7 @@
     <string name="pause_tes">您确定要中断测试吗</string>
     <string name="pause_positive">此案例结束后中断测试</string>
     <string name="list_item">测试项目</string>
+    <string name="debug_mode">调试模式</string>
+    <string name="base_function">基础功能</string>
+    <string name="select_report_format_dialog_title">请选择输出报告的形式</string>
 </resources>
