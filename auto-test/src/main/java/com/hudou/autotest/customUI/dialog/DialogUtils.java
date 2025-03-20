@@ -30,6 +30,17 @@ public class DialogUtils {
     private static ArrayList<Integer> choiceList = new ArrayList<>();
     private static Dialog notifyDialog, editTextDialog, singleDialog, customSingleDialog, multiDialog;
 
+    public static void createNotifyDialog(final Context context, final String title){
+        new Thread(() -> {
+            Looper.prepare();
+            notifyDialog = new AlertDialog.Builder(context)
+                    .setTitle(title)
+                    .setPositiveButton(R.string.sure, (dialog, which) -> notifyDialog.dismiss())
+                    .create();
+            notifyDialog.show();
+            Looper.loop();
+        }).start();
+    }
 
     /**
      * 创建提示对话框
@@ -71,11 +82,13 @@ public class DialogUtils {
         }).start();
     }
 
-    public static void createEditTextDialog(final Context context, final String hint, final EditDialogListener callback){
+    public static void createEditTextDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
         new Thread(() -> {
             Looper.prepare();
             final EditText editText = new EditText(context);
-            editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+            if (onlyNumber) {
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+            }
             editText.setHint(hint);
             editText.setBackgroundResource(R.drawable.auto_test_border_input_box);
             editTextDialog = new AlertDialog.Builder(context)

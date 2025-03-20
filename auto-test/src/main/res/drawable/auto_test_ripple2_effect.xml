@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#03A9F4"> <!-- 点击时的水波纹颜色 -->
+    <item>
+        <color android:color="#FFFFFF"/> <!-- 默认背景颜色 -->
+    </item>
+</ripple>

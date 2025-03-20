@@ -32,7 +32,7 @@ import com.hudou.autotest.util.SharedPreferencesUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseMainActivity extends AppCompatActivity {
+public abstract class AutoTestMainActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout llMessage;
     public static MutableLiveData<ShowMessage> mShowMessage = new MutableLiveData<>();
@@ -135,7 +135,7 @@ public abstract class BaseMainActivity extends AppCompatActivity {
                 exitAble = false;
             }
             if (exitAble){
-                new MaterialAlertDialogBuilder(BaseMainActivity.this)
+                new MaterialAlertDialogBuilder(AutoTestMainActivity.this)
                         .setTitle(R.string.exit_application_title)
                         .setPositiveButton(R.string.sure, (dialog, which) -> finish())
                         .setNegativeButton(R.string.cancel, (dialog, which) -> {})

@@ -123,6 +123,26 @@
                         android:background="#dfdfdf"/>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/ll_report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/auto_test_ripple_effect"
+                    android:orientation="vertical">
+
+                    <ExpandableListView
+                        android:id="@+id/elv_report"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:groupIndicator="@null"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="2dp"
+                        android:visibility="visible"
+                        android:background="#dfdfdf"/>
+                </LinearLayout>
 
 
             </LinearLayout>

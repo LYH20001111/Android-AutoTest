@@ -12,6 +12,10 @@ public abstract class MyOnClickListener implements View.OnClickListener {
     private Handler handler = new Handler();
     private Runnable resetClickTimeRunnable = () -> lastClickTime = 0;
 
+    /**
+     * 判断是否是快速点击
+     * @return
+     */
     private boolean isFastClick(){
         long currentTime = System.currentTimeMillis(); // 获取当前时间
         if (currentTime - lastClickTime > CLICK_DEBOUNCE_TIME) { // 判断是否超过阈值
@@ -23,6 +27,10 @@ public abstract class MyOnClickListener implements View.OnClickListener {
         return true;
     }
 
+    /**
+     * 判断是否是快速点击
+     * @return
+     */
     public boolean canClick(){
         long currentTime = SystemClock.elapsedRealtime();
         if (currentTime - lastClickTime < CLICK_DEBOUNCE_TIME) {

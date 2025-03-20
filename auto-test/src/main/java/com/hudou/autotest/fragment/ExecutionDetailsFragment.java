@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentManager;
 //import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.TestItem;
-import com.hudou.autotest.base.activity.BaseMainActivity;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.base.item.BaseTestItem;
@@ -44,7 +44,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     @Override
     public void onInitData() {
         viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
-        BaseMainActivity.llMessage = viewBinding.llMessage;
+        AutoTestMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
 
