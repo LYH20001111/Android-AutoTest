@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 //import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.TestItem;
-import com.hudou.autotest.base.activity.BaseMainActivity;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.constant.ShowMessage;
@@ -38,7 +38,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     @Override
     public void onInitData() {
         viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
-        BaseMainActivity.llMessage = viewBinding.llMessage;
+        AutoTestMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
 
@@ -93,7 +93,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         viewBinding.btnBeginId.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                DialogUtils.createEditTextDialog(getContext(), "请输入起始案例号", message -> getActivity().runOnUiThread(() -> {
+                DialogUtils.createEditTextDialog(getContext(), "请输入起始案例号", true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         beginId = Integer.parseInt(message);
                     }catch (NumberFormatException ignored){
@@ -109,7 +109,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         viewBinding.btnEndId.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                DialogUtils.createEditTextDialog(getContext(), "请输入结束案例号", message -> getActivity().runOnUiThread(() -> {
+                DialogUtils.createEditTextDialog(getContext(), "请输入结束案例号", true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         endId = Integer.parseInt(message);
                     }catch (NumberFormatException ignored){
@@ -139,19 +139,19 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     private void actionByOption(String option){
         switch (option){
             case "2":
-                BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case "3":
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 viewBinding.llLine3.setVisibility(View.VISIBLE);
-                BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case "4":
                 viewBinding.tvItem.setText(String.format("当前查看项 ： %s", ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
-                BaseMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
             default:
                 break;
         }

@@ -4,7 +4,7 @@ import android.graphics.Color;
 
 //import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.annotation.TestCase;
-import com.hudou.autotest.base.activity.BaseMainActivity;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.util.ReflectionUtils;
 
@@ -116,7 +116,7 @@ public abstract class BaseTestCase {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        BaseMainActivity.mShowMessage.postValue(new ShowMessage(color, message));
+        AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(color, message));
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {

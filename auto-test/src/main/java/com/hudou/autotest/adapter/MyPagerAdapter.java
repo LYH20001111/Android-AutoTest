@@ -13,7 +13,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.hudou.autotest.R;
-import com.hudou.autotest.base.activity.BaseMainActivity;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class MyPagerAdapter extends PagerAdapter {
     private final FragmentManager fragmentManager;
     private final List<Fragment> fragmentList;
     private final Context mContext;
-    private final String[] pageTitles = BaseMainActivity.pageTitlesList.toArray(new String[0]);
+    private final String[] pageTitles = AutoTestMainActivity.pageTitlesList.toArray(new String[0]);
 
     public MyPagerAdapter(Context mContext, List<Fragment> fragmentList, FragmentManager fragmentManager){
         this.mContext = mContext;

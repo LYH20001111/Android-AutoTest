@@ -5,13 +5,13 @@ import androidx.fragment.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.hudou.autotest.base.activity.BaseMainActivity;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.navigation.PSFragment;
 import com.hudou.autotest.navigation.SettingFragment;
 
 import java.util.List;
 
-public class MainActivity extends BaseMainActivity {
+public class MainActivity extends AutoTestMainActivity {
     public static Context mContext;
 
     @Override
@@ -25,5 +25,6 @@ public class MainActivity extends BaseMainActivity {
     public void addNavFragment(List<Fragment> list) {
         list.add(new PSFragment());
         list.add(new SettingFragment());
+        //list.add(new AutoTestSettingFragment());
     }
 }
