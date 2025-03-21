@@ -11,7 +11,7 @@ import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
-import com.hudou.autotest.base.item.BaseTestItem;
+import com.hudou.autotest.base.item.AutoTestTestItem;
 import com.hudou.autotest.customUI.dialog.DialogUtils;
 import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestExcutionDetailsFragmentBinding;
@@ -111,7 +111,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
         DialogUtils.createNotifyOptionsDialog(getContext(), getString(R.string.pause_tes), new NotifyOptionDialogListener() {
             @Override
             public void onPositive() {
-                BaseTestItem.isPaused = true;
+                AutoTestTestItem.isPaused = true;
                 Toast.makeText(getContext(), R.string.pause_positive, Toast.LENGTH_SHORT).show();
             }
 

@@ -2,6 +2,7 @@ package com.hudou.autotest.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.hudou.autotest.R;
 import com.hudou.autotest.constant.ChildModel;
 import com.hudou.autotest.constant.GroupModel;
+import com.hudou.autotest.fragment.AutoTestSettingFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,13 +81,29 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
         ChildModel childModel = (ChildModel) getChild(groupPosition, childPosition);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.auto_test_child_item, null);
+            convertView = inflater.inflate(R.layout.auto_test_child_item, parent, false);
         }
         ImageView childIcon = convertView.findViewById(R.id.child_icon);
         TextView childTextView = convertView.findViewById(R.id.child_name);
         childIcon.setImageResource(childModel.getChildIcon());
         childTextView.setText(childModel.getChildName());
         childTextView.setTextColor(childModel.getColor());
+        // 根据条件设置子项为不可点击
+//        if (AutoTestSettingFragment.getEditCap() == AutoTestSettingFragment.EditCap.OFF
+//                && childPosition == 0
+//                && groupPosition == 0) {
+//            convertView.setClickable(false);
+//            convertView.setFocusable(false);
+//            convertView.setEnabled(false);
+//            // 设置触摸监听器，拦截触摸事件
+//            convertView.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    // 拦截所有触摸事件
+//                    return true;
+//                }
+//            });
+//        }
         return convertView;
     }
 

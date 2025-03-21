@@ -1,16 +1,23 @@
 package com.hudou.autotest.base.item;
 
+import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
+import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
+
 import android.graphics.Color;
 
 //import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
+import com.hudou.autotest.constant.ResultData;
+import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -56,6 +63,24 @@ public abstract class BaseTestCase {
                         latch.countDown(); // 直接减少倒计时，跳过当前任务
                         return;
                     }
+                    resultData = new ResultData();
+                    if ((resultItemList != null) || resultItemList.isEmpty()){
+                        resultItemList.add(new ResultItem(clz, new ArrayList<>()));
+                    }
+                    boolean exist = false;
+                    for (ResultItem resultItem : resultItemList) {
+                        if (resultItem.getClz().equals(clz)) {
+                            exist = true;
+                            break;
+                        }
+                    }
+                    if (!exist){
+                        resultItemList.add(new ResultItem(clz, new ArrayList<>()));
+                    }
+                    resultData.setId(method.getName());
+                    resultData.setTestCaseName(ReflectionUtils.getAnnotationValue(method, TestCase.class, "name"));
+                    resultData.setDetail("XX=============" + method.getName() + "=============XX");
+
                     postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, "name") + "\n");
                     // 执行前置方法
                     onCaseStart(method);
@@ -67,6 +92,29 @@ public abstract class BaseTestCase {
                     // 执行后置方法
                     onCaseFinish(method);
                     postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, "name") + "，执行结束");
+
+
+                    //Add storage start
+                    List<ResultData> clzResultDataList = getResultDataListForClass(clz);
+                    if (clzResultDataList == null){
+                        clzResultDataList = new ArrayList<>();
+                    }
+                    for (ResultItem resultItem : resultItemList) {
+                        if (resultItem.getClz().equals(clz)) {
+                            boolean isExist = false;
+                            for (int i = 0; i < clzResultDataList.size(); i++) {
+                                if (clzResultDataList.get(i).getTestCaseName().equals(resultData.getTestCaseName())){
+                                    isExist = true;
+                                }
+                            }
+                            if (!isExist){
+                                resultItem.getResultDataList().add(resultData);
+                            }
+
+                            break;
+                        }
+                    }
+
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 } finally {
@@ -90,13 +138,13 @@ public abstract class BaseTestCase {
     }
 
     public String viewCaseDetails(Class<? extends BaseTestCase> clz){
-        StringBuilder details = new StringBuilder("");
+        StringBuilder details = new StringBuilder();
         Method[] declaredMethods = clz.getDeclaredMethods();
         for (int i = 0; i < declaredMethods.length; i++) {
             Method method = declaredMethods[i];
             if (method.isAnnotationPresent(TestCase.class)) {
                 TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
-                String name = testCaseAnnotation.name();
+                String name = testCaseAnnotation != null ? testCaseAnnotation.name() : null;
                 details = details.append(i).append(" : ").append(name).append("\n");
             }
         }
@@ -117,11 +165,21 @@ public abstract class BaseTestCase {
             throw new RuntimeException(e);
         }
         AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(color, message));
+        resultData.appendDetail("\n" + message);
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private List<ResultData> getResultDataListForClass(Class<? extends BaseTestCase> clz) {
+        for (ResultItem resultItem : resultItemList) {
+            if (resultItem.getClz().equals(clz)) {
+                return resultItem.getResultDataList();
+            }
+        }
+        return null;
     }
 
 

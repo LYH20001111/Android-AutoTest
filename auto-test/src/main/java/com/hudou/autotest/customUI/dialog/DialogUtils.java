@@ -1,5 +1,6 @@
 package com.hudou.autotest.customUI.dialog;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +10,8 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.StringRes;
 
@@ -21,9 +24,12 @@ import com.hudou.autotest.customUI.dialog.listener.CustomDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.EditDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.NewCustomDialogListener;
+import com.hudou.autotest.util.FileUtil;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DialogUtils {
     private static int yourChoice = 0;
@@ -263,5 +269,46 @@ public class DialogUtils {
         }).start();
 
     }
+
+    private static androidx.appcompat.app.AlertDialog loadingAlertDialog;
+    private static void showLoadingDialog(Activity activity, String loadingMessage) {
+        if (loadingAlertDialog != null && loadingAlertDialog.isShowing()) {
+            return; // 如果对话框已经显示，则不重复创建
+        }
+        loadingAlertDialog = new androidx.appcompat.app.AlertDialog.Builder(activity).create();
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.auto_test_loading_view, null);
+        TextView textView = dialogView.findViewById(R.id.tv_content);
+        textView.setText(loadingMessage);
+        loadingAlertDialog.setView(dialogView);
+        loadingAlertDialog.setCanceledOnTouchOutside(false); // 设置点击外部区域是否取消对话框
+        loadingAlertDialog.show();
+    }
+
+    public static void loadingFilesDialog(Activity activity, List<String> fileDirList, String loadedDirectory) {
+        showLoadingDialog(activity, "Loading assets files ......");
+        new Thread(() -> {
+            try {
+                for (int i = 0; i < fileDirList.size(); i++) {
+                    FileUtil.loadAssetsFolder(activity, fileDirList.get(i), loadedDirectory);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            // 回到主线程更新UI
+            boolean finalResult = true;
+            activity.runOnUiThread(() -> {
+                if (loadingAlertDialog != null && loadingAlertDialog.isShowing()) {
+                    loadingAlertDialog.dismiss();
+                }
+                if (finalResult) {
+                    Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(activity, "Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }).start();
+    }
+
 
 }

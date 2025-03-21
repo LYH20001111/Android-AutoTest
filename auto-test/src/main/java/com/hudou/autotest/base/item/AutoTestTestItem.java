@@ -1,5 +1,7 @@
 package com.hudou.autotest.base.item;
 
+import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
+
 import android.graphics.Color;
 
 //import com.hudou.autotest.MainActivity;
@@ -13,7 +15,11 @@ import java.lang.reflect.Method;
 
 
 
-public class BaseTestItem extends BaseTestCase{
+public class AutoTestTestItem extends BaseTestCase{
+    private static boolean testResult;
+    static {
+        testResult = false;
+    }
 
     /**
      * 记录测试通过
@@ -23,6 +29,7 @@ public class BaseTestItem extends BaseTestCase{
     }
     public void recordPass(@Nullable String message){
         postValue(Color.GREEN, "测试通过" + (message == null ? "" : message));
+        resultData.setResult("测试通过");
     }
 
     /**
@@ -33,6 +40,7 @@ public class BaseTestItem extends BaseTestCase{
     }
     public void recordFail(@Nullable String message){
         postValue(Color.RED, "测试失败" + (message == null ? "" : message));
+        resultData.setResult("测试失败");
     }
 
     /**

@@ -15,6 +15,9 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Navigation(name = "Setting")
 //@TestItemClass(clz = {TestItem2.class})
@@ -32,6 +35,23 @@ public class SettingFragment extends AutoTestSettingFragment {
         super.onAddActions();
     }
 
+    @Override
+    public String onSetReportPath() {
+        //changeEditPathCap(EditCap.ON);
+        return super.onSetReportPath();
+    }
+
+//    @Override
+//    public List<String> addAssetsDirs() {
+//        return new ArrayList<String>(){{
+//            add("document");
+//            add("test");
+//        }};
+//    }
 
 
+    @Override
+    public List<String> addAssetsDirs() {
+        return super.addAssetsDirs();
+    }
 }
