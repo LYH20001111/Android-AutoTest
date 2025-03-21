@@ -101,7 +101,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                     if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == -1){
                         Toast.makeText(getContext(), "输入的起始案例号不符合", Toast.LENGTH_SHORT).show();
                     }else {
-                        viewBinding.btnBeginId.setText(String.format("起始案例号 : %s", message));
+                        viewBinding.btnBeginId.setText(String.format("起始案例号 : %s", beginId));
                     }
                 }));
             }
@@ -117,7 +117,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                     if (endId >= testItem.testItemCasesNum(clz) || endId == -1 || endId <= beginId){
                         Toast.makeText(getContext(), "输入的结束案例号不符合", Toast.LENGTH_SHORT).show();
                     }else {
-                        viewBinding.btnEndId.setText(String.format("结束案例号 : %s", message));
+                        viewBinding.btnEndId.setText(String.format("结束案例号 : %s", endId));
                         if (beginId != -1){
                             ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, beginId, endId);
                             getActivity().runOnUiThread(() -> {

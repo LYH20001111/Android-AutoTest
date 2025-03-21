@@ -2,13 +2,13 @@ package com.hudou.autotest.item;
 
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.annotation.TestItem;
-import com.hudou.autotest.base.item.BaseTestItem;
+import com.hudou.autotest.base.item.AutoTestTestItem;
 
 
 import java.lang.reflect.Method;
 
 @TestItem(name = "Test2", description = "测试项目2")
-public class TestItem2 extends BaseTestItem {
+public class TestItem2 extends AutoTestTestItem {
     @Override
     public void onCaseStart(Method method) {
         super.onCaseStart(method);

@@ -3,6 +3,7 @@ package com.hudou.autotest.base.activity;
 import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
@@ -20,6 +21,8 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyViewPager;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.base.fragment.BaseFragment;
+import com.hudou.autotest.constant.ResultItem;
+import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.fragment.ExecutionDetailsFragment;
 import com.hudou.autotest.fragment.ExecutionFragment;
@@ -39,10 +42,18 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     public static final ArrayList<String> pageTitlesList = new ArrayList<>();
     private static boolean isFirst = true;
     private static List<Fragment> finalFragmentList;
+    public static List<ResultItem> resultItemList = new ArrayList<>();
+    public static ResultData resultData;
+    private static Context mContext;
+
+    public static Context getContext(){
+        return mContext;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
         SharedPreferencesUtil.init(getApplicationContext());
         setContentView(R.layout.auto_test_activity_main);
 

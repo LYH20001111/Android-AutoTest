@@ -23,6 +23,10 @@ public class ChildModel {
         this.color = color;
     }
 
+    public void setChildName(String childName) {
+        this.childName = childName;
+    }
+
     public int getChildIcon() {
         return childIcon;
     }

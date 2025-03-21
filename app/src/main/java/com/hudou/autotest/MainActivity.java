@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
+import com.hudou.autotest.fragment.AutoTestSettingFragment;
 import com.hudou.autotest.navigation.PSFragment;
 import com.hudou.autotest.navigation.SettingFragment;
 
@@ -25,6 +26,6 @@ public class MainActivity extends AutoTestMainActivity {
     public void addNavFragment(List<Fragment> list) {
         list.add(new PSFragment());
         list.add(new SettingFragment());
-        //list.add(new AutoTestSettingFragment());
+//        list.add(new AutoTestSettingFragment());
     }
 }
