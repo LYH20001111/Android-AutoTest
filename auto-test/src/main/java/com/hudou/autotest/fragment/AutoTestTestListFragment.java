@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public abstract class TestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
+public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
 
     @Override
     public void onInitData() {
