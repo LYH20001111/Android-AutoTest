@@ -262,7 +262,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         return editCap;
     }
 
-    public void changeEditPathCap(EditCap editCap){
+    public void setEditCap(EditCap editCap){
         this.editCap = editCap;
     }
 
