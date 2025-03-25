@@ -64,7 +64,7 @@ public abstract class BaseTestCase {
                         return;
                     }
                     resultData = new ResultData();
-                    if ((resultItemList != null) || resultItemList.isEmpty()){
+                    if ((resultItemList != null) && resultItemList.isEmpty()){
                         resultItemList.add(new ResultItem(clz, new ArrayList<>()));
                     }
                     boolean exist = false;

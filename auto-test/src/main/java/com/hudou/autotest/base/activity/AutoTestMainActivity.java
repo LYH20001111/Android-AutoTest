@@ -4,11 +4,14 @@ import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -173,5 +176,20 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         SharedPreferencesUtil.clear();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+
+            } else {
+                // 权限被拒绝，提示用户
+                Toast.makeText(this, "权限被拒绝，无法进行文件操作", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

@@ -20,4 +20,5 @@
     <string name="debug_mode">调试模式</string>
     <string name="base_function">基础功能</string>
     <string name="select_report_format_dialog_title">请选择输出报告的格式</string>
+    <string name="permission_dialog_title">请选择你需要开启的权限</string>
 </resources>

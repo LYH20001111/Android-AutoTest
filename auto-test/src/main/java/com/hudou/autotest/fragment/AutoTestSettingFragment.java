@@ -4,7 +4,6 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
 import android.annotation.SuppressLint;
-import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,13 +26,14 @@ import com.hudou.autotest.constant.SettingFunction;
 import com.hudou.autotest.customUI.dialog.DialogUtils;
 import com.hudou.autotest.constant.ChildModel;
 import com.hudou.autotest.constant.GroupModel;
+import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestBaseSettingFragmentBinding;
 import com.hudou.autotest.fragment.listener.SettingInterface;
+import com.hudou.autotest.util.PermissionUtil;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 import com.hudou.autotest.listener.MyOnClickListener;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +91,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         dealDebugMode();
         dealExportReport();
         dealReport();
+        deadPermission();
     }
 
     @Override
@@ -180,6 +181,13 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 });
                                 break;
                             case 1:
+                                if (PermissionUtil.checkReadWritePermission(getActivity())){
+                                    if (fileDirList != null && !fileDirList.isEmpty()) {
+                                        DialogUtils.outputDialog(getActivity());
+                                    }
+                                }else {
+                                    Toast.makeText(getContext(), "没有对外读写存储权限", Toast.LENGTH_SHORT).show();
+                                }
                                 break;
                             case 3:
                                 DialogUtils.createNotifyDialog(getContext(), REPORT_NAME);
@@ -222,8 +230,12 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 });
                                 break;
                             case 1:
-                                if (fileDirList != null && !fileDirList.isEmpty()) {
-                                    DialogUtils.loadingFilesDialog(getActivity(), fileDirList, TESTFILES_PATH);
+                                if (PermissionUtil.checkReadWritePermission(getActivity())){
+                                    if (fileDirList != null && !fileDirList.isEmpty()) {
+                                        DialogUtils.loadingFilesDialog(getActivity(), fileDirList, TESTFILES_PATH);
+                                    }
+                                }else {
+                                    Toast.makeText(getContext(), "没有对外读写存储权限", Toast.LENGTH_SHORT).show();
                                 }
                                 break;
                             default:
@@ -237,6 +249,29 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
             }
         });
     }
+
+    private void deadPermission(){
+        viewBinding.llPermission.setOnClickListener(new MyOnClickListener() {
+            @Override
+            public void dealClick(View v) {
+                DialogUtils.createMultiChoiceDialog(getContext(), R.string.permission_dialog_title, new String[]{"读写外部存储权限"}, new MultiChoiceDialogListener() {
+                    @Override
+                    public void onResult(ArrayList<Integer> choiceList) {
+                        for(Integer index : choiceList){
+                            switch (index){
+                                case 0:
+                                    PermissionUtil.requestReadWritePermission(getActivity());
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    }
+
 
 
     public void removeFunction(SettingFunction settingFunction){

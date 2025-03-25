@@ -24,6 +24,7 @@ import com.hudou.autotest.customUI.dialog.listener.CustomDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.EditDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.NewCustomDialogListener;
+import com.hudou.autotest.report.excel.ReportOutput;
 import com.hudou.autotest.util.FileUtil;
 
 
@@ -297,6 +298,25 @@ public class DialogUtils {
             }
             // 回到主线程更新UI
             boolean finalResult = true;
+            activity.runOnUiThread(() -> {
+                if (loadingAlertDialog != null && loadingAlertDialog.isShowing()) {
+                    loadingAlertDialog.dismiss();
+                }
+                if (finalResult) {
+                    Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(activity, "Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }).start();
+    }
+
+    public static void outputDialog(Activity activity){
+        showLoadingDialog(activity, "Outputting Report......");
+        new Thread(() -> {
+            boolean result;
+            result = new ReportOutput().outputExcel();
+            boolean finalResult = result;
             activity.runOnUiThread(() -> {
                 if (loadingAlertDialog != null && loadingAlertDialog.isShowing()) {
                     loadingAlertDialog.dismiss();

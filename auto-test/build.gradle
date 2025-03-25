@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 13
-def appVersionName = '1.0.13'
+def appVersionCode = 14
+def appVersionName = '1.0.14'
 
 
 android {
@@ -58,18 +58,6 @@ android {
     }
 }
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = 'com.github.LYH20001111' // 替换为你的 GitHub 用户名
-//                artifactId = 'Android-AutoTest' // 替换为你的库名称
-//                version = '1.0.4' // 替换为你的版本号
-//            }
-//        }
-//    }
-//}
 afterEvaluate {
     publishing {
         publications {
