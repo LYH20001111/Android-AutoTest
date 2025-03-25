@@ -51,6 +51,7 @@ public static *;
     protected abstract void *();
 }
 
+-keep class jxl.** { *; }
 ## 保留所有 ViewBinding 类
 #-keep class * extends androidx.viewbinding.ViewBinding { *; }
 #

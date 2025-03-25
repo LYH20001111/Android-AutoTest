@@ -163,8 +163,7 @@ public class FileUtil {
         InputStream inputStream = activity.getAssets().open(fileName);
         File file = new File( path + folderName);
         if (!file.exists()) {
-            boolean mkdirs = file.mkdirs();
-            System.out.println("mkdirs = " + mkdirs);
+            file.mkdirs();
         }
         fileName = fileName.replace(folderName + "/", "");
         FileOutputStream fileOutputStream = new FileOutputStream(file + File.separator + fileName);
