@@ -144,7 +144,7 @@
                         android:visibility="visible"
                         android:background="#dfdfdf"/>
                 </LinearLayout>
-                >
+
             </LinearLayout>
 
 
@@ -167,13 +167,13 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/ll_permission_setting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/auto_test_ripple_effect"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/ll_permission"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"

@@ -1,11 +1,14 @@
 package com.hudou.autotest.util;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
+import java.util.Properties;
 
 public class ReflectionUtils {
 
@@ -59,6 +62,17 @@ public class ReflectionUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String getConfig(String key){
+        Properties properties = new Properties();
+        try {
+            InputStream inputStream = ReflectionUtils.class.getClassLoader().getResourceAsStream("config.properties");
+            properties.load(inputStream);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return properties.getProperty(key);
     }
 
 

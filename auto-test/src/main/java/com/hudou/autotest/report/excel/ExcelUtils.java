@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import jxl.Workbook;
@@ -39,7 +40,7 @@ public class ExcelUtils {
     private static WritableCellFormat failResultFormat = null;
     private static WritableCellFormat detailFormat = null;
 
-    public static void initExcel(String fileName, String[] titleName) {
+    public static void initExcel(String fileName, TreeMap<String, String[]> sheetMap) {
         initFormat();
         WritableWorkbook workbook = null;
         try {
@@ -49,19 +50,15 @@ public class ExcelUtils {
             }
             workbook = Workbook.createWorkbook(file);
 
-            WritableSheet summarySheet = workbook.createSheet("测试案例结果汇总", 0);
-            String[] summaryTitleName = new String[]{"案例测试项", "案例总数", "案例通过数", "案例失败数", "通过率", "开始时间", "结束时间", "总时长"};
-            for (int i = 0; i < summaryTitleName.length; i++) {
-                summarySheet.addCell(new Label(i, 0, summaryTitleName[i], titleFormat));
+            int index = 0;
+            for (String key : sheetMap.keySet()){
+                WritableSheet sheet = workbook.createSheet(key, index);
+                for (int j = 0; j < sheetMap.get(key).length; j++){
+                    sheet.addCell(new Label(j, 0, sheetMap.get(key)[j], titleFormat));
+                }
+                sheet.setRowView(0, 500);
+                index++;
             }
-            summarySheet.setRowView(0, 500); //设置行高
-
-            WritableSheet detailSheet = workbook.createSheet("测试案例结果详情", 1);
-            detailSheet.addCell(new Label(0, 0, fileName, fileNameFormat));
-            for (int col = 0; col < titleName.length; col++) {
-                detailSheet.addCell(new Label(col, 0, titleName[col], titleFormat));
-            }
-            detailSheet.setRowView(0, 500);
             workbook.write();
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,33 +78,33 @@ public class ExcelUtils {
      */
     private static void initFormat() {
         try {
-            WritableFont font1 = new WritableFont(WritableFont.ARIAL, 14, WritableFont.BOLD);
-            fileNameFormat = new WritableCellFormat(font1);
+            WritableFont fileNameFont = new WritableFont(WritableFont.ARIAL, 14, WritableFont.BOLD);
+            fileNameFormat = new WritableCellFormat(fileNameFont);
             fileNameFormat.setAlignment(Alignment.CENTRE);
             fileNameFormat.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN);
             fileNameFormat.setBackground(Colour.VERY_LIGHT_YELLOW);
 
-            WritableFont font2 = new WritableFont(WritableFont.ARIAL, 16, WritableFont.BOLD);
-            titleFormat = new WritableCellFormat(font2);
+            WritableFont titleFont = new WritableFont(WritableFont.ARIAL, 16, WritableFont.BOLD);
+            titleFormat = new WritableCellFormat(titleFont);
             titleFormat.setAlignment(Alignment.CENTRE);
             titleFormat.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN);
             titleFormat.setBackground(Colour.GRAY_25);
 
-            WritableFont font3 = new WritableFont(WritableFont.ARIAL, 12);
-            contentFormat = new WritableCellFormat(font3);
+            WritableFont contentFont = new WritableFont(WritableFont.ARIAL, 12);
+            contentFormat = new WritableCellFormat(contentFont);
             contentFormat.setAlignment(Alignment.CENTRE);//居中
             contentFormat.setVerticalAlignment(VerticalAlignment.CENTRE);
             contentFormat.setWrap(true);//自动换行
             contentFormat.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN); //边框
 
-            failResultFormat = new WritableCellFormat(font3);
+            failResultFormat = new WritableCellFormat(contentFont);
             failResultFormat.setAlignment(Alignment.CENTRE);//居中
             failResultFormat.setVerticalAlignment(VerticalAlignment.CENTRE);
             failResultFormat.setWrap(true);//自动换行
             failResultFormat.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN); //边框
             failResultFormat.setBackground(Colour.RED);//适用于案例失败
 
-            detailFormat = new WritableCellFormat(font3);
+            detailFormat = new WritableCellFormat(contentFont);
             detailFormat.setAlignment(Alignment.LEFT);//居左
             detailFormat.setVerticalAlignment(VerticalAlignment.CENTRE);
             detailFormat.setWrap(true);//自动换行
@@ -126,7 +123,7 @@ public class ExcelUtils {
                 WorkbookSettings setEncode = new WorkbookSettings();
                 setEncode.setEncoding("UTF-8");
                 //setEncode.setEncoding("ISO-8859-1");
-                writebook = Workbook.createWorkbook(new File(fileName), Workbook.getWorkbook(new FileInputStream(new File(fileName))));
+                writebook = Workbook.createWorkbook(new File(fileName), Workbook.getWorkbook(new FileInputStream(new File(fileName)), setEncode));
 
 
                 WritableSheet summarySheet = writebook.getSheet(0);

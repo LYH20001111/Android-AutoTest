@@ -30,7 +30,9 @@ import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestBaseSettingFragmentBinding;
 import com.hudou.autotest.fragment.listener.SettingInterface;
+import com.hudou.autotest.report.excel.ReportOutput;
 import com.hudou.autotest.util.PermissionUtil;
+import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 import com.hudou.autotest.listener.MyOnClickListener;
 
@@ -41,7 +43,6 @@ import java.util.List;
 public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFragmentBinding> implements SettingInterface {
     private String REPORT_PATH;
     private String TESTFILES_PATH;
-    private String REPORT_NAME = "这个是测试报告名";
     private static EditCap editCap = EditCap.OFF;
     private List<String> fileDirList;
 
@@ -53,14 +54,14 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         if (reportPath != null && !reportPath.isEmpty()){
             REPORT_PATH = reportPath;
         }else {
-            REPORT_PATH = "/sdcard/auto_test/report/";
+            REPORT_PATH = ReflectionUtils.getConfig("reportPath");
         }
 
         String testFilesPath = onSetTestFilesPath();
         if (testFilesPath != null && !testFilesPath.isEmpty()){
             TESTFILES_PATH = testFilesPath;
         }else {
-            TESTFILES_PATH = "/sdcard/auto_test/files/";
+            TESTFILES_PATH = ReflectionUtils.getConfig("testFilesPath");
         }
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -189,8 +190,10 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                     Toast.makeText(getContext(), "没有对外读写存储权限", Toast.LENGTH_SHORT).show();
                                 }
                                 break;
+                            case 2:
+                                break;
                             case 3:
-                                DialogUtils.createNotifyDialog(getContext(), REPORT_NAME);
+                                DialogUtils.createNotifyDialog(getContext(), ReportOutput.excelPath);
                                 break;
                             case 4:
                                 DialogUtils.createNotifyOptionsDialog(getContext(), "您确定要清空测试记录吗？", new NotifyOptionDialogListener() {
@@ -251,7 +254,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     }
 
     private void deadPermission(){
-        viewBinding.llPermission.setOnClickListener(new MyOnClickListener() {
+        viewBinding.llPermissionSetting.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
                 DialogUtils.createMultiChoiceDialog(getContext(), R.string.permission_dialog_title, new String[]{"读写外部存储权限"}, new MultiChoiceDialogListener() {
