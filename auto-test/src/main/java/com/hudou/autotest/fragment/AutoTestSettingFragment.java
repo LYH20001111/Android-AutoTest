@@ -133,7 +133,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                     add(new ArrayList<ChildModel>() {{
                         add(new ChildModel(android.R.drawable.ic_menu_edit,"报告地址: " + REPORT_PATH, Color.GRAY));
                         add(new ChildModel(android.R.drawable.ic_menu_save,"输出 .xlsx 测试报告"));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,"输出 .txt 测试报告"));
+                        add(new ChildModel(android.R.drawable.ic_menu_save,"实时记录测试 (report.txt) ", Color.GRAY));
                         add(new ChildModel(android.R.drawable.ic_menu_view,"查看测试报告名称"));
                         add(new ChildModel(android.R.drawable.ic_menu_delete,"清空测试记录", Color.RED));}});
                     add(new ArrayList<ChildModel>() {{

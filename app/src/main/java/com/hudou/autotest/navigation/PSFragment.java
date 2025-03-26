@@ -23,7 +23,7 @@ import com.hudou.autotest.annotation.TestItemClass;
 @TestItemClass(clz = {TestItem1.class, TestItem2.class})
 public class PSFragment extends AutoTestTestListFragment {
     @Override
-    public String nameApplicationName() {
+    public String onTestItemName() {
         return null;
     }
 }

@@ -1,7 +1,5 @@
 package com.hudou.autotest.report.excel;
 
-import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
-
 import android.content.Context;
 import android.os.Environment;
 
@@ -17,7 +15,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 

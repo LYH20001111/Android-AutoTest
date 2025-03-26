@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,6 +36,11 @@ import com.hudou.autotest.fragment.OptionsFragment;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +54,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     public static List<ResultItem> resultItemList = new ArrayList<>();
     public static ResultData resultData;
     private static Context mContext;
+    public static FileOutputStream fos;
 
     public static Context getContext(){
         return mContext;
@@ -117,6 +124,17 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
             }
         });
         mShowMessage.observe(this, message -> setLlMessage(message.getColor(), message.getMessage()));
+
+        String fileName = ReflectionUtils.getConfig("reportPath");
+        File file = new File(fileName);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        try {
+            fos = new FileOutputStream(fileName + "report.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setLlMessage(int color, String message){
@@ -176,6 +194,11 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         SharedPreferencesUtil.clear();
+        try {
+            fos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
