@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Navigation(name = "Setting")
+//@Navigation(name = "Setting")
 //@TestItemClass(clz = {TestItem2.class})
 public class SettingFragment extends AutoTestSettingFragment {
 

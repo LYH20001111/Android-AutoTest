@@ -37,13 +37,13 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         viewBinding.rvType.setLayoutManager(linearLayoutManager);
         viewBinding.rvType.setAdapter(new MyRecycleAdapter(getActivity(), items));
-        String applicationName = nameApplicationName();
+        String applicationName = onTestItemName();
         if (applicationName != null && !applicationName.equals("")) {
             viewBinding.tvAppName.setText(applicationName);
         }
     }
 
-    public abstract String nameApplicationName();
+    public abstract String onTestItemName();
 
 
 

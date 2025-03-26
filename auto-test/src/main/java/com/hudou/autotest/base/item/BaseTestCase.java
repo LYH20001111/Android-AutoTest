@@ -1,5 +1,6 @@
 package com.hudou.autotest.base.item;
 
+import static com.hudou.autotest.base.activity.AutoTestMainActivity.fos;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
@@ -13,6 +14,7 @@ import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.util.ReflectionUtils;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -166,6 +168,11 @@ public abstract class BaseTestCase {
         }
         AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(color, message));
         resultData.appendDetail("\n" + message);
+        try {
+            fos.write((message + "\n").getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
