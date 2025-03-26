@@ -50,6 +50,7 @@ android {
     sourceSets{
         main{
             jniLibs.srcDirs = ['src/main/jniLibs', 'libs']
+            resources.srcDirs = ['src/main/properties']
         }
     }
 
