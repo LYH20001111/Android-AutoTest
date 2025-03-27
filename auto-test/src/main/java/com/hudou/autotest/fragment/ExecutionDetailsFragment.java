@@ -1,11 +1,19 @@
 package com.hudou.autotest.fragment;
 
+import static com.hudou.autotest.fragment.OptionsFragment.INVALID_VALUE;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_ALL_CASES;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_ONE_CASE;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_PART_CASES;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_ALL_CASES;
+
+import android.annotation.SuppressLint;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 
-//import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
@@ -19,50 +27,58 @@ import com.hudou.autotest.util.ReflectionUtils;
 
 import java.text.MessageFormat;
 
+@SuppressLint("SetTextI18n")
 public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetailsFragmentBinding> {
 
     private final Class<? extends BaseTestCase> clz;
     private final BaseTestCase testItem;
-    private int testID = -1;
-    private int beginID = -1;
-    private int endID = -1;
+    private int testId = INVALID_VALUE;
+    private int beginId = INVALID_VALUE;
+    private int endId = INVALID_VALUE;
     private boolean returnAllowed = false;
     private OnBackPressedCallback onBackPressedCallback;
+    private String option;
 
-    public ExecutionDetailsFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, int testID){
+    public ExecutionDetailsFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, @NonNull String option,
+                                    @IntRange(from = INVALID_VALUE) int testId, @IntRange(from = INVALID_VALUE) int beginId, @IntRange(from = INVALID_VALUE) int endId){
         this.clz = clz;
         this.testItem = testItem;
-        this.testID = testID;
-    }
-    public ExecutionDetailsFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, int beginID, int endID){
-        this.clz = clz;
-        this.testItem = testItem;
-        this.beginID = beginID;
-        this.endID = endID;
+        this.option = option;
+        this.testId = testId;
+        this.beginId = beginId;
+        this.endId = endId;
     }
 
     @Override
     public void onInitData() {
-        viewBinding.tvItem.setText(String.format("%s%s", viewBinding.tvItem.getText(), ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name")));
+        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name"));
         AutoTestMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
 
     @Override
     public void onActionAfterInitData() {
-        if (testID == -2){
-            if (testItem.testItemCasesNum(clz) == 0){
-                viewBinding.tvLine2Message.setText(String.format("%s未找到任何案例", viewBinding.tvLine2Message.getText()));
-            }else {
-                viewBinding.tvLine2Message.setText(MessageFormat.format("{0}0  ~  {1}", viewBinding.tvLine2Message.getText().toString(), testItem.testItemCasesNum(clz) - 1));
-            }
-            testItem.runAllCases(clz);
-        }else if (testID != -1 ) {
-            viewBinding.tvLine2Message.setText(MessageFormat.format("{0}{1}", viewBinding.tvLine2Message.getText().toString(), testID));
-            testItem.runCase(clz, testID);
-        }else if (beginID != -1 && endID != -1){
-            viewBinding.tvLine2Message.setText(MessageFormat.format("{0}{1}  ~  {2}", viewBinding.tvLine2Message.getText().toString(), beginID, endID));
-            testItem.runPartContinueCases(clz, beginID, endID);
+        switch (option){
+            case RUN_ALL_CASES:
+                if (testItem.testItemCasesNum(clz) == 0){
+                    viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText() + getString(R.string.no_cases_found));
+                }else {
+                    viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + "0  ~  " +  (testItem.testItemCasesNum(clz) - 1));
+                }
+                testItem.runAllCases(clz);
+                break;
+            case RUN_ONE_CASE:
+                viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + testId);
+                testItem.runCase(clz, testId);
+                break;
+            case RUN_PART_CASES:
+                viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + beginId + "  ~  " + endId);
+                testItem.runPartContinueCases(clz, beginId, endId);
+                break;
+            case VIEW_ALL_CASES:
+                break;
+            default:
+                break;
         }
 
         new Thread(() -> {

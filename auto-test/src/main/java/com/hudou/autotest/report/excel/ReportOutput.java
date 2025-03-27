@@ -5,6 +5,7 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 import android.os.Build;
 
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
+import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.util.ReflectionUtils;
 
@@ -16,7 +17,7 @@ import java.util.TreeMap;
 
 public class ReportOutput {
     public static String excelPath = "还未输出测试报告";
-    private String filePath = ReflectionUtils.getConfig("reportPath");
+    private String filePath = ReflectionUtils.getConfig(Config.REPORT_PATH);
     private final static String excel2003L =".xls";    //2003- 版本的excel
     private final static String excel2007U =".xlsx";  //2007版本
     private final TreeMap<String, String[]> sheetMap = new TreeMap<String, String[]>(){{

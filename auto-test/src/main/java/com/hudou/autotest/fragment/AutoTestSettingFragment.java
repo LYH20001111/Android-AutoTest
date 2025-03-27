@@ -16,11 +16,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyExpandableListAdapter;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.base.fragment.BaseFragment;
+import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.EditCap;
 import com.hudou.autotest.constant.SettingFunction;
 import com.hudou.autotest.customUI.dialog.DialogUtils;
@@ -45,6 +47,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     private String TESTFILES_PATH;
     private static EditCap editCap = EditCap.OFF;
     private List<String> fileDirList;
+    private String[] permission = new String[]{"读写外部存储权限"};
 
     @Nullable
     @Override
@@ -54,14 +57,14 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         if (reportPath != null && !reportPath.isEmpty()){
             REPORT_PATH = reportPath;
         }else {
-            REPORT_PATH = ReflectionUtils.getConfig("reportPath");
+            REPORT_PATH = ReflectionUtils.getConfig(Config.REPORT_PATH);
         }
 
         String testFilesPath = onSetTestFilesPath();
         if (testFilesPath != null && !testFilesPath.isEmpty()){
             TESTFILES_PATH = testFilesPath;
         }else {
-            TESTFILES_PATH = ReflectionUtils.getConfig("testFilesPath");
+            TESTFILES_PATH = ReflectionUtils.getConfig(Config.LOAD_FILES_PATH);
         }
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -73,7 +76,9 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
     @Override
     public List<String> addAssetsDirs() {
-        return new ArrayList<String>(){{add("test");}};
+        return new ArrayList<String>(){{
+            add(ReflectionUtils.getConfig(Config.DEFAULT_FILE_DIR));
+        }};
     }
 
     @Override
@@ -121,24 +126,39 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
             }
         });
     }
+    private interface Group{
+        int TEST_REPORT = 0;
+        int LOAD_FILES = 1;
+    }
+    private interface ReportChild{
+        int REPORT_PATH = 0;
+        int OUTPUT_XLSX_REPORT = 1;
+        int RECORDING_TESTING = 2;
+        int VIEW_XLSX_FILE_NAME = 3;
+        int CLEAN_RECORDS = 4;
+    }
+    private interface FilesChild{
+        int FILES_PATH = 0;
+        int LOAD_FILES = 1;
+    }
 
     private void dealReport(){
         @SuppressLint("ResourceType")
         MyExpandableListAdapter myExpandableListAdapter = new MyExpandableListAdapter(getContext(),
                 new ArrayList<GroupModel>() {{
-                    add(new GroupModel("测试报告"));
-                    add(new GroupModel("加载应用文件"));
+                    add(new GroupModel(getResourceString(R.string.group_test_report)));
+                    add(new GroupModel(getResourceString(R.string.group_load_files)));
                 }},
                 new ArrayList<ArrayList<ChildModel>>() {{
                     add(new ArrayList<ChildModel>() {{
-                        add(new ChildModel(android.R.drawable.ic_menu_edit,"报告地址: " + REPORT_PATH, Color.GRAY));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,"输出 .xlsx 测试报告"));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,"实时记录测试 (report.txt) ", Color.GRAY));
-                        add(new ChildModel(android.R.drawable.ic_menu_view,"查看测试报告名称"));
-                        add(new ChildModel(android.R.drawable.ic_menu_delete,"清空测试记录", Color.RED));}});
+                        add(new ChildModel(android.R.drawable.ic_menu_edit,getResourceString(R.string.child_report_path) + REPORT_PATH, Color.GRAY));
+                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_output_xlsx_report)));
+                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_recording), Color.GRAY));
+                        add(new ChildModel(android.R.drawable.ic_menu_view,getResourceString(R.string.child_view_report_name)));
+                        add(new ChildModel(android.R.drawable.ic_menu_delete,getResourceString(R.string.child_clean_records), Color.RED));}});
                     add(new ArrayList<ChildModel>() {{
-                        add(new ChildModel(android.R.drawable.ic_menu_edit,"文件地址: " + TESTFILES_PATH, Color.GRAY));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,"加载测试应用文件"));}});
+                        add(new ChildModel(android.R.drawable.ic_menu_edit,getResourceString(R.string.child_files_path) + TESTFILES_PATH, Color.GRAY));
+                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_load_files)));}});
                 }}
         );
         viewBinding.elvReport.setAdapter(myExpandableListAdapter);
@@ -159,54 +179,55 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         });
 
         viewBinding.elvReport.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 ChildModel childModel = (ChildModel) myExpandableListAdapter.getChild(groupPosition, childPosition);
                 switch (groupPosition){
-                    case 0:
+                    case Group.TEST_REPORT:
                         switch (childPosition){
-                            case 0:
+                            case ReportChild.REPORT_PATH:
                                 if (getEditCap() == EditCap.OFF){
-                                    Toast.makeText(getContext(), "不可编辑", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), R.string.no_editting, Toast.LENGTH_SHORT).show();
                                     return true;
                                 }
-                                DialogUtils.createEditTextDialog(getContext(), "您可以自定义测试报告的输出地址", false, message -> {
+                                DialogUtils.createEditTextDialog(getContext(), getString(R.string.edit_report_path), false, message -> {
                                     REPORT_PATH = message;
                                     TextView tvChildName = v.findViewById(R.id.child_name);
                                     getActivity().runOnUiThread(() -> {
-                                        tvChildName.setText("报告地址: " + REPORT_PATH);
+                                        tvChildName.setText(getResourceString(R.string.child_report_path) + REPORT_PATH);
                                         //动态保存
-                                        childModel.setChildName("报告地址: " + REPORT_PATH);
+                                        childModel.setChildName(getResourceString(R.string.child_report_path) + REPORT_PATH);
                                         myExpandableListAdapter.notifyDataSetChanged();
                                     });
                                 });
                                 break;
-                            case 1:
+                            case ReportChild.OUTPUT_XLSX_REPORT:
                                 if (PermissionUtil.checkReadWritePermission(getActivity())){
                                     if (fileDirList != null && !fileDirList.isEmpty()) {
                                         DialogUtils.outputDialog(getActivity());
                                     }
                                 }else {
-                                    Toast.makeText(getContext(), "没有对外读写存储权限", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
                                 break;
-                            case 2:
+                            case ReportChild.RECORDING_TESTING:
                                 break;
-                            case 3:
+                            case ReportChild.VIEW_XLSX_FILE_NAME:
                                 DialogUtils.createNotifyDialog(getContext(), ReportOutput.excelPath);
                                 break;
-                            case 4:
-                                DialogUtils.createNotifyOptionsDialog(getContext(), "您确定要清空测试记录吗？", new NotifyOptionDialogListener() {
+                            case ReportChild.CLEAN_RECORDS:
+                                DialogUtils.createNotifyOptionsDialog(getContext(), getString(R.string.clean_records_title), new NotifyOptionDialogListener() {
                                     @Override
                                     public void onPositive() {
                                         resultData = null;
                                         resultItemList = new ArrayList<>();
-                                        Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), R.string.success, Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override
                                     public void onNegative() {
-                                        Toast.makeText(getContext(), "Cancelled", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), R.string.cancelled, Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 break;
@@ -214,31 +235,31 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 break;
                         }
                         break;
-                    case 1:
+                    case Group.LOAD_FILES:
                         switch (childPosition){
-                            case 0:
+                            case FilesChild.FILES_PATH:
                                 if (getEditCap() == EditCap.OFF){
-                                    Toast.makeText(getContext(), "不可编辑", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), R.string.no_editting, Toast.LENGTH_SHORT).show();
                                     return true;
                                 }
-                                DialogUtils.createEditTextDialog(getContext(), "您可以自定义应用测试文件的加载地址", false, message -> {
+                                DialogUtils.createEditTextDialog(getContext(), getString(R.string.edit_files_path), false, message -> {
                                     TESTFILES_PATH = message;
                                     TextView tvChildName = v.findViewById(R.id.child_name);
                                     getActivity().runOnUiThread(() -> {
-                                        tvChildName.setText("文件地址: " + TESTFILES_PATH);
+                                        tvChildName.setText(getResourceString(R.string.child_files_path) + TESTFILES_PATH);
                                         //动态保存
-                                        childModel.setChildName("文件地址: " + TESTFILES_PATH);
+                                        childModel.setChildName(getResourceString(R.string.child_files_path) + TESTFILES_PATH);
                                         myExpandableListAdapter.notifyDataSetChanged();
                                     });
                                 });
                                 break;
-                            case 1:
+                            case FilesChild.LOAD_FILES:
                                 if (PermissionUtil.checkReadWritePermission(getActivity())){
                                     if (fileDirList != null && !fileDirList.isEmpty()) {
                                         DialogUtils.loadingFilesDialog(getActivity(), fileDirList, TESTFILES_PATH);
                                     }
                                 }else {
-                                    Toast.makeText(getContext(), "没有对外读写存储权限", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
                                 break;
                             default:
@@ -257,7 +278,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         viewBinding.llPermissionSetting.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                DialogUtils.createMultiChoiceDialog(getContext(), R.string.permission_dialog_title, new String[]{"读写外部存储权限"}, new MultiChoiceDialogListener() {
+                DialogUtils.createMultiChoiceDialog(getContext(), R.string.permission_dialog_title, permission, new MultiChoiceDialogListener() {
                     @Override
                     public void onResult(ArrayList<Integer> choiceList) {
                         for(Integer index : choiceList){
@@ -273,6 +294,10 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                 });
             }
         });
+    }
+
+    private String getResourceString(@StringRes int res) {
+        return getContext().getString(res, "");
     }
 
 

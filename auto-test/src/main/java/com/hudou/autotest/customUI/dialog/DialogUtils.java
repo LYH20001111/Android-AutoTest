@@ -89,6 +89,10 @@ public class DialogUtils {
         }).start();
     }
 
+    public static void createEditTextDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback){
+        createEditTextDialog(context, context.getString(hint, ""), onlyNumber, callback);
+    }
+
     public static void createEditTextDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
         new Thread(() -> {
             Looper.prepare();

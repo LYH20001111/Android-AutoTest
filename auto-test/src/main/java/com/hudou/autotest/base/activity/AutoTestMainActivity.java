@@ -25,6 +25,7 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyViewPager;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.base.fragment.BaseFragment;
+import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ShowMessage;
@@ -125,13 +126,13 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         });
         mShowMessage.observe(this, message -> setLlMessage(message.getColor(), message.getMessage()));
 
-        String fileName = ReflectionUtils.getConfig("reportPath");
+        String fileName = ReflectionUtils.getConfig(Config.REPORT_PATH);
         File file = new File(fileName);
         if (!file.exists()) {
             file.mkdirs();
         }
         try {
-            fos = new FileOutputStream(fileName + "report.txt");
+            fos = new FileOutputStream(fileName + ReflectionUtils.getConfig(Config.TXT_REPORT_NAME));
         } catch (IOException e) {
             e.printStackTrace();
         }

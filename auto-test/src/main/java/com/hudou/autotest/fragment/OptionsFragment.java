@@ -15,10 +15,18 @@ import com.hudou.autotest.util.ReflectionUtils;
 public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding> {
     private final Class<? extends BaseTestCase> clz;
     private final BaseTestCase testItem;
+    public static final int INVALID_VALUE = -1;
 
     public OptionsFragment(Class<? extends BaseTestCase> clz){
         this.clz = clz;
         this.testItem = (BaseTestCase) ReflectionUtils.createInstance(this.clz);
+    }
+
+    public interface Option{
+        String RUN_ALL_CASES = "1";
+        String RUN_ONE_CASE = "2";
+        String RUN_PART_CASES = "3";
+        String VIEW_ALL_CASES = "4";
     }
 
     @Override
@@ -39,8 +47,8 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
             @Override
             public void onInsertKeyEvent(String text) {
                 switch (text){
-                    case "1":
-                        ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, -2);
+                    case Option.RUN_ALL_CASES:
+                        ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, Option.RUN_ALL_CASES, INVALID_VALUE, INVALID_VALUE, INVALID_VALUE);
                         getActivity().runOnUiThread(() -> {
                             FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
                             supportFragmentManager.beginTransaction()
@@ -51,9 +59,9 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
 
                         });
                         break;
-                    case "2":
-                    case "3":
-                    case "4":
+                    case Option.RUN_ONE_CASE:
+                    case Option.RUN_PART_CASES:
+                    case Option.VIEW_ALL_CASES:
                         ExecutionFragment executionFragment = new ExecutionFragment(clz, testItem, text);
                         getActivity().runOnUiThread(() -> {
                             FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
