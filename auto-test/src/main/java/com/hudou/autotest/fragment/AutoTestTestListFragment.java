@@ -1,5 +1,6 @@
 package com.hudou.autotest.fragment;
 
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +37,10 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         viewBinding.rvType.setLayoutManager(linearLayoutManager);
+        // //初始化分隔线、添加分隔线
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+//        viewBinding.rvType.addItemDecoration(dividerItemDecoration);
+
         viewBinding.rvType.setAdapter(new MyRecycleAdapter(getActivity(), items));
         String applicationName = onTestItemName();
         if (applicationName != null && !applicationName.equals("")) {

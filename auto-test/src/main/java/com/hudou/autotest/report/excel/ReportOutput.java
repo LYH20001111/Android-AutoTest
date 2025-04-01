@@ -10,6 +10,7 @@ import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;

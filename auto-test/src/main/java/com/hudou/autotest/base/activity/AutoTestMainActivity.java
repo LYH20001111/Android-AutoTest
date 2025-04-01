@@ -212,7 +212,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
 
             } else {
                 // 权限被拒绝，提示用户
-                Toast.makeText(this, "权限被拒绝，无法进行文件操作", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.permission_can_not_accept, Toast.LENGTH_SHORT).show();
             }
         }
     }

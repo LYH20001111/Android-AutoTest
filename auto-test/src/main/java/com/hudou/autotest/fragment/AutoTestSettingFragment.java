@@ -39,6 +39,7 @@ import com.hudou.autotest.util.SharedPreferencesUtil;
 import com.hudou.autotest.listener.MyOnClickListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Navigation(name = "设置")
@@ -155,10 +156,13 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                         add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_output_xlsx_report)));
                         add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_recording), Color.GRAY));
                         add(new ChildModel(android.R.drawable.ic_menu_view,getResourceString(R.string.child_view_report_name)));
-                        add(new ChildModel(android.R.drawable.ic_menu_delete,getResourceString(R.string.child_clean_records), Color.RED));}});
-                    add(new ArrayList<ChildModel>() {{
-                        add(new ChildModel(android.R.drawable.ic_menu_edit,getResourceString(R.string.child_files_path) + TESTFILES_PATH, Color.GRAY));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_load_files)));}});
+                        add(new ChildModel(android.R.drawable.ic_menu_delete,getResourceString(R.string.child_clean_records), Color.RED));
+                    }});
+                    add(new ArrayList<>(Arrays.asList(
+                            new ChildModel(android.R.drawable.ic_menu_edit,getResourceString(R.string.child_files_path) + TESTFILES_PATH, Color.GRAY),
+                            new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_load_files))
+                            ))
+                    );
                 }}
         );
         viewBinding.elvReport.setAdapter(myExpandableListAdapter);

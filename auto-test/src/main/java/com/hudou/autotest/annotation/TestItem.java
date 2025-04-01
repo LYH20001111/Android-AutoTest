@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TestItem {
 
-    String name() default "";
-    String description() default "";
+    String name();
+    String description();
 
 }

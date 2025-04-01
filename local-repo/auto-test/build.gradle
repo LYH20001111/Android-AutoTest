@@ -1,0 +1,8 @@
+configurations.maybeCreate("default")
+
+file('/').listFiles().findAll {
+    println(it)
+    it.isFile() && (it.name.endsWith('.aar') || it.name.endsWith('.jar'))
+}.each {
+    artifacts.add("default", file(it.name))
+}
