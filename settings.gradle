@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "auto-test"
 include ':app'
 include ':auto-test'
+include ':local-repo'
+include ':local-repo:auto-test'

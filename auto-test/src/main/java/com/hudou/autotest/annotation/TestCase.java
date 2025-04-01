@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface TestCase {
     long numId() default 0;
-    String name() default "";
+    String name();
     String description() default "";
 }

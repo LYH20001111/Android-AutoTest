@@ -25,7 +25,7 @@
     <string name="group_test_report">测试报告</string>
     <string name="child_report_path">报告地址: </string>
     <string name="child_output_xlsx_report">输出 .xlsx 测试报告</string>
-    <string name="child_recording">实时记录测试 (report.txt) </string>
+    <string name="child_recording">实时记录测试 (../report.txt) </string>
     <string name="child_view_report_name">查看测试报告名称</string>
     <string name="child_clean_records">清空测试记录</string>
 
@@ -50,6 +50,7 @@
     <string name="current_item">"当前查看项 ： "</string>
     <string name="please_input_correct_case_id">请输入正确的案例号</string>
     <string name="no_cases_found">未找到任何案例</string>
+    <string name="permission_can_not_accept">权限被拒绝，无法进行文件操作</string>
 
 
 </resources>
