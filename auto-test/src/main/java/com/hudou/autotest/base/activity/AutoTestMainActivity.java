@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,8 +37,6 @@ import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,7 +69,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
             List<Fragment> fragmentList = new ArrayList<>();
             finalFragmentList = new ArrayList<>();
             fragmentList.add(new HomeFragment());
-            addNavFragment(fragmentList);
+            addNavigationFragment(fragmentList);
             for (Fragment fragment : fragmentList) {
                 Class<? extends Fragment> cls = fragment.getClass();
                 if (cls.isAnnotationPresent(Navigation.class)) {
@@ -153,7 +150,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
 
 
 
-    public abstract void addNavFragment(List<Fragment> list);
+    public abstract void addNavigationFragment(List<Fragment> list);
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

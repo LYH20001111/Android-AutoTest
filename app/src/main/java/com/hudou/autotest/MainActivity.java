@@ -15,7 +15,12 @@ import com.hudou.autotest.fragment.AutoTestSettingFragment;
 import com.hudou.autotest.navigation.PSFragment;
 import com.hudou.autotest.navigation.SettingFragment;
 import com.newland.lib.ModuleManage;
+import com.newland.serviceapi.cardreader.CardReaderListener;
 import com.newland.serviceapi.cardreader.CardType;
+import com.newland.serviceapi.cardreader.ICCardInfo;
+import com.newland.serviceapi.cardreader.MagInfo;
+import com.newland.serviceapi.cardreader.RFCardInfo;
+import com.newland.serviceapi.cardreader.RFCardType;
 import com.newland.serviceapi.deviceService.ChannelType;
 
 import java.util.List;
@@ -28,25 +33,6 @@ public class MainActivity extends AutoTestMainActivity {
         super.onCreate(savedInstanceState);
         mContext = this;
         //setContentView(R.layout.activity_main);
-        ModuleManage.getInstance().isServiceApk(true);
-        ModuleManage.getInstance().init(mContext, new ModuleManage.ConnectCallback() {
-            @Override
-            public void onConnect() {
-                Log.d("HALTest", "onConnect");
-                try {
-                    ModuleManage.getInstance().aidlCardReader.cardOff(CardType.CONTACTCARD);
-                    ModuleManage.getInstance().aidlCardReader.selectChannelType(ChannelType.INTERNAL);
-
-                } catch (RemoteException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-
-            @Override
-            public void onDisconnect() {
-                Log.d("HALTest", "onDisconnect");
-            }
-        });
     }
 
     @Override
@@ -56,18 +42,4 @@ public class MainActivity extends AutoTestMainActivity {
 //        list.add(new AutoTestSettingFragment());
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == 1) {
-//            if (grantResults.length > 0
-//                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
-//                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-//
-//            } else {
-//                // 权限被拒绝，提示用户
-//                Toast.makeText(this, "权限被拒绝，无法进行文件操作", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
 }

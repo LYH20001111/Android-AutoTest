@@ -47,4 +47,6 @@ dependencies {
     implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
 
     implementation project(':local-repo:auto-test')
+
+    implementation 'com.airbnb.android:lottie:5.2.0'
 }

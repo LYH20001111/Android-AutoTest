@@ -5,6 +5,12 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="local-repo">
+        <State />
+      </entry>
+      <entry key="local-repo.auto-test">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
