@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/auto-test" />
+            <option value="$PROJECT_DIR$/local-repo" />
+            <option value="$PROJECT_DIR$/local-repo/auto-test" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
