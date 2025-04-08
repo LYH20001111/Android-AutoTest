@@ -62,10 +62,11 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
             case RUN_ALL_CASES:
                 if (testItem.testItemCasesNum(clz) == 0){
                     viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText() + getString(R.string.no_cases_found));
+                    BaseTestCase.isCompleted = true;
                 }else {
                     viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + "0  ~  " +  (testItem.testItemCasesNum(clz) - 1));
+                    testItem.runAllCases(clz);
                 }
-                testItem.runAllCases(clz);
                 break;
             case RUN_ONE_CASE:
                 viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + testId);

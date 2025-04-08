@@ -1,6 +1,5 @@
 package com.hudou.autotest.fragment;
 
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,13 +41,13 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
 //        viewBinding.rvType.addItemDecoration(dividerItemDecoration);
 
         viewBinding.rvType.setAdapter(new MyRecycleAdapter(getActivity(), items));
-        String applicationName = onTestItemName();
+        String applicationName = onNameTitle();
         if (applicationName != null && !applicationName.equals("")) {
             viewBinding.tvAppName.setText(applicationName);
         }
     }
 
-    public abstract String onTestItemName();
+    public abstract String onNameTitle();
 
 
 

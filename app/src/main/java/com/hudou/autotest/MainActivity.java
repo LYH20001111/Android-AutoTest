@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
+import com.hudou.autotest.fragment.HomeFragment;
 import com.hudou.autotest.navigation.PSFragment;
 import com.hudou.autotest.navigation.SettingFragment;
 
@@ -22,10 +23,12 @@ public class MainActivity extends AutoTestMainActivity {
     }
 
     @Override
-    public void addNavFragment(List<Fragment> list) {
+    public void addNavigationFragment(List<Fragment> list) {
+        //list.removeIf(fragment -> fragment instanceof HomeFragment);
         list.add(new PSFragment());
         list.add(new SettingFragment());
 //        list.add(new AutoTestSettingFragment());
     }
+
 
 }
