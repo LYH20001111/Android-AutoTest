@@ -22,8 +22,9 @@ import com.hudou.autotest.annotation.TestItemClass;
 @Navigation(name = "PS")
 @TestItemClass(clz = {TestItem1.class, TestItem2.class})
 public class PSFragment extends AutoTestTestListFragment {
+
     @Override
-    public String onTestItemName() {
+    public String onNameTitle() {
         return null;
     }
 }

@@ -24,8 +24,8 @@ public class TestItem1 extends AutoTestTestItem {
     }
 
 
-    @TestCase(name = "TestItem2 test2_001")
-    private void test1_000(){
-        recordMessage("wo hen hao");
-    }
+//    @TestCase(name = "TestItem2 test2_001")
+//    private void test1_000(){
+//        recordMessage("wo hen hao");
+//    }
 }
