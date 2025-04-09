@@ -16,6 +16,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTestListFragmentBinding> {
+    private static float titleSize = 30;
 
     @Override
     public void onInitData() {
@@ -42,9 +43,14 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
 
         viewBinding.rvType.setAdapter(new MyRecycleAdapter(getActivity(), items));
         String applicationName = onNameTitle();
+        viewBinding.tvAppName.setTextSize(titleSize);
         if (applicationName != null && !applicationName.equals("")) {
             viewBinding.tvAppName.setText(applicationName);
         }
+    }
+
+    public static void setTitleSize(float size){
+        titleSize = size;
     }
 
     public abstract String onNameTitle();

@@ -47,6 +47,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     private String REPORT_PATH;
     private String TESTFILES_PATH;
     private static EditCap editCap = EditCap.OFF;
+    private static boolean isEnglishReport = false;
     private List<String> fileDirList;
     private String[] permission = new String[]{"读写外部存储权限"};
 
@@ -90,6 +91,11 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     @Override
     public String onSetTestFilesPath() {
         return null;
+    }
+
+    @Override
+    public String onAddReportNamePrefix() {
+        return "";
     }
 
     @Override
@@ -209,7 +215,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                             case ReportChild.OUTPUT_XLSX_REPORT:
                                 if (PermissionUtil.checkReadWritePermission(getActivity())){
                                     if (fileDirList != null && !fileDirList.isEmpty()) {
-                                        DialogUtils.outputDialog(getActivity());
+                                        DialogUtils.outputDialog(getActivity(), onAddReportNamePrefix());
                                     }
                                 }else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
@@ -330,9 +336,14 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     }
 
     public void setEditCap(EditCap editCap){
-        this.editCap = editCap;
+        AutoTestSettingFragment.editCap = editCap;
     }
 
+    public static boolean isEnglishReport() {
+        return isEnglishReport;
+    }
 
-
+    public static void setIsEnglishReport(boolean isEnglishReport) {
+        AutoTestSettingFragment.isEnglishReport = isEnglishReport;
+    }
 }

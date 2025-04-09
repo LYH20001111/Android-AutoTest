@@ -24,7 +24,14 @@ import com.hudou.autotest.annotation.TestItemClass;
 public class PSFragment extends AutoTestTestListFragment {
 
     @Override
+    public void onCreate(@Nullable Bundle bundle) {
+//        setTitleSize(25);
+        super.onCreate(bundle);
+    }
+
+    @Override
     public String onNameTitle() {
+//        return "PaymentLink-PaymentService";
         return null;
     }
 }

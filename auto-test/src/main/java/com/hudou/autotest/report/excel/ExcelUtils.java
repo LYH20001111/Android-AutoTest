@@ -6,6 +6,7 @@ import android.os.Environment;
 
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
+import com.hudou.autotest.fragment.AutoTestSettingFragment;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,8 +15,8 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import jxl.Workbook;
@@ -37,7 +38,7 @@ public class ExcelUtils {
     private static WritableCellFormat failResultFormat = null;
     private static WritableCellFormat detailFormat = null;
 
-    public static void initExcel(String fileName, TreeMap<String, String[]> sheetMap) {
+    public static void initExcel(String fileName, LinkedHashMap<String, String[]> sheetMap) {
         initFormat();
         WritableWorkbook workbook = null;
         try {
@@ -53,7 +54,7 @@ public class ExcelUtils {
                 for (int j = 0; j < sheetMap.get(key).length; j++){
                     sheet.addCell(new Label(j, 0, sheetMap.get(key)[j], titleFormat));
                 }
-                sheet.setRowView(0, 500);
+                sheet.setRowView(0, 340);
                 index++;
             }
             workbook.write();
@@ -81,13 +82,13 @@ public class ExcelUtils {
             fileNameFormat.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN);
             fileNameFormat.setBackground(Colour.VERY_LIGHT_YELLOW);
 
-            WritableFont titleFont = new WritableFont(WritableFont.ARIAL, 16, WritableFont.BOLD);
+            WritableFont titleFont = new WritableFont(WritableFont.ARIAL, 10, WritableFont.BOLD);
             titleFormat = new WritableCellFormat(titleFont);
             titleFormat.setAlignment(Alignment.CENTRE);
             titleFormat.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN);
             titleFormat.setBackground(Colour.GRAY_25);
 
-            WritableFont contentFont = new WritableFont(WritableFont.ARIAL, 12);
+            WritableFont contentFont = new WritableFont(WritableFont.ARIAL, 10);
             contentFormat = new WritableCellFormat(contentFont);
             contentFormat.setAlignment(Alignment.CENTRE);//居中
             contentFormat.setVerticalAlignment(VerticalAlignment.CENTRE);
@@ -144,7 +145,7 @@ public class ExcelUtils {
 
                 int row = 1;
                 for (ResultItem item : resultItemList){
-                    summarySheet.addCell(new Label(0, row, String.valueOf(item.getClz()), contentFormat));
+                    summarySheet.addCell(new Label(0, row, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                     summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
                     summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
                     summarySheet.addCell(new Label(3, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
@@ -158,12 +159,12 @@ public class ExcelUtils {
                 int r = 1;
                 for (ResultItem item : resultItemList){
                     for (int i = 0; i < item.getResultDataList().size(); i++){
-                        detailSheet.addCell(new Label(0, r, String.valueOf(item.getClz()), contentFormat));
+                        detailSheet.addCell(new Label(0, r, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));
                         if (item.getResultDataList().get(i).getResult().equals("测试通过")) {
-                            detailSheet.addCell(new Label(2, r, item.getResultDataList().get(i).getResult(), contentFormat));
+                            detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "PASS" : item.getResultDataList().get(i).getResult(), contentFormat));
                         }else {
-                            detailSheet.addCell(new Label(2, r, item.getResultDataList().get(i).getResult(), failResultFormat));
+                            detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "FAIL" : item.getResultDataList().get(i).getResult(), failResultFormat));
                         }
                         detailSheet.addCell(new Label(3, r, item.getResultDataList().get(i).getTestCaseName(), contentFormat));
                         detailSheet.addCell(new Label(4, r, item.getResultDataList().get(i).getChineseDescription(), contentFormat));

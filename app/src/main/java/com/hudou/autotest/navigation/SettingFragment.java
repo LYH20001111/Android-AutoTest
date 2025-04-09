@@ -38,6 +38,7 @@ public class SettingFragment extends AutoTestSettingFragment {
     @Override
     public String onSetReportPath() {
         //changeEditPathCap(EditCap.ON);
+        setIsEnglishReport(true);
         return super.onSetReportPath();
     }
 
@@ -53,5 +54,10 @@ public class SettingFragment extends AutoTestSettingFragment {
     @Override
     public List<String> addAssetsDirs() {
         return super.addAssetsDirs();
+    }
+
+    @Override
+    public String onAddReportNamePrefix() {
+        return "PaymentLink-PaymentService-";
     }
 }
