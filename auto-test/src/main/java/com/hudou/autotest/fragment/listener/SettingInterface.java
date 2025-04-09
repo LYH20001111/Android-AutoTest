@@ -12,4 +12,5 @@ public interface SettingInterface {
     List<String> addAssetsDirs();
     String onSetReportPath();
     String onSetTestFilesPath();
+    String onAddReportNamePrefix();
 }

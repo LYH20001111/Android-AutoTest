@@ -185,7 +185,7 @@ public class TestItem1 extends AutoTestTestItem {
     }
 ```
 
-1.6 页面优化
+## 1.6 页面优化
 
 ​	要是想希望页面更好看，可更换主题，可以将theme.xml 改为：
 

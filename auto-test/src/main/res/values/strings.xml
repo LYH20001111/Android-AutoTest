@@ -16,21 +16,21 @@
     <string name="cancel">取消</string>
     <string name="pause_tes">您确定要中断测试吗</string>
     <string name="pause_positive">此案例结束后中断测试</string>
-    <string name="list_item">测试项目</string>
+    <string name="list_item">测试项列表</string>
     <string name="debug_mode">调试模式</string>
     <string name="base_function">基础功能</string>
     <string name="select_report_format_dialog_title">请选择输出报告的格式</string>
     <string name="permission_dialog_title">请选择你需要开启的权限</string>
 
     <string name="group_test_report">测试报告</string>
-    <string name="child_report_path">报告地址: </string>
+    <string name="child_report_path">报告地址:\u0020</string>
     <string name="child_output_xlsx_report">输出 .xlsx 测试报告</string>
     <string name="child_recording">实时记录测试 (../report.txt) </string>
     <string name="child_view_report_name">查看测试报告名称</string>
     <string name="child_clean_records">清空测试记录</string>
 
     <string name="group_load_files">加载应用文件</string>
-    <string name="child_files_path">文件地址: </string>
+    <string name="child_files_path">文件地址:\u0020</string>
     <string name="child_load_files">加载测试应用文件</string>
 
 

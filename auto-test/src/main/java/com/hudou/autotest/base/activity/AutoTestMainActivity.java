@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -147,10 +148,13 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     private List<Fragment> getFragments(){
         return finalFragmentList;
     }
-
-
-
     public abstract void addNavigationFragment(List<Fragment> list);
+
+    private int getWindowWidth() {
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        return dm.widthPixels;
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -315,11 +315,11 @@ public class DialogUtils {
         }).start();
     }
 
-    public static void outputDialog(Activity activity){
+    public static void outputDialog(Activity activity, String prefix){
         showLoadingDialog(activity, "Outputting Report......");
         new Thread(() -> {
             boolean result;
-            result = new ReportOutput().outputExcel();
+            result = new ReportOutput().outputExcel(prefix);
             boolean finalResult = result;
             activity.runOnUiThread(() -> {
                 if (loadingAlertDialog != null && loadingAlertDialog.isShowing()) {
