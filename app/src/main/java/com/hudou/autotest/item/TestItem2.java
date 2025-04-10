@@ -33,5 +33,10 @@ public class TestItem2 extends AutoTestTestItem {
         recordMessage("Ni Hao Shi Jie");
     }
 
-    
+    @TestCase(name = "TestItem2 test2_002")
+    private void test2_002(){
+        for (int i = 0; i < 1000; i++) {
+            recordMessage("Hello World" + i);
+        }
+    }
 }

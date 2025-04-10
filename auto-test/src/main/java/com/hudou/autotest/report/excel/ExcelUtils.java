@@ -150,9 +150,9 @@ public class ExcelUtils {
                     summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
                     summarySheet.addCell(new Label(3, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
                     summarySheet.addCell(new Label(4, row, percentageCalculator(countPass(item.getResultDataList()), item.getResultDataList().size()), contentFormat));
-                    summarySheet.addCell(new Label(5, row, String.valueOf(0), contentFormat));
-                    summarySheet.addCell(new Label(6, row, String.valueOf(0), contentFormat));
-                    summarySheet.addCell(new Label(7, row, String.valueOf(0), contentFormat));
+                    summarySheet.addCell(new Label(5, row, String.valueOf(item.getStartTime()), contentFormat));
+                    summarySheet.addCell(new Label(6, row, String.valueOf(item.getEndTime()), contentFormat));
+                    summarySheet.addCell(new Label(7, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
                     row++;
                 }
 
@@ -247,8 +247,8 @@ public class ExcelUtils {
             Date start = sdf.parse(startTime);
             Date end = sdf.parse(endTime);
 
-            long diffInMillies = end.getTime() - start.getTime();
-            diffInSeconds = diffInMillies / 1000;
+            long diffInMillis = end.getTime() - start.getTime();
+            diffInSeconds = diffInMillis / 1000;
 
         } catch (ParseException e) {
             e.printStackTrace();

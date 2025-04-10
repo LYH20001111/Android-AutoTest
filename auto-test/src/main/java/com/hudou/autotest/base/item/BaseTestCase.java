@@ -12,6 +12,7 @@ import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.ShowMessage;
+import com.hudou.autotest.report.excel.ExcelUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -72,6 +74,7 @@ public abstract class BaseTestCase {
                     boolean exist = false;
                     for (ResultItem resultItem : resultItemList) {
                         if (resultItem.getClz().equals(clz)) {
+                            resultItem.setStartTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
                             exist = true;
                             break;
                         }
@@ -112,6 +115,7 @@ public abstract class BaseTestCase {
                             if (!isExist){
                                 resultItem.getResultDataList().add(resultData);
                             }
+                            resultItem.setEndTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
 
                             break;
                         }
