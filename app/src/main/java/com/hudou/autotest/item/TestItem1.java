@@ -24,8 +24,27 @@ public class TestItem1 extends AutoTestTestItem {
     }
 
 
-//    @TestCase(name = "TestItem2 test2_001")
-//    private void test1_000(){
-//        recordMessage("wo hen hao");
-//    }
+    @TestCase(name = "TestItem1 test1_000")
+    private void test1_000(){
+        recordMessage("wo hen hao");
+    }
+
+    @TestCase(name = "TestItem1 test1_001")
+    private void test1_001(){
+        for (int i = 0; i < 100; i++) {
+            recordMessage("Hello World" + i);
+        }
+    }
+
+    @TestCase(name = "TestItem1 test1_002")
+    private void test1_002(){
+        recordMessage("Ni Hao Shi Jie");
+    }
+
+    @TestCase(name = "TestItem1 test1_003")
+    private void test1_003(){
+        for (int i = 0; i < 1000; i++) {
+            recordMessage("Hello World" + i);
+        }
+    }
 }
