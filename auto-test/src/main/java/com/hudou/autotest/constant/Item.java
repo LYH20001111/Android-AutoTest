@@ -11,8 +11,8 @@ public class Item {
 
     public Item(Class<? extends BaseTestCase> clz){
         this.clz = clz;
-        this.name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name");
-        this.description = ReflectionUtils.getAnnotationValue(clz, TestItem.class, "description");
+        this.name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name);
+        this.description = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.description);
     }
 
     public String getName() {

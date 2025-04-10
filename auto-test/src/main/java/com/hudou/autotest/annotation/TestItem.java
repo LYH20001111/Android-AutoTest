@@ -12,4 +12,8 @@ public @interface TestItem {
     String name();
     String description();
 
+    interface Members {
+        String name = "name";
+        String description = "description";
+    }
 }

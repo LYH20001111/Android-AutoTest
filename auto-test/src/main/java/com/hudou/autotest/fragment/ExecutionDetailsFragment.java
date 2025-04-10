@@ -51,7 +51,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
 
     @Override
     public void onInitData() {
-        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name"));
+        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
         AutoTestMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }

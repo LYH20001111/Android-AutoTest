@@ -11,4 +11,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Navigation {
     String name();
+
+    interface Members {
+        String name = "name";
+    }
 }

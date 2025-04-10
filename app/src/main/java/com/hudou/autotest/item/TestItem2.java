@@ -21,21 +21,21 @@ public class TestItem2 extends AutoTestTestItem {
         recordPass();
     }
 
-    @TestCase(name = "TestItem2 test2_000")
+    @TestCase(name = "TestItem2 test2_000", enDes = "sdgassajgs")
     private void test2_000(){
         for (int i = 0; i < 100; i++) {
             recordMessage("Hello World" + i);
         }
     }
 
-    @TestCase(name = "TestItem2 test2_001")
+    @TestCase(name = "TestItem2 test2_001", enDes = "klsdfjsiljgasjsdkg;")
     private void test2_001(){
         recordMessage("Ni Hao Shi Jie");
     }
 
-    @TestCase(name = "TestItem2 test2_002")
+    @TestCase(name = "TestItem2 test2_002", enDes = "lsdkjajkghslasdagnksjgklsdjkldjskfganjgnsdjkf")
     private void test2_002(){
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 100; i < 200; i++) {
             recordMessage("Hello World" + i);
         }
     }

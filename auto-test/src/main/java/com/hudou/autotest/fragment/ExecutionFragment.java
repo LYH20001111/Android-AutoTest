@@ -41,7 +41,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
     @Override
     public void onInitData() {
-        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name"));
+        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
         AutoTestMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
@@ -151,7 +151,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case OptionsFragment.Option.VIEW_ALL_CASES:
-                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, "name"));
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
