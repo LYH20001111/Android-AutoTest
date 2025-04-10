@@ -167,7 +167,7 @@ public class ExcelUtils {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "FAIL" : item.getResultDataList().get(i).getResult(), failResultFormat));
                         }
                         detailSheet.addCell(new Label(3, r, item.getResultDataList().get(i).getTestCaseName(), contentFormat));
-                        detailSheet.addCell(new Label(4, r, item.getResultDataList().get(i).getChineseDescription(), contentFormat));
+                        detailSheet.addCell(new Label(4, r, item.getResultDataList().get(i).getEnglishDescription(), contentFormat));
                         detailSheet.addCell(new Label(5, r, item.getResultDataList().get(i).getDetail(), contentFormat));
                         r++;
                     }

@@ -75,7 +75,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
                 Class<? extends Fragment> cls = fragment.getClass();
                 if (cls.isAnnotationPresent(Navigation.class)) {
                     finalFragmentList.add(fragment);
-                    pageTitlesList.add(ReflectionUtils.getAnnotationValue(cls, Navigation.class, "name"));
+                    pageTitlesList.add(ReflectionUtils.getAnnotationValue(cls, Navigation.class, Navigation.Members.name));
                 }
             }
             isFirst = false;

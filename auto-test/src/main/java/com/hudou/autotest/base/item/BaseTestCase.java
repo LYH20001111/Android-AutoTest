@@ -83,10 +83,11 @@ public abstract class BaseTestCase {
                         resultItemList.add(new ResultItem(clz, new ArrayList<>()));
                     }
                     resultData.setId(method.getName());
-                    resultData.setTestCaseName(ReflectionUtils.getAnnotationValue(method, TestCase.class, "name"));
+                    resultData.setTestCaseName(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name));
+                    resultData.setEnglishDescription(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.enDes));
                     resultData.setDetail("XX=============" + method.getName() + "=============XX");
 
-                    postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, "name") + "\n");
+                    postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "\n");
                     // 执行前置方法
                     onCaseStart(method);
 
@@ -96,7 +97,7 @@ public abstract class BaseTestCase {
 
                     // 执行后置方法
                     onCaseFinish(method);
-                    postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, "name") + "，执行结束");
+                    postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "，执行结束");
 
 
                     //Add storage start

@@ -10,5 +10,11 @@ import java.lang.annotation.Target;
 public @interface TestCase {
     long numId() default 0;
     String name();
-    String description() default "";
+    String enDes() default "";
+
+    interface Members {
+        String numId = "numId";
+        String name = "name";
+        String enDes = "enDes";
+    }
 }
