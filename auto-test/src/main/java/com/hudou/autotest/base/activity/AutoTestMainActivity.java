@@ -21,6 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
+import com.hudou.autotest.BuildConfig;
 import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyViewPager;
 import com.hudou.autotest.annotation.Navigation;
@@ -154,6 +155,10 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
+    }
+
+    public String getAuthorName(){
+        return BuildConfig.Author;
     }
 
     @Override
