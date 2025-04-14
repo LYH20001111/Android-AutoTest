@@ -1,12 +1,15 @@
 package com.hudou.autotest.base.item;
 
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
+import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
 import android.graphics.Color;
 
-//import com.hudou.autotest.MainActivity;
 import androidx.annotation.Nullable;
 
+import com.hudou.autotest.constant.ResultData;
+import com.hudou.autotest.constant.ResultItem;
+import com.hudou.autotest.constant.SetMode;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 
 import org.jetbrains.annotations.NotNull;
@@ -14,12 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.Method;
 
 
-
 public class AutoTestTestItem extends BaseTestCase{
-    private static boolean testResult;
-    static {
-        testResult = false;
-    }
 
     /**
      * 记录测试通过
@@ -70,6 +68,27 @@ public class AutoTestTestItem extends BaseTestCase{
     }
 
 
+    public void setEnDes(Method method, String englishDescription, SetMode setMode){
+        for (ResultItem resultItem : resultItemList) {
+            if (resultItem.getClz().equals(this.getClass())) {
+                for (ResultData resultData : resultItem.getResultDataList()){
+                    if (resultData.getId().equals(method.getName())){
+                        switch (setMode) {
+                            case EMPTY_ADD://TestCase设置时，使用设置的；未设置时，否则使用setEnDes设置的
+                                if (resultData.getEnglishDescription() == null || resultData.getEnglishDescription().equals("")) {
+                                    resultData.setEnglishDescription(englishDescription);
+                                }
+                                break;
+                            case ALWAYS_REPLACE://无论TestCase是否设置enDes，直接更新
+                                resultData.setEnglishDescription(englishDescription);
+                                break;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
 
 
@@ -83,4 +102,8 @@ public class AutoTestTestItem extends BaseTestCase{
 
     }
 
+    @Override
+    public void onCaseEnd(Method method) {
+
+    }
 }

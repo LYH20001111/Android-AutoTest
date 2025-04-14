@@ -122,6 +122,8 @@ public abstract class BaseTestCase {
                         }
                     }
 
+                    onCaseEnd(method);//这里是案例最终结束
+
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 } finally {
@@ -195,8 +197,8 @@ public abstract class BaseTestCase {
     }
 
 
-
     public abstract void onCaseStart(Method method);
     public abstract void onCaseFinish(Method method);
+    public abstract void onCaseEnd(Method method);
 
 }
