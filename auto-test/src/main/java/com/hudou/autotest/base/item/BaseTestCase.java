@@ -20,6 +20,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -33,12 +34,14 @@ public abstract class BaseTestCase {
     public void runAllCases(Class<? extends BaseTestCase> clz){
         runTestCases(clz, Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new));
     }
 
     public void runCase(Class<? extends BaseTestCase> clz, int id){
         Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new);
         if (id >= testCaseMethods.length || id < 0){
             return;
@@ -50,6 +53,7 @@ public abstract class BaseTestCase {
     public void runPartContinueCases(Class<? extends BaseTestCase> clz, int beginId, int endId){
         runTestCases(clz, Arrays.copyOfRange(Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new), beginId, endId + 1));
     }
 
@@ -148,9 +152,13 @@ public abstract class BaseTestCase {
 
     public String viewCaseDetails(Class<? extends BaseTestCase> clz){
         StringBuilder details = new StringBuilder();
-        Method[] declaredMethods = clz.getDeclaredMethods();
-        for (int i = 0; i < declaredMethods.length; i++) {
-            Method method = declaredMethods[i];
+        Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
+                .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
+                .toArray(Method[]::new);
+
+        for (int i = 0; i < testCaseMethods.length; i++) {
+            Method method = testCaseMethods[i];
             if (method.isAnnotationPresent(TestCase.class)) {
                 TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
                 String name = testCaseAnnotation != null ? testCaseAnnotation.name() : null;
@@ -163,6 +171,7 @@ public abstract class BaseTestCase {
     public int testItemCasesNum(Class<? extends BaseTestCase> clz){
         return Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new).length;
     }
 
