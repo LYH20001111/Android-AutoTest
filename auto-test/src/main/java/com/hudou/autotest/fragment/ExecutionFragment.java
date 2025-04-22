@@ -5,6 +5,7 @@ import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 

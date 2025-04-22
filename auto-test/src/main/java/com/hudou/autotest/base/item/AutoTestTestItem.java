@@ -25,6 +25,7 @@ public class AutoTestTestItem extends BaseTestCase{
     public void recordPass(){
         recordPass(null);
     }
+
     public void recordPass(@Nullable String message){
         postValue(Color.GREEN, "测试通过" + (message == null ? "" : message));
         resultData.setResult("测试通过");
@@ -36,6 +37,7 @@ public class AutoTestTestItem extends BaseTestCase{
     public void recordFail(){
         recordFail(null);
     }
+
     public void recordFail(@Nullable String message){
         postValue(Color.RED, "测试失败" + (message == null ? "" : message));
         resultData.setResult("测试失败");
@@ -68,6 +70,12 @@ public class AutoTestTestItem extends BaseTestCase{
     }
 
 
+    /**
+     * 该方法只有在onCaseEnd时调用是才生效
+     * @param method 案例方法
+     * @param englishDescription 需要设置的英文描述
+     * @param setMode 设置模式
+     */
     public void setEnDes(Method method, String englishDescription, SetMode setMode){
         for (ResultItem resultItem : resultItemList) {
             if (resultItem.getClz().equals(this.getClass())) {
@@ -75,11 +83,12 @@ public class AutoTestTestItem extends BaseTestCase{
                     if (resultData.getId().equals(method.getName())){
                         switch (setMode) {
                             case EMPTY_ADD://TestCase设置时，使用设置的；未设置时，否则使用setEnDes设置的
-                                if (resultData.getEnglishDescription() == null || resultData.getEnglishDescription().equals("")) {
+                                if (resultData.getEnglishDescription() == null
+                                        || resultData.getEnglishDescription().equals("")) {
                                     resultData.setEnglishDescription(englishDescription);
                                 }
                                 break;
-                            case ALWAYS_REPLACE://无论TestCase是否设置enDes，直接更新
+                            case ALWAYS_REPLACE://无论TestCase是否设置enDes，直接替换
                                 resultData.setEnglishDescription(englishDescription);
                                 break;
                         }

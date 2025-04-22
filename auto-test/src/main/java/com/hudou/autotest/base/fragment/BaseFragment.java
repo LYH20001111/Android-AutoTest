@@ -20,6 +20,7 @@ import java.lang.reflect.Type;
 public class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> extends Fragment implements FragmentInterface {
     public VB viewBinding;
     //public VM viewModel;
+    private boolean isFirst = true;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -34,6 +35,7 @@ public class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> exte
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        isFirst = true;
         return getView(inflater, container, savedInstanceState);
     }
 
@@ -46,8 +48,11 @@ public class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> exte
     @Override
     public void onResume() {
         super.onResume();
-        onInitData();
-        onActionAfterInitData();
+        if (isFirst) {
+            isFirst = false;
+            onInitData();
+            onActionAfterInitData();
+        }
     }
 
     @Override

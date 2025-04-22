@@ -168,7 +168,7 @@ public class ExcelUtils {
                         }
                         detailSheet.addCell(new Label(3, r, item.getResultDataList().get(i).getTestCaseName(), contentFormat));
                         detailSheet.addCell(new Label(4, r, item.getResultDataList().get(i).getEnglishDescription(), contentFormat));
-                        detailSheet.addCell(new Label(5, r, item.getResultDataList().get(i).getDetail(), contentFormat));
+                        detailSheet.addCell(new Label(5, r, item.getResultDataList().get(i).getDetail(), detailFormat));
                         r++;
                     }
                 }
