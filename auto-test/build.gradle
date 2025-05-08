@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 25
-def appVersionName = '1.0.25'
+def appVersionCode = 30
+def appVersionName = '1.0.30'
 
 
 android {
@@ -96,7 +96,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:1.7.30'
     implementation 'commons-cli:commons-cli:1.4'
 
-//    api 'net.sourceforge.jexcelapi:jxl:2.6.12' //将该依赖的jar导入到libs，和项目一并打包为aar
+    api 'net.sourceforge.jexcelapi:jxl:2.6.12' //将该依赖的jar导入到libs，和项目一并打包为aar
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
 

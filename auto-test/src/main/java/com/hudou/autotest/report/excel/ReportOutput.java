@@ -5,6 +5,7 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 import android.os.Build;
 
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
+import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
@@ -12,6 +13,8 @@ import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.File;
 import java.lang.reflect.Array;
+import java.lang.reflect.Method;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;

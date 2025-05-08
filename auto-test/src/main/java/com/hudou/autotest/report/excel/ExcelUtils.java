@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -144,6 +147,8 @@ public class ExcelUtils {
                 detailSheet.setColumnView(5, 50);
 
                 int row = 1;
+                long totalSize = 0;
+                long totalTime = 0;
                 for (ResultItem item : resultItemList){
                     summarySheet.addCell(new Label(0, row, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                     summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
@@ -153,8 +158,12 @@ public class ExcelUtils {
                     summarySheet.addCell(new Label(5, row, String.valueOf(item.getStartTime()), contentFormat));
                     summarySheet.addCell(new Label(6, row, String.valueOf(item.getEndTime()), contentFormat));
                     summarySheet.addCell(new Label(7, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
+                    totalSize += item.getResultDataList().size();
+                    totalTime += ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime());
                     row++;
                 }
+                summarySheet.addCell(new Label(1, row + 1, "Total Num : " + String.valueOf(totalSize), contentFormat));
+                summarySheet.addCell(new Label(7, row + 1, "Total Time : " + formatTotalTime(totalTime), contentFormat));
 
                 int r = 1;
                 for (ResultItem item : resultItemList){
@@ -290,6 +299,12 @@ public class ExcelUtils {
         }
         return count;
     }
-
+    public static String formatTotalTime(long totalTime){
+        long hours = totalTime / 3600;
+        long remainingSeconds = totalTime % 3600;
+        long minutes = remainingSeconds / 60;
+        long seconds = remainingSeconds % 60;
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+    }
 
 }
