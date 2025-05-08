@@ -65,7 +65,7 @@ public abstract class BaseTestCase {
         isPaused = false;
 
         for (Method method : testCaseMethods) {
-            executor.submit(() -> {
+            executor.execute(() -> {
                 try {
                     if (isPaused) {
                         latch.countDown(); // 直接减少倒计时，跳过当前任务
@@ -193,6 +193,19 @@ public abstract class BaseTestCase {
             Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    protected void postValue(boolean isDebug, int color, String message){
+        if (isDebug){
+            postValue(color, message);
+        }else {
+            resultData.appendDetail("\n" + message);
+            try {
+                fos.write((message + "\n").getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

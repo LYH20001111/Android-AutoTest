@@ -6,6 +6,7 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -214,9 +215,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 break;
                             case ReportChild.OUTPUT_XLSX_REPORT:
                                 if (PermissionUtil.checkReadWritePermission(getActivity())){
-                                    if (fileDirList != null && !fileDirList.isEmpty()) {
-                                        DialogUtils.outputDialog(getActivity(), onAddReportNamePrefix());
-                                    }
+                                    DialogUtils.outputDialog(getActivity(), onAddReportNamePrefix());
                                 }else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
