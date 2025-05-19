@@ -10,9 +10,11 @@ import java.lang.annotation.Target;
 public @interface TestCase {
     String name();
     String enDes() default "";
+    String tip() default "";
 
     interface Members {
         String name = "name";
         String enDes = "enDes";
+        String tip = "tip";
     }
 }

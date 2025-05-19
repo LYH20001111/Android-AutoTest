@@ -48,10 +48,11 @@ public class AutoTestTestItem extends BaseTestCase{
      * @param message
      */
     public void recordMessage(@NotNull String message){
-//        if (isDebugMode()) {
-//            postValue(Color.BLACK, message);
-//        }
         postValue(isDebugMode(), Color.BLACK, message);
+    }
+
+    public void recordMessage(int color, String message){
+        postValue(isDebugMode(), color, message);
     }
 
     /**

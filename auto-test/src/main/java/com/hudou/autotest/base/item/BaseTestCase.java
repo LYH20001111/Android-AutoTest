@@ -92,6 +92,9 @@ public abstract class BaseTestCase {
                     resultData.setDetail("XX=============" + method.getName() + "=============XX");
 
                     postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "\n");
+                    if (!ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip).equals("")){
+                        postValue(Color.GRAY, "\n" + "案例提示：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip));
+                    }
                     // 执行前置方法
                     onCaseStart(method);
 
