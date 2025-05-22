@@ -5,13 +5,11 @@ import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentManager;
 
-//import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;

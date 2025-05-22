@@ -6,7 +6,6 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 
 import android.graphics.Color;
 
-//import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ResultData;

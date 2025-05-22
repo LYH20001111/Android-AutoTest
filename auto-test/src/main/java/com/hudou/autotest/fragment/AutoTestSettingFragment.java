@@ -6,7 +6,6 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +44,7 @@ import java.util.List;
 
 @Navigation(name = "设置")
 public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFragmentBinding> implements SettingInterface {
-    private String REPORT_PATH;
+    private static String REPORT_PATH;
     private String TESTFILES_PATH;
     private static EditCap editCap = EditCap.OFF;
     private static boolean isEnglishReport = false;
@@ -340,6 +339,9 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
     public static boolean isEnglishReport() {
         return isEnglishReport;
+    }
+    public static String getReportPath(){
+        return REPORT_PATH;
     }
 
     public static void setIsEnglishReport(boolean isEnglishReport) {
