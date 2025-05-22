@@ -5,21 +5,25 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 
 import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyExpandableListAdapter;
+import com.hudou.autotest.annotation.Function;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.Config;
@@ -38,6 +42,8 @@ import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 import com.hudou.autotest.listener.MyOnClickListener;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -104,7 +110,8 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         dealDebugMode();
         dealExportReport();
         dealReport();
-        deadPermission();
+        dealPermission();
+        addFunctionLayouts(viewBinding.getRoot().findViewById(R.id.ll_additional_setting));
     }
 
     @Override
@@ -282,7 +289,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         });
     }
 
-    private void deadPermission(){
+    private void dealPermission(){
         viewBinding.llPermissionSetting.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
@@ -303,6 +310,81 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
             }
         });
     }
+
+    private void addFunctionLayouts(LinearLayout parent) {
+        Method[] methods = getClass().getDeclaredMethods();
+
+        for (Method method : methods) {
+            if (method.isAnnotationPresent(Function.class)) {
+                viewBinding.tvAdditionFunctionTitle.setVisibility(View.VISIBLE);
+                viewBinding.llAdditionalSetting.setVisibility(View.VISIBLE);
+
+                Function function = method.getAnnotation(Function.class);
+                String title = function.title();
+
+                LinearLayout functionLayout = new LinearLayout(getContext());
+                functionLayout.setOrientation(LinearLayout.VERTICAL);
+                functionLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                functionLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.auto_test_ripple_effect));
+
+                // 创建新的 LinearLayout
+                LinearLayout textViewLayout = new LinearLayout(getContext());
+                textViewLayout.setOrientation(LinearLayout.HORIZONTAL);
+                textViewLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                LinearLayout.LayoutParams functionLayoutLayoutParams = (LinearLayout.LayoutParams) textViewLayout.getLayoutParams();
+                functionLayoutLayoutParams.leftMargin = 20;
+                functionLayoutLayoutParams.rightMargin = 20;
+                functionLayoutLayoutParams.topMargin = 20;
+                textViewLayout.setLayoutParams(functionLayoutLayoutParams);
+                textViewLayout.setMinimumHeight(30);
+
+                // 创建 TextView
+                TextView textView = new TextView(getContext());
+                textView.setLayoutParams(new LinearLayout.LayoutParams(
+                        0,
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        1));
+                textView.setText(title);
+                textView.setTypeface(null, Typeface.BOLD);
+                textView.setTextSize(20);
+                textView.setTextColor(Color.BLACK);
+
+                // 将 TextView 添加到 LinearLayout
+                textViewLayout.addView(textView);
+
+                // 创建分隔线
+                View divider = new View(getContext());
+                divider.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        4));
+                divider.setBackgroundColor(Color.parseColor("#dfdfdf"));
+
+                LinearLayout.LayoutParams dividerLayoutParams = (LinearLayout.LayoutParams) divider.getLayoutParams();
+                dividerLayoutParams.topMargin = 20;
+                divider.setLayoutParams(dividerLayoutParams);
+
+
+                // 设置点击事件
+                functionLayout.setOnClickListener(v -> {
+                    try {
+                        // 调用对应的方法
+                        method.setAccessible(true);
+                        method.invoke(this);
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                });
+                functionLayout.addView(textViewLayout);
+                functionLayout.addView(divider);
+                parent.addView(functionLayout);
+            }
+        }
+    }
+
 
     private String getResourceString(@StringRes int res) {
         return getContext().getString(res, "");
