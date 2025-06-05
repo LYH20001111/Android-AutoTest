@@ -25,8 +25,6 @@ import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestExcutionDetailsFragmentBinding;
 import com.hudou.autotest.util.ReflectionUtils;
 
-import java.text.MessageFormat;
-
 @SuppressLint("SetTextI18n")
 public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetailsFragmentBinding> {
 
