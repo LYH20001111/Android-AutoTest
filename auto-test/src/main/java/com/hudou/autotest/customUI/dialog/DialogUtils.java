@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.ConditionVariable;
 import android.os.Looper;
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -38,15 +39,20 @@ public class DialogUtils {
     private static Dialog notifyDialog, editTextDialog, singleDialog, customSingleDialog, multiDialog;
 
     public static void createNotifyDialog(final Context context, final String title){
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
                     .setTitle(title)
-                    .setPositiveButton(R.string.sure, (dialog, which) -> notifyDialog.dismiss())
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        cv.open();
+                        notifyDialog.dismiss();
+                    })
                     .create();
             notifyDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
     /**
@@ -56,11 +62,13 @@ public class DialogUtils {
      * @param title 对话框标题
      */
     public static void createNotifyDialog(final Context context, final String title, final NotifyDialogListener callback){
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
                     .setTitle(title)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        cv.open();
                         notifyDialog.dismiss();
                         callback.onAction();
                     })
@@ -68,18 +76,22 @@ public class DialogUtils {
             notifyDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
     public static void createNotifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback){
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
                     .setTitle(title)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        cv.open();
                         notifyDialog.dismiss();
                         callback.onPositive();
                     })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                        cv.open();
                         notifyDialog.dismiss();
                         callback.onNegative();
                     })
@@ -87,6 +99,7 @@ public class DialogUtils {
             notifyDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
     public static void createEditTextDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback){
@@ -94,6 +107,7 @@ public class DialogUtils {
     }
 
     public static void createEditTextDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
             final EditText editText = new EditText(context);
@@ -108,6 +122,7 @@ public class DialogUtils {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             callback.onResult(editText.getText().toString());
+                            cv.open();
                             editTextDialog.dismiss();
                         }
                     })
@@ -116,6 +131,7 @@ public class DialogUtils {
             editTextDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
     /**
@@ -127,6 +143,7 @@ public class DialogUtils {
      * @param callback 选择回调
      */
     public static void createSingleChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final SingleChoiceDialogListener callback) {
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             if (items == null || items.length < 1) {
                 return;
@@ -138,10 +155,12 @@ public class DialogUtils {
                     .setSingleChoiceItems(items, 0,// 第二个参数是默认选项，此处设置为0
                             (dialog, which) -> yourChoice = which)
                      .setPositiveButton(R.string.sure, (dialog, which) -> {
+                         cv.open();
                          singleDialog.dismiss();
                          callback.onResult(yourChoice);
                      })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                        cv.open();
                         singleDialog.dismiss();
                         callback.onResult(-1);
                     })
@@ -150,6 +169,7 @@ public class DialogUtils {
             singleDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
     /**
@@ -161,6 +181,7 @@ public class DialogUtils {
      * @param callback
      */
     public static void createMultiChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final MultiChoiceDialogListener callback) {
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             if (items == null || items.length < 1) {
                 return;
@@ -178,6 +199,7 @@ public class DialogUtils {
                                 }
                             })
                     .setPositiveButton(R.string.sure, (arg0, arg1) -> {
+                        cv.open();
                         multiDialog.dismiss();
                         for (int i = 0; i < choiceItems.length; i++) {
                             if (choiceItems[i] == 1) {
@@ -190,12 +212,16 @@ public class DialogUtils {
                             e.printStackTrace();
                         }
                     })
-                    .setNegativeButton(R.string.cancel, (arg0, arg1) -> multiDialog.dismiss())
+                    .setNegativeButton(R.string.cancel, (arg0, arg1) -> {
+                        cv.open();
+                        multiDialog.dismiss();
+                    })
                     .setCancelable(false)
                     .create();
             multiDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
     /**
@@ -208,6 +234,7 @@ public class DialogUtils {
      * @param callback 选择回调
      */
     public static void createCustomDialog(final Context context, @StringRes int titleId, final String[] items, final int layoutId, final CustomDialogListener callback) {
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             yourChoice = 0;
             Looper.prepare();
@@ -222,6 +249,7 @@ public class DialogUtils {
                     .setView(view)
                     .setPositiveButton(R.string.sure,
                             (dialog, which) -> {
+                                cv.open();
                                 customSingleDialog.dismiss();
                                 try {
                                     callback.onResult(yourChoice, view);
@@ -230,6 +258,7 @@ public class DialogUtils {
                                 }
                             })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                        cv.open();
                         customSingleDialog.dismiss();
                         try {
                             callback.onResult(-1, view);
@@ -242,10 +271,12 @@ public class DialogUtils {
             customSingleDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
 
     public static void createCustomDialog(final Context context, final int title, final String[] items, final int layoutId, final NewCustomDialogListener callback) {
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             yourChoice = 0;
             Looper.prepare();
@@ -259,6 +290,7 @@ public class DialogUtils {
                     .setTitle(title)
                     .setView(view)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        cv.open();
                         customSingleDialog.dismiss();
                         try {
                             callback.onResult(yourChoice, view);
@@ -266,13 +298,16 @@ public class DialogUtils {
                             e.printStackTrace();
                         }
                     })
-                    .setNegativeButton(R.string.cancel, (dialog, which) -> customSingleDialog.dismiss())
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                        cv.open();
+                        customSingleDialog.dismiss();
+                    })
                     .setCancelable(false)
                     .create();
             customSingleDialog.show();
             Looper.loop();
         }).start();
-
+        cv.block();
     }
 
     private static androidx.appcompat.app.AlertDialog loadingAlertDialog;

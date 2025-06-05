@@ -93,6 +93,8 @@ public class AutoTestTestItem extends BaseTestCase{
                             case ALWAYS_REPLACE://无论TestCase是否设置enDes，直接替换
                                 resultData.setEnglishDescription(englishDescription);
                                 break;
+                            default:
+                                break;
                         }
                         break;
                     }
