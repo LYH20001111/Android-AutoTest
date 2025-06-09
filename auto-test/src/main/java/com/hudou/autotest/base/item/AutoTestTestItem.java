@@ -18,6 +18,8 @@ import java.lang.reflect.Method;
 
 
 public class AutoTestTestItem extends BaseTestCase{
+    private volatile boolean isResultRecorded = false;
+    private final Object lock = new Object();
 
     /**
      * 记录测试通过
@@ -27,6 +29,10 @@ public class AutoTestTestItem extends BaseTestCase{
     }
 
     public void recordPass(@Nullable String message){
+        synchronized (lock) {
+            isResultRecorded = true;
+            lock.notify(); // 通知等待的线程
+        }
         postValue(Color.GREEN, "测试通过" + (message == null ? "" : message));
         resultData.setResult("测试通过");
     }
@@ -39,6 +45,10 @@ public class AutoTestTestItem extends BaseTestCase{
     }
 
     public void recordFail(@Nullable String message){
+        synchronized (lock) {
+            isResultRecorded = true;
+            lock.notify(); // 通知等待的线程
+        }
         postValue(Color.RED, "测试失败" + (message == null ? "" : message));
         resultData.setResult("测试失败");
     }
@@ -118,5 +128,16 @@ public class AutoTestTestItem extends BaseTestCase{
     @Override
     public void onCaseEnd(Method method) {
 
+    }
+
+    @Override
+    protected void waitForResult(Method method) throws InterruptedException {
+        synchronized (lock) {
+            while (!isResultRecorded) {
+                lock.wait(); // 阻塞当前线程，直到被notify
+            }
+            // 重置状态
+            isResultRecorded = false;
+        }
     }
 }
