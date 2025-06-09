@@ -101,6 +101,14 @@ public abstract class BaseTestCase {
                     method.setAccessible(true); // 允许访问私有方法
                     method.invoke(this); // 调用方法
 
+                    // 等待测试结果
+                    try {
+                        waitForResult(method);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+
+
                     // 执行后置方法
                     onCaseFinish(method);
                     postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "，执行结束");
@@ -180,7 +188,7 @@ public abstract class BaseTestCase {
 
     protected void postValue(int color, String message){
         try {
-            Thread.sleep(20);
+            Thread.sleep(25);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -192,7 +200,7 @@ public abstract class BaseTestCase {
             throw new RuntimeException(e);
         }
         try {
-            Thread.sleep(20);
+            Thread.sleep(25);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -224,5 +232,7 @@ public abstract class BaseTestCase {
     public abstract void onCaseStart(Method method);
     public abstract void onCaseFinish(Method method);
     public abstract void onCaseEnd(Method method);
+    // 等待测试结果的抽象方法
+    protected abstract void waitForResult(Method method) throws InterruptedException;
 
 }
