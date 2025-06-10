@@ -48,6 +48,7 @@ public class DialogUtils {
                         cv.open();
                         notifyDialog.dismiss();
                     })
+                    .setCancelable(false)
                     .create();
             notifyDialog.show();
             Looper.loop();
@@ -72,6 +73,7 @@ public class DialogUtils {
                         notifyDialog.dismiss();
                         callback.onAction();
                     })
+                    .setCancelable(false)
                     .create();
             notifyDialog.show();
             Looper.loop();
@@ -95,6 +97,7 @@ public class DialogUtils {
                         notifyDialog.dismiss();
                         callback.onNegative();
                     })
+                    .setCancelable(false)
                     .create();
             notifyDialog.show();
             Looper.loop();

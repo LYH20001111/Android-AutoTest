@@ -188,7 +188,7 @@ public abstract class BaseTestCase {
 
     protected void postValue(int color, String message){
         try {
-            Thread.sleep(25);
+            Thread.sleep(40);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
