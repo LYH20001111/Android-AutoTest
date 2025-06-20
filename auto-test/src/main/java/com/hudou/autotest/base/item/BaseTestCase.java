@@ -94,25 +94,29 @@ public abstract class BaseTestCase {
                     if (!ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip).equals("")){
                         postValue(Color.GRAY, "\n" + "案例提示：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip));
                     }
-                    // 执行前置方法
-                    onCaseStart(method);
-
-                    // 执行测试方法
-                    method.setAccessible(true); // 允许访问私有方法
-                    method.invoke(this); // 调用方法
-
-                    // 等待测试结果
                     try {
-                        waitForResult(method);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        // 执行前置方法
+                        onCaseStart(method);
+
+                        // 执行测试方法
+                        method.setAccessible(true); // 允许访问私有方法
+                        method.invoke(this); // 调用方法
+
+                        // 等待测试结果
+                        try {
+                            waitForResult(method);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+
+
+                        // 执行后置方法
+                        onCaseFinish(method);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }finally {
+                        postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "，执行结束");
                     }
-
-
-                    // 执行后置方法
-                    onCaseFinish(method);
-                    postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "，执行结束");
-
 
                     //Add storage start
                     List<ResultData> clzResultDataList = getResultDataListForClass(clz);
@@ -138,7 +142,7 @@ public abstract class BaseTestCase {
 
                     onCaseEnd(method);//这里是案例最终结束
 
-                } catch (IllegalAccessException | InvocationTargetException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
                     latch.countDown(); // 每完成一个任务，倒计时减一
@@ -187,21 +191,11 @@ public abstract class BaseTestCase {
 
 
     protected void postValue(int color, String message){
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(color, message));
         resultData.appendDetail("\n" + message);
         try {
+            AutoTestMainActivity.getRecorder().synchronizedPostValue(new ShowMessage(color, message));
             fos.write((message + "\n").getBytes());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            Thread.sleep(25);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

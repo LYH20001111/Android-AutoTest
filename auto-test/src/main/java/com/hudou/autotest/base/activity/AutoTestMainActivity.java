@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -37,6 +36,7 @@ import com.hudou.autotest.adapter.MyPagerAdapter;
 import com.hudou.autotest.fragment.OptionsFragment;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
+import com.hudou.autotest.util.SynchronizedMutableLiveData;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,7 +47,7 @@ import java.util.List;
 public abstract class AutoTestMainActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout llMessage;
-    public static MutableLiveData<ShowMessage> mShowMessage = new MutableLiveData<>();
+    private static SynchronizedMutableLiveData<ShowMessage> mShowMessage = new SynchronizedMutableLiveData<>();
     public static final ArrayList<String> pageTitlesList = new ArrayList<>();
     private static boolean isFirst = true;
     private static List<Fragment> finalFragmentList;
@@ -144,6 +144,10 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
             textView.setTextColor(color);
             llMessage.addView(textView, 0);
         });
+    }
+
+    public static SynchronizedMutableLiveData<ShowMessage> getRecorder(){
+        return mShowMessage;
     }
 
     private List<Fragment> getFragments(){
