@@ -110,7 +110,6 @@ public class DialogUtils {
     }
 
     public static void createEditTextDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
-        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
             final EditText editText = new EditText(context);
@@ -125,16 +124,13 @@ public class DialogUtils {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             callback.onResult(editText.getText().toString());
-                            cv.open();
                             editTextDialog.dismiss();
                         }
                     })
-                    .setCancelable(false)
                     .create();
             editTextDialog.show();
             Looper.loop();
         }).start();
-        cv.block();
     }
 
     /**

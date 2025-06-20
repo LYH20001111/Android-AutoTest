@@ -141,19 +141,19 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     private void actionByOption(String option){
         switch (option){
             case OptionsFragment.Option.RUN_ONE_CASE:
-                AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case OptionsFragment.Option.RUN_PART_CASES:
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 viewBinding.llLine3.setVisibility(View.VISIBLE);
-                AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case OptionsFragment.Option.VIEW_ALL_CASES:
                 viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
-                AutoTestMainActivity.mShowMessage.postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
             default:
                 break;
         }
