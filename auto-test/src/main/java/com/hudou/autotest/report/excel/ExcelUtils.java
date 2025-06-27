@@ -2,6 +2,7 @@ package com.hudou.autotest.report.excel;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 
 import com.hudou.autotest.constant.ResultData;
@@ -167,7 +168,7 @@ public class ExcelUtils {
                     for (int i = 0; i < item.getResultDataList().size(); i++){
                         detailSheet.addCell(new Label(0, r, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));
-                        if (item.getResultDataList().get(i).getResult().equals("测试通过")) {
+                        if ("测试通过".equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "PASS" : item.getResultDataList().get(i).getResult(), contentFormat));
                         }else {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "FAIL" : item.getResultDataList().get(i).getResult(), failResultFormat));
@@ -280,7 +281,7 @@ public class ExcelUtils {
     private static int countPass(List<ResultData> resultDataList){
         int count = 0;
         for(ResultData resultData : resultDataList){
-            if (resultData.getResult().equals("测试通过")){
+            if ("测试通过".equals(resultData.getResult())){
                 count++;
             }
         }
@@ -290,7 +291,7 @@ public class ExcelUtils {
     private static int countFail(List<ResultData> resultDataList){
         int count = 0;
         for(ResultData resultData : resultDataList){
-            if (resultData.getResult().equals("测试失败")){
+            if ("测试失败".equals(resultData.getResult())){
                 count++;
             }
         }

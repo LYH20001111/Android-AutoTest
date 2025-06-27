@@ -91,7 +91,7 @@ public abstract class BaseTestCase {
                     resultData.setDetail("XX=============" + method.getName() + "=============XX");
 
                     postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "\n");
-                    if (!ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip).equals("")){
+                    if (!"".equals(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip))){
                         postValue(Color.GRAY, "\n" + "案例提示：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip));
                     }
                     try {
@@ -102,6 +102,17 @@ public abstract class BaseTestCase {
                         method.setAccessible(true); // 允许访问私有方法
                         method.invoke(this); // 调用方法
 
+//                        // 等待测试结果
+//                        try {
+//                            waitForResult(method);
+//                        } catch (InterruptedException e) {
+//                            throw new RuntimeException(e);
+//                        }
+
+
+                        // 执行后置方法
+                        onCaseFinish(method);
+
                         // 等待测试结果
                         try {
                             waitForResult(method);
@@ -109,9 +120,6 @@ public abstract class BaseTestCase {
                             throw new RuntimeException(e);
                         }
 
-
-                        // 执行后置方法
-                        onCaseFinish(method);
                     }catch (Exception e){
                         e.printStackTrace();
                     }finally {
@@ -127,7 +135,7 @@ public abstract class BaseTestCase {
                         if (resultItem.getClz().equals(clz)) {
                             boolean isExist = false;
                             for (int i = 0; i < clzResultDataList.size(); i++) {
-                                if (clzResultDataList.get(i).getTestCaseName().equals(resultData.getTestCaseName())){
+                                if (clzResultDataList.get(i).getId().equals(resultData.getId())){
                                     isExist = true;
                                 }
                             }

@@ -44,7 +44,7 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
         viewBinding.rvType.setAdapter(new MyRecycleAdapter(getActivity(), items));
         String applicationName = onNameTitle();
         viewBinding.tvAppName.setTextSize(titleSize);
-        if (applicationName != null && !applicationName.equals("")) {
+        if (applicationName != null && !"".equals(applicationName)) {
             viewBinding.tvAppName.setText(applicationName);
         }
     }

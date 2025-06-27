@@ -4,6 +4,7 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -29,12 +30,14 @@ public class AutoTestTestItem extends BaseTestCase{
     }
 
     public void recordPass(@Nullable String message){
+        synchronized (resultData) { // 确保线程安全
+            resultData.setResult("测试通过");
+        }
         synchronized (lock) {
             isResultRecorded = true;
             lock.notify(); // 通知等待的线程
         }
-        postValue(Color.GREEN, "测试通过" + (message == null ? "" : message));
-        resultData.setResult("测试通过");
+        postValue(Color.GREEN, "测试通过" + (message == null ? "" : ("\n"  + message)));
     }
 
     /**
@@ -45,12 +48,14 @@ public class AutoTestTestItem extends BaseTestCase{
     }
 
     public void recordFail(@Nullable String message){
+        synchronized (resultData) {
+            resultData.setResult("测试失败");
+        }
         synchronized (lock) {
             isResultRecorded = true;
             lock.notify(); // 通知等待的线程
         }
-        postValue(Color.RED, "测试失败" + (message == null ? "" : message));
-        resultData.setResult("测试失败");
+        postValue(Color.RED, "测试失败" + (message == null ? "" : ("\n"  + message)));
     }
 
     /**
@@ -96,7 +101,7 @@ public class AutoTestTestItem extends BaseTestCase{
                         switch (setMode) {
                             case EMPTY_ADD://TestCase设置时，使用设置的；未设置时，否则使用setEnDes设置的
                                 if (resultData.getEnglishDescription() == null
-                                        || resultData.getEnglishDescription().equals("")) {
+                                        || "".equals(resultData.getEnglishDescription())) {
                                     resultData.setEnglishDescription(englishDescription);
                                 }
                                 break;
