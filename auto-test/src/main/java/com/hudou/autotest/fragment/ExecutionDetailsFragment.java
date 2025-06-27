@@ -20,7 +20,6 @@ import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.base.item.AutoTestTestItem;
-import com.hudou.autotest.customUI.dialog.DialogUtils;
 import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestExcutionDetailsFragmentBinding;
 import com.hudou.autotest.util.ReflectionUtils;
@@ -123,7 +122,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     }
 
     public void onBackPressedLongPress() {
-        DialogUtils.createNotifyOptionsDialog(getContext(), getString(R.string.pause_tes), new NotifyOptionDialogListener() {
+        Dialog.createNotifyOptionsDialog(getContext(), getString(R.string.pause_tes), new NotifyOptionDialogListener() {
             @Override
             public void onPositive() {
                 AutoTestTestItem.isPaused = true;

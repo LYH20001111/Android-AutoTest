@@ -17,7 +17,6 @@ import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.databinding.AutoTestExecutionFragmentBinding;
-import com.hudou.autotest.customUI.dialog.DialogUtils;
 import com.hudou.autotest.customUI.keyboard.NumberKeyBoardView;
 import com.hudou.autotest.listener.MyOnClickListener;
 import com.hudou.autotest.util.ReflectionUtils;
@@ -70,7 +69,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
                     }
                     if (testId >= testItem.testItemCasesNum(clz) || testId == INVALID_VALUE){
-                        DialogUtils.createNotifyDialog(getContext(), getString(R.string.please_input_correct_case_id), () -> getActivity().runOnUiThread(() -> viewBinding.tvCaseId.setText("")));
+                        Dialog.createNotifyDialog(getContext(), getString(R.string.please_input_correct_case_id), () -> getActivity().runOnUiThread(() -> viewBinding.tvCaseId.setText("")));
                     }else {
                         ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, OptionsFragment.Option.RUN_ONE_CASE, testId, INVALID_VALUE, INVALID_VALUE);
                         getActivity().runOnUiThread(() -> {
@@ -95,7 +94,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         viewBinding.btnBeginId.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                DialogUtils.createEditTextDialog(getContext(), R.string.input_begin_id_hint, true, message -> getActivity().runOnUiThread(() -> {
+                Dialog.createEditTextDialog(getContext(), R.string.input_begin_id_hint, true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         beginId = Integer.parseInt(message);
                     }catch (NumberFormatException ignored){
@@ -111,7 +110,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         viewBinding.btnEndId.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                DialogUtils.createEditTextDialog(getContext(), R.string.input_end_id_hint, true, message -> getActivity().runOnUiThread(() -> {
+                Dialog.createEditTextDialog(getContext(), R.string.input_end_id_hint, true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         endId = Integer.parseInt(message);
                     }catch (NumberFormatException ignored){
