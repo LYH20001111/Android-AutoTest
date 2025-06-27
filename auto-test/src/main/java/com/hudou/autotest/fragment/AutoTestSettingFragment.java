@@ -29,7 +29,6 @@ import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.EditCap;
 import com.hudou.autotest.constant.SettingFunction;
-import com.hudou.autotest.customUI.dialog.DialogUtils;
 import com.hudou.autotest.constant.ChildModel;
 import com.hudou.autotest.constant.GroupModel;
 import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
@@ -130,7 +129,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
             @Override
             public void dealClick(View v) {
-                DialogUtils.createSingleChoiceDialog(getActivity(), R.string.select_report_format_dialog_title, new String[]{".xlsx", ".txt"}, id -> {
+                Dialog.createSingleChoiceDialog(getActivity(), R.string.select_report_format_dialog_title, new String[]{".xlsx", ".txt"}, id -> {
                     if (id == 0){
 
                     }else {
@@ -208,7 +207,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                     Toast.makeText(getContext(), R.string.no_editting, Toast.LENGTH_SHORT).show();
                                     return true;
                                 }
-                                DialogUtils.createEditTextDialog(getContext(), getString(R.string.edit_report_path), false, message -> {
+                                Dialog.createEditTextDialog(getContext(), getString(R.string.edit_report_path), false, message -> {
                                     REPORT_PATH = message;
                                     TextView tvChildName = v.findViewById(R.id.child_name);
                                     getActivity().runOnUiThread(() -> {
@@ -221,7 +220,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 break;
                             case ReportChild.OUTPUT_XLSX_REPORT:
                                 if (PermissionUtil.checkReadWritePermission(getActivity())){
-                                    DialogUtils.outputDialog(getActivity(), onAddReportNamePrefix());
+                                    Dialog.outputDialog(getActivity(), onAddReportNamePrefix());
                                 }else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
@@ -229,10 +228,10 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                             case ReportChild.RECORDING_TESTING:
                                 break;
                             case ReportChild.VIEW_XLSX_FILE_NAME:
-                                DialogUtils.createNotifyDialog(getContext(), ReportOutput.excelPath);
+                                Dialog.createNotifyDialog(getContext(), ReportOutput.excelPath);
                                 break;
                             case ReportChild.CLEAN_RECORDS:
-                                DialogUtils.createNotifyOptionsDialog(getContext(), getString(R.string.clean_records_title), new NotifyOptionDialogListener() {
+                                Dialog.createNotifyOptionsDialog(getContext(), getString(R.string.clean_records_title), new NotifyOptionDialogListener() {
                                     @Override
                                     public void onPositive() {
                                         resultData = null;
@@ -257,7 +256,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                     Toast.makeText(getContext(), R.string.no_editting, Toast.LENGTH_SHORT).show();
                                     return true;
                                 }
-                                DialogUtils.createEditTextDialog(getContext(), getString(R.string.edit_files_path), false, message -> {
+                                Dialog.createEditTextDialog(getContext(), getString(R.string.edit_files_path), false, message -> {
                                     TESTFILES_PATH = message;
                                     TextView tvChildName = v.findViewById(R.id.child_name);
                                     getActivity().runOnUiThread(() -> {
@@ -271,7 +270,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                             case FilesChild.LOAD_FILES:
                                 if (PermissionUtil.checkReadWritePermission(getActivity())){
                                     if (fileDirList != null && !fileDirList.isEmpty()) {
-                                        DialogUtils.loadingFilesDialog(getActivity(), fileDirList, TESTFILES_PATH);
+                                        Dialog.loadingFilesDialog(getActivity(), fileDirList, TESTFILES_PATH);
                                     }
                                 }else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
@@ -293,7 +292,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         viewBinding.llPermissionSetting.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                DialogUtils.createMultiChoiceDialog(getContext(), R.string.permission_dialog_title, permission, new MultiChoiceDialogListener() {
+                Dialog.createMultiChoiceDialog(getContext(), R.string.permission_dialog_title, permission, new MultiChoiceDialogListener() {
                     @Override
                     public void onResult(ArrayList<Integer> choiceList) {
                         for(Integer index : choiceList){
