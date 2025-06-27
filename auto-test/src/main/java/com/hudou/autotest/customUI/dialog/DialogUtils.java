@@ -48,7 +48,8 @@ public class DialogUtils {
                         cv.open();
                         notifyDialog.dismiss();
                     })
-                    .setCancelable(false)
+                    .setCancelable(true)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             notifyDialog.show();
             Looper.loop();
@@ -73,7 +74,8 @@ public class DialogUtils {
                         notifyDialog.dismiss();
                         callback.onAction();
                     })
-                    .setCancelable(false)
+                    .setCancelable(true)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             notifyDialog.show();
             Looper.loop();
@@ -97,7 +99,8 @@ public class DialogUtils {
                         notifyDialog.dismiss();
                         callback.onNegative();
                     })
-                    .setCancelable(false)
+                    .setCancelable(true)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             notifyDialog.show();
             Looper.loop();
@@ -163,7 +166,8 @@ public class DialogUtils {
                         singleDialog.dismiss();
                         callback.onResult(-1);
                     })
-                    .setCancelable(false)
+                    .setCancelable(true)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             singleDialog.show();
             Looper.loop();
@@ -215,7 +219,8 @@ public class DialogUtils {
                         cv.open();
                         multiDialog.dismiss();
                     })
-                    .setCancelable(false)
+                    .setCancelable(true)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             multiDialog.show();
             Looper.loop();
@@ -265,7 +270,8 @@ public class DialogUtils {
                             e.printStackTrace();
                         }
                     })
-                    .setCancelable(false)
+                    .setCancelable(true)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             customSingleDialog.show();
             Looper.loop();
@@ -301,7 +307,8 @@ public class DialogUtils {
                         cv.open();
                         customSingleDialog.dismiss();
                     })
-                    .setCancelable(false)
+                    .setCancelable(true)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             customSingleDialog.show();
             Looper.loop();

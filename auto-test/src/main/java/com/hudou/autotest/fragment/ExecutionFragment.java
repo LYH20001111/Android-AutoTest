@@ -63,7 +63,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
             @Override
             public void onOK() {
-                if (!viewBinding.tvCaseId.getText().toString().equals("")) {
+                if (!"".equals(viewBinding.tvCaseId.getText().toString())) {
                     try {
                         testId = Integer.parseInt(viewBinding.tvCaseId.getText().toString());
                     }catch (NumberFormatException ignored){

@@ -112,7 +112,7 @@ public class FileUtil {
     private static boolean isFolder(Context context, String parentDir, String fileName) {
         AssetManager assetManager = context.getAssets();
         try {
-            String path = parentDir.equals("") ? fileName : parentDir + "/" + fileName;
+            String path = "".equals(parentDir) ? fileName : parentDir + "/" + fileName;
             String[] list = assetManager.list(path);
             return list != null;
         } catch (IOException e) {
