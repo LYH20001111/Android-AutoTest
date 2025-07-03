@@ -165,6 +165,8 @@ public class ExcelUtils {
 
                 int r = 1;
                 for (ResultItem item : resultItemList){
+                    // 对每个 ResultItem 的 resultDataList 按 id 排序
+                    item.getResultDataList().sort((o1, o2) -> o1.getId().compareTo(o2.getId()));
                     for (int i = 0; i < item.getResultDataList().size(); i++){
                         detailSheet.addCell(new Label(0, r, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));

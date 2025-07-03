@@ -134,12 +134,18 @@ public abstract class BaseTestCase {
                     for (ResultItem resultItem : resultItemList) {
                         if (resultItem.getClz().equals(clz)) {
                             boolean isExist = false;
+                            int index = -1;
                             for (int i = 0; i < clzResultDataList.size(); i++) {
                                 if (clzResultDataList.get(i).getId().equals(resultData.getId())){
                                     isExist = true;
+                                    index = i;
+                                    break;
                                 }
                             }
-                            if (!isExist){
+                            if (isExist){
+                                resultItem.getResultDataList().remove(index);// 删除当前匹配的元素
+                                resultItem.getResultDataList().add(index, resultData);// 添加新的 resultData
+                            }else {
                                 resultItem.getResultDataList().add(resultData);
                             }
                             resultItem.setEndTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));

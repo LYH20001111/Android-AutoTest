@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.InputType;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -14,8 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.StringRes;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.hudou.autotest.R;
+import com.hudou.autotest.adapter.TableAdapter;
+import com.hudou.autotest.constant.TableItem;
 import com.hudou.autotest.customUI.dialog.listener.CustomDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.EditDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
@@ -113,7 +120,7 @@ class Dialog {
         }
     }
 
-    public static void createNotifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback) {
+    public static void createNotifyOptionsDialog(final Context context, final CharSequence title, final NotifyOptionDialogListener callback) {
         final Handler handler = new Handler(Looper.getMainLooper());
         final AtomicBoolean dialogShown = new AtomicBoolean(false);
 
@@ -121,6 +128,7 @@ class Dialog {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
                     .setTitle(title)
+                    .setIcon(R.drawable.auto_test_warning)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         dialog.dismiss();
                         handler.post(callback::onPositive);
@@ -455,6 +463,30 @@ class Dialog {
                 }
             });
         }).start();
+    }
+
+    public static void createTableDialog(Context context, String title, List<TableItem> items) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.auto_test_dialog_table_layout, null);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+
+        TableAdapter adapter = new TableAdapter(items);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(adapter);
+
+        builder.setTitle(title)
+                .setView(view)
+                .setPositiveButton("确定", null)
+                .setCancelable(false);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        // 获取标题视图并设置居中(测试发现没有效果)
+//        TextView titleView = dialog.findViewById(android.R.id.title);
+//        if (titleView != null) {
+//            titleView.setGravity(Gravity.CENTER);
+//        }
     }
 
 
