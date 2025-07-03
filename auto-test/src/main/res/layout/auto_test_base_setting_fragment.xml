@@ -11,13 +11,13 @@
     <ScrollView
         android:id="@+id/sv_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:fillViewport="true"
-        android:fadeScrollbars="false"
-        android:scrollbarSize="10dp">
+        android:fadeScrollbars="true"
+        android:scrollbarSize="8dp">
 
         <LinearLayout
             android:id="@+id/ll_base_function"
@@ -132,7 +132,7 @@
                     android:background="@drawable/auto_test_ripple_effect"
                     android:orientation="vertical">
 
-                    <ExpandableListView
+                    <com.hudou.autotest.adapter.NonScrollExpandableListView
                         android:id="@+id/elv_report"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

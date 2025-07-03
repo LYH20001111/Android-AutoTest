@@ -7,6 +7,8 @@ import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_PART_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_ALL_CASES;
 
 import android.annotation.SuppressLint;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
@@ -23,6 +25,9 @@ import com.hudou.autotest.base.item.AutoTestTestItem;
 import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestExcutionDetailsFragmentBinding;
 import com.hudou.autotest.util.ReflectionUtils;
+import com.hudou.autotest.util.SpannableUtil;
+
+import java.util.Objects;
 
 @SuppressLint("SetTextI18n")
 public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetailsFragmentBinding> {
@@ -122,7 +127,9 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     }
 
     public void onBackPressedLongPress() {
-        Dialog.createNotifyOptionsDialog(getContext(), getString(R.string.pause_tes), new NotifyOptionDialogListener() {
+        Dialog.createNotifyOptionsDialog(getContext(),
+                SpannableUtil.setStringColor(requireContext(), getString(R.string.pause_tes), getString(R.string.pause_test_part_content), R.color.red),
+                new NotifyOptionDialogListener() {
             @Override
             public void onPositive() {
                 AutoTestTestItem.isPaused = true;

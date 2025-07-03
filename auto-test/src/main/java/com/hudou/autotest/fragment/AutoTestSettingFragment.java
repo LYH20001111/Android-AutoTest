@@ -28,9 +28,12 @@ import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.EditCap;
+import com.hudou.autotest.constant.ResultData;
+import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.SettingFunction;
 import com.hudou.autotest.constant.ChildModel;
 import com.hudou.autotest.constant.GroupModel;
+import com.hudou.autotest.constant.TableItem;
 import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestBaseSettingFragmentBinding;
@@ -145,10 +148,11 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     }
     private interface ReportChild{
         int REPORT_PATH = 0;
-        int OUTPUT_XLSX_REPORT = 1;
-        int RECORDING_TESTING = 2;
-        int VIEW_XLSX_FILE_NAME = 3;
-        int CLEAN_RECORDS = 4;
+        int RECORDING_TESTING = 1;
+        int RECORD_SUMMARY = 2;
+        int OUTPUT_XLSX_REPORT = 3;
+        int VIEW_XLSX_FILE_NAME = 4;
+        int CLEAN_RECORDS = 5;
     }
     private interface FilesChild{
         int FILES_PATH = 0;
@@ -165,8 +169,9 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                 new ArrayList<ArrayList<ChildModel>>() {{
                     add(new ArrayList<ChildModel>() {{
                         add(new ChildModel(android.R.drawable.ic_menu_edit,getResourceString(R.string.child_report_path) + REPORT_PATH, Color.GRAY));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_output_xlsx_report)));
                         add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_recording), Color.GRAY));
+                        add(new ChildModel(android.R.drawable.ic_menu_search,getResourceString(R.string.child_record_summary)));
+                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_output_xlsx_report)));
                         add(new ChildModel(android.R.drawable.ic_menu_view,getResourceString(R.string.child_view_report_name)));
                         add(new ChildModel(android.R.drawable.ic_menu_delete,getResourceString(R.string.child_clean_records), Color.RED));
                     }});
@@ -218,14 +223,21 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                     });
                                 });
                                 break;
+                            case ReportChild.RECORDING_TESTING:
+                                break;
+                            case ReportChild.RECORD_SUMMARY:
+                                List<TableItem> items = new ArrayList<>();
+                                for (ResultItem resultItem : resultItemList){
+                                    items.add(new TableItem(resultItem.getClz().getSimpleName(), countFail(resultItem.getResultDataList()), resultItem.getResultDataList().size()));
+                                }
+                                Dialog.createTableDialog(getContext(), getString(R.string.record_summary), items);
+                                break;
                             case ReportChild.OUTPUT_XLSX_REPORT:
                                 if (PermissionUtil.checkReadWritePermission(getActivity())){
                                     Dialog.outputDialog(getActivity(), onAddReportNamePrefix());
                                 }else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
-                                break;
-                            case ReportChild.RECORDING_TESTING:
                                 break;
                             case ReportChild.VIEW_XLSX_FILE_NAME:
                                 Dialog.createNotifyDialog(getContext(), ReportOutput.excelPath);
@@ -308,6 +320,16 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                 });
             }
         });
+    }
+
+    private static int countFail(List<ResultData> resultDataList){
+        int count = 0;
+        for(ResultData resultData : resultDataList){
+            if ("测试失败".equals(resultData.getResult())){
+                count++;
+            }
+        }
+        return count;
     }
 
     private void addFunctionLayouts(LinearLayout parent) {
