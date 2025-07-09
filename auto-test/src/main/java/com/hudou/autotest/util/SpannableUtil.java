@@ -17,7 +17,7 @@ public class SpannableUtil {
      * @param color 部分内容设置的颜色
      * @return SpannableString
      */
-    public static SpannableString setStringColor(Context context, @NonNull String content, @NonNull String partContent, int color){
+    public static SpannableString setSpan(Context context, @NonNull String content, @NonNull String partContent, int color){
         SpannableString spannableString = new SpannableString(content);
         int start = content.indexOf(partContent);
         int end = start + partContent.length();
