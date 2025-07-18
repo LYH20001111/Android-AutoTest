@@ -25,6 +25,7 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyExpandableListAdapter;
 import com.hudou.autotest.annotation.Function;
 import com.hudou.autotest.annotation.Navigation;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.EditCap;
@@ -248,6 +249,9 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                     public void onPositive() {
                                         resultData = null;
                                         resultItemList = new ArrayList<>();
+                                        new Thread(() -> {
+                                            AutoTestMainActivity.getDb().dao().clearAll();
+                                        }).start();
                                         Toast.makeText(getContext(), R.string.success, Toast.LENGTH_SHORT).show();
                                     }
 

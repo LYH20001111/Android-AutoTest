@@ -60,4 +60,8 @@ public class ResultItem {
                 ", resultDataList=" + resultDataList +
                 '}';
     }
+
+    public boolean isStartTimeSet() {
+        return isStartTimeSet;
+    }
 }
