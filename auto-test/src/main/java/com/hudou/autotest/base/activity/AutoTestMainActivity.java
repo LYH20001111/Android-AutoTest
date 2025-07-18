@@ -25,10 +25,14 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyViewPager;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.base.fragment.BaseFragment;
+import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ShowMessage;
+import com.hudou.autotest.database.db.AppDatabase;
+import com.hudou.autotest.database.entity.ResultDataEntity;
+import com.hudou.autotest.database.entity.ResultItemEntity;
 import com.hudou.autotest.fragment.ExecutionDetailsFragment;
 import com.hudou.autotest.fragment.ExecutionFragment;
 import com.hudou.autotest.fragment.HomeFragment;
@@ -41,6 +45,7 @@ import com.hudou.autotest.util.SynchronizedMutableLiveData;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,15 +60,59 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     public static ResultData resultData;
     private static Context mContext;
     public static FileOutputStream fos;
+    private static AppDatabase db;
 
     public static Context getContext(){
         return mContext;
+    }
+
+    public static AppDatabase getDb() {
+        return db;
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
+        db = AppDatabase.getInstance(mContext);
+        new Thread(() -> {
+            List<ResultItemEntity> items = AutoTestMainActivity.getDb().dao().getAllResultItems();
+            List<ResultItem> temp = new ArrayList<>();
+            for (ResultItemEntity ie : items) {
+                try {
+                    Class<? extends BaseTestCase> clz =
+                            (Class<? extends BaseTestCase>) Class.forName(ie.className);
+                    List<ResultData> rdList = new ArrayList<>();
+                    for (ResultDataEntity de : AutoTestMainActivity.getDb().dao()
+                            .getDataForItem(ie.className)) {
+                        ResultData d = new ResultData();
+                        d.setId(de.caseName);
+                        d.setTestCaseName(de.methodName);
+                        d.setResult(de.result);
+                        d.setChineseDescription(de.chineseDescription);
+                        d.setEnglishDescription(de.englishDescription);
+                        d.setDetail(de.detail);
+                        rdList.add(d);
+                    }
+                    ResultItem ri = new ResultItem(clz, rdList);
+                    ri.setStartTime(ie.startTime);
+                    ri.setEndTime(ie.endTime);
+                    // 把标志位也同步
+                    try {
+                        Field f = ResultItem.class.getDeclaredField("isStartTimeSet");
+                        f.setAccessible(true);
+                        f.setBoolean(ri, ie.isStartTimeSet);
+                    } catch (Exception ignore) {}
+                    temp.add(ri);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            // 写回主内存
+            resultItemList.clear();
+            resultItemList.addAll(temp);
+        }).start();
+
         SharedPreferencesUtil.init(getApplicationContext());
         setContentView(R.layout.auto_test_activity_main);
 

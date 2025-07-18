@@ -5,12 +5,15 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.ShowMessage;
+import com.hudou.autotest.database.entity.ResultDataEntity;
+import com.hudou.autotest.database.entity.ResultItemEntity;
 import com.hudou.autotest.report.excel.ExcelUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
@@ -155,6 +158,34 @@ public abstract class BaseTestCase {
                     }
 
                     onCaseEnd(method);//这里是案例最终结束
+
+                    new Thread(() -> {
+                        for (ResultItem ri : resultItemList) {
+                            // Upsert ResultItem
+                            ResultItemEntity itemE = new ResultItemEntity();
+                            itemE.className     = ri.getClz().getName();
+                            itemE.startTime     = ri.getStartTime();
+                            itemE.endTime       = ri.getEndTime();
+                            itemE.isStartTimeSet = ri.isStartTimeSet();
+                            AutoTestMainActivity.getDb().dao().upsertResultItem(itemE);
+
+                            // Upsert ResultData
+                            List<ResultDataEntity> dataEs = new ArrayList<>();
+                            for (ResultData rd : ri.getResultDataList()) {
+                                ResultDataEntity de = new ResultDataEntity();
+                                de.className    = ri.getClz().getName();
+                                de.caseName     = rd.getId();
+                                de.methodName   = rd.getTestCaseName();
+                                de.result       = rd.getResult();
+                                de.chineseDescription = rd.getChineseDescription();
+                                de.englishDescription = rd.getEnglishDescription();
+                                de.detail       = rd.getDetail();
+                                dataEs.add(de);
+                            }
+                            AutoTestMainActivity.getDb().dao().upsertResultDataList(dataEs);
+                        }
+                    }).start();
+
 
                 } catch (Exception e) {
                     e.printStackTrace();

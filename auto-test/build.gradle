@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 49
-def appVersionName = '1.0.49'
+def appVersionCode = 50
+def appVersionName = '1.0.50'
 
 
 android {
@@ -98,6 +98,11 @@ dependencies {
 
     api 'net.sourceforge.jexcelapi:jxl:2.6.12' //将该依赖的jar导入到libs，和项目一并打包为aar
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    def room_version = "2.5.2"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "com.google.code.gson:gson:2.10.1"  // 仅用来把 Class 存成 String
 
 
 }
