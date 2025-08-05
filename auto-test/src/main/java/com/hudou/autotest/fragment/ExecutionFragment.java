@@ -17,7 +17,7 @@ import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.databinding.AutoTestExecutionFragmentBinding;
-import com.hudou.autotest.customUI.keyboard.NumberKeyBoardView;
+import com.hudou.autotest.ui.keyboard.NumberKeyBoardView;
 import com.hudou.autotest.listener.MyOnClickListener;
 import com.hudou.autotest.util.ReflectionUtils;
 

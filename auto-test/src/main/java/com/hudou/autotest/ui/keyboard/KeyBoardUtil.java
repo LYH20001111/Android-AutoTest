@@ -1,4 +1,4 @@
-package com.hudou.autotest.customUI.keyboard;
+package com.hudou.autotest.ui.keyboard;
 
 import android.app.Activity;
 import android.content.Context;

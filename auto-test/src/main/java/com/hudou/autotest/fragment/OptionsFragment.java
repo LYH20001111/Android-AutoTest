@@ -9,7 +9,7 @@ import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.databinding.AutoTestOptionsFragmentBinding;
-import com.hudou.autotest.customUI.keyboard.NumberKeyBoardView;
+import com.hudou.autotest.ui.keyboard.NumberKeyBoardView;
 import com.hudou.autotest.util.ReflectionUtils;
 
 public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding> {
