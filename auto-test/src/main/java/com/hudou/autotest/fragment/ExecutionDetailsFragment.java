@@ -20,7 +20,7 @@ import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.base.item.AutoTestTestItem;
-import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
+import com.hudou.autotest.ui.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestExcutionDetailsFragmentBinding;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SpannableUtil;

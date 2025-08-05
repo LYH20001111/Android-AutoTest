@@ -1,4 +1,4 @@
-package com.hudou.autotest.customUI.dialog.listener;
+package com.hudou.autotest.ui.dialog.listener;
 
 import java.util.ArrayList;
 

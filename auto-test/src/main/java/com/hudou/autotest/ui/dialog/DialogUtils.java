@@ -1,4 +1,4 @@
-package com.hudou.autotest.customUI.dialog;
+package com.hudou.autotest.ui.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -10,17 +10,18 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.StringRes;
 
 import com.hudou.autotest.R;
-import com.hudou.autotest.customUI.dialog.listener.NotifyDialogListener;
-import com.hudou.autotest.customUI.dialog.listener.NotifyOptionDialogListener;
-import com.hudou.autotest.customUI.dialog.listener.SingleChoiceDialogListener;
-import com.hudou.autotest.customUI.dialog.listener.CustomDialogListener;
-import com.hudou.autotest.customUI.dialog.listener.EditDialogListener;
-import com.hudou.autotest.customUI.dialog.listener.MultiChoiceDialogListener;
-import com.hudou.autotest.customUI.dialog.listener.NewCustomDialogListener;
+import com.hudou.autotest.ui.dialog.listener.NotifyDialogListener;
+import com.hudou.autotest.ui.dialog.listener.NotifyOptionDialogListener;
+import com.hudou.autotest.ui.dialog.listener.SingleChoiceDialogListener;
+import com.hudou.autotest.ui.dialog.listener.CustomDialogListener;
+import com.hudou.autotest.ui.dialog.listener.EditDialogListener;
+import com.hudou.autotest.ui.dialog.listener.MultiChoiceDialogListener;
+import com.hudou.autotest.ui.dialog.listener.NewCustomDialogListener;
 
 import java.util.ArrayList;
 
@@ -33,8 +34,13 @@ public class DialogUtils {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
+            // 创建自定义标题视图
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View customTitleView = inflater.inflate(R.layout.auto_test_custom_dialog_title, null);
+            TextView titleTextView = customTitleView.findViewById(R.id.dialog_title);
+            titleTextView.setText(title);
             notifyDialog = new AlertDialog.Builder(context)
-                    .setTitle(title)
+                    .setCustomTitle(customTitleView)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         cv.open();
@@ -58,8 +64,13 @@ public class DialogUtils {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
+            // 创建自定义标题视图
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View customTitleView = inflater.inflate(R.layout.auto_test_custom_dialog_title, null);
+            TextView titleTextView = customTitleView.findViewById(R.id.dialog_title);
+            titleTextView.setText(title);
             notifyDialog = new AlertDialog.Builder(context)
-                    .setTitle(title)
+                    .setCustomTitle(customTitleView)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onAction();
@@ -78,8 +89,13 @@ public class DialogUtils {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
+            // 创建自定义标题视图
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View customTitleView = inflater.inflate(R.layout.auto_test_custom_dialog_title, null);
+            TextView titleTextView = customTitleView.findViewById(R.id.dialog_title);
+            titleTextView.setText(title);
             notifyDialog = new AlertDialog.Builder(context)
-                    .setTitle(title)
+                    .setCustomTitle(customTitleView)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onPositive();
