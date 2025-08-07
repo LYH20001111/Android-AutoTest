@@ -30,7 +30,7 @@ public class DialogUtils {
     private static ArrayList<Integer> choiceList = new ArrayList<>();
     private static Dialog notifyDialog, editTextDialog, singleDialog, customSingleDialog, multiDialog;
 
-    public static void createNotifyDialog(final Context context, final String title){
+    public static void notifyDialog(final Context context, final String title){
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
@@ -60,7 +60,7 @@ public class DialogUtils {
      * @param context
      * @param title 对话框标题
      */
-    public static void createNotifyDialog(final Context context, final String title, final NotifyDialogListener callback){
+    public static void notifyDialog(final Context context, final String title, final NotifyDialogListener callback){
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
@@ -85,7 +85,7 @@ public class DialogUtils {
         cv.block();
     }
 
-    public static void createNotifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback){
+    public static void notifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback){
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
@@ -115,32 +115,40 @@ public class DialogUtils {
         cv.block();
     }
 
-    public static void createEditTextDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback){
-        createEditTextDialog(context, context.getString(hint, ""), onlyNumber, callback);
+    public static void editDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback){
+        editDialog(context, context.getString(hint, ""), onlyNumber, callback);
     }
 
-    public static void createEditTextDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
+    public static void editDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
+        ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
-            final EditText editText = new EditText(context);
+            // 创建自定义布局
+            View dialogView = LayoutInflater.from(context).inflate(R.layout.auto_test_dialog_edit_text, null);
+            EditText editText = dialogView.findViewById(R.id.edit_text);
+
+            // 设置输入类型
             if (onlyNumber) {
                 editText.setInputType(InputType.TYPE_CLASS_NUMBER);
             }
             editText.setHint(hint);
-            editText.setBackgroundResource(R.drawable.auto_test_border_input_box);
             editTextDialog = new AlertDialog.Builder(context)
-                    .setView(editText)
+                    .setView(dialogView)
                     .setPositiveButton(R.string.sure, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             callback.onResult(editText.getText().toString());
                             editTextDialog.dismiss();
+                            cv.open();
                         }
                     })
+                    .setCancelable(false)
+                    .setOnCancelListener(dialog -> cv.open())
                     .create();
             editTextDialog.show();
             Looper.loop();
         }).start();
+        cv.block();
     }
 
     /**
@@ -151,7 +159,7 @@ public class DialogUtils {
      * @param items    选项
      * @param callback 选择回调
      */
-    public static void createSingleChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final SingleChoiceDialogListener callback) {
+    public static void singleChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final SingleChoiceDialogListener callback) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             if (items == null || items.length < 1) {
@@ -190,7 +198,7 @@ public class DialogUtils {
      * @param items 选项
      * @param callback
      */
-    public static void createMultiChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final MultiChoiceDialogListener callback) {
+    public static void multiChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final MultiChoiceDialogListener callback) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             if (items == null || items.length < 1) {
@@ -244,7 +252,7 @@ public class DialogUtils {
      * @param layoutId 布局id
      * @param callback 选择回调
      */
-    public static void createCustomDialog(final Context context, @StringRes int titleId, final String[] items, final int layoutId, final CustomDialogListener callback) {
+    public static void customDialog(final Context context, @StringRes int titleId, final String[] items, final int layoutId, final CustomDialogListener callback) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             yourChoice = 0;
@@ -287,7 +295,7 @@ public class DialogUtils {
     }
 
 
-    public static void createCustomDialog(final Context context, final int title, final String[] items, final int layoutId, final NewCustomDialogListener callback) {
+    public static void customDialog(final Context context, final int title, final String[] items, final int layoutId, final NewCustomDialogListener callback) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             yourChoice = 0;

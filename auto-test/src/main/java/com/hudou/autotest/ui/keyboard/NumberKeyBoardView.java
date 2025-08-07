@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 
 import com.hudou.autotest.R;
@@ -23,7 +24,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
     private static final int KEYCODE_EMPTY = -10;
     private int mDeleteWidth;
     private int mDeleteHeight;
-    private int mDeleteBackgroundColor;
+    private Drawable mDeleteBackgroundColor;
     private Drawable mDeleteDrawable;
     private Rect mDeleteDrawRect;
 
@@ -48,8 +49,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NumberKeyboardView,
                 defStyleAttr, 0);
         mDeleteDrawable = a.getDrawable(R.styleable.NumberKeyboardView_xnkv_deleteDrawable);
-        mDeleteBackgroundColor = a.getColor(
-                R.styleable.NumberKeyboardView_xnkv_deleteBackgroundColor, Color.TRANSPARENT);
+        mDeleteBackgroundColor = a.getDrawable(R.styleable.NumberKeyboardView_xnkv_deleteBackgroundColor);
         mDeleteWidth = a.getDimensionPixelOffset(R.styleable.NumberKeyboardView_xnkv_deleteWidth,
                 -1);
         mDeleteHeight = a.getDimensionPixelOffset(R.styleable.NumberKeyboardView_xnkv_deleteHeight,
@@ -87,10 +87,10 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
      * Draw the background of the keys
      * @param key
      * @param canvas
-     * @param color
+     * @param drawable
      */
-    private void drawKeyBackground(Keyboard.Key key, Canvas canvas, int color) {
-        ColorDrawable drawable = new ColorDrawable(color);
+    private void drawKeyBackground(Keyboard.Key key, Canvas canvas, Drawable drawable) {
+//        ColorDrawable drawable = new ColorDrawable(color);
         drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
         drawable.draw(canvas);
     }
@@ -206,6 +206,49 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
             }
             setKeyboard(keyboard);
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+
+        // 获取键盘的所有按键
+        Keyboard keyboard = getKeyboard();
+        if (keyboard != null) {
+            List<Keyboard.Key> keys = keyboard.getKeys();
+            for (Keyboard.Key key : keys) {
+                // 检查触摸点是否在按键的边界内
+                if (x >= key.x && x <= key.x + key.width && y >= key.y && y <= key.y + key.height) {
+                    // 只处理删除按钮
+                    if (key.codes[0] == Keyboard.KEYCODE_DELETE) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            // 按键按下
+                            mDeleteBackgroundColor.setState(new int[]{android.R.attr.state_pressed});
+                            invalidate(); // 重新绘制
+//                            // 调用删除回调
+//                            if (mOnKeyboardListener != null) {
+//                                mOnKeyboardListener.onDeleteKeyEvent();
+//                            }
+                            return true; // 处理了事件
+                        } else if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+                            // 按键释放
+                            mDeleteBackgroundColor.setState(new int[]{});
+                            invalidate(); // 重新绘制
+                            // 调用删除回调
+                            if (mOnKeyboardListener != null) {
+                                mOnKeyboardListener.onDeleteKeyEvent();
+                            }
+                            return true; // 处理了事件
+                        }
+                    }
+                    // 如果是其他按钮，直接返回 false，让父类处理
+                    return super.onTouchEvent(event);
+                }
+            }
+        }
+        // 如果触摸点不在任何按键上，或者没有找到按键，让父类处理
+        return super.onTouchEvent(event);
     }
 
     @Override

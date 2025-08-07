@@ -123,7 +123,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     }
 
     public void onBackPressedLongPress() {
-        Dialog.createNotifyOptionsDialog(getContext(),
+        Dialog.notifyOptionsDialog(getContext(),
                 SpannableUtil.setSpan(requireContext(), getString(R.string.pause_tes), getString(R.string.pause_test_part_content), R.color.red),
                 new NotifyOptionDialogListener() {
             @Override

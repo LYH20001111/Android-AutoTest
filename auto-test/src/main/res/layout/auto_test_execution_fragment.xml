@@ -141,8 +141,8 @@
             android:shadowColor="@android:color/transparent"
             android:shadowRadius="0"
             android:visibility="visible"
-            app:xnkv_deleteBackgroundColor="@drawable/auto_test_selector_key_background"
-            app:xnkv_deleteDrawable="@android:drawable/ic_input_delete"
+            app:xnkv_deleteBackgroundColor="@drawable/auto_test_selector_delete_key_background"
+            app:xnkv_deleteDrawable="@drawable/auto_test_backspace"
             app:xnkv_deleteHeight="30dp"
             app:xnkv_deleteWidth="30dp" />
     </LinearLayout>
