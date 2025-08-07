@@ -69,7 +69,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
                     }
                     if (testId >= testItem.testItemCasesNum(clz) || testId == INVALID_VALUE){
-                        Dialog.createNotifyDialog(getContext(), getString(R.string.please_input_correct_case_id), () -> getActivity().runOnUiThread(() -> viewBinding.tvCaseId.setText("")));
+                        Dialog.notifyDialog(getContext(), getString(R.string.please_input_correct_case_id), () -> getActivity().runOnUiThread(() -> viewBinding.tvCaseId.setText("")));
                     }else {
                         ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, OptionsFragment.Option.RUN_ONE_CASE, testId, INVALID_VALUE, INVALID_VALUE);
                         getActivity().runOnUiThread(() -> {
@@ -94,7 +94,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         viewBinding.btnBeginId.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                Dialog.createEditTextDialog(getContext(), R.string.input_begin_id_hint, true, message -> getActivity().runOnUiThread(() -> {
+                Dialog.editDialog(getContext(), R.string.input_begin_id_hint, true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         beginId = Integer.parseInt(message);
                     }catch (NumberFormatException ignored){
@@ -110,7 +110,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         viewBinding.btnEndId.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                Dialog.createEditTextDialog(getContext(), R.string.input_end_id_hint, true, message -> getActivity().runOnUiThread(() -> {
+                Dialog.editDialog(getContext(), R.string.input_end_id_hint, true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         endId = Integer.parseInt(message);
                     }catch (NumberFormatException ignored){
