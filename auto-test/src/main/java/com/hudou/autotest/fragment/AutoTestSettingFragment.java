@@ -25,6 +25,7 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyExpandableListAdapter;
 import com.hudou.autotest.annotation.Function;
 import com.hudou.autotest.annotation.Navigation;
+import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.Config;
@@ -49,6 +50,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @Navigation(name = "设置")
@@ -337,7 +339,9 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     }
 
     private void addFunctionLayouts(LinearLayout parent) {
-        Method[] methods = getClass().getDeclaredMethods();
+        Method[] methods = Arrays.stream(getClass().getDeclaredMethods())
+                .sorted(Comparator.comparing(Method::getName))
+                .toArray(Method[]::new);
 
         for (Method method : methods) {
             if (method.isAnnotationPresent(Function.class)) {
