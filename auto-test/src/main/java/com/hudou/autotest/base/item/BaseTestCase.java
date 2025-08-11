@@ -98,29 +98,28 @@ public abstract class BaseTestCase {
                         postValue(Color.GRAY, "\n" + "案例提示：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip));
                     }
                     try {
-                        // 执行前置方法
-                        onCaseStart(method);
+                        TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
+                        boolean isAbandon = testCaseAnnotation != null && testCaseAnnotation.abandon();
+                        if (!isAbandon) {
+                            // 执行前置方法
+                            onCaseStart(method);
 
-                        // 执行测试方法
-                        method.setAccessible(true); // 允许访问私有方法
-                        method.invoke(this); // 调用方法
+                            // 执行测试方法
+                            method.setAccessible(true); // 允许访问私有方法
+                            method.invoke(this); // 调用方法
 
-//                        // 等待测试结果
-//                        try {
-//                            waitForResult(method);
-//                        } catch (InterruptedException e) {
-//                            throw new RuntimeException(e);
-//                        }
+                            // 执行后置方法
+                            onCaseFinish(method);
 
-
-                        // 执行后置方法
-                        onCaseFinish(method);
-
-                        // 等待测试结果
-                        try {
-                            waitForResult(method);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
+                            // 等待测试结果
+                            try {
+                                waitForResult(method);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }else {
+                            resultData.setResult("测试通过");
+                            postValue(Color.MAGENTA, "\n！ 废弃案例 ！\n");
                         }
 
                     }catch (Exception e){
