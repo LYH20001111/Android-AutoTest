@@ -11,10 +11,12 @@ public @interface TestCase {
     String name();
     String enDes() default "";
     String tip() default "";
+    boolean abandon() default false;
 
     interface Members {
         String name = "name";
         String enDes = "enDes";
         String tip = "tip";
+        String abandon = "abandon";
     }
 }
