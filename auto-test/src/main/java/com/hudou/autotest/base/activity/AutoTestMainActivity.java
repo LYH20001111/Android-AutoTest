@@ -38,6 +38,7 @@ import com.hudou.autotest.fragment.ExecutionFragment;
 import com.hudou.autotest.fragment.HomeFragment;
 import com.hudou.autotest.adapter.MyPagerAdapter;
 import com.hudou.autotest.fragment.OptionsFragment;
+import com.hudou.autotest.util.ATLoggerUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 import com.hudou.autotest.util.SynchronizedMutableLiveData;
@@ -48,6 +49,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class AutoTestMainActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
@@ -56,7 +58,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     public static final ArrayList<String> pageTitlesList = new ArrayList<>();
     private static boolean isFirst = true;
     private static List<Fragment> finalFragmentList;
-    public static List<ResultItem> resultItemList = new ArrayList<>();
+    public static CopyOnWriteArrayList<ResultItem> resultItemList = new CopyOnWriteArrayList<>();
     public static ResultData resultData;
     private static Context mContext;
     public static FileOutputStream fos;
@@ -74,6 +76,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
+        ATLoggerUtils.configPrint(true);
         db = AppDatabase.getInstance(mContext);
         new Thread(() -> {
             List<ResultItemEntity> items = AutoTestMainActivity.getDb().dao().getAllResultItems();
@@ -82,7 +85,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
                 try {
                     Class<? extends BaseTestCase> clz =
                             (Class<? extends BaseTestCase>) Class.forName(ie.className);
-                    List<ResultData> rdList = new ArrayList<>();
+                    CopyOnWriteArrayList<ResultData> rdList = new CopyOnWriteArrayList<>();
                     for (ResultDataEntity de : AutoTestMainActivity.getDb().dao()
                             .getDataForItem(ie.className)) {
                         ResultData d = new ResultData();

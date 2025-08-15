@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.ConditionVariable;
 import android.os.Looper;
 import android.text.InputType;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -96,6 +97,42 @@ public class DialogUtils {
             titleTextView.setText(title);
             notifyDialog = new AlertDialog.Builder(context)
                     .setCustomTitle(customTitleView)
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        notifyDialog.dismiss();
+                        callback.onPositive();
+                        cv.open();
+                    })
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                        notifyDialog.dismiss();
+                        callback.onNegative();
+                        cv.open();
+                    })
+                    .setCancelable(false)
+                    .setOnCancelListener(dialog -> cv.open())
+                    .create();
+            notifyDialog.show();
+            Looper.loop();
+        }).start();
+        cv.block();
+    }
+
+    public static void messageOptionsDialog(final Context context, final String title, final String message,
+                                            final int size, final NotifyOptionDialogListener callback) {
+        ConditionVariable cv = new ConditionVariable();
+        new Thread(() -> {
+            Looper.prepare();
+            // 创建一个可滚动的 TextView
+            TextView textView = new TextView(context);
+            textView.setText(message);
+            textView.setPadding(20, 20, 20, 20); // 设置内边距
+            textView.setMovementMethod(ScrollingMovementMethod.getInstance()); // 启用滚动
+            textView.setVerticalScrollBarEnabled(true); // 启用垂直滚动条
+            textView.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET); // 设置滚动条样式
+            textView.setTextSize(size);
+
+            notifyDialog = new AlertDialog.Builder(context)
+                    .setTitle(title)
+                    .setView(textView) // 使用自定义的 TextView
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onPositive();
