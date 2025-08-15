@@ -52,6 +52,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Navigation(name = "设置")
 public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFragmentBinding> implements SettingInterface {
@@ -250,7 +251,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                     @Override
                                     public void onPositive() {
                                         resultData = null;
-                                        resultItemList = new ArrayList<>();
+                                        resultItemList = new CopyOnWriteArrayList<>();
                                         new Thread(() -> {
                                             AutoTestMainActivity.getDb().dao().clearAll();
                                         }).start();

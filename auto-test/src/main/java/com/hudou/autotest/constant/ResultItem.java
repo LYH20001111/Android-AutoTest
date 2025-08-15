@@ -1,18 +1,17 @@
 package com.hudou.autotest.constant;
 
-import com.hudou.autotest.base.item.AutoTestTestItem;
 import com.hudou.autotest.base.item.BaseTestCase;
 
-import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ResultItem {
     private Class<? extends BaseTestCase> clz;
-    private List<ResultData> resultDataList;
+    private CopyOnWriteArrayList<ResultData> resultDataList;
     private String startTime;
     private String endTime;
     private boolean isStartTimeSet = false; // 标志变量，记录是否已经设置了 startTime
 
-    public ResultItem(Class<? extends BaseTestCase> clz, List<ResultData> resultDataList) {
+    public ResultItem(Class<? extends BaseTestCase> clz, CopyOnWriteArrayList<ResultData> resultDataList) {
         this.clz = clz;
         this.resultDataList = resultDataList;
     }
@@ -25,11 +24,11 @@ public class ResultItem {
         this.clz = clz;
     }
 
-    public List<ResultData> getResultDataList() {
+    public CopyOnWriteArrayList<ResultData> getResultDataList() {
         return resultDataList;
     }
 
-    public void setResultDataList(List<ResultData> resultDataList) {
+    public void setResultDataList(CopyOnWriteArrayList<ResultData> resultDataList) {
         this.resultDataList = resultDataList;
     }
 
@@ -41,6 +40,10 @@ public class ResultItem {
         if (!isStartTimeSet) { // 如果还没有设置过 startTime
             this.startTime = startTime;
             isStartTimeSet = true; // 标记为已设置
+        }
+        if (this.startTime == null){
+            this.startTime = startTime;
+            isStartTimeSet = true;
         }
         // 如果已经设置过 startTime，则忽略后续调用
     }

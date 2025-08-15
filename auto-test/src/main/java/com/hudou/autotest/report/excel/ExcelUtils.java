@@ -2,12 +2,11 @@ package com.hudou.autotest.report.excel;
 
 import android.content.Context;
 import android.os.Environment;
-import android.util.Log;
-
 
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
+import com.hudou.autotest.util.ATLoggerUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -148,6 +147,7 @@ public class ExcelUtils {
                 long totalSize = 0;
                 long totalTime = 0;
                 for (ResultItem item : resultItemList){
+                    ATLoggerUtils.d("item = " + item.getClz().getName());
                     summarySheet.addCell(new Label(0, row, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                     summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
                     summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));

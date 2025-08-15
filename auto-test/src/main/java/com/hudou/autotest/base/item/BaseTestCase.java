@@ -15,6 +15,7 @@ import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.database.entity.ResultDataEntity;
 import com.hudou.autotest.database.entity.ResultItemEntity;
 import com.hudou.autotest.report.excel.ExcelUtils;
+import com.hudou.autotest.util.ATLoggerUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.IOException;
@@ -25,6 +26,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -75,18 +77,21 @@ public abstract class BaseTestCase {
                     }
                     resultData = new ResultData();
                     if ((resultItemList != null) && resultItemList.isEmpty()){
-                        resultItemList.add(new ResultItem(clz, new ArrayList<>()));
+                        ResultItem item = new ResultItem(clz, new CopyOnWriteArrayList<>());
+                        item.setStartTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
+                        resultItemList.add(item);
                     }
                     boolean exist = false;
                     for (ResultItem resultItem : resultItemList) {
                         if (resultItem.getClz().equals(clz)) {
-                            resultItem.setStartTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
                             exist = true;
                             break;
                         }
                     }
                     if (!exist){
-                        resultItemList.add(new ResultItem(clz, new ArrayList<>()));
+                        ResultItem item = new ResultItem(clz, new CopyOnWriteArrayList<>());
+                        item.setStartTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
+                        resultItemList.add(item);
                     }
                     resultData.setId(method.getName());
                     resultData.setTestCaseName(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name));
@@ -129,9 +134,9 @@ public abstract class BaseTestCase {
                     }
 
                     //Add storage start
-                    List<ResultData> clzResultDataList = getResultDataListForClass(clz);
+                    CopyOnWriteArrayList<ResultData> clzResultDataList = getResultDataListForClass(clz);
                     if (clzResultDataList == null){
-                        clzResultDataList = new ArrayList<>();
+                        clzResultDataList = new CopyOnWriteArrayList<>();
                     }
                     for (ResultItem resultItem : resultItemList) {
                         if (resultItem.getClz().equals(clz)) {
@@ -169,7 +174,7 @@ public abstract class BaseTestCase {
                             AutoTestMainActivity.getDb().dao().upsertResultItem(itemE);
 
                             // Upsert ResultData
-                            List<ResultDataEntity> dataEs = new ArrayList<>();
+                            CopyOnWriteArrayList<ResultDataEntity> dataEs = new CopyOnWriteArrayList<>();
                             for (ResultData rd : ri.getResultDataList()) {
                                 ResultDataEntity de = new ResultDataEntity();
                                 de.className    = ri.getClz().getName();
@@ -257,7 +262,7 @@ public abstract class BaseTestCase {
         }
     }
 
-    private List<ResultData> getResultDataListForClass(Class<? extends BaseTestCase> clz) {
+    private CopyOnWriteArrayList<ResultData> getResultDataListForClass(Class<? extends BaseTestCase> clz) {
         for (ResultItem resultItem : resultItemList) {
             if (resultItem.getClz().equals(clz)) {
                 return resultItem.getResultDataList();
