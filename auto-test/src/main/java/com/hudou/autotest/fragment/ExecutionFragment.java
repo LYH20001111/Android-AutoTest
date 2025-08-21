@@ -153,6 +153,13 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                break;
+            case OptionsFragment.Option.VIEW_ABANDON_CASES:
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.llLine2.setVisibility(View.GONE);
+                viewBinding.viewKeyboard.setVisibility(View.GONE);
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.GRAY, testItem.viewAbandonCaseDetails(clz)));
+                break;
             default:
                 break;
         }
