@@ -231,11 +231,41 @@ public abstract class BaseTestCase {
         return details.toString();
     }
 
+    public String viewAbandonCaseDetails(Class<? extends BaseTestCase> clz){
+        StringBuilder details = new StringBuilder();
+        Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
+                .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
+                .toArray(Method[]::new);
+
+        for (int i = 0; i < testCaseMethods.length; i++) {
+            Method method = testCaseMethods[i];
+            if (method.isAnnotationPresent(TestCase.class)) {
+                TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
+                boolean isAbandon = testCaseAnnotation != null && testCaseAnnotation.abandon();
+                if (isAbandon) {
+                    details = details.append(i).append(" : ").append(testCaseAnnotation.name()).append("\n");
+                }
+            }
+        }
+        return details.toString();
+    }
+
     public int testItemCasesNum(Class<? extends BaseTestCase> clz){
         return Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
                 .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new).length;
+    }
+
+    public int testItemAbandonCasesNum(Class<? extends BaseTestCase> clz){
+        Method[] methods = Arrays.stream(clz.getDeclaredMethods())
+                .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
+                .toArray(Method[]::new);
+        return (int) Arrays.stream(methods)
+                .filter(method -> method.getAnnotation(TestCase.class).abandon())
+                .count();
     }
 
 

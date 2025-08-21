@@ -2,6 +2,8 @@ package com.hudou.autotest.fragment;
 
 import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
+import android.annotation.SuppressLint;
+
 import androidx.fragment.app.FragmentManager;
 
 import com.hudou.autotest.R;
@@ -27,18 +29,22 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
         String RUN_ONE_CASE = "2";
         String RUN_PART_CASES = "3";
         String VIEW_ALL_CASES = "4";
+        String VIEW_ABANDON_CASES = "5";
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onInitData() {
         viewBinding.tvOptions.setText(String.format("当前测试项 ： %s" +
-                "\n" +
-                "\n " +
-                "1. 运行所有案例 \n " +
-                "2. 运行某个案例 \n " +
-                "3. 运行部分连续案例 \n " +
-                "4. 查看所有案例详情",
-                ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name)));
+                        "\n" +
+                        "\n " +
+                        "1. 运行所有案例 \n " +
+                        "2. 运行某个案例 \n " +
+                        "3. 运行部分连续案例 \n " +
+                        "4. 查看所有案例详情 \n " +
+                        "5. 查看废弃案例详情(%d)",
+                ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name),
+                testItem.testItemAbandonCasesNum(clz)));
     }
 
     @Override
@@ -62,6 +68,7 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
                     case Option.RUN_ONE_CASE:
                     case Option.RUN_PART_CASES:
                     case Option.VIEW_ALL_CASES:
+                    case Option.VIEW_ABANDON_CASES:
                         ExecutionFragment executionFragment = new ExecutionFragment(clz, testItem, text);
                         getActivity().runOnUiThread(() -> {
                             FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
