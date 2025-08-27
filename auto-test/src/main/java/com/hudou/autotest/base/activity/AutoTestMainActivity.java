@@ -202,6 +202,14 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         return mShowMessage;
     }
 
+    public static void recordMessage(int color, String message) throws InterruptedException, IOException {
+        getRecorder().synchronizedPostValue(new ShowMessage(color, message));
+        if (SharedPreferencesUtil.get(SharedPreferencesUtil.DEBUG_MODE, true)) {
+            resultData.appendDetail("\n" + message);
+            fos.write((message + "\n").getBytes());
+        }
+    }
+
     private List<Fragment> getFragments(){
         return finalFragmentList;
     }

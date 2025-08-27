@@ -177,7 +177,13 @@ public class ExcelUtils {
                         }
                         detailSheet.addCell(new Label(3, r, item.getResultDataList().get(i).getTestCaseName(), contentFormat));
                         detailSheet.addCell(new Label(4, r, item.getResultDataList().get(i).getEnglishDescription(), contentFormat));
-                        detailSheet.addCell(new Label(5, r, item.getResultDataList().get(i).getDetail(), detailFormat));
+                        String detail = item.getResultDataList().get(i).getDetail();
+                        int maxLength = 32767;
+                        if (detail.length() > maxLength) {
+                            detail = detail.substring(0, maxLength - 767) + "...(truncated)"; // 保留提示空间
+                        }
+                        detailSheet.addCell(new Label(5, r, detail, detailFormat));
+//                        detailSheet.addCell(new Label(5, r, item.getResultDataList().get(i).getDetail(), detailFormat));
                         r++;
                     }
                 }
