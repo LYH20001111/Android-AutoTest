@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 public class SharedPreferencesUtil {
     private static SharedPreferences sharedPreferences;
     public static final String DEBUG_MODE = "debug_mode";
+    public static final String IS_PHYSICAL_KEYBOARD = "isPhysicalKeyboard";
     public static final String TEST_CASE = "testcase";
     public static final String DEFAULT_VALUE = "default_value";
 

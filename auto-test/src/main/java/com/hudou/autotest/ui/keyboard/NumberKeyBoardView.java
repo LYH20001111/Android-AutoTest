@@ -318,4 +318,23 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
         void onOK();
 
     }
+
+    public void callOnInsertKey(String text) {
+        if (mOnKeyboardListener != null) {
+            mOnKeyboardListener.onInsertKeyEvent(text);
+        }
+    }
+
+    public void callOnDeleteKey() {
+        if (mOnKeyboardListener != null) {
+            mOnKeyboardListener.onDeleteKeyEvent();
+        }
+    }
+
+    public void callOnOK() {
+        if (mOnKeyboardListener != null) {
+            mOnKeyboardListener.onOK();
+        }
+    }
+
 }

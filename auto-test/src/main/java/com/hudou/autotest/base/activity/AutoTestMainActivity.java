@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public abstract class AutoTestMainActivity extends AppCompatActivity {
+public abstract class AutoTestMainActivity extends AppCompatActivity implements AutoTestInterface {
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout llMessage;
     private static SynchronizedMutableLiveData<ShowMessage> mShowMessage = new SynchronizedMutableLiveData<>();
@@ -190,6 +190,17 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferencesUtil.save(SharedPreferencesUtil.IS_PHYSICAL_KEYBOARD, isPhysicalKeyboard());
+    }
+
     private void setLlMessage(int color, String message) {
         runOnUiThread(() -> {
             TextView textView = new TextView(this);
@@ -289,4 +300,10 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public boolean isPhysicalKeyboard() {
+        return false;
+    }
+
 }

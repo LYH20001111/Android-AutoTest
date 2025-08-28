@@ -3,7 +3,14 @@ package com.hudou.autotest.fragment;
 import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
+import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 
 import com.hudou.autotest.R;
@@ -13,6 +20,7 @@ import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.databinding.AutoTestOptionsFragmentBinding;
 import com.hudou.autotest.ui.keyboard.NumberKeyBoardView;
 import com.hudou.autotest.util.ReflectionUtils;
+import com.hudou.autotest.util.SharedPreferencesUtil;
 
 public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding> {
     private final Class<? extends BaseTestCase> clz;
@@ -95,6 +103,49 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
 
             }
         });
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (SharedPreferencesUtil.get(SharedPreferencesUtil.IS_PHYSICAL_KEYBOARD, false)) {
+            viewBinding.viewKeyboard.setVisibility(View.GONE);
+            // 确保视图可以接收按键事件
+            view.setFocusableInTouchMode(true);
+            view.requestFocus();
+            view.setOnKeyListener((v, keyCode, event) -> {
+                Log.d("AutoTest", "keyCode = " + keyCode);
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    switch (keyCode) {
+                        case KeyEvent.KEYCODE_0:
+                        case KeyEvent.KEYCODE_1:
+                        case KeyEvent.KEYCODE_2:
+                        case KeyEvent.KEYCODE_3:
+                        case KeyEvent.KEYCODE_4:
+                        case KeyEvent.KEYCODE_5:
+                        case KeyEvent.KEYCODE_6:
+                        case KeyEvent.KEYCODE_7:
+                        case KeyEvent.KEYCODE_8:
+                        case KeyEvent.KEYCODE_9:
+                            String digit = String.valueOf(keyCode - KeyEvent.KEYCODE_0);
+                            viewBinding.viewKeyboard.callOnInsertKey(digit);
+                            return true;
+
+                        case KeyEvent.KEYCODE_DEL:
+                            viewBinding.viewKeyboard.callOnDeleteKey();
+                            return true;
+
+                        case KeyEvent.KEYCODE_ENTER:
+                            viewBinding.viewKeyboard.callOnOK();
+                            return true;
+
+                        default:
+                            return false;
+                    }
+                }
+                return false;
+            });
+        }
     }
 
 }
