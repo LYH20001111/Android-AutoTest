@@ -9,8 +9,11 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface TestCase {
     String name();
+
     String enDes() default "";
+
     String tip() default "";
+
     boolean abandon() default false;
 
     interface Members {

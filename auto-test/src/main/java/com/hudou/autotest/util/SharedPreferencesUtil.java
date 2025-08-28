@@ -19,16 +19,17 @@ public class SharedPreferencesUtil {
         saveInit();
     }
 
-    private static void saveInit(){
+    private static void saveInit() {
         save(DEBUG_MODE, true);
     }
 
     /**
      * Save String
-     * @param key param key
+     *
+     * @param key   param key
      * @param value save string value
      */
-    public static void save(String key, String value){
+    public static void save(String key, String value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
         editor.apply();
@@ -36,10 +37,11 @@ public class SharedPreferencesUtil {
 
     /**
      * Save boolean
-     * @param key param key
+     *
+     * @param key   param key
      * @param value save boolean value
      */
-    public static void save(String key, boolean value){
+    public static void save(String key, boolean value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);
         editor.apply();
@@ -47,10 +49,11 @@ public class SharedPreferencesUtil {
 
     /**
      * Save int
-     * @param key param key
+     *
+     * @param key   param key
      * @param value save int value
      */
-    public static void save(String key, int value){
+    public static void save(String key, int value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(key, value);
         editor.apply();

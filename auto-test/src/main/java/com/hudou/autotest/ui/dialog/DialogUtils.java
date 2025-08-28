@@ -31,7 +31,7 @@ public class DialogUtils {
     private static ArrayList<Integer> choiceList = new ArrayList<>();
     private static Dialog notifyDialog, editTextDialog, singleDialog, customSingleDialog, multiDialog;
 
-    public static void notifyDialog(final Context context, final String title){
+    public static void notifyDialog(final Context context, final String title) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
@@ -59,9 +59,9 @@ public class DialogUtils {
      * 创建提示对话框
      *
      * @param context
-     * @param title 对话框标题
+     * @param title   对话框标题
      */
-    public static void notifyDialog(final Context context, final String title, final NotifyDialogListener callback){
+    public static void notifyDialog(final Context context, final String title, final NotifyDialogListener callback) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
@@ -86,7 +86,7 @@ public class DialogUtils {
         cv.block();
     }
 
-    public static void notifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback){
+    public static void notifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
@@ -152,11 +152,11 @@ public class DialogUtils {
         cv.block();
     }
 
-    public static void editDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback){
+    public static void editDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback) {
         editDialog(context, context.getString(hint, ""), onlyNumber, callback);
     }
 
-    public static void editDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
+    public static void editDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback) {
         ConditionVariable cv = new ConditionVariable();
         new Thread(() -> {
             Looper.prepare();
@@ -208,11 +208,11 @@ public class DialogUtils {
                     .setTitle(titleId)
                     .setSingleChoiceItems(items, 0,// 第二个参数是默认选项，此处设置为0
                             (dialog, which) -> yourChoice = which)
-                     .setPositiveButton(R.string.sure, (dialog, which) -> {
-                         singleDialog.dismiss();
-                         callback.onResult(yourChoice);
-                         cv.open();
-                     })
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        singleDialog.dismiss();
+                        callback.onResult(yourChoice);
+                        cv.open();
+                    })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         singleDialog.dismiss();
                         callback.onResult(-1);
@@ -231,8 +231,8 @@ public class DialogUtils {
      * 创建多选框
      *
      * @param context
-     * @param titleId 对话框标题
-     * @param items 选项
+     * @param titleId  对话框标题
+     * @param items    选项
      * @param callback
      */
     public static void multiChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final MultiChoiceDialogListener callback) {
@@ -284,7 +284,7 @@ public class DialogUtils {
      * 创建自定义单选对话框
      *
      * @param context
-     * @param titleId    对话框标题
+     * @param titleId  对话框标题
      * @param items    单选选项
      * @param layoutId 布局id
      * @param callback 选择回调

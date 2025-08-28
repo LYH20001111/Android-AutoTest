@@ -18,18 +18,18 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.Method;
 
 
-public class AutoTestTestItem extends BaseTestCase{
+public class AutoTestTestItem extends BaseTestCase {
     private volatile boolean isResultRecorded = false;
     private final Object lock = new Object();
 
     /**
      * 记录测试通过
      */
-    public void recordPass(){
+    public void recordPass() {
         recordPass(null);
     }
 
-    public void recordPass(@Nullable String message){
+    public void recordPass(@Nullable String message) {
         synchronized (resultData) { // 确保线程安全
             resultData.setResult("测试通过");
         }
@@ -37,17 +37,17 @@ public class AutoTestTestItem extends BaseTestCase{
             isResultRecorded = true;
             lock.notify(); // 通知等待的线程
         }
-        postValue(Color.GREEN, "测试通过" + (message == null ? "" : ("\n"  + message)));
+        postValue(Color.GREEN, "测试通过" + (message == null ? "" : ("\n" + message)));
     }
 
     /**
      * 记录测试失败
      */
-    public void recordFail(){
+    public void recordFail() {
         recordFail(null);
     }
 
-    public void recordFail(@Nullable String message){
+    public void recordFail(@Nullable String message) {
         synchronized (resultData) {
             resultData.setResult("测试失败");
         }
@@ -55,49 +55,53 @@ public class AutoTestTestItem extends BaseTestCase{
             isResultRecorded = true;
             lock.notify(); // 通知等待的线程
         }
-        postValue(Color.RED, "测试失败" + (message == null ? "" : ("\n"  + message)));
+        postValue(Color.RED, "测试失败" + (message == null ? "" : ("\n" + message)));
     }
 
     /**
      * 记录测试记录信息
+     *
      * @param message
      */
-    public void recordMessage(@NotNull String message){
+    public void recordMessage(@NotNull String message) {
         postValue(isDebugMode(), Color.BLACK, message);
     }
 
-    public void recordMessage(int color, String message){
+    public void recordMessage(int color, String message) {
         postValue(isDebugMode(), color, message);
     }
 
     /**
      * 设置调试模式
+     *
      * @param debugMode
      */
-    public void setDebugMode(boolean debugMode){
+    public void setDebugMode(boolean debugMode) {
         SharedPreferencesUtil.save(SharedPreferencesUtil.DEBUG_MODE, debugMode);
     }
 
     /**
      * 判断调试模式
+     *
      * @return
      */
-    private boolean isDebugMode(){
+    private boolean isDebugMode() {
         return SharedPreferencesUtil.get(SharedPreferencesUtil.DEBUG_MODE, true);
     }
 
 
     /**
      * 该方法只有在onCaseEnd时调用是才生效
-     * @param method 案例方法
+     *
+     * @param method             案例方法
      * @param englishDescription 需要设置的英文描述
-     * @param setMode 设置模式
+     * @param setMode            设置模式
      */
-    public void setEnDes(Method method, String englishDescription, SetMode setMode){
+    public void setEnDes(Method method, String englishDescription, SetMode setMode) {
         for (ResultItem resultItem : resultItemList) {
             if (resultItem.getClz().equals(this.getClass())) {
-                for (ResultData resultData : resultItem.getResultDataList()){
-                    if (resultData.getId().equals(method.getName())){
+                for (ResultData resultData : resultItem.getResultDataList()) {
+                    if (resultData.getId().equals(method.getName())) {
                         switch (setMode) {
                             case EMPTY_ADD://TestCase设置时，使用设置的；未设置时，否则使用setEnDes设置的
                                 if (resultData.getEnglishDescription() == null
@@ -117,7 +121,6 @@ public class AutoTestTestItem extends BaseTestCase{
             }
         }
     }
-
 
 
     @Override

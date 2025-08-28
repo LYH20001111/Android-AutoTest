@@ -19,12 +19,12 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
     private final BaseTestCase testItem;
     public static final int INVALID_VALUE = -1;
 
-    public OptionsFragment(Class<? extends BaseTestCase> clz){
+    public OptionsFragment(Class<? extends BaseTestCase> clz) {
         this.clz = clz;
         this.testItem = (BaseTestCase) ReflectionUtils.createInstance(this.clz);
     }
 
-    public interface Option{
+    public interface Option {
         String RUN_ALL_CASES = "1";
         String RUN_ONE_CASE = "2";
         String RUN_PART_CASES = "3";
@@ -52,7 +52,7 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
         viewBinding.viewKeyboard.setIOnKeyboardListener(new NumberKeyBoardView.IOnKeyboardListener() {
             @Override
             public void onInsertKeyEvent(String text) {
-                switch (text){
+                switch (text) {
                     case Option.RUN_ALL_CASES:
                         ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, Option.RUN_ALL_CASES, INVALID_VALUE, INVALID_VALUE, INVALID_VALUE);
                         getActivity().runOnUiThread(() -> {

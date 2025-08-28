@@ -75,8 +75,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
                 } else {
                     drawKeyBackground(key, canvas, mDeleteBackgroundColor);
                 }
-            }
-            else if (key.codes[0] == Keyboard.KEYCODE_DELETE) {
+            } else if (key.codes[0] == Keyboard.KEYCODE_DELETE) {
                 drawKeyBackground(key, canvas, mDeleteBackgroundColor);
                 drawDeleteButton(key, canvas);
             }
@@ -85,6 +84,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
 
     /**
      * Draw the background of the keys
+     *
      * @param key
      * @param canvas
      * @param drawable
@@ -182,7 +182,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
     }
 
     //the Characters value of  0-9 numbers
-    private final List<Character> keyCodes = Arrays.asList('0', '1', '2', '3', '4', '5', '6', '7','8','9');
+    private final List<Character> keyCodes = Arrays.asList('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
 
     /**
      * Randomly shuffle the order of keys on the numeric keypad。
@@ -313,7 +313,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
         void onDeleteKeyEvent();
 
         /**
-         *  click OK key
+         * click OK key
          */
         void onOK();
 

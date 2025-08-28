@@ -14,6 +14,7 @@ public class ReflectionUtils {
 
     /**
      * 获取某个类中定义 public static final int XX的个数
+     *
      * @param clazz 类.class
      * @return int 个数
      */
@@ -33,11 +34,12 @@ public class ReflectionUtils {
 
     /**
      * 获取某个类定义某注解的某个参数值
-     * @param element 类
+     *
+     * @param element         类
      * @param annotationClass 注解类
-     * @param memberName 参数名
-     * @return
+     * @param memberName      参数名
      * @param <T>
+     * @return
      */
     public static <T extends AnnotatedElement> String getAnnotationValue(
             T element, Class<? extends Annotation> annotationClass, String memberName) {
@@ -64,7 +66,7 @@ public class ReflectionUtils {
         return null;
     }
 
-    public static String getConfig(String key){
+    public static String getConfig(String key) {
         Properties properties = new Properties();
         try {
             InputStream inputStream = ReflectionUtils.class.getClassLoader().getResourceAsStream("config.properties");
@@ -74,7 +76,6 @@ public class ReflectionUtils {
         }
         return properties.getProperty(key);
     }
-
 
 
 }

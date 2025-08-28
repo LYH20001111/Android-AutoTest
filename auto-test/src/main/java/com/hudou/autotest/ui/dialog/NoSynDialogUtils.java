@@ -28,33 +28,33 @@ public class NoSynDialogUtils {
     private static ArrayList<Integer> choiceList = new ArrayList<>();
     private static Dialog notifyDialog, editTextDialog, singleDialog, customSingleDialog, multiDialog;
 
-    public static void notifyDialog(final Context context, final String title){
-        
+    public static void notifyDialog(final Context context, final String title) {
+
         new Thread(() -> {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
                     .setTitle(title)
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
-                        
+
                     })
                     .setCancelable(false)
-                    
+
                     .create();
             notifyDialog.show();
             Looper.loop();
         }).start();
-        
+
     }
 
     /**
      * 创建提示对话框
      *
      * @param context
-     * @param title 对话框标题
+     * @param title   对话框标题
      */
-    public static void notifyDialog(final Context context, final String title, final NotifyDialogListener callback){
-        
+    public static void notifyDialog(final Context context, final String title, final NotifyDialogListener callback) {
+
         new Thread(() -> {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
@@ -62,19 +62,19 @@ public class NoSynDialogUtils {
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onAction();
-                        
+
                     })
                     .setCancelable(false)
-                    
+
                     .create();
             notifyDialog.show();
             Looper.loop();
         }).start();
-        
+
     }
 
-    public static void notifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback){
-        
+    public static void notifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback) {
+
         new Thread(() -> {
             Looper.prepare();
             notifyDialog = new AlertDialog.Builder(context)
@@ -82,27 +82,27 @@ public class NoSynDialogUtils {
                     .setPositiveButton(R.string.sure, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onPositive();
-                        
+
                     })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         notifyDialog.dismiss();
                         callback.onNegative();
-                        
+
                     })
                     .setCancelable(false)
-                    
+
                     .create();
             notifyDialog.show();
             Looper.loop();
         }).start();
-        
+
     }
 
-    public static void editDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback){
+    public static void editDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback) {
         editDialog(context, context.getString(hint, ""), onlyNumber, callback);
     }
 
-    public static void editDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback){
+    public static void editDialog(final Context context, final String hint, final boolean onlyNumber, final EditDialogListener callback) {
         new Thread(() -> {
             Looper.prepare();
             // 创建自定义布局
@@ -138,7 +138,7 @@ public class NoSynDialogUtils {
      * @param callback 选择回调
      */
     public static void singleChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final SingleChoiceDialogListener callback) {
-        
+
         new Thread(() -> {
             if (items == null || items.length < 1) {
                 return;
@@ -149,35 +149,35 @@ public class NoSynDialogUtils {
                     .setTitle(titleId)
                     .setSingleChoiceItems(items, 0,// 第二个参数是默认选项，此处设置为0
                             (dialog, which) -> yourChoice = which)
-                     .setPositiveButton(R.string.sure, (dialog, which) -> {
-                         singleDialog.dismiss();
-                         callback.onResult(yourChoice);
-                         
-                     })
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        singleDialog.dismiss();
+                        callback.onResult(yourChoice);
+
+                    })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         singleDialog.dismiss();
                         callback.onResult(-1);
-                        
+
                     })
                     .setCancelable(false)
-                    
+
                     .create();
             singleDialog.show();
             Looper.loop();
         }).start();
-        
+
     }
 
     /**
      * 创建多选框
      *
      * @param context
-     * @param titleId 对话框标题
-     * @param items 选项
+     * @param titleId  对话框标题
+     * @param items    选项
      * @param callback
      */
     public static void multiChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final MultiChoiceDialogListener callback) {
-        
+
         new Thread(() -> {
             if (items == null || items.length < 1) {
                 return;
@@ -206,32 +206,32 @@ public class NoSynDialogUtils {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        
+
                     })
                     .setNegativeButton(R.string.cancel, (arg0, arg1) -> {
                         multiDialog.dismiss();
-                        
+
                     })
                     .setCancelable(false)
-                    
+
                     .create();
             multiDialog.show();
             Looper.loop();
         }).start();
-        
+
     }
 
     /**
      * 创建自定义单选对话框
      *
      * @param context
-     * @param titleId    对话框标题
+     * @param titleId  对话框标题
      * @param items    单选选项
      * @param layoutId 布局id
      * @param callback 选择回调
      */
     public static void customDialog(final Context context, @StringRes int titleId, final String[] items, final int layoutId, final CustomDialogListener callback) {
-        
+
         new Thread(() -> {
             yourChoice = 0;
             Looper.prepare();
@@ -252,7 +252,7 @@ public class NoSynDialogUtils {
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                                
+
                             })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         customSingleDialog.dismiss();
@@ -261,20 +261,20 @@ public class NoSynDialogUtils {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        
+
                     })
                     .setCancelable(false)
-                    
+
                     .create();
             customSingleDialog.show();
             Looper.loop();
         }).start();
-        
+
     }
 
 
     public static void customDialog(final Context context, final int title, final String[] items, final int layoutId, final NewCustomDialogListener callback) {
-        
+
         new Thread(() -> {
             yourChoice = 0;
             Looper.prepare();
@@ -294,19 +294,19 @@ public class NoSynDialogUtils {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        
+
                     })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> {
                         customSingleDialog.dismiss();
-                        
+
                     })
                     .setCancelable(false)
-                    
+
                     .create();
             customSingleDialog.show();
             Looper.loop();
         }).start();
-        
+
     }
 
 

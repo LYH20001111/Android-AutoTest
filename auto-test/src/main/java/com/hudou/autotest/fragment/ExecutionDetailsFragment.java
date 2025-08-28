@@ -38,7 +38,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     private String option;
 
     public ExecutionDetailsFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, @NonNull String option,
-                                    @IntRange(from = INVALID_VALUE) int testId, @IntRange(from = INVALID_VALUE) int beginId, @IntRange(from = INVALID_VALUE) int endId){
+                                    @IntRange(from = INVALID_VALUE) int testId, @IntRange(from = INVALID_VALUE) int beginId, @IntRange(from = INVALID_VALUE) int endId) {
         this.clz = clz;
         this.testItem = testItem;
         this.option = option;
@@ -56,13 +56,13 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
 
     @Override
     public void onActionAfterInitData() {
-        switch (option){
+        switch (option) {
             case RUN_ALL_CASES:
-                if (testItem.testItemCasesNum(clz) == 0){
+                if (testItem.testItemCasesNum(clz) == 0) {
                     viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText() + getString(R.string.no_cases_found));
                     BaseTestCase.isCompleted = true;
-                }else {
-                    viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + "0  ~  " +  (testItem.testItemCasesNum(clz) - 1));
+                } else {
+                    viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + "0  ~  " + (testItem.testItemCasesNum(clz) - 1));
                     testItem.runAllCases(clz);
                 }
                 break;
@@ -81,8 +81,8 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
         }
 
         new Thread(() -> {
-            while (true){
-                if (BaseTestCase.isCompleted){
+            while (true) {
+                if (BaseTestCase.isCompleted) {
                     returnAllowed = true;
                     return;
                 }
@@ -91,7 +91,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
 
     }
 
-    private void initAction(){
+    private void initAction() {
         onBackPressedCallback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -126,17 +126,17 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
         Dialog.notifyOptionsDialog(getContext(),
                 SpannableUtil.setSpan(requireContext(), getString(R.string.pause_tes), getString(R.string.pause_test_part_content), R.color.red),
                 new NotifyOptionDialogListener() {
-            @Override
-            public void onPositive() {
-                AutoTestTestItem.isPaused = true;
-                Toast.makeText(getContext(), R.string.pause_positive, Toast.LENGTH_SHORT).show();
-            }
+                    @Override
+                    public void onPositive() {
+                        AutoTestTestItem.isPaused = true;
+                        Toast.makeText(getContext(), R.string.pause_positive, Toast.LENGTH_SHORT).show();
+                    }
 
-            @Override
-            public void onNegative() {
-                Toast.makeText(getContext(), R.string.cancel, Toast.LENGTH_SHORT).show();
-            }
-        });
+                    @Override
+                    public void onNegative() {
+                        Toast.makeText(getContext(), R.string.cancel, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 

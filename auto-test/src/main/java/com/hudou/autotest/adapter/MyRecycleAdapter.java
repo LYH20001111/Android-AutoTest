@@ -20,12 +20,12 @@ import com.hudou.autotest.listener.MyOnClickListener;
 
 import java.util.ArrayList;
 
-public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.RecycleViewHolder>{
+public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.RecycleViewHolder> {
     private OptionsFragment testCaseFragment = null;
     private final ArrayList<Item> itemList;
     private final FragmentActivity activity;
 
-    public MyRecycleAdapter(FragmentActivity activity, ArrayList<Item> itemList){
+    public MyRecycleAdapter(FragmentActivity activity, ArrayList<Item> itemList) {
         this.activity = activity;
         this.itemList = itemList;
     }
@@ -56,21 +56,22 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.Recy
         return itemList.size();
     }
 
-    static class RecycleViewHolder extends RecyclerView.ViewHolder{
+    static class RecycleViewHolder extends RecyclerView.ViewHolder {
         LinearLayout llItemType;
         TextView tvItem;
         TextView tvDescription;
         ImageButton imgBtnDetail;
+
         public RecycleViewHolder(@NonNull View itemView) {
             super(itemView);
             llItemType = itemView.findViewById(R.id.ll_item_type);
             tvItem = itemView.findViewById(R.id.tv_item);
             tvDescription = itemView.findViewById(R.id.tv_description);
-            imgBtnDetail =  itemView.findViewById(R.id.imgbtn_detail);
+            imgBtnDetail = itemView.findViewById(R.id.imgbtn_detail);
         }
     }
 
-    private void enterOptionFragment(int position){
+    private void enterOptionFragment(int position) {
         testCaseFragment = new OptionsFragment(itemList.get(position).getClz());
         activity.runOnUiThread(() -> {
             FragmentManager supportFragmentManager = activity.getSupportFragmentManager();

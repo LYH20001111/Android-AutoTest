@@ -49,9 +49,9 @@ public class ExcelUtils {
             workbook = Workbook.createWorkbook(file);
 
             int index = 0;
-            for (String key : sheetMap.keySet()){
+            for (String key : sheetMap.keySet()) {
                 WritableSheet sheet = workbook.createSheet(key, index);
-                for (int j = 0; j < sheetMap.get(key).length; j++){
+                for (int j = 0; j < sheetMap.get(key).length; j++) {
                     sheet.addCell(new Label(j, 0, sheetMap.get(key)[j], titleFormat));
                 }
                 sheet.setRowView(0, 340);
@@ -146,7 +146,7 @@ public class ExcelUtils {
                 int row = 1;
                 long totalSize = 0;
                 long totalTime = 0;
-                for (ResultItem item : resultItemList){
+                for (ResultItem item : resultItemList) {
                     ATLoggerUtils.d("item = " + item.getClz().getName());
                     summarySheet.addCell(new Label(0, row, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                     summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
@@ -164,15 +164,15 @@ public class ExcelUtils {
                 summarySheet.addCell(new Label(7, row + 1, "Total Time : " + formatTotalTime(totalTime), contentFormat));
 
                 int r = 1;
-                for (ResultItem item : resultItemList){
+                for (ResultItem item : resultItemList) {
                     // 对每个 ResultItem 的 resultDataList 按 id 排序
                     item.getResultDataList().sort((o1, o2) -> o1.getId().compareTo(o2.getId()));
-                    for (int i = 0; i < item.getResultDataList().size(); i++){
+                    for (int i = 0; i < item.getResultDataList().size(); i++) {
                         detailSheet.addCell(new Label(0, r, String.valueOf(item.getClz().getSimpleName()), contentFormat));
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));
                         if ("测试通过".equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "PASS" : item.getResultDataList().get(i).getResult(), contentFormat));
-                        }else {
+                        } else {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "FAIL" : item.getResultDataList().get(i).getResult(), failResultFormat));
                         }
                         detailSheet.addCell(new Label(3, r, item.getResultDataList().get(i).getTestCaseName(), contentFormat));
@@ -213,6 +213,7 @@ public class ExcelUtils {
 
     /**
      * Determine whether sdcard exist or not
+     *
      * @return true: exist; false: not exist.
      */
     private static boolean existSDCard() {
@@ -230,6 +231,7 @@ public class ExcelUtils {
 
     /**
      * Convert timestamp to time
+     *
      * @param s timestamp
      * @return the format data of you want
      */
@@ -272,12 +274,13 @@ public class ExcelUtils {
     }
 
     /**
-     *  计算百分比
-     * @param numerator 分子
+     * 计算百分比
+     *
+     * @param numerator   分子
      * @param denominator 分母
      * @return 百分数
      */
-    public static String percentageCalculator(int numerator, int denominator){
+    public static String percentageCalculator(int numerator, int denominator) {
         // 计算百分比
         double percentage = ((double) numerator / denominator) * 100;
         // 格式化输出百分比为两位小数
@@ -286,26 +289,27 @@ public class ExcelUtils {
         return (formattedPercentage + "%");
     }
 
-    private static int countPass(List<ResultData> resultDataList){
+    private static int countPass(List<ResultData> resultDataList) {
         int count = 0;
-        for(ResultData resultData : resultDataList){
-            if ("测试通过".equals(resultData.getResult())){
+        for (ResultData resultData : resultDataList) {
+            if ("测试通过".equals(resultData.getResult())) {
                 count++;
             }
         }
         return count;
     }
 
-    private static int countFail(List<ResultData> resultDataList){
+    private static int countFail(List<ResultData> resultDataList) {
         int count = 0;
-        for(ResultData resultData : resultDataList){
-            if ("测试失败".equals(resultData.getResult())){
+        for (ResultData resultData : resultDataList) {
+            if ("测试失败".equals(resultData.getResult())) {
                 count++;
             }
         }
         return count;
     }
-    public static String formatTotalTime(long totalTime){
+
+    public static String formatTotalTime(long totalTime) {
         long hours = totalTime / 3600;
         long remainingSeconds = totalTime % 3600;
         long minutes = remainingSeconds / 60;

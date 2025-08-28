@@ -64,7 +64,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
     public static FileOutputStream fos;
     private static AppDatabase db;
 
-    public static Context getContext(){
+    public static Context getContext() {
         return mContext;
     }
 
@@ -105,7 +105,8 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
                         Field f = ResultItem.class.getDeclaredField("isStartTimeSet");
                         f.setAccessible(true);
                         f.setBoolean(ri, ie.isStartTimeSet);
-                    } catch (Exception ignore) {}
+                    } catch (Exception ignore) {
+                    }
                     temp.add(ri);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -189,7 +190,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         }
     }
 
-    private void setLlMessage(int color, String message){
+    private void setLlMessage(int color, String message) {
         runOnUiThread(() -> {
             TextView textView = new TextView(this);
             textView.setText(message);
@@ -198,7 +199,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         });
     }
 
-    public static SynchronizedMutableLiveData<ShowMessage> getRecorder(){
+    public static SynchronizedMutableLiveData<ShowMessage> getRecorder() {
         return mShowMessage;
     }
 
@@ -210,9 +211,10 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         }
     }
 
-    private List<Fragment> getFragments(){
+    private List<Fragment> getFragments() {
         return finalFragmentList;
     }
+
     public abstract void addNavigationFragment(List<Fragment> list);
 
     private int getWindowWidth() {
@@ -221,7 +223,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
         return dm.widthPixels;
     }
 
-    public String getAuthorName(){
+    public String getAuthorName() {
         return BuildConfig.Author;
     }
 
@@ -237,11 +239,12 @@ public abstract class AutoTestMainActivity extends AppCompatActivity {
                 }
                 exitAble = false;
             }
-            if (exitAble){
+            if (exitAble) {
                 new MaterialAlertDialogBuilder(AutoTestMainActivity.this)
                         .setTitle(R.string.exit_application_title)
                         .setPositiveButton(R.string.sure, (dialog, which) -> finish())
-                        .setNegativeButton(R.string.cancel, (dialog, which) -> {})
+                        .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                        })
                         .show();
                 return true;
             }

@@ -11,13 +11,14 @@ public class SpannableUtil {
 
     /**
      * 将content中的partContent设置为color
-     * @param context 上下文
-     * @param content 内容
+     *
+     * @param context     上下文
+     * @param content     内容
      * @param partContent 部分内容
-     * @param color 部分内容设置的颜色
+     * @param color       部分内容设置的颜色
      * @return SpannableString
      */
-    public static SpannableString setSpan(Context context, @NonNull String content, @NonNull String partContent, int color){
+    public static SpannableString setSpan(Context context, @NonNull String content, @NonNull String partContent, int color) {
         SpannableString spannableString = new SpannableString(content);
         int start = content.indexOf(partContent);
         int end = start + partContent.length();

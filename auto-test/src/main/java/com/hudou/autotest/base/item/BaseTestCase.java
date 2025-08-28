@@ -35,26 +35,26 @@ public abstract class BaseTestCase {
     public static volatile boolean isCompleted = false;
     public static volatile boolean isPaused = false;
 
-    public void runAllCases(Class<? extends BaseTestCase> clz){
+    public void runAllCases(Class<? extends BaseTestCase> clz) {
         runTestCases(clz, Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
                 .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new));
     }
 
-    public void runCase(Class<? extends BaseTestCase> clz, int id){
+    public void runCase(Class<? extends BaseTestCase> clz, int id) {
         Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
                 .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new);
-        if (id >= testCaseMethods.length || id < 0){
+        if (id >= testCaseMethods.length || id < 0) {
             return;
         }
-        Method[] runMethod = new Method[] {testCaseMethods[id]};
+        Method[] runMethod = new Method[]{testCaseMethods[id]};
         runTestCases(clz, runMethod);
     }
 
-    public void runPartContinueCases(Class<? extends BaseTestCase> clz, int beginId, int endId){
+    public void runPartContinueCases(Class<? extends BaseTestCase> clz, int beginId, int endId) {
         runTestCases(clz, Arrays.copyOfRange(Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
                 .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
@@ -76,7 +76,7 @@ public abstract class BaseTestCase {
                         return;
                     }
                     resultData = new ResultData();
-                    if ((resultItemList != null) && resultItemList.isEmpty()){
+                    if ((resultItemList != null) && resultItemList.isEmpty()) {
                         ResultItem item = new ResultItem(clz, new CopyOnWriteArrayList<>());
                         item.setStartTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
                         resultItemList.add(item);
@@ -88,7 +88,7 @@ public abstract class BaseTestCase {
                             break;
                         }
                     }
-                    if (!exist){
+                    if (!exist) {
                         ResultItem item = new ResultItem(clz, new CopyOnWriteArrayList<>());
                         item.setStartTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
                         resultItemList.add(item);
@@ -99,7 +99,7 @@ public abstract class BaseTestCase {
                     resultData.setDetail("XX=============" + method.getName() + "=============XX");
 
                     postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "\n");
-                    if (!"".equals(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip))){
+                    if (!"".equals(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip))) {
                         postValue(Color.GRAY, "\n" + "案例提示：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip));
                     }
                     try {
@@ -122,20 +122,20 @@ public abstract class BaseTestCase {
                             } catch (InterruptedException e) {
                                 throw new RuntimeException(e);
                             }
-                        }else {
+                        } else {
                             resultData.setResult("测试通过");
                             postValue(Color.MAGENTA, "\n！ 废弃案例 ！\n");
                         }
 
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
-                    }finally {
+                    } finally {
                         postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "，执行结束");
                     }
 
                     //Add storage start
                     CopyOnWriteArrayList<ResultData> clzResultDataList = getResultDataListForClass(clz);
-                    if (clzResultDataList == null){
+                    if (clzResultDataList == null) {
                         clzResultDataList = new CopyOnWriteArrayList<>();
                     }
                     for (ResultItem resultItem : resultItemList) {
@@ -143,16 +143,16 @@ public abstract class BaseTestCase {
                             boolean isExist = false;
                             int index = -1;
                             for (int i = 0; i < clzResultDataList.size(); i++) {
-                                if (clzResultDataList.get(i).getId().equals(resultData.getId())){
+                                if (clzResultDataList.get(i).getId().equals(resultData.getId())) {
                                     isExist = true;
                                     index = i;
                                     break;
                                 }
                             }
-                            if (isExist){
+                            if (isExist) {
                                 resultItem.getResultDataList().remove(index);// 删除当前匹配的元素
                                 resultItem.getResultDataList().add(index, resultData);// 添加新的 resultData
-                            }else {
+                            } else {
                                 resultItem.getResultDataList().add(resultData);
                             }
                             resultItem.setEndTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
@@ -167,9 +167,9 @@ public abstract class BaseTestCase {
                         for (ResultItem ri : resultItemList) {
                             // Upsert ResultItem
                             ResultItemEntity itemE = new ResultItemEntity();
-                            itemE.className     = ri.getClz().getName();
-                            itemE.startTime     = ri.getStartTime();
-                            itemE.endTime       = ri.getEndTime();
+                            itemE.className = ri.getClz().getName();
+                            itemE.startTime = ri.getStartTime();
+                            itemE.endTime = ri.getEndTime();
                             itemE.isStartTimeSet = ri.isStartTimeSet();
                             AutoTestMainActivity.getDb().dao().upsertResultItem(itemE);
 
@@ -177,13 +177,13 @@ public abstract class BaseTestCase {
                             CopyOnWriteArrayList<ResultDataEntity> dataEs = new CopyOnWriteArrayList<>();
                             for (ResultData rd : ri.getResultDataList()) {
                                 ResultDataEntity de = new ResultDataEntity();
-                                de.className    = ri.getClz().getName();
-                                de.caseName     = rd.getId();
-                                de.methodName   = rd.getTestCaseName();
-                                de.result       = rd.getResult();
+                                de.className = ri.getClz().getName();
+                                de.caseName = rd.getId();
+                                de.methodName = rd.getTestCaseName();
+                                de.result = rd.getResult();
                                 de.chineseDescription = rd.getChineseDescription();
                                 de.englishDescription = rd.getEnglishDescription();
-                                de.detail       = rd.getDetail();
+                                de.detail = rd.getDetail();
                                 dataEs.add(de);
                             }
                             AutoTestMainActivity.getDb().dao().upsertResultDataList(dataEs);
@@ -213,7 +213,7 @@ public abstract class BaseTestCase {
         }).start();
     }
 
-    public String viewCaseDetails(Class<? extends BaseTestCase> clz){
+    public String viewCaseDetails(Class<? extends BaseTestCase> clz) {
         StringBuilder details = new StringBuilder();
         Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
@@ -231,7 +231,7 @@ public abstract class BaseTestCase {
         return details.toString();
     }
 
-    public String viewAbandonCaseDetails(Class<? extends BaseTestCase> clz){
+    public String viewAbandonCaseDetails(Class<? extends BaseTestCase> clz) {
         StringBuilder details = new StringBuilder();
         Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
@@ -251,14 +251,14 @@ public abstract class BaseTestCase {
         return details.toString();
     }
 
-    public int testItemCasesNum(Class<? extends BaseTestCase> clz){
+    public int testItemCasesNum(Class<? extends BaseTestCase> clz) {
         return Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
                 .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
                 .toArray(Method[]::new).length;
     }
 
-    public int testItemAbandonCasesNum(Class<? extends BaseTestCase> clz){
+    public int testItemAbandonCasesNum(Class<? extends BaseTestCase> clz) {
         Method[] methods = Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
                 .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
@@ -269,7 +269,7 @@ public abstract class BaseTestCase {
     }
 
 
-    protected void postValue(int color, String message){
+    protected void postValue(int color, String message) {
         resultData.appendDetail("\n" + message);
         try {
             AutoTestMainActivity.getRecorder().synchronizedPostValue(new ShowMessage(color, message));
@@ -279,10 +279,10 @@ public abstract class BaseTestCase {
         }
     }
 
-    protected void postValue(boolean isDebug, int color, String message){
-        if (isDebug){
+    protected void postValue(boolean isDebug, int color, String message) {
+        if (isDebug) {
             postValue(color, message);
-        }else {
+        } else {
             resultData.appendDetail("\n" + message);
             try {
                 fos.write((message + "\n").getBytes());
@@ -303,8 +303,11 @@ public abstract class BaseTestCase {
 
 
     public abstract void onCaseStart(Method method);
+
     public abstract void onCaseFinish(Method method);
+
     public abstract void onCaseEnd(Method method);
+
     // 等待测试结果的抽象方法
     protected abstract void waitForResult(Method method) throws InterruptedException;
 

@@ -20,7 +20,7 @@ public class PermissionUtil {
         }
     }
 
-    public static void requestReadWritePermission(Activity activity){
+    public static void requestReadWritePermission(Activity activity) {
         // 请求读外部存储权限
 
         ActivityCompat.requestPermissions(activity, new String[]{

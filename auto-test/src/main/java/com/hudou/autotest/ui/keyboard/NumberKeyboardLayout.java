@@ -15,7 +15,7 @@ import com.hudou.autotest.R;
 /**
  * 自定义数字键盘 ，对外使用
  */
-public class NumberKeyboardLayout extends LinearLayout{
+public class NumberKeyboardLayout extends LinearLayout {
     private NumberKeyBoardView keyboardView;
     private View view;
 

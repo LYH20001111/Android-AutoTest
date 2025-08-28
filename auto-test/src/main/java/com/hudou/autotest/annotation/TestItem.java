@@ -10,6 +10,7 @@ import java.lang.annotation.Target;
 public @interface TestItem {
 
     String name();
+
     String description();
 
     interface Members {

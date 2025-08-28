@@ -19,6 +19,7 @@ public interface ResultDao {
 
     @Insert
     long insertData(ResultDataEntity data);
+
     @Insert
     void insertResultDataList(List<ResultDataEntity> dataList);
 

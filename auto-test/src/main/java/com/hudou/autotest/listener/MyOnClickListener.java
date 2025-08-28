@@ -14,9 +14,10 @@ public abstract class MyOnClickListener implements View.OnClickListener {
 
     /**
      * 判断是否是快速点击
+     *
      * @return
      */
-    private boolean isFastClick(){
+    private boolean isFastClick() {
         long currentTime = System.currentTimeMillis(); // 获取当前时间
         if (currentTime - lastClickTime > CLICK_DEBOUNCE_TIME) { // 判断是否超过阈值
             lastClickTime = currentTime; // 更新上次点击时间
@@ -29,9 +30,10 @@ public abstract class MyOnClickListener implements View.OnClickListener {
 
     /**
      * 判断是否是快速点击
+     *
      * @return
      */
-    public boolean canClick(){
+    public boolean canClick() {
         long currentTime = SystemClock.elapsedRealtime();
         if (currentTime - lastClickTime < CLICK_DEBOUNCE_TIME) {
             return false; // 在防抖动间隔内忽略点击事件
@@ -43,7 +45,7 @@ public abstract class MyOnClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (isFastClick()){
+        if (isFastClick()) {
             return;
         }
         dealClick(v);

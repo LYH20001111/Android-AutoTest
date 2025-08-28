@@ -49,12 +49,11 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
         }
     }
 
-    public static void setTitleSize(float size){
+    public static void setTitleSize(float size) {
         titleSize = size;
     }
 
     public abstract String onNameTitle();
-
 
 
 }

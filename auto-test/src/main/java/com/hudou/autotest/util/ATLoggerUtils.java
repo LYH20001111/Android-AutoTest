@@ -9,10 +9,11 @@ public class ATLoggerUtils {
 
     /**
      * Print log switch
+     *
      * @param isDebug [in]    false: Close the print log<br>
-     *                        true:  Turn on the print log
+     *                true:  Turn on the print log
      */
-    public static void configPrint(boolean isDebug){
+    public static void configPrint(boolean isDebug) {
         allowD = isDebug;
         allowE = isDebug;
         allowI = isDebug;
@@ -30,7 +31,7 @@ public class ATLoggerUtils {
     private static boolean allowW = false;
     private static boolean allowWtf = false;
 
-    private static int  debugLevel = 0;
+    private static int debugLevel = 0;
 
     private static StackTraceElement getCallerStackTraceElement() {
         return Thread.currentThread().getStackTrace()[4];
@@ -40,12 +41,13 @@ public class ATLoggerUtils {
         String tag = "%s.%s(L:%d) AutoTest:";
         String callerClazzName = caller.getClassName();
         callerClazzName = callerClazzName.substring(callerClazzName.lastIndexOf(".") + 1);
-        tag = String.format(Locale.US,tag, callerClazzName, caller.getMethodName(), caller.getLineNumber());
+        tag = String.format(Locale.US, tag, callerClazzName, caller.getMethodName(), caller.getLineNumber());
         tag = TextUtils.isEmpty(customTagPrefix) ? tag : customTagPrefix + ":" + tag;
         return tag;
     }
 
     private static CustomLogger customLogger;
+
     /**
      * Custom logger interface
      */

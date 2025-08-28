@@ -23,7 +23,7 @@ public class MyPagerAdapter extends PagerAdapter {
     private final Context mContext;
     private final String[] pageTitles = AutoTestMainActivity.pageTitlesList.toArray(new String[0]);
 
-    public MyPagerAdapter(Context mContext, List<Fragment> fragmentList, FragmentManager fragmentManager){
+    public MyPagerAdapter(Context mContext, List<Fragment> fragmentList, FragmentManager fragmentManager) {
         this.mContext = mContext;
         this.fragmentList = fragmentList;
         this.fragmentManager = fragmentManager;
@@ -42,7 +42,7 @@ public class MyPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        if (position < fragmentList.size()){
+        if (position < fragmentList.size()) {
             Fragment fragment = fragmentList.get(position);
             if (!fragment.isAdded()) {
                 fragmentManager.beginTransaction()
@@ -82,7 +82,7 @@ public class MyPagerAdapter extends PagerAdapter {
         return pageTitles[position];
     }
 
-    public Fragment getItem(int position){
+    public Fragment getItem(int position) {
         return fragmentList.get(position);
     }
 }

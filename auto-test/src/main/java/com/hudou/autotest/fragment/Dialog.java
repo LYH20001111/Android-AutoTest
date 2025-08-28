@@ -83,7 +83,7 @@ class Dialog {
      * 创建提示对话框
      *
      * @param context
-     * @param title 对话框标题
+     * @param title   对话框标题
      */
     public static void notifyDialog(final Context context, final String title, final NotifyDialogListener callback) {
         final Handler handler = new Handler(Looper.getMainLooper());
@@ -150,7 +150,8 @@ class Dialog {
             }
         }
     }
-    public static void editDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback){
+
+    public static void editDialog(final Context context, @StringRes int hint, final boolean onlyNumber, final EditDialogListener callback) {
         editDialog(context, context.getString(hint, ""), onlyNumber, callback);
     }
 
@@ -197,6 +198,7 @@ class Dialog {
             }
         }
     }
+
     /**
      * 创建单选对话框
      *
@@ -242,12 +244,13 @@ class Dialog {
             }
         }
     }
+
     /**
      * 创建多选框
      *
      * @param context
-     * @param titleId 对话框标题
-     * @param items 选项
+     * @param titleId  对话框标题
+     * @param items    选项
      * @param callback
      */
     public static void multiChoiceDialog(final Context context, @StringRes int titleId, final String[] items, final MultiChoiceDialogListener callback) {
@@ -300,11 +303,12 @@ class Dialog {
             }
         }
     }
+
     /**
      * 创建自定义单选对话框
      *
      * @param context
-     * @param titleId    对话框标题
+     * @param titleId  对话框标题
      * @param items    单选选项
      * @param layoutId 布局id
      * @param callback 选择回调
@@ -406,7 +410,9 @@ class Dialog {
             }
         }
     }
+
     private static androidx.appcompat.app.AlertDialog loadingAlertDialog;
+
     private static void showLoadingDialog(Activity activity, String loadingMessage) {
         if (loadingAlertDialog != null && loadingAlertDialog.isShowing()) {
             return; // 如果对话框已经显示，则不重复创建
@@ -446,7 +452,7 @@ class Dialog {
         }).start();
     }
 
-    public static void outputDialog(Activity activity, String prefix){
+    public static void outputDialog(Activity activity, String prefix) {
         showLoadingDialog(activity, "Outputting Report......");
         new Thread(() -> {
             boolean result;

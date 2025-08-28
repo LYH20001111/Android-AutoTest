@@ -13,7 +13,7 @@ public class KeyBoardUtil {
      *
      * @param activity The activity.
      */
-    public static void hideSoftInput( Activity activity) {
+    public static void hideSoftInput(Activity activity) {
         InputMethodManager imm =
                 (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         if (imm == null) return;

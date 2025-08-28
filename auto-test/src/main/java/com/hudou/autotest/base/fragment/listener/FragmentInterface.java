@@ -4,7 +4,7 @@ public interface FragmentInterface {
     /**
      * 布局加载后，可用于数据初始化；(比如一些控件的定义，初始化等)
      */
-     void onInitData();
+    void onInitData();
 
     /**
      * 行为初始化，用于对布局控件的行为进行处理；（比如对按钮，等控件的行为进行设置）

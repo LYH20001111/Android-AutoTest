@@ -9,7 +9,7 @@ public class Item {
     private String name;
     private String description;
 
-    public Item(Class<? extends BaseTestCase> clz){
+    public Item(Class<? extends BaseTestCase> clz) {
         this.clz = clz;
         this.name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name);
         this.description = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.description);
@@ -18,9 +18,11 @@ public class Item {
     public String getName() {
         return name;
     }
+
     public String getDescription() {
         return description;
     }
+
     public Class<? extends BaseTestCase> getClz() {
         return clz;
     }

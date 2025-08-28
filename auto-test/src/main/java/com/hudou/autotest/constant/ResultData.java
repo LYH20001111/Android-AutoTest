@@ -56,7 +56,7 @@ public class ResultData {
         this.detail = detail;
     }
 
-    public void appendDetail(String detail){
+    public void appendDetail(String detail) {
         this.detail = this.detail.concat(detail);
     }
 

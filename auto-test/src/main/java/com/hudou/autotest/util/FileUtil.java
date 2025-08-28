@@ -21,6 +21,7 @@ public class FileUtil {
 
     /**
      * 递归删除文件和文件夹
+     *
      * @param file  要删除的根目录
      * @param isAll 是否删除根目录
      */
@@ -52,11 +53,12 @@ public class FileUtil {
 
     /**
      * 当文件夹的文件数量为限制的数量时，删除文件夹的所有文件
+     *
      * @param limitFileNum 文件限制数量
-     * @param dirPath 文件夹路径
+     * @param dirPath      文件夹路径
      */
 
-    public static void fileNumAboveDelete(int limitFileNum, String dirPath){
+    public static void fileNumAboveDelete(int limitFileNum, String dirPath) {
         File folder = new File(dirPath);
 
         int fileCount = 0;
@@ -66,10 +68,9 @@ public class FileUtil {
             fileCount = files.length;
         }
 
-        if (fileCount >= limitFileNum){
+        if (fileCount >= limitFileNum) {
             FileUtil.deleteFile(folder, false);
         }
-
 
 
     }
@@ -123,20 +124,21 @@ public class FileUtil {
 
     /**
      * Append content to a text file
+     *
      * @param fileName the path of file
-     * @param content the content of you append
-     * @param append true: append ; false: clean and append
+     * @param content  the content of you append
+     * @param append   true: append ; false: clean and append
      * @return result true: success ; false: fail
      */
-    public boolean updateContent(String fileName, String content, boolean append){
+    public boolean updateContent(String fileName, String content, boolean append) {
         boolean res = true;
         File file = new File(fileName);
         try {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter writer = new FileWriter(file,append);
-            if(append){
+            FileWriter writer = new FileWriter(file, append);
+            if (append) {
                 content = System.getProperty("line.separator") + content;
             }
             writer.write(content);
@@ -159,9 +161,9 @@ public class FileUtil {
     }
 
     public static void loadAssetsFiles(Activity activity, String fileName, String folderName, String path) throws IOException {
-        fileName = folderName + "/"  + fileName;
+        fileName = folderName + "/" + fileName;
         InputStream inputStream = activity.getAssets().open(fileName);
-        File file = new File( path + folderName);
+        File file = new File(path + folderName);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -176,9 +178,6 @@ public class FileUtil {
         fileOutputStream.close();
         inputStream.close();
     }
-
-
-
 
 
 }

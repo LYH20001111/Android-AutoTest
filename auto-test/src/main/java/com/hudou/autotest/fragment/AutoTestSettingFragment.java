@@ -68,16 +68,16 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fileDirList = addAssetsDirs();
         String reportPath = onSetReportPath();
-        if (reportPath != null && !reportPath.isEmpty()){
+        if (reportPath != null && !reportPath.isEmpty()) {
             REPORT_PATH = reportPath;
-        }else {
+        } else {
             REPORT_PATH = ReflectionUtils.getConfig(Config.REPORT_PATH);
         }
 
         String testFilesPath = onSetTestFilesPath();
-        if (testFilesPath != null && !testFilesPath.isEmpty()){
+        if (testFilesPath != null && !testFilesPath.isEmpty()) {
             TESTFILES_PATH = testFilesPath;
-        }else {
+        } else {
             TESTFILES_PATH = ReflectionUtils.getConfig(Config.LOAD_FILES_PATH);
         }
         return super.onCreateView(inflater, container, savedInstanceState);
@@ -90,7 +90,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
     @Override
     public List<String> addAssetsDirs() {
-        return new ArrayList<String>(){{
+        return new ArrayList<String>() {{
             add(ReflectionUtils.getConfig(Config.DEFAULT_FILE_DIR));
         }};
     }
@@ -126,31 +126,33 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         onAddActions();
     }
 
-    private void dealDebugMode(){
+    private void dealDebugMode() {
         viewBinding.swDebug.setChecked(SharedPreferencesUtil.get(SharedPreferencesUtil.DEBUG_MODE, true));
         viewBinding.swDebug.setOnCheckedChangeListener((compoundButton, isChecked) -> SharedPreferencesUtil.save(SharedPreferencesUtil.DEBUG_MODE, isChecked));
     }
 
-    private void dealExportReport(){
+    private void dealExportReport() {
         viewBinding.llExportReport.setOnClickListener(new MyOnClickListener() {
 
             @Override
             public void dealClick(View v) {
                 Dialog.singleChoiceDialog(getActivity(), R.string.select_report_format_dialog_title, new String[]{".xlsx", ".txt"}, id -> {
-                    if (id == 0){
+                    if (id == 0) {
 
-                    }else {
+                    } else {
 
                     }
                 });
             }
         });
     }
-    private interface Group{
+
+    private interface Group {
         int TEST_REPORT = 0;
         int LOAD_FILES = 1;
     }
-    private interface ReportChild{
+
+    private interface ReportChild {
         int REPORT_PATH = 0;
         int RECORDING_TESTING = 1;
         int RECORD_SUMMARY = 2;
@@ -158,12 +160,13 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         int VIEW_XLSX_FILE_NAME = 4;
         int CLEAN_RECORDS = 5;
     }
-    private interface FilesChild{
+
+    private interface FilesChild {
         int FILES_PATH = 0;
         int LOAD_FILES = 1;
     }
 
-    private void dealReport(){
+    private void dealReport() {
         @SuppressLint("ResourceType")
         MyExpandableListAdapter myExpandableListAdapter = new MyExpandableListAdapter(getContext(),
                 new ArrayList<GroupModel>() {{
@@ -172,16 +175,16 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                 }},
                 new ArrayList<ArrayList<ChildModel>>() {{
                     add(new ArrayList<ChildModel>() {{
-                        add(new ChildModel(android.R.drawable.ic_menu_edit,getResourceString(R.string.child_report_path) + REPORT_PATH, Color.GRAY));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_recording), Color.GRAY));
-                        add(new ChildModel(android.R.drawable.ic_menu_search,getResourceString(R.string.child_record_summary)));
-                        add(new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_output_xlsx_report)));
-                        add(new ChildModel(android.R.drawable.ic_menu_view,getResourceString(R.string.child_view_report_name)));
-                        add(new ChildModel(android.R.drawable.ic_menu_delete,getResourceString(R.string.child_clean_records), Color.RED));
+                        add(new ChildModel(android.R.drawable.ic_menu_edit, getResourceString(R.string.child_report_path) + REPORT_PATH, Color.GRAY));
+                        add(new ChildModel(android.R.drawable.ic_menu_save, getResourceString(R.string.child_recording), Color.GRAY));
+                        add(new ChildModel(android.R.drawable.ic_menu_search, getResourceString(R.string.child_record_summary)));
+                        add(new ChildModel(android.R.drawable.ic_menu_save, getResourceString(R.string.child_output_xlsx_report)));
+                        add(new ChildModel(android.R.drawable.ic_menu_view, getResourceString(R.string.child_view_report_name)));
+                        add(new ChildModel(android.R.drawable.ic_menu_delete, getResourceString(R.string.child_clean_records), Color.RED));
                     }});
                     add(new ArrayList<>(Arrays.asList(
-                            new ChildModel(android.R.drawable.ic_menu_edit,getResourceString(R.string.child_files_path) + TESTFILES_PATH, Color.GRAY),
-                            new ChildModel(android.R.drawable.ic_menu_save,getResourceString(R.string.child_load_files))
+                                    new ChildModel(android.R.drawable.ic_menu_edit, getResourceString(R.string.child_files_path) + TESTFILES_PATH, Color.GRAY),
+                                    new ChildModel(android.R.drawable.ic_menu_save, getResourceString(R.string.child_load_files))
                             ))
                     );
                 }}
@@ -192,10 +195,10 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 GroupModel groupModel = (GroupModel) myExpandableListAdapter.getGroup(groupPosition);
                 String groupName = groupModel.getGroupName();
-                if (parent.isGroupExpanded(groupPosition)){
+                if (parent.isGroupExpanded(groupPosition)) {
                     ImageView groupNavigate = v.findViewById(R.id.group_navigate);
                     groupNavigate.setImageResource(R.drawable.auto_test_navigate_next);
-                }else {
+                } else {
                     ImageView groupNavigate = v.findViewById(R.id.group_navigate);
                     groupNavigate.setImageResource(R.drawable.auto_test_navigate_down);
                 }
@@ -208,11 +211,11 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 ChildModel childModel = (ChildModel) myExpandableListAdapter.getChild(groupPosition, childPosition);
-                switch (groupPosition){
+                switch (groupPosition) {
                     case Group.TEST_REPORT:
-                        switch (childPosition){
+                        switch (childPosition) {
                             case ReportChild.REPORT_PATH:
-                                if (getEditCap() == EditCap.OFF){
+                                if (getEditCap() == EditCap.OFF) {
                                     Toast.makeText(getContext(), R.string.no_editting, Toast.LENGTH_SHORT).show();
                                     return true;
                                 }
@@ -231,15 +234,15 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 break;
                             case ReportChild.RECORD_SUMMARY:
                                 List<TableItem> items = new ArrayList<>();
-                                for (ResultItem resultItem : resultItemList){
+                                for (ResultItem resultItem : resultItemList) {
                                     items.add(new TableItem(resultItem.getClz().getSimpleName(), countFail(resultItem.getResultDataList()), resultItem.getResultDataList().size()));
                                 }
                                 Dialog.createTableDialog(getContext(), getString(R.string.record_summary), items);
                                 break;
                             case ReportChild.OUTPUT_XLSX_REPORT:
-                                if (PermissionUtil.checkReadWritePermission(getActivity())){
+                                if (PermissionUtil.checkReadWritePermission(getActivity())) {
                                     Dialog.outputDialog(getActivity(), onAddReportNamePrefix());
-                                }else {
+                                } else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
                                 break;
@@ -269,9 +272,9 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                         }
                         break;
                     case Group.LOAD_FILES:
-                        switch (childPosition){
+                        switch (childPosition) {
                             case FilesChild.FILES_PATH:
-                                if (getEditCap() == EditCap.OFF){
+                                if (getEditCap() == EditCap.OFF) {
                                     Toast.makeText(getContext(), R.string.no_editting, Toast.LENGTH_SHORT).show();
                                     return true;
                                 }
@@ -287,11 +290,11 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 });
                                 break;
                             case FilesChild.LOAD_FILES:
-                                if (PermissionUtil.checkReadWritePermission(getActivity())){
+                                if (PermissionUtil.checkReadWritePermission(getActivity())) {
                                     if (fileDirList != null && !fileDirList.isEmpty()) {
                                         Dialog.loadingFilesDialog(getActivity(), fileDirList, TESTFILES_PATH);
                                     }
-                                }else {
+                                } else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
                                 break;
@@ -307,15 +310,15 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         });
     }
 
-    private void dealPermission(){
+    private void dealPermission() {
         viewBinding.llPermissionSetting.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
                 Dialog.multiChoiceDialog(getContext(), R.string.permission_dialog_title, permission, new MultiChoiceDialogListener() {
                     @Override
                     public void onResult(ArrayList<Integer> choiceList) {
-                        for(Integer index : choiceList){
-                            switch (index){
+                        for (Integer index : choiceList) {
+                            switch (index) {
                                 case 0:
                                     PermissionUtil.requestReadWritePermission(getActivity());
                                     break;
@@ -329,10 +332,10 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         });
     }
 
-    private static int countFail(List<ResultData> resultDataList){
+    private static int countFail(List<ResultData> resultDataList) {
         int count = 0;
-        for(ResultData resultData : resultDataList){
-            if ("测试失败".equals(resultData.getResult())){
+        for (ResultData resultData : resultDataList) {
+            if ("测试失败".equals(resultData.getResult())) {
                 count++;
             }
         }
@@ -421,9 +424,8 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     }
 
 
-
-    public void removeFunction(SettingFunction settingFunction){
-        switch (settingFunction){
+    public void removeFunction(SettingFunction settingFunction) {
+        switch (settingFunction) {
             case BASE_FUNCTION:
                 viewBinding.llBaseFunction.setVisibility(View.GONE);
                 break;
@@ -441,18 +443,19 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         }
     }
 
-    public static EditCap getEditCap(){
+    public static EditCap getEditCap() {
         return editCap;
     }
 
-    public void setEditCap(EditCap editCap){
+    public void setEditCap(EditCap editCap) {
         AutoTestSettingFragment.editCap = editCap;
     }
 
     public static boolean isEnglishReport() {
         return isEnglishReport;
     }
-    public static String getReportPath(){
+
+    public static String getReportPath() {
         return REPORT_PATH;
     }
 

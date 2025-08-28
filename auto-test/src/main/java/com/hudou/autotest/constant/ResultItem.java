@@ -41,7 +41,7 @@ public class ResultItem {
             this.startTime = startTime;
             isStartTimeSet = true; // 标记为已设置
         }
-        if (this.startTime == null){
+        if (this.startTime == null) {
             this.startTime = startTime;
             isStartTimeSet = true;
         }

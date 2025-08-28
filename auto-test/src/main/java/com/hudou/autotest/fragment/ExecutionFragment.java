@@ -31,7 +31,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     private int beginId = INVALID_VALUE;
     private int endId = INVALID_VALUE;
 
-    public ExecutionFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, String option){
+    public ExecutionFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, String option) {
         this.clz = clz;
         this.testItem = testItem;
         this.option = option;
@@ -44,7 +44,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
         initAction();
     }
 
-    private void initAction(){
+    private void initAction() {
         viewBinding.viewKeyboard.setIOnKeyboardListener(new NumberKeyBoardView.IOnKeyboardListener() {
             @Override
             public void onInsertKeyEvent(String text) {
@@ -55,7 +55,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
             public void onDeleteKeyEvent() {
                 if (viewBinding.tvCaseId.length() != 0) {
                     viewBinding.tvCaseId.setText(viewBinding.tvCaseId.getText().subSequence(0, viewBinding.tvCaseId.length() - 1));
-                }else {
+                } else {
                     viewBinding.tvCaseId.setText("");
                 }
             }
@@ -65,12 +65,12 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 if (!"".equals(viewBinding.tvCaseId.getText().toString())) {
                     try {
                         testId = Integer.parseInt(viewBinding.tvCaseId.getText().toString());
-                    }catch (NumberFormatException ignored){
+                    } catch (NumberFormatException ignored) {
 
                     }
-                    if (testId >= testItem.testItemCasesNum(clz) || testId == INVALID_VALUE){
+                    if (testId >= testItem.testItemCasesNum(clz) || testId == INVALID_VALUE) {
                         Dialog.notifyDialog(getContext(), getString(R.string.please_input_correct_case_id), () -> getActivity().runOnUiThread(() -> viewBinding.tvCaseId.setText("")));
-                    }else {
+                    } else {
                         ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, OptionsFragment.Option.RUN_ONE_CASE, testId, INVALID_VALUE, INVALID_VALUE);
                         getActivity().runOnUiThread(() -> {
                             FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
@@ -97,11 +97,11 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 Dialog.editDialog(getContext(), R.string.input_begin_id_hint, true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         beginId = Integer.parseInt(message);
-                    }catch (NumberFormatException ignored){
+                    } catch (NumberFormatException ignored) {
                     }
-                    if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == -1){
+                    if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == -1) {
                         Toast.makeText(getContext(), R.string.begin_id_not_allowed, Toast.LENGTH_SHORT).show();
-                    }else {
+                    } else {
                         viewBinding.btnBeginId.setText(getString(R.string.begin_id) + beginId);
                     }
                 }));
@@ -113,13 +113,13 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 Dialog.editDialog(getContext(), R.string.input_end_id_hint, true, message -> getActivity().runOnUiThread(() -> {
                     try {
                         endId = Integer.parseInt(message);
-                    }catch (NumberFormatException ignored){
+                    } catch (NumberFormatException ignored) {
                     }
-                    if (endId >= testItem.testItemCasesNum(clz) || endId == -1 || endId <= beginId){
+                    if (endId >= testItem.testItemCasesNum(clz) || endId == -1 || endId <= beginId) {
                         Toast.makeText(getContext(), R.string.end_id_not_allowed, Toast.LENGTH_SHORT).show();
-                    }else {
+                    } else {
                         viewBinding.btnEndId.setText(getString(R.string.end_id) + endId);
-                        if (beginId != -1){
+                        if (beginId != -1) {
                             ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, OptionsFragment.Option.RUN_PART_CASES, INVALID_VALUE, beginId, endId);
                             getActivity().runOnUiThread(() -> {
                                 FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
@@ -137,8 +137,8 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     }
 
 
-    private void actionByOption(String option){
-        switch (option){
+    private void actionByOption(String option) {
+        switch (option) {
             case OptionsFragment.Option.RUN_ONE_CASE:
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
