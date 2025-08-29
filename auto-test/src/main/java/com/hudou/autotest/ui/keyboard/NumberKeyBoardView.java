@@ -30,6 +30,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
 
     private IOnKeyboardListener mOnKeyboardListener;
     private boolean showOK = true;
+    private boolean mDeletePressed = false;
 
     public NumberKeyBoardView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -92,6 +93,14 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
     private void drawKeyBackground(Keyboard.Key key, Canvas canvas, Drawable drawable) {
 //        ColorDrawable drawable = new ColorDrawable(color);
         drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
+        // 只对删除键做 pressed 判断
+        if (key.codes[0] == Keyboard.KEYCODE_DELETE) {
+            drawable.setState(mDeletePressed
+                    ? new int[]{android.R.attr.state_pressed}
+                    : new int[]{});
+        } else {
+            drawable.setState(new int[]{});   // 其它键保持默认
+        }
         drawable.draw(canvas);
     }
 
@@ -210,44 +219,57 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (getKeyboard() == null) {
+            return super.onTouchEvent(event);
+        }
+
         int x = (int) event.getX();
         int y = (int) event.getY();
+        boolean insideDelete = false;
 
-        // 获取键盘的所有按键
-        Keyboard keyboard = getKeyboard();
-        if (keyboard != null) {
-            List<Keyboard.Key> keys = keyboard.getKeys();
-            for (Keyboard.Key key : keys) {
-                // 检查触摸点是否在按键的边界内
-                if (x >= key.x && x <= key.x + key.width && y >= key.y && y <= key.y + key.height) {
-                    // 只处理删除按钮
-                    if (key.codes[0] == Keyboard.KEYCODE_DELETE) {
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            // 按键按下
-                            mDeleteBackgroundColor.setState(new int[]{android.R.attr.state_pressed});
-                            invalidate(); // 重新绘制
-//                            // 调用删除回调
-//                            if (mOnKeyboardListener != null) {
-//                                mOnKeyboardListener.onDeleteKeyEvent();
-//                            }
-                            return true; // 处理了事件
-                        } else if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
-                            // 按键释放
-                            mDeleteBackgroundColor.setState(new int[]{});
-                            invalidate(); // 重新绘制
-                            // 调用删除回调
-                            if (mOnKeyboardListener != null) {
-                                mOnKeyboardListener.onDeleteKeyEvent();
-                            }
-                            return true; // 处理了事件
-                        }
-                    }
-                    // 如果是其他按钮，直接返回 false，让父类处理
-                    return super.onTouchEvent(event);
-                }
+        // 先找到“删除键”
+        Keyboard.Key deleteKey = null;
+        for (Keyboard.Key key : getKeyboard().getKeys()) {
+            if (key.codes[0] == Keyboard.KEYCODE_DELETE) {
+                deleteKey = key;
+                insideDelete = x >= key.x && x <= key.x + key.width &&
+                        y >= key.y && y <= key.y + key.height;
+                break;
             }
         }
-        // 如果触摸点不在任何按键上，或者没有找到按键，让父类处理
+
+        switch (event.getActionMasked()) {
+            case MotionEvent.ACTION_DOWN:
+                if (insideDelete) {
+                    mDeletePressed = true;
+                    invalidate();
+                    return true;      // 删除键自己处理
+                }
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                if (mDeletePressed) { // 只有删除键被按下时才管
+                    boolean old = mDeletePressed;
+                    mDeletePressed = insideDelete;
+                    if (old != mDeletePressed) invalidate();
+                    return true;
+                }
+                break;
+
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                if (mDeletePressed) {
+                    if (insideDelete && mOnKeyboardListener != null) {
+                        mOnKeyboardListener.onDeleteKeyEvent();
+                    }
+                    mDeletePressed = false;
+                    invalidate();
+                    return true;
+                }
+                break;
+        }
+
+        // 其它任何情况都交给父类，保证普通键能收到 MOVE/CANCEL
         return super.onTouchEvent(event);
     }
 
