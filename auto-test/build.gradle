@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 61
-def appVersionName = '1.0.61'
+def appVersionCode = 62
+def appVersionName = '1.0.62'
 
 
 android {

@@ -72,20 +72,23 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                     try {
                         testId = Integer.parseInt(viewBinding.tvCaseId.getText().toString());
                     } catch (NumberFormatException ignored) {
-
+                        testId = INVALID_VALUE;
                     }
                     if (testId >= testItem.testItemCasesNum(clz) || testId == INVALID_VALUE) {
                         Dialog.notifyDialog(getContext(), getString(R.string.please_input_correct_case_id), () -> getActivity().runOnUiThread(() -> viewBinding.tvCaseId.setText("")));
                     } else {
-                        ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, OptionsFragment.Option.RUN_ONE_CASE, testId, INVALID_VALUE, INVALID_VALUE);
-                        getActivity().runOnUiThread(() -> {
-                            FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
-                            supportFragmentManager.beginTransaction()
-                                    .replace(R.id.main_layout, executionDetailsFragment)
-                                    .addToBackStack(executionDetailsFragment.getClass().getSimpleName())
-                                    .commit();
-                            supportFragmentManager.executePendingTransactions();
-                        });
+                        viewBinding.getRoot().postDelayed(() -> {
+                            ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem,
+                                    OptionsFragment.Option.RUN_ONE_CASE, testId, INVALID_VALUE, INVALID_VALUE);
+                            getActivity().runOnUiThread(() -> {
+                                FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
+                                supportFragmentManager.beginTransaction()
+                                        .replace(R.id.main_layout, executionDetailsFragment)
+                                        .addToBackStack(executionDetailsFragment.getClass().getSimpleName())
+                                        .commit();
+                                supportFragmentManager.executePendingTransactions();
+                            });
+                        }, 100);//让事件系统先消化掉残留事件
                     }
 
                 }
@@ -104,8 +107,9 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                     try {
                         beginId = Integer.parseInt(message);
                     } catch (NumberFormatException ignored) {
+                        beginId = INVALID_VALUE;
                     }
-                    if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == -1) {
+                    if (beginId >= (testItem.testItemCasesNum(clz) - 1) || beginId == INVALID_VALUE) {
                         Toast.makeText(getContext(), R.string.begin_id_not_allowed, Toast.LENGTH_SHORT).show();
                     } else {
                         viewBinding.btnBeginId.setText(getString(R.string.begin_id) + beginId);
@@ -120,8 +124,9 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                     try {
                         endId = Integer.parseInt(message);
                     } catch (NumberFormatException ignored) {
+                        endId = INVALID_VALUE;
                     }
-                    if (endId >= testItem.testItemCasesNum(clz) || endId == -1 || endId <= beginId) {
+                    if (endId >= testItem.testItemCasesNum(clz) || endId == INVALID_VALUE || endId <= beginId) {
                         Toast.makeText(getContext(), R.string.end_id_not_allowed, Toast.LENGTH_SHORT).show();
                     } else {
                         viewBinding.btnEndId.setText(getString(R.string.end_id) + endId);
