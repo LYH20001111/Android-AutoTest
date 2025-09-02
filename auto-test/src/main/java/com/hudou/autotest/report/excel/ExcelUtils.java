@@ -3,10 +3,12 @@ package com.hudou.autotest.report.excel;
 import android.content.Context;
 import android.os.Environment;
 
+import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
 import com.hudou.autotest.util.ATLoggerUtils;
+import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -148,7 +150,7 @@ public class ExcelUtils {
                 long totalTime = 0;
                 for (ResultItem item : resultItemList) {
                     ATLoggerUtils.d("item = " + item.getClz().getName());
-                    summarySheet.addCell(new Label(0, row, String.valueOf(item.getClz().getSimpleName()), contentFormat));
+                    summarySheet.addCell(new Label(0, row, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
                     summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
                     summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
                     summarySheet.addCell(new Label(3, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
@@ -168,7 +170,7 @@ public class ExcelUtils {
                     // 对每个 ResultItem 的 resultDataList 按 id 排序
                     item.getResultDataList().sort((o1, o2) -> o1.getId().compareTo(o2.getId()));
                     for (int i = 0; i < item.getResultDataList().size(); i++) {
-                        detailSheet.addCell(new Label(0, r, String.valueOf(item.getClz().getSimpleName()), contentFormat));
+                        detailSheet.addCell(new Label(0, r, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));
                         if ("测试通过".equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "PASS" : item.getResultDataList().get(i).getResult(), contentFormat));

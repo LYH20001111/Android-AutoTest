@@ -25,7 +25,7 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyExpandableListAdapter;
 import com.hudou.autotest.annotation.Function;
 import com.hudou.autotest.annotation.Navigation;
-import com.hudou.autotest.annotation.TestCase;
+import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.Config;
@@ -36,7 +36,6 @@ import com.hudou.autotest.constant.SettingFunction;
 import com.hudou.autotest.constant.ChildModel;
 import com.hudou.autotest.constant.GroupModel;
 import com.hudou.autotest.constant.TableItem;
-import com.hudou.autotest.ui.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.ui.dialog.listener.NotifyOptionDialogListener;
 import com.hudou.autotest.databinding.AutoTestBaseSettingFragmentBinding;
 import com.hudou.autotest.fragment.listener.SettingInterface;
@@ -235,7 +234,8 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                             case ReportChild.RECORD_SUMMARY:
                                 List<TableItem> items = new ArrayList<>();
                                 for (ResultItem resultItem : resultItemList) {
-                                    items.add(new TableItem(resultItem.getClz().getSimpleName(), countFail(resultItem.getResultDataList()), resultItem.getResultDataList().size()));
+                                    items.add(new TableItem(ReflectionUtils.getAnnotationValue(resultItem.getClz(), TestItem.class, TestItem.Members.name),
+                                            countFail(resultItem.getResultDataList()), resultItem.getResultDataList().size()));
                                 }
                                 Dialog.createTableDialog(getContext(), getString(R.string.record_summary), items);
                                 break;
@@ -314,17 +314,14 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         viewBinding.llPermissionSetting.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
-                Dialog.multiChoiceDialog(getContext(), R.string.permission_dialog_title, permission, new MultiChoiceDialogListener() {
-                    @Override
-                    public void onResult(ArrayList<Integer> choiceList) {
-                        for (Integer index : choiceList) {
-                            switch (index) {
-                                case 0:
-                                    PermissionUtil.requestReadWritePermission(getActivity());
-                                    break;
-                                default:
-                                    break;
-                            }
+                Dialog.multiChoiceDialog(getContext(), R.string.permission_dialog_title, permission, choiceList -> {
+                    for (Integer index : choiceList) {
+                        switch (index) {
+                            case 0:
+                                PermissionUtil.requestReadWritePermission(getActivity());
+                                break;
+                            default:
+                                break;
                         }
                     }
                 });

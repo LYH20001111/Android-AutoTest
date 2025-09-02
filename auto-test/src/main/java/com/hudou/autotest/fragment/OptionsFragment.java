@@ -49,9 +49,10 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
                         "1. 运行所有案例 \n " +
                         "2. 运行某个案例 \n " +
                         "3. 运行部分连续案例 \n " +
-                        "4. 查看所有案例详情 \n " +
+                        "4. 查看所有案例详情(%d) \n " +
                         "5. 查看废弃案例详情(%d)",
                 ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name),
+                testItem.testItemCasesNum(clz),
                 testItem.testItemAbandonCasesNum(clz)));
     }
 
