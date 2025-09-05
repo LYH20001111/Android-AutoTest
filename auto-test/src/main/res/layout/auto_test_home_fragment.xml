@@ -15,7 +15,7 @@
         android:text="@string/auto_test"
         android:textStyle="italic|bold"
         android:textColor="@color/white"
-        android:textSize="50sp"/>
+        android:textSize="50sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -25,10 +25,10 @@
         android:text="@string/home_welcome"
         android:textStyle="italic"
         android:textColor="@color/white"
-        android:textSize="25sp"/>
+        android:textSize="25sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="TabLayoutTextStyle" parent="Widget.Design.TabLayout">
         <item name="android:textSize">15sp</item>
     </style>
@@ -9,6 +10,7 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">15sp</item>
     </style>
+
     <style name="scstyle" parent="Theme.AppCompat.Light">
         <!--开启时的颜色-->
         <item name="colorControlActivated">@color/green</item>

@@ -25,7 +25,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/light_blue"
-                android:text="@string/execution_details_item"/>
+                android:text="@string/execution_details_item" />
 
         </LinearLayout>
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="#FF5722"
-                android:text="@string/execution_details_line2_message"/>
+                android:text="@string/execution_details_line2_message" />
         </LinearLayout>
 
         <View
@@ -52,7 +52,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_height="2dp"
-            android:background="@color/gray"/>
+            android:background="@color/gray" />
 
 
         <ScrollView
@@ -73,8 +73,6 @@
         </ScrollView>
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>

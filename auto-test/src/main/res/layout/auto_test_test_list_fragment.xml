@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/payment_service"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +21,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="30sp"
-            android:text="@string/list_item"/>
+            android:text="@string/list_item" />
 
         <ScrollView
             android:id="@+id/sv_scroll"

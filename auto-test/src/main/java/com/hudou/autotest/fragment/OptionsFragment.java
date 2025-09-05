@@ -5,7 +5,6 @@ import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
 

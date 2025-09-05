@@ -4,7 +4,6 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
 import android.graphics.Color;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 

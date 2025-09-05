@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ECECEC"
     android:orientation="vertical">
 
@@ -38,7 +37,7 @@
                 android:textColor="#6E5454"
                 android:background="#ECECEC"
                 android:textSize="17sp"
-                android:text="@string/base_function"/>
+                android:text="@string/base_function" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +73,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_height="2dp"
                         android:visibility="visible"
-                        android:background="#dfdfdf"/>
+                        android:background="#dfdfdf" />
 
                 </LinearLayout>
 
@@ -103,18 +102,18 @@
                             android:textStyle="bold"
                             android:textSize="20sp"
                             android:textColor="@color/black"
-                            android:text="输出测试报告"/>
+                            android:text="输出测试报告" />
 
-<!--                        <ImageButton-->
-<!--                            android:id="@+id/imbtn_select_export_report_mode"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:gravity="center"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:background="@drawable/auto_test_navigate_next"-->
-<!--                            android:clickable="false"-->
-<!--                            android:focusable="false"-->
-<!--                            android:focusableInTouchMode="false" />-->
+                        <!--                        <ImageButton-->
+                        <!--                            android:id="@+id/imbtn_select_export_report_mode"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center"-->
+                        <!--                            android:layout_gravity="center"-->
+                        <!--                            android:background="@drawable/auto_test_navigate_next"-->
+                        <!--                            android:clickable="false"-->
+                        <!--                            android:focusable="false"-->
+                        <!--                            android:focusableInTouchMode="false" />-->
                     </LinearLayout>
 
                     <View
@@ -122,7 +121,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_height="2dp"
                         android:visibility="visible"
-                        android:background="#dfdfdf"/>
+                        android:background="#dfdfdf" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -136,14 +135,14 @@
                         android:id="@+id/elv_report"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:groupIndicator="@null"/>
+                        android:groupIndicator="@null" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_marginTop="10dp"
                         android:layout_height="2dp"
                         android:visibility="visible"
-                        android:background="#dfdfdf"/>
+                        android:background="#dfdfdf" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -158,7 +157,7 @@
                 android:textColor="#6E5454"
                 android:background="#ECECEC"
                 android:textSize="17sp"
-                android:text="设置"/>
+                android:text="设置" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -190,17 +189,17 @@
                             android:textStyle="bold"
                             android:textSize="20sp"
                             android:textColor="@color/black"
-                            android:text="权限设置"/>
+                            android:text="权限设置" />
 
-<!--                        <ImageButton-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:gravity="center"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:background="@drawable/auto_test_navigate_next"-->
-<!--                            android:clickable="false"-->
-<!--                            android:focusable="false"-->
-<!--                            android:focusableInTouchMode="false" />-->
+                        <!--                        <ImageButton-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center"-->
+                        <!--                            android:layout_gravity="center"-->
+                        <!--                            android:background="@drawable/auto_test_navigate_next"-->
+                        <!--                            android:clickable="false"-->
+                        <!--                            android:focusable="false"-->
+                        <!--                            android:focusableInTouchMode="false" />-->
                     </LinearLayout>
 
                     <View
@@ -208,7 +207,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_height="2dp"
                         android:visibility="visible"
-                        android:background="#dfdfdf"/>
+                        android:background="#dfdfdf" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -224,7 +223,7 @@
                 android:background="#ECECEC"
                 android:textSize="17sp"
                 android:visibility="gone"
-                android:text="额外功能"/>
+                android:text="额外功能" />
 
             <LinearLayout
                 android:id="@+id/ll_additional_setting"
@@ -233,16 +232,15 @@
                 android:background="@drawable/auto_test_rounded_background"
                 android:padding="4dp"
                 android:visibility="gone"
-                android:orientation="vertical">
-            </LinearLayout>
+                android:orientation="vertical"></LinearLayout>
 
         </LinearLayout>
 
 
     </ScrollView>
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"/>-->
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50dp"/>-->
 
 </LinearLayout>

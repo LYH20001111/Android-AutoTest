@@ -3,7 +3,6 @@ package com.hudou.autotest.constant;
 import android.graphics.Color;
 
 import androidx.annotation.IntegerRes;
-import androidx.annotation.StringRes;
 
 public class ChildModel {
     private int childIcon;

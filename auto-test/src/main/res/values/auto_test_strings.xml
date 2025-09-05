@@ -1,4 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">auto-test</string>
+    <string name="execution_details_item">当前测试项 ： </string>
+    <string name="execution_details_line2_message">当前测试的案例号 ：</string>
+    <string name="execution_item">当前测试项 ：</string>
+    <string name="execution_line2">请输入测试案例号 ：</string>
+    <string name="execution_begin_id">点击输入起始案例号</string>
+    <string name="execution_end_id">点击输入结束案例号</string>
+    <string name="auto_test">Auto Test</string>
+    <string name="home_welcome">欢迎使用自动化测试框架</string>
+    <string name="item_name">这是案例项名字</string>
+    <string name="item_description">这是案例项描述信息</string>
+    <string name="_1_n_2_n_3_n_4">1. 运行所有案例 \n 2. 运行部分案例 \n 3. 运行某个案例 \n 4. 查看所有案例详情</string>
+    <string name="exit_application_title">您确定要退出应用吗？</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="pause_tes">您确定要中断测试吗</string>
+    <string name="pause_test_part_content">中断测试</string>
+    <string name="pause_positive">此案例结束后中断测试</string>
+    <string name="list_item">测试项列表</string>
+    <string name="debug_mode">调试模式</string>
+    <string name="base_function">基础功能</string>
+    <string name="select_report_format_dialog_title">请选择输出报告的格式</string>
+    <string name="permission_dialog_title">请选择你需要开启的权限</string>
+
+    <string name="group_test_report">测试报告</string>
+    <string name="child_report_path">报告地址:\u0020</string>
+    <string name="child_record_summary">查看测试记录汇总</string>
+    <string name="child_output_xlsx_report">输出 .xlsx 测试报告</string>
+    <string name="child_recording">实时记录测试 (../report.txt) </string>
+    <string name="child_view_report_name">查看测试报告名称</string>
+    <string name="child_clean_records">清空测试记录</string>
+
+    <string name="group_load_files">加载应用文件</string>
+    <string name="child_files_path">文件地址:\u0020</string>
+    <string name="child_load_files">加载测试应用文件</string>
+
+
+    <string name="no_editting">不可编辑</string>
+    <string name="edit_report_path">您可以自定义测试报告的输出地址</string>
+    <string name="no_read_write_permission">没有对外读写存储权限</string>
+    <string name="edit_files_path">您可以自定义应用测试文件的加载地址</string>
+    <string name="success">Success</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="begin_id_not_allowed">输入的起始案例号不符合</string>
+    <string name="end_id_not_allowed">输入的结束案例号不符合</string>
+    <string name="end_id">"结束案例号 : "</string>
+    <string name="input_end_id_hint">请输入结束案例号</string>
+    <string name="input_begin_id_hint">请输入起始案例号</string>
+    <string name="clean_records_title">您确定要清空测试记录吗？</string>
+    <string name="begin_id">"起始案例号 : "</string>
+    <string name="current_item">"当前查看项 ： "</string>
+    <string name="please_input_correct_case_id">请输入正确的案例号</string>
+    <string name="no_cases_found">未找到任何案例</string>
+    <string name="permission_can_not_accept">权限被拒绝，无法进行文件操作</string>
+    <string name="record_summary">测试结果汇总</string>
+
 
 </resources>

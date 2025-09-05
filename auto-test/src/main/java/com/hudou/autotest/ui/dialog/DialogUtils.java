@@ -16,13 +16,13 @@ import android.widget.TextView;
 import androidx.annotation.StringRes;
 
 import com.hudou.autotest.R;
-import com.hudou.autotest.ui.dialog.listener.NotifyDialogListener;
-import com.hudou.autotest.ui.dialog.listener.NotifyOptionDialogListener;
-import com.hudou.autotest.ui.dialog.listener.SingleChoiceDialogListener;
 import com.hudou.autotest.ui.dialog.listener.CustomDialogListener;
 import com.hudou.autotest.ui.dialog.listener.EditDialogListener;
 import com.hudou.autotest.ui.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.ui.dialog.listener.NewCustomDialogListener;
+import com.hudou.autotest.ui.dialog.listener.NotifyDialogListener;
+import com.hudou.autotest.ui.dialog.listener.NotifyOptionDialogListener;
+import com.hudou.autotest.ui.dialog.listener.SingleChoiceDialogListener;
 
 import java.util.ArrayList;
 

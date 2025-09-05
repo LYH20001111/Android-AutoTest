@@ -22,5 +22,5 @@
         android:layout_marginLeft="10dp"
         android:layout_gravity="center"
         android:textSize="16sp"
-        android:text="清空测试记录"/>
+        android:text="清空测试记录" />
 </LinearLayout>

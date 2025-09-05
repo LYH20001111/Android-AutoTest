@@ -5,7 +5,6 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
 import android.graphics.Color;
-import android.util.Log;
 
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
@@ -15,17 +14,13 @@ import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.database.entity.ResultDataEntity;
 import com.hudou.autotest.database.entity.ResultItemEntity;
 import com.hudou.autotest.report.excel.ExcelUtils;
-import com.hudou.autotest.util.ATLoggerUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

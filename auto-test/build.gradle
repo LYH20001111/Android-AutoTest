@@ -33,14 +33,15 @@ android {
             minifyEnabled false
         }
     }
-    android.libraryVariants.all{
-        variant -> variant.outputs.all {
-            if("debug" == variant.buildType.name){
-                outputFileName = "hudou-autotest-" + defaultConfig.versionName + "-" + variant.buildType.name + ".aar"
-            }else {
-                outputFileName = "hudou-autotest-" + defaultConfig.versionName + ".aar"
+    android.libraryVariants.all {
+        variant ->
+            variant.outputs.all {
+                if ("debug" == variant.buildType.name) {
+                    outputFileName = "hudou-autotest-" + defaultConfig.versionName + "-" + variant.buildType.name + ".aar"
+                } else {
+                    outputFileName = "hudou-autotest-" + defaultConfig.versionName + ".aar"
+                }
             }
-        }
     }
 
     compileOptions {
@@ -48,8 +49,8 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    sourceSets{
-        main{
+    sourceSets {
+        main {
             jniLibs.srcDirs = ['src/main/jniLibs', 'libs']
             resources.srcDirs = ['src/main/properties']
         }

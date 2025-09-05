@@ -20,7 +20,7 @@
             android:layout_marginLeft="10dp"
             android:visibility="visible"
             android:textSize="15sp"
-            android:text="@string/_1_n_2_n_3_n_4"/>
+            android:text="@string/_1_n_2_n_3_n_4" />
 
         <ScrollView
             android:id="@+id/sv_message"
@@ -47,14 +47,14 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:gravity="bottom">
+
         <View
             android:layout_width="match_parent"
             android:layout_marginTop="0dp"
             android:layout_height="2dp"
-            android:background="@color/gray"/>
+            android:background="@color/gray" />
 
-        <com.hudou.autotest.ui.keyboard.NumberKeyBoardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.hudou.autotest.ui.keyboard.NumberKeyBoardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/view_keyboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

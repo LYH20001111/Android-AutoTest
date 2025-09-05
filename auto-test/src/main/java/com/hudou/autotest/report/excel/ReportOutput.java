@@ -2,11 +2,7 @@ package com.hudou.autotest.report.excel;
 
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
-import android.util.Log;
-
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
-import com.hudou.autotest.constant.ResultData;
-import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
 
 import java.io.File;

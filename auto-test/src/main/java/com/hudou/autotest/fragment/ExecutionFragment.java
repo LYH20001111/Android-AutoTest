@@ -1,7 +1,7 @@
 package com.hudou.autotest.fragment;
 
-import static com.hudou.autotest.fragment.OptionsFragment.INVALID_VALUE;
 import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
+import static com.hudou.autotest.fragment.OptionsFragment.INVALID_VALUE;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -22,8 +22,8 @@ import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.databinding.AutoTestExecutionFragmentBinding;
-import com.hudou.autotest.ui.keyboard.NumberKeyBoardView;
 import com.hudou.autotest.listener.MyOnClickListener;
+import com.hudou.autotest.ui.keyboard.NumberKeyBoardView;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 

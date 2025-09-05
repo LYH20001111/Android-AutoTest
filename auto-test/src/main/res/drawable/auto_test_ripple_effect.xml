@@ -2,6 +2,6 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="#FF0000"> <!-- 点击时的水波纹颜色 -->
     <item>
-        <color android:color="#FFFFFF"/> <!-- 默认背景颜色 -->
+        <color android:color="#FFFFFF" /> <!-- 默认背景颜色 -->
     </item>
 </ripple>

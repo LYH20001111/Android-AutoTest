@@ -1,6 +1,5 @@
 package com.hudou.autotest.listener;
 
-import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;

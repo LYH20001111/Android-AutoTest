@@ -5,7 +5,6 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
-import androidx.room.Upsert;
 
 import com.hudou.autotest.database.entity.ResultDataEntity;
 import com.hudou.autotest.database.entity.ResultItemEntity;

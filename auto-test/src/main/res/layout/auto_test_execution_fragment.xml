@@ -25,7 +25,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/light_blue"
-                android:text="@string/execution_item"/>
+                android:text="@string/execution_item" />
 
         </LinearLayout>
 
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="#FF5722"
-                android:text="@string/execution_line2"/>
+                android:text="@string/execution_line2" />
 
             <TextView
                 android:id="@+id/tv_case_id"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="#FF5722"
-                android:text=""/>
+                android:text="" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,7 +71,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/auto_test_button_background"
                 android:textColor="@color/white"
-                android:text="@string/execution_begin_id"/>
+                android:text="@string/execution_begin_id" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_end_id"
@@ -83,7 +83,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/auto_test_button_background"
                 android:textColor="@color/white"
-                android:text="@string/execution_end_id"/>
+                android:text="@string/execution_end_id" />
         </LinearLayout>
 
         <View
@@ -92,7 +92,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_height="2dp"
-            android:background="@color/gray"/>
+            android:background="@color/gray" />
 
         <ScrollView
             android:id="@+id/sv_message"
@@ -124,10 +124,9 @@
             android:layout_width="match_parent"
             android:layout_marginTop="0dp"
             android:layout_height="2dp"
-            android:background="@color/gray"/>
+            android:background="@color/gray" />
 
-        <com.hudou.autotest.ui.keyboard.NumberKeyBoardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.hudou.autotest.ui.keyboard.NumberKeyBoardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/view_keyboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,7 +145,6 @@
             app:xnkv_deleteHeight="30dp"
             app:xnkv_deleteWidth="30dp" />
     </LinearLayout>
-
 
 
 </LinearLayout>

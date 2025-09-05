@@ -50,7 +50,7 @@
             android:keyLabel="0" />
         <Key
             android:codes="-10"
-            android:keyLabel="确定"/>
+            android:keyLabel="确定" />
     </Row>
 
 </Keyboard>

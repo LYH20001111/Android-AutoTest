@@ -2,7 +2,6 @@ package com.hudou.autotest.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import com.hudou.autotest.R;
 import com.hudou.autotest.constant.ChildModel;
 import com.hudou.autotest.constant.GroupModel;
-import com.hudou.autotest.fragment.AutoTestSettingFragment;
 
 import java.util.ArrayList;
 import java.util.List;

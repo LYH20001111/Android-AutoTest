@@ -1,6 +1,5 @@
 package com.hudou.autotest.util;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
