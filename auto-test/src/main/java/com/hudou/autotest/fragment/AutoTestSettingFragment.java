@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
+import com.hudou.autotest.BuildConfig;
 import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyExpandableListAdapter;
 import com.hudou.autotest.annotation.Function;
@@ -149,6 +150,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     private interface Group {
         int TEST_REPORT = 0;
         int LOAD_FILES = 1;
+        int OTHERS = 2;
     }
 
     private interface ReportChild {
@@ -165,12 +167,17 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         int LOAD_FILES = 1;
     }
 
+    private interface OthersChild {
+        int STRUCTURE_VERSION = 0;
+    }
+
     private void dealReport() {
         @SuppressLint("ResourceType")
         MyExpandableListAdapter myExpandableListAdapter = new MyExpandableListAdapter(getContext(),
                 new ArrayList<GroupModel>() {{
                     add(new GroupModel(getResourceString(R.string.group_test_report)));
                     add(new GroupModel(getResourceString(R.string.group_load_files)));
+                    add(new GroupModel(getResourceString(R.string.group_others)));
                 }},
                 new ArrayList<ArrayList<ChildModel>>() {{
                     add(new ArrayList<ChildModel>() {{
@@ -186,6 +193,9 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                     new ChildModel(android.R.drawable.ic_menu_save, getResourceString(R.string.child_load_files))
                             ))
                     );
+                    add(new ArrayList<ChildModel>(){{
+                        add(new ChildModel(android.R.drawable.ic_menu_view, getResourceString(R.string.child_structure_version) + BuildConfig.StructureVersion, Color.GRAY));
+                    }});
                 }}
         );
         viewBinding.elvReport.setAdapter(myExpandableListAdapter);
@@ -297,6 +307,14 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 } else {
                                     Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
                                 }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case Group.OTHERS:
+                        switch (childPosition) {
+                            case OthersChild.STRUCTURE_VERSION:
                                 break;
                             default:
                                 break;

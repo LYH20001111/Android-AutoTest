@@ -35,6 +35,9 @@
     <string name="child_files_path">文件地址:\u0020</string>
     <string name="child_load_files">加载测试应用文件</string>
 
+    <string name="group_others">更多</string>
+    <string name="child_structure_version">测试框架版本:\u0020\u0020\u0020\u0020</string>
+
 
     <string name="no_editting">不可编辑</string>
     <string name="edit_report_path">您可以自定义测试报告的输出地址</string>

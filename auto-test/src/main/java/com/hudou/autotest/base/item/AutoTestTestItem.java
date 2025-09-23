@@ -121,10 +121,16 @@ public class AutoTestTestItem extends BaseTestCase {
         }
     }
 
+    private void resetResultRecorded() {
+        synchronized (lock) {
+            isResultRecorded = false;
+        }
+    }
+
 
     @Override
     public void onCaseStart(Method method) {
-
+        resetResultRecorded();
     }
 
     @Override
