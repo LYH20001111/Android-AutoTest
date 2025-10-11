@@ -4,11 +4,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.ConditionVariable;
 import android.os.Looper;
 import android.text.InputType;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.StringRes;
 
@@ -71,6 +74,65 @@ public class NoSynDialogUtils {
             Looper.loop();
         }).start();
 
+    }
+
+    public static void messageDialog(final Context context, final String title, final String message, final int size) {
+        new Thread(() -> {
+            Looper.prepare();
+            // 创建一个可滚动的 TextView
+            TextView textView = new TextView(context);
+            textView.setText(message);
+            textView.setPadding(20, 20, 20, 20); // 设置内边距
+            textView.setMovementMethod(ScrollingMovementMethod.getInstance()); // 启用滚动
+            textView.setVerticalScrollBarEnabled(true); // 启用垂直滚动条
+            textView.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET); // 设置滚动条样式
+            textView.setTextSize(size);
+
+            notifyDialog = new AlertDialog.Builder(context)
+                    .setTitle(title)
+                    .setView(textView) // 使用自定义的 TextView
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        notifyDialog.dismiss();
+                    })
+                    .setCancelable(false)
+                    .setOnCancelListener(dialog -> {})
+                    .create();
+            notifyDialog.show();
+            Looper.loop();
+        }).start();
+    }
+
+
+    public static void messageOptionsDialog(final Context context, final String title, final String message,
+                                            final int size, final NotifyOptionDialogListener callback) {
+        new Thread(() -> {
+            Looper.prepare();
+            // 创建一个可滚动的 TextView
+            TextView textView = new TextView(context);
+            textView.setText(message);
+            textView.setPadding(20, 20, 20, 20); // 设置内边距
+            textView.setMovementMethod(ScrollingMovementMethod.getInstance()); // 启用滚动
+            textView.setVerticalScrollBarEnabled(true); // 启用垂直滚动条
+            textView.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET); // 设置滚动条样式
+            textView.setTextSize(size);
+
+            notifyDialog = new AlertDialog.Builder(context)
+                    .setTitle(title)
+                    .setView(textView) // 使用自定义的 TextView
+                    .setPositiveButton(R.string.sure, (dialog, which) -> {
+                        notifyDialog.dismiss();
+                        callback.onPositive();
+                    })
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                        notifyDialog.dismiss();
+                        callback.onNegative();
+                    })
+                    .setCancelable(false)
+                    .setOnCancelListener(dialog -> {})
+                    .create();
+            notifyDialog.show();
+            Looper.loop();
+        }).start();
     }
 
     public static void notifyOptionsDialog(final Context context, final String title, final NotifyOptionDialogListener callback) {
