@@ -44,7 +44,7 @@ public class GroupChild {
             {
                     R.string.group_test_report,
                     R.string.child_report_path,
-                    R.string.child_output_xlsx_report,
+                    R.string.child_output_report,
                     R.string.child_recording,
                     R.string.child_view_report_name,
                     R.string.child_clean_records,
@@ -59,7 +59,7 @@ public class GroupChild {
     public static final List<List<Integer>> groupChildMap = new ArrayList<List<Integer>>() {{
         add(R.string.group_test_report, new ArrayList<Integer>() {{
             add(R.string.child_report_path);
-            add(R.string.child_output_xlsx_report);
+            add(R.string.child_output_report);
             add(R.string.child_recording);
             add(R.string.child_view_report_name);
             add(R.string.child_clean_records);

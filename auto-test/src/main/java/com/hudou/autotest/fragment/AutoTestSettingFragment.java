@@ -157,7 +157,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
         int REPORT_PATH = 0;
         int RECORDING_TESTING = 1;
         int RECORD_SUMMARY = 2;
-        int OUTPUT_XLSX_REPORT = 3;
+        int OUTPUT_REPORT = 3;
         int VIEW_XLSX_FILE_NAME = 4;
         int CLEAN_RECORDS = 5;
     }
@@ -184,7 +184,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                         add(new ChildModel(android.R.drawable.ic_menu_edit, getResourceString(R.string.child_report_path) + REPORT_PATH, Color.GRAY));
                         add(new ChildModel(android.R.drawable.ic_menu_save, getResourceString(R.string.child_recording), Color.GRAY));
                         add(new ChildModel(android.R.drawable.ic_menu_search, getResourceString(R.string.child_record_summary)));
-                        add(new ChildModel(android.R.drawable.ic_menu_save, getResourceString(R.string.child_output_xlsx_report)));
+                        add(new ChildModel(android.R.drawable.ic_menu_save, getResourceString(R.string.child_output_report)));
                         add(new ChildModel(android.R.drawable.ic_menu_view, getResourceString(R.string.child_view_report_name)));
                         add(new ChildModel(android.R.drawable.ic_menu_delete, getResourceString(R.string.child_clean_records), Color.RED));
                     }});
@@ -249,12 +249,17 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 }
                                 Dialog.createTableDialog(getContext(), getString(R.string.record_summary), items);
                                 break;
-                            case ReportChild.OUTPUT_XLSX_REPORT:
-                                if (PermissionUtil.checkReadWritePermission(getActivity())) {
-                                    Dialog.outputDialog(getActivity(), onAddReportNamePrefix());
-                                } else {
-                                    Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
-                                }
+                            case ReportChild.OUTPUT_REPORT:
+                                Dialog.singleChoiceDialog(getActivity(), R.string.test_report_format_selection, ReportOutput.formats, index -> {
+                                    if (index < 0) {
+                                        return;
+                                    }
+                                    if (PermissionUtil.checkReadWritePermission(getActivity())) {
+                                        Dialog.outputDialog(getActivity(), onAddReportNamePrefix(), index);
+                                    } else {
+                                        Toast.makeText(getContext(), R.string.no_read_write_permission, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                                 break;
                             case ReportChild.VIEW_XLSX_FILE_NAME:
                                 Dialog.notifyDialog(getContext(), ReportOutput.excelPath);
