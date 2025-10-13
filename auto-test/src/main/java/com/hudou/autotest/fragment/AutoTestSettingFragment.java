@@ -7,12 +7,14 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.constant.ChildModel;
 import com.hudou.autotest.constant.Config;
 import com.hudou.autotest.constant.EditCap;
+import com.hudou.autotest.constant.FunctionType;
 import com.hudou.autotest.constant.GroupModel;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
@@ -374,6 +377,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
                 Function function = method.getAnnotation(Function.class);
                 String title = function.title();
+                FunctionType type = function.type();
 
                 LinearLayout functionLayout = new LinearLayout(getContext());
                 functionLayout.setOrientation(LinearLayout.VERTICAL);
@@ -395,19 +399,88 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                 textViewLayout.setLayoutParams(functionLayoutLayoutParams);
                 textViewLayout.setMinimumHeight(30);
 
-                // 创建 TextView
-                TextView textView = new TextView(getContext());
-                textView.setLayoutParams(new LinearLayout.LayoutParams(
-                        0,
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        1));
-                textView.setText(title);
-                textView.setTypeface(null, Typeface.BOLD);
-                textView.setTextSize(20);
-                textView.setTextColor(Color.BLACK);
+                switch (type) {
+                    case SWITCH: {
+                        LinearLayout container = new LinearLayout(getContext());
+                        container.setOrientation(LinearLayout.HORIZONTAL);
+                        container.setLayoutParams(new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT
+                        ));
 
-                // 将 TextView 添加到 LinearLayout
-                textViewLayout.addView(textView);
+                        TextView textView = new TextView(getContext());
+                        textView.setText(title);
+                        textView.setTextColor(Color.BLACK);
+                        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                        textView.setTypeface(null, Typeface.BOLD);
+                        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                                0,
+                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                1
+                        );
+                        textView.setLayoutParams(textParams);
+
+                        Switch switchBtn = new Switch(getContext());
+                        switchBtn.setText("");
+                        //switchBtn.setChecked(true);
+
+                        switchBtn.setThumbTintList(null);
+                        switchBtn.setTrackTintList(null);
+                        switchBtn.setThumbResource(R.drawable.auto_test_switch_custom_thumb_selector);
+                        switchBtn.setTrackResource(R.drawable.auto_test_switch_custom_track_selector);
+
+                        container.addView(textView);
+                        container.addView(switchBtn);
+
+                        container.setOnClickListener(v -> {
+                            // 切换 Switch 的状态
+                            boolean newState = !switchBtn.isChecked();
+                            switchBtn.setChecked(newState);
+                            // 这里也可以调用 Switch 的监听器里定义的业务逻辑
+                        });
+                        switchBtn.setOnCheckedChangeListener((b, isChecked) -> {
+                            try {
+                                method.setAccessible(true);
+                                if (method.getParameterTypes().length > 0) {
+                                    method.invoke(this, isChecked);   // 有参
+                                } else {
+                                    method.invoke(this);              // 无参
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+                        textViewLayout.addView(container);
+                        break;
+                    }
+                    case BUTTON: {
+                        // 创建 TextView
+                        TextView textView = new TextView(getContext());
+                        textView.setLayoutParams(new LinearLayout.LayoutParams(
+                                0,
+                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                1));
+                        textView.setText(title);
+                        textView.setTypeface(null, Typeface.BOLD);
+                        textView.setTextSize(20);
+                        textView.setTextColor(Color.BLACK);
+
+                        // 将 TextView 添加到 LinearLayout
+                        textViewLayout.addView(textView);
+
+                        functionLayout.setOnClickListener(v -> {
+                            try {
+                                method.setAccessible(true);
+                                method.invoke(this);
+                            } catch (IllegalAccessException | InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
+                        });
+                        break;
+                    }
+                    default:
+                        break;
+                }
 
                 // 创建分隔线
                 View divider = new View(getContext());
@@ -420,20 +493,10 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                 dividerLayoutParams.topMargin = 20;
                 divider.setLayoutParams(dividerLayoutParams);
 
-
-                // 设置点击事件
-                functionLayout.setOnClickListener(v -> {
-                    try {
-                        // 调用对应的方法
-                        method.setAccessible(true);
-                        method.invoke(this);
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                });
                 functionLayout.addView(textViewLayout);
                 functionLayout.addView(divider);
                 parent.addView(functionLayout);
+
             }
         }
     }
