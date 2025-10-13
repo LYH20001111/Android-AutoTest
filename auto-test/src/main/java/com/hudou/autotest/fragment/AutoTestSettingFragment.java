@@ -439,16 +439,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                             // 这里也可以调用 Switch 的监听器里定义的业务逻辑
                         });
                         switchBtn.setOnCheckedChangeListener((b, isChecked) -> {
-                            try {
-                                method.setAccessible(true);
-                                if (method.getParameterTypes().length > 0) {
-                                    method.invoke(this, isChecked);   // 有参
-                                } else {
-                                    method.invoke(this);              // 无参
-                                }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                            safeInvoke(method, isChecked);
                         });
                         textViewLayout.addView(container);
                         break;
@@ -469,12 +460,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                         textViewLayout.addView(textView);
 
                         functionLayout.setOnClickListener(v -> {
-                            try {
-                                method.setAccessible(true);
-                                method.invoke(this);
-                            } catch (IllegalAccessException | InvocationTargetException e) {
-                                e.printStackTrace();
-                            }
+                            safeInvoke(method, false);
                         });
                         break;
                     }
@@ -499,6 +485,51 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
             }
         }
+    }
+
+    /**
+     * 调用方法：若存在第一个 boolean 参数，则只传布尔值；
+     * 其余参数按默认值填充；若无 boolean，则按无参调用。
+     */
+    private void safeInvoke(Method method, boolean flag) {
+        try {
+            method.setAccessible(true);
+            Class<?>[] pts = method.getParameterTypes();
+            int idx = -1;
+            for (int i = 0; i < pts.length; i++) {
+                if (pts[i] == boolean.class) { idx = i; break; }
+            }
+
+            if (idx == -1) {                 // 没有 boolean
+                method.invoke(this);
+                return;
+            }
+
+            // 构造实参数组
+            Object[] args = new Object[pts.length];
+            args[idx] = flag;                // 第一个 boolean 位置
+            // 其余填默认值
+            for (int i = 0; i < pts.length; i++) {
+                if (i == idx) continue;
+                args[i] = defaultValue(pts[i]);
+            }
+            method.invoke(this, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /** 返回各类型的默认值（兼容基本类型） */
+    private Object defaultValue(Class<?> clz) {
+        if (clz == boolean.class)   return false;
+        if (clz == byte.class)      return (byte) 0;
+        if (clz == short.class)     return (short) 0;
+        if (clz == int.class)       return 0;
+        if (clz == long.class)      return 0L;
+        if (clz == float.class)     return 0.0f;
+        if (clz == double.class)    return 0.0d;
+        if (clz == char.class)      return '\0';
+        return null;                // 引用类型
     }
 
 
