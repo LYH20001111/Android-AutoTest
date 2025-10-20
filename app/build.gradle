@@ -45,6 +45,18 @@ dependencies {
     //必须加
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    def room_version = "2.5.2" // 推荐使用最新稳定版本
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    api 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation 'com.google.zxing:core:3.4.0'
+    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
+    implementation 'org.apache.poi:poi:3.16'
+    implementation('org.apache.poi:poi-ooxml:3.16') {
+        exclude group: 'org.apache.xmlbeans', module: 'xmlbeans'
+    }
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
 
 //    implementation project(':local-repo:auto-test')
 

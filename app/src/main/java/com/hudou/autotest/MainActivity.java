@@ -30,5 +30,9 @@ public class MainActivity extends AutoTestMainActivity {
 //        list.add(new AutoTestSettingFragment());
     }
 
+    @Override
+    public boolean isPhysicalKeyboard() {
+        return super.isPhysicalKeyboard();
+    }
 
 }

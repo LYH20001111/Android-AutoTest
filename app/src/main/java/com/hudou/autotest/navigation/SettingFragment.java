@@ -12,8 +12,10 @@ import androidx.annotation.Nullable;
 
 import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.R;
+import com.hudou.autotest.annotation.Function;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
+import com.hudou.autotest.ui.dialog.NoSynDialogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,22 +44,26 @@ public class SettingFragment extends AutoTestSettingFragment {
         return super.onSetReportPath();
     }
 
-//    @Override
-//    public List<String> addAssetsDirs() {
-//        return new ArrayList<String>(){{
-//            add("document");
-//            add("test");
-//        }};
-//    }
-
+    @Override
+    public String onSetTestFilesPath() {
+        return super.onSetTestFilesPath();
+    }
 
     @Override
     public List<String> addAssetsDirs() {
-        return super.addAssetsDirs();
+        return new ArrayList<String>(){{
+            add("document");
+            add("test");
+        }};
     }
 
     @Override
     public String onAddReportNamePrefix() {
-        return "PaymentLink-PaymentService-";
+        return "AutoTest-";
+    }
+
+    @Function(title = "额外功能 1 ")
+    private void function1() {
+
     }
 }
