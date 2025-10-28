@@ -424,6 +424,7 @@ class Dialog {
         textView.setText(loadingMessage);
         loadingAlertDialog.setView(dialogView);
         loadingAlertDialog.setCanceledOnTouchOutside(false); // 设置点击外部区域是否取消对话框
+        loadingAlertDialog.setCancelable(false);
         loadingAlertDialog.show();
     }
 

@@ -11,5 +11,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface Function {
     String title();
+
     FunctionType type() default FunctionType.BUTTON;
+
+    boolean isChecked() default false;
 }

@@ -49,7 +49,6 @@ import com.hudou.autotest.util.PermissionUtil;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -378,6 +377,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                 Function function = method.getAnnotation(Function.class);
                 String title = function.title();
                 FunctionType type = function.type();
+                boolean checked = function.isChecked();
 
                 LinearLayout functionLayout = new LinearLayout(getContext());
                 functionLayout.setOrientation(LinearLayout.VERTICAL);
@@ -422,7 +422,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
                         Switch switchBtn = new Switch(getContext());
                         switchBtn.setText("");
-                        //switchBtn.setChecked(true);
+                        switchBtn.setChecked(checked);
 
                         switchBtn.setThumbTintList(null);
                         switchBtn.setTrackTintList(null);
