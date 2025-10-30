@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(
         tableName = "result_data",
-        indices = {@Index(value = {"className", "methodName"}, unique = true)},
+        indices = {@Index(value = {"className", "caseName"}, unique = true)},
         foreignKeys = @ForeignKey(
                 entity = ResultItemEntity.class,
                 parentColumns = "className",

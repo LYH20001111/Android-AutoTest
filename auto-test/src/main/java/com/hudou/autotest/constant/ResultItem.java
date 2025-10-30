@@ -60,7 +60,7 @@ public class ResultItem {
     public String toString() {
         return "ResultItem{" +
                 "clz=" + clz +
-                ", resultDataList=" + resultDataList +
+                ", resultDataList=" + resultDataList.toString() +
                 '}';
     }
 
