@@ -124,6 +124,11 @@ public abstract class BaseTestCase {
 
                     } catch (Exception e) {
                         e.printStackTrace();
+                        resultData.setResult("测试失败");
+                        // 解开反射包装，拿到根因
+                        Throwable root = e.getCause() != null ? e.getCause() : e;
+                        postValue(Color.RED, "测试失败" + ("\n"
+                                +  "测试案例抛出异常未捕获，测试框架捕获：" + root.getClass().getSimpleName() + "：" + root.getMessage()));
                     } finally {
                         postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "，执行结束");
                     }
