@@ -30,7 +30,11 @@ public class AutoTestTestItem extends BaseTestCase {
 
     public void recordPass(@Nullable String message) {
         synchronized (resultData) { // 确保线程安全
-            resultData.setResult("测试通过");
+            if ("测试失败".equals(resultData.getResult())) {
+
+            } else {
+                resultData.setResult("测试通过");
+            }
         }
         synchronized (lock) {
             isResultRecorded = true;
@@ -127,6 +131,11 @@ public class AutoTestTestItem extends BaseTestCase {
         }
     }
 
+
+    @Override
+    public void onItemStart() {
+
+    }
 
     @Override
     public void onCaseStart(Method method) {

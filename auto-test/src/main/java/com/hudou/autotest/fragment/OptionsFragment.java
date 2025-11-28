@@ -53,6 +53,11 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
                 ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name),
                 testItem.testItemCasesNum(clz),
                 testItem.testItemAbandonCasesNum(clz)));
+        try {
+            testItem.onItemStart();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

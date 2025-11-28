@@ -56,6 +56,11 @@ public class BaseFragment<VB extends ViewBinding/*, VM extends ViewModel*/> exte
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
     }

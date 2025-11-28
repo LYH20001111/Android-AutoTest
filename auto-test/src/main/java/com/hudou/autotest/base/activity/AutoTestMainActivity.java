@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -68,6 +69,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
         return mContext;
     }
 
+    @RestrictTo(RestrictTo.Scope.LIBRARY)
     public static AppDatabase getDb() {
         return db;
     }
@@ -106,6 +108,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
                         f.setAccessible(true);
                         f.setBoolean(ri, ie.isStartTimeSet);
                     } catch (Exception ignore) {
+                        ignore.printStackTrace();
                     }
                     temp.add(ri);
                 } catch (Exception e) {
@@ -210,6 +213,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
         });
     }
 
+    @RestrictTo(RestrictTo.Scope.LIBRARY)
     public static SynchronizedMutableLiveData<ShowMessage> getRecorder() {
         return mShowMessage;
     }
@@ -254,8 +258,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
                 new MaterialAlertDialogBuilder(AutoTestMainActivity.this)
                         .setTitle(R.string.exit_application_title)
                         .setPositiveButton(R.string.sure, (dialog, which) -> finish())
-                        .setNegativeButton(R.string.cancel, (dialog, which) -> {
-                        })
+                        .setNegativeButton(R.string.cancel, (dialog, which) -> {})
                         .show();
                 return true;
             }

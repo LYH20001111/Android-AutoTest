@@ -6,6 +6,8 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 
 import android.graphics.Color;
 
+import androidx.annotation.RestrictTo;
+
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ResultData;
@@ -26,6 +28,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public abstract class BaseTestCase {
     public static volatile boolean isCompleted = false;
     public static volatile boolean isPaused = false;
@@ -301,6 +304,7 @@ public abstract class BaseTestCase {
         return null;
     }
 
+    public abstract void onItemStart();
 
     public abstract void onCaseStart(Method method);
 
