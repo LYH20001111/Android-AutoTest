@@ -4,11 +4,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hudou.autotest.adapter.MyRecycleAdapter;
+import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.annotation.TestItemClass;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.AutoTestTestItem;
+import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.constant.Item;
 import com.hudou.autotest.databinding.AutoTestTestListFragmentBinding;
+import com.hudou.autotest.util.ReflectionUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +34,11 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
             Class<? extends AutoTestTestItem>[] testItems = testItemSet.toArray(new Class[0]);
 
             for (Class<? extends AutoTestTestItem> testItemClass : testItems) {
-                items.add(new Item(testItemClass));
+                if (testItemClass.isAnnotationPresent(TestItem.class)) {
+                    items.add(new Item(testItemClass));
+                    //先缓存所有测试项的案例详情，后面选项点击直接取出来
+                    ((BaseTestCase) ReflectionUtils.createInstance(testItemClass)).viewCaseDetails(testItemClass);
+                }
             }
         }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());

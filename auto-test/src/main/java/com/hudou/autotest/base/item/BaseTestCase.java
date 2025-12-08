@@ -217,21 +217,23 @@ public abstract class BaseTestCase {
     }
 
     public String viewCaseDetails(Class<? extends BaseTestCase> clz) {
-        StringBuilder details = new StringBuilder();
-        Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
-                .filter(method -> method.isAnnotationPresent(TestCase.class))
-                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
+        // 2. 只有第一次会走 lambda，后续直接拿结果
+        return AutoTestMainActivity.getCaseDetailsMap().computeIfAbsent(clz, this::buildCaseDetails);
+    }
+
+    /* 3. 真正的构建逻辑，抽出去复用 */
+    private String buildCaseDetails(Class<? extends BaseTestCase> clz) {
+        Method[] methods = Arrays.stream(clz.getDeclaredMethods())
+                .filter(m -> m.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))
                 .toArray(Method[]::new);
 
-        for (int i = 0; i < testCaseMethods.length; i++) {
-            Method method = testCaseMethods[i];
-            if (method.isAnnotationPresent(TestCase.class)) {
-                TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
-                String name = testCaseAnnotation != null ? testCaseAnnotation.name() : null;
-                details = details.append(i).append(" : ").append(name).append("\n");
-            }
+        StringBuilder sb = new StringBuilder(methods.length * 32);
+        for (int i = 0; i < methods.length; i++) {
+            String name = methods[i].getAnnotation(TestCase.class).name();
+            sb.append(i).append(" : ").append(name).append('\n');
         }
-        return details.toString();
+        return sb.toString();
     }
 
     public String viewAbandonCaseDetails(Class<? extends BaseTestCase> clz) {

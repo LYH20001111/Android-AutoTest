@@ -50,6 +50,8 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class AutoTestMainActivity extends AppCompatActivity implements AutoTestInterface {
@@ -64,15 +66,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
     private static Context mContext;
     public static FileOutputStream fos;
     private static AppDatabase db;
-
-    public static Context getContext() {
-        return mContext;
-    }
-
-    @RestrictTo(RestrictTo.Scope.LIBRARY)
-    public static AppDatabase getDb() {
-        return db;
-    }
+    private static final Map<Class<? extends BaseTestCase>, String> CASE_DETAILS = new ConcurrentHashMap<>();// 缓存容器
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -213,19 +207,6 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
         });
     }
 
-    @RestrictTo(RestrictTo.Scope.LIBRARY)
-    public static SynchronizedMutableLiveData<ShowMessage> getRecorder() {
-        return mShowMessage;
-    }
-
-    public static void recordMessage(int color, String message) throws InterruptedException, IOException {
-        getRecorder().synchronizedPostValue(new ShowMessage(color, message));
-        if (SharedPreferencesUtil.get(SharedPreferencesUtil.DEBUG_MODE, true)) {
-            resultData.appendDetail("\n" + message);
-            fos.write((message + "\n").getBytes());
-        }
-    }
-
     private List<Fragment> getFragments() {
         return finalFragmentList;
     }
@@ -236,10 +217,6 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
-    }
-
-    public String getAuthorName() {
-        return BuildConfig.Author;
     }
 
     @Override
@@ -307,6 +284,37 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
     @Override
     public boolean isPhysicalKeyboard() {
         return false;
+    }
+
+    public static Context getContext() {
+        return mContext;
+    }
+
+    public static void recordMessage(int color, String message) throws InterruptedException, IOException {
+        getRecorder().synchronizedPostValue(new ShowMessage(color, message));
+        if (SharedPreferencesUtil.get(SharedPreferencesUtil.DEBUG_MODE, true)) {
+            resultData.appendDetail("\n" + message);
+            fos.write((message + "\n").getBytes());
+        }
+    }
+
+    public String getAuthorName() {
+        return BuildConfig.Author;
+    }
+
+    @RestrictTo(RestrictTo.Scope.LIBRARY)
+    public static Map<Class<? extends BaseTestCase>, String> getCaseDetailsMap() {
+        return CASE_DETAILS;
+    }
+
+    @RestrictTo(RestrictTo.Scope.LIBRARY)
+    public static AppDatabase getDb() {
+        return db;
+    }
+
+    @RestrictTo(RestrictTo.Scope.LIBRARY)
+    public static SynchronizedMutableLiveData<ShowMessage> getRecorder() {
+        return mShowMessage;
     }
 
 }
