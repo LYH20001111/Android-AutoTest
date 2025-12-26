@@ -23,10 +23,13 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public abstract class BaseTestCase {
@@ -256,6 +259,59 @@ public abstract class BaseTestCase {
         return details.toString();
     }
 
+    public String viewUnexecutedCaseDetails(Class<? extends BaseTestCase> clz) {
+        List<Method> allMethods = Arrays.stream(clz.getDeclaredMethods())
+                .filter(m -> m.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))
+                .collect(Collectors.toList());
+        Set<String> executedMethods = resultItemList.stream()
+                .filter(item -> item.getClz() == clz)   // 只盯当前类
+                .flatMap(item -> item.getResultDataList().stream())
+                .map(ResultData::getId)
+                .collect(Collectors.toSet());
+        StringBuilder details = new StringBuilder();
+        for (int i = 0; i < allMethods.size(); i++) {
+            Method m = allMethods.get(i);
+            if (!executedMethods.contains(m.getName())) {
+                TestCase tc = m.getAnnotation(TestCase.class);
+                details.append(i)
+                        .append(" : ")
+                        .append(tc.name())
+                        .append('\n');
+            }
+        }
+        return details.toString();
+    }
+
+    public String viewFailedCaseDetails(Class<? extends BaseTestCase> clz) {
+        List<String> methodList = Arrays.stream(clz.getDeclaredMethods())
+                .filter(m -> m.isAnnotationPresent(TestCase.class))
+                .map(Method::getName)
+                .sorted()
+                .collect(Collectors.toList());
+        ResultItem targetItem = null;
+        for (ResultItem item : resultItemList) {
+            if (item.getClz() == clz) {
+                targetItem = item;
+                break;
+            }
+        }
+        if (targetItem == null) return "";
+        StringBuilder details = new StringBuilder();
+        for (ResultData data : targetItem.getResultDataList()) {
+            if ("测试失败".equalsIgnoreCase(data.getResult())) {
+                int index = methodList.indexOf(data.getId());
+                if (index != -1) {
+                    details.append(index)
+                            .append(" : ")
+                            .append(data.getTestCaseName())
+                            .append('\n');
+                }
+            }
+        }
+        return details.toString();
+    }
+
     public int testItemCasesNum(Class<? extends BaseTestCase> clz) {
         return Arrays.stream(clz.getDeclaredMethods())
                 .filter(method -> method.isAnnotationPresent(TestCase.class))
@@ -271,6 +327,47 @@ public abstract class BaseTestCase {
         return (int) Arrays.stream(methods)
                 .filter(method -> method.getAnnotation(TestCase.class).abandon())
                 .count();
+    }
+
+    public int testItemNoExecutedCasesNum(Class<? extends BaseTestCase> clz) {
+        int passCount = 0;
+        int failCount = 0;
+        ResultItem targetItem = null;
+        for (ResultItem item : resultItemList) {
+            if (item.getClz() == clz) {
+                targetItem = item;
+                break;
+            }
+        }
+        if (targetItem != null) {
+            for (ResultData resultData : targetItem.getResultDataList()) {
+                if ("测试通过".equals(resultData.getResult())) {
+                    passCount++;
+                } else {
+                    failCount++;
+                }
+            }
+        }
+        return (testItemCasesNum(clz) - passCount - failCount);
+    }
+
+    public int testItemFailedCasesNum(Class<? extends BaseTestCase> clz) {
+        int count = 0;
+        ResultItem targetItem = null;
+        for (ResultItem item : resultItemList) {
+            if (item.getClz() == clz) {
+                targetItem = item;
+                break;
+            }
+        }
+        if (targetItem != null) {
+            for (ResultData resultData : targetItem.getResultDataList()) {
+                if ("测试失败".equals(resultData.getResult())) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
 

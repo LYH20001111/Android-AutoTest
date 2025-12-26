@@ -171,6 +171,18 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.GRAY, testItem.viewAbandonCaseDetails(clz)));
                 break;
+            case OptionsFragment.Option.VIEW_UNEXECUTED_CASES:
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.llLine2.setVisibility(View.GONE);
+                viewBinding.viewKeyboard.setVisibility(View.GONE);
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(0xFF42A5F5, testItem.viewUnexecutedCaseDetails(clz)));
+                break;
+            case OptionsFragment.Option.VIEW_FAILED_CASES:
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.llLine2.setVisibility(View.GONE);
+                viewBinding.viewKeyboard.setVisibility(View.GONE);
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.RED, testItem.viewFailedCaseDetails(clz)));
+                break;
             default:
                 break;
         }

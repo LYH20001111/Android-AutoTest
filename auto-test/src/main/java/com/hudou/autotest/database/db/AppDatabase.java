@@ -10,7 +10,7 @@ import com.hudou.autotest.database.dao.ResultDao;
 import com.hudou.autotest.database.entity.ResultDataEntity;
 import com.hudou.autotest.database.entity.ResultItemEntity;
 
-@Database(entities = {ResultItemEntity.class, ResultDataEntity.class}, version = 1)
+@Database(entities = {ResultItemEntity.class, ResultDataEntity.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
 
