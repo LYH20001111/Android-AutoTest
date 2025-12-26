@@ -299,7 +299,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
     }
 
     public String getAuthorName() {
-        return BuildConfig.Author;
+        return BuildConfig.AUTHOR;
     }
 
     @RestrictTo(RestrictTo.Scope.LIBRARY)

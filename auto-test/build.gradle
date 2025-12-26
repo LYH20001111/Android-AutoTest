@@ -3,9 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 74
-def appVersionName = '1.0.74'
-
+def appVersionCode = 76
+def appVersionName = '1.0.76'
 
 android {
     namespace 'com.hudou.autotest'
@@ -17,8 +16,8 @@ android {
         versionCode 1
         versionCode = appVersionCode
         versionName = appVersionName
-        buildConfigField 'String', 'Author', '"LiuYiHong"'
-        buildConfigField 'String', 'StructureVersion', "\"" + appVersionName + "\""
+        buildConfigField 'String', 'AUTHOR', '"Liu YiHong"'
+        buildConfigField 'String', 'STRUCTURE_VERSION', "\"" + appVersionName + "\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

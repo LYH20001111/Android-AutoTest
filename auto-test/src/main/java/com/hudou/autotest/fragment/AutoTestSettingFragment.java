@@ -196,7 +196,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                             ))
                     );
                     add(new ArrayList<ChildModel>(){{
-                        add(new ChildModel(android.R.drawable.ic_menu_view, getResourceString(R.string.child_structure_version) + BuildConfig.StructureVersion, Color.GRAY));
+                        add(new ChildModel(android.R.drawable.ic_menu_view, getResourceString(R.string.child_structure_version) + BuildConfig.STRUCTURE_VERSION, Color.GRAY));
                     }});
                 }}
         );
@@ -422,6 +422,8 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
 
                         Switch switchBtn = new Switch(getContext());
                         switchBtn.setText("");
+                        switchBtn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+                        switchBtn.setTypeface(null, Typeface.BOLD);
                         switchBtn.setChecked(checked);
 
                         switchBtn.setThumbTintList(null);

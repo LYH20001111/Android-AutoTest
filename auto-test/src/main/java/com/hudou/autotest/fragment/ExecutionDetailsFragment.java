@@ -7,11 +7,13 @@ import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_PART_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_ALL_CASES;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 
 import com.hudou.autotest.R;
@@ -48,10 +50,42 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        onBackPressedCallback = new OnBackPressedCallback(false) {
+            @Override
+            public void handleOnBackPressed() {
+                if (returnAllowed) {
+                    onBackPressedCallback.setEnabled(false);
+                    if (isAdded() && getActivity() != null) {
+                        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                        if (fragmentManager.getBackStackEntryCount() > 0) {
+                            fragmentManager.popBackStack();
+                        } else {
+                            fragmentManager.beginTransaction()
+                                    .remove(ExecutionDetailsFragment.this)
+                                    .commit();
+                        }
+                    }
+                } else {
+                    // 不允许返回
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        boolean isTestRunning = !BaseTestCase.isCompleted;
+        onBackPressedCallback.setEnabled(isTestRunning);
+    }
+
+    @Override
     public void onInitData() {
         viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
         AutoTestMainActivity.llMessage = viewBinding.llMessage;
-        initAction();
     }
 
     @Override
@@ -90,31 +124,6 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
         }).start();
 
     }
-
-    private void initAction() {
-        onBackPressedCallback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                if (returnAllowed) {
-                    onBackPressedCallback.setEnabled(false);
-                    if (isAdded() && getActivity() != null) {
-                        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                        if (fragmentManager.getBackStackEntryCount() > 0) {
-                            fragmentManager.popBackStack();
-                        } else {
-                            fragmentManager.beginTransaction()
-                                    .remove(ExecutionDetailsFragment.this)
-                                    .commit();
-                        }
-                    }
-                } else {
-                    // 不允许返回
-                }
-            }
-        };
-        requireActivity().getOnBackPressedDispatcher().addCallback(onBackPressedCallback);
-    }
-
 
     @Override
     public void onDestroy() {
