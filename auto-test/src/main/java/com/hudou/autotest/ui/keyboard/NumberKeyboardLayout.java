@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 
 import com.hudou.autotest.R;
+import com.hudou.autotest.listener.MyOnClickListener;
 
 
 /**
@@ -41,9 +42,9 @@ public class NumberKeyboardLayout extends LinearLayout {
         keyboardView = inflate.findViewById(R.id.view_keyboard);
         view = inflate.findViewById(R.id.view);
         hide();
-        view.setOnClickListener(new OnClickListener() {
+        view.setOnClickListener(new MyOnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void dealClick(View v) {
                 hide();
             }
         });

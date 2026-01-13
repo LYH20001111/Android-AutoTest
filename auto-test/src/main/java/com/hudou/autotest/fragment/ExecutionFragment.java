@@ -150,6 +150,8 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
     private void actionByOption(String option) {
         switch (option) {
+            case OptionsFragment.Option.RUN_ALL_CASES:
+                break;
             case OptionsFragment.Option.RUN_ONE_CASE:
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;

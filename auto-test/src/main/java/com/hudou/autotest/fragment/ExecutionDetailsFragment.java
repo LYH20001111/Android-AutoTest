@@ -4,7 +4,10 @@ import static com.hudou.autotest.fragment.OptionsFragment.INVALID_VALUE;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_ALL_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_ONE_CASE;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_PART_CASES;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_ABANDON_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_ALL_CASES;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_FAILED_CASES;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_UNEXECUTED_CASES;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -109,6 +112,9 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
                 testItem.runPartContinueCases(clz, beginId, endId);
                 break;
             case VIEW_ALL_CASES:
+            case VIEW_ABANDON_CASES:
+            case VIEW_UNEXECUTED_CASES:
+            case VIEW_FAILED_CASES:
                 break;
             default:
                 break;

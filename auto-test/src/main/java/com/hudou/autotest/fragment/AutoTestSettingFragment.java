@@ -434,11 +434,14 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                         container.addView(textView);
                         container.addView(switchBtn);
 
-                        container.setOnClickListener(v -> {
-                            // 切换 Switch 的状态
-                            boolean newState = !switchBtn.isChecked();
-                            switchBtn.setChecked(newState);
-                            // 这里也可以调用 Switch 的监听器里定义的业务逻辑
+                        container.setOnClickListener(new MyOnClickListener() {
+                            @Override
+                            public void dealClick(View v) {
+                                // 切换 Switch 的状态
+                                boolean newState = !switchBtn.isChecked();
+                                switchBtn.setChecked(newState);
+                                // 这里也可以调用 Switch 的监听器里定义的业务逻辑
+                            }
                         });
                         switchBtn.setOnCheckedChangeListener((b, isChecked) -> {
                             safeInvoke(method, isChecked);
@@ -461,8 +464,11 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                         // 将 TextView 添加到 LinearLayout
                         textViewLayout.addView(textView);
 
-                        functionLayout.setOnClickListener(v -> {
-                            safeInvoke(method, false);
+                        functionLayout.setOnClickListener(new MyOnClickListener() {
+                            @Override
+                            public void dealClick(View v) {
+                                safeInvoke(method, false);
+                            }
                         });
                         break;
                     }
