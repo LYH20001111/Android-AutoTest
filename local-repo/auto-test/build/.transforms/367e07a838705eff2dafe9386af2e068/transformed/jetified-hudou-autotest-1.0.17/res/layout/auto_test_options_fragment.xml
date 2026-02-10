@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="visible"
+            android:textSize="15sp"
+            android:text="@string/_1_n_2_n_3_n_4"/>
+
+        <ScrollView
+            android:id="@+id/sv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:fillViewport="true"
+            android:fadeScrollbars="false"
+            android:scrollbarSize="10dp">
+
+            <LinearLayout
+                android:id="@+id/ll_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_height="2dp"
+            android:background="@color/gray"/>
+
+        <com.hudou.autotest.customUI.keyboard.NumberKeyBoardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/view_keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="0dp"
+            android:background="#b0b0b0"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/auto_test_selector_key_background"
+            android:keyTextColor="#000000"
+            android:shadowColor="@android:color/transparent"
+            android:shadowRadius="0"
+            android:visibility="visible"
+            app:xnkv_deleteBackgroundColor="@drawable/auto_test_selector_key_background"
+            app:xnkv_deleteDrawable="@android:drawable/ic_input_delete"
+            app:xnkv_deleteHeight="30dp"
+            app:xnkv_deleteWidth="30dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

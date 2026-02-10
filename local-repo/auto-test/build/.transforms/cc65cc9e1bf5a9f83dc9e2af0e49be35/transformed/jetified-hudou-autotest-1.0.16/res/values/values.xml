@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Transparent">#000000</color>
+    <color name="aliceblue">#f0f8ff</color>
+    <color name="antiquewhite">#faebd7</color>
+    <color name="aqua">#00ffff</color>
+    <color name="aquamarine">#7fffd4</color>
+    <color name="azure">#f0ffff</color>
+    <color name="background">#fff3f3f5</color>
+    <color name="beige">#f5f5dc</color>
+    <color name="bisque">#ffe4c4</color>
+    <color name="black">#FF000000</color>
+    <color name="black_text">#424843</color>
+    <color name="blanchedalmond">#ffebcd</color>
+    <color name="blue">#0000ff</color>
+    <color name="blueviolet">#8a2be2</color>
+    <color name="brown">#a52a2a</color>
+    <color name="burlywood">#deb887</color>
+    <color name="cadetblue">#5f9ea0</color>
+    <color name="chartreuse">#7fff00</color>
+    <color name="chocolate">#d2691e</color>
+    <color name="colorAccent">#75BDFF</color>
+    <color name="colorClick">#3F000000</color>
+    <color name="colorPrimary">#313131</color>
+    <color name="colorPrimaryDark">#313131</color>
+    <color name="common_bg">#f1f2f7</color>
+    <color name="coral">#ff7f50</color>
+    <color name="cornflowerblue">#6495ed</color>
+    <color name="cornsilk">#fff8dc</color>
+    <color name="crimson">#dc143c</color>
+    <color name="cyan">#00ffff</color>
+    <color name="darkblue">#00008b</color>
+    <color name="darkcyan">#008b8b</color>
+    <color name="darkgoldenrod">#b8860b</color>
+    <color name="darkgray">#a9a9a9</color>
+    <color name="darkgreen">#006400</color>
+    <color name="darkgrey">#a9a9a9</color>
+    <color name="darkkhaki">#bdb76b</color>
+    <color name="darkmagenta">#8b008b</color>
+    <color name="darkolivegreen">#556b2f</color>
+    <color name="darkorange">#ff8c00</color>
+    <color name="darkorchid">#9932cc</color>
+    <color name="darkred">#8b0000</color>
+    <color name="darksalmon">#e9967a</color>
+    <color name="darkseagreen">#8fbc8f</color>
+    <color name="darkslateblue">#483d8b</color>
+    <color name="darkslategray">#2f4f4f</color>
+    <color name="darkslategrey">#2f4f4f</color>
+    <color name="darkturquoise">#00ced1</color>
+    <color name="darkviolet">#9400d3</color>
+    <color name="deeppink">#ff1493</color>
+    <color name="deepskyblue">#00bfff</color>
+    <color name="dimgrey">#696969</color>
+    <color name="disable_color">#FFD9D9D9</color>
+    <color name="dodgerblue">#1e90ff</color>
+    <color name="enter_amount_bg">#B7B7B7</color>
+    <color name="firebrick">#b22222</color>
+    <color name="floralwhite">#fffaf0</color>
+    <color name="forestgreen">#228b22</color>
+    <color name="fuchsia">#ff00ff</color>
+    <color name="gainsboro">#dcdcdc</color>
+    <color name="ghostwhite">#f8f8ff</color>
+    <color name="gold">#ffd700</color>
+    <color name="goldenrod">#daa520</color>
+    <color name="gray">#cfcfcf</color>
+    <color name="gray_font">#979797</color>
+    <color name="green">#009688</color>
+    <color name="greenyellow">#adff2f</color>
+    <color name="grey">#808080</color>
+    <color name="honeydew">#f0fff0</color>
+    <color name="hotpink">#ff69b4</color>
+    <color name="indianred">#cd5c5c</color>
+    <color name="indigo">#4b0082</color>
+    <color name="ivory">#fffff0</color>
+    <color name="keyboard_pressed_bg">#E8E8E8</color>
+    <color name="khaki">#f0e68c</color>
+    <color name="lavender">#e6e6fa</color>
+    <color name="lavenderblush">#fff0f5</color>
+    <color name="lawngreen">#7cfc00</color>
+    <color name="lemonchiffon">#fffacd</color>
+    <color name="light_black">#333333</color>
+    <color name="light_blue">#2595e1</color>
+    <color name="lightblue">#add8e6</color>
+    <color name="lightcoral">#f08080</color>
+    <color name="lightcyan">#e0ffff</color>
+    <color name="lightgoldenrodyellow">#fafad2</color>
+    <color name="lightgray">#d3d3d3</color>
+    <color name="lightgreen">#90ee90</color>
+    <color name="lightgrey">#d3d3d3</color>
+    <color name="lightpink">#ffb6c1</color>
+    <color name="lightsalmon">#ffa07a</color>
+    <color name="lightseagreen">#20b2aa</color>
+    <color name="lightskyblue">#87cefa</color>
+    <color name="lightslategray">#778899</color>
+    <color name="lightslategrey">#778899</color>
+    <color name="lightsteelblue">#b0c4de</color>
+    <color name="lightyellow">#ffffe0</color>
+    <color name="lime">#00ff00</color>
+    <color name="limegreen">#32cd32</color>
+    <color name="linen">#faf0e6</color>
+    <color name="magenta">#ff00ff</color>
+    <color name="main_gv_bg">#cfcfcf</color>
+    <color name="main_menu_item_press">#e5e5e5</color>
+    <color name="maroon">#800000</color>
+    <color name="mediumaquamarine">#66cdaa</color>
+    <color name="mediumblue">#0000cd</color>
+    <color name="mediumorchid">#ba55d3</color>
+    <color name="mediumpurple">#9370db</color>
+    <color name="mediumseagreen">#3cb371</color>
+    <color name="mediumslateblue">#7b68ee</color>
+    <color name="mediumspringgreen">#00fa9a</color>
+    <color name="mediumturquoise">#48d1cc</color>
+    <color name="mediumvioletred">#c71585</color>
+    <color name="menu_about_background">#ffe7e9f8</color>
+    <color name="menu_auth_complete_background">#fffff2ef</color>
+    <color name="menu_balance_background">#ffe7f3ff</color>
+    <color name="menu_installment_background">#ffddf5f8</color>
+    <color name="menu_pre_auth_background">#ffe7f3ff</color>
+    <color name="menu_print_detail_background">#fffff2ef</color>
+    <color name="menu_qr_code_background">#ffe7f3ff</color>
+    <color name="menu_qr_refund_background">#fffff2ef</color>
+    <color name="menu_refund_background">#ffe7f3ff</color>
+    <color name="menu_reprint_last_receipt_background">#fffff2ef</color>
+    <color name="menu_reprint_receipt_background">#ffddf5f8</color>
+    <color name="menu_reprint_settle_background">#ffe7e9f8</color>
+    <color name="menu_sale_background">#FFF2EF</color>
+    <color name="menu_scan_pay_background">#ffe7f3ff</color>
+    <color name="menu_settings_background">#ffe7e9f8</color>
+    <color name="menu_settle_background">#ffddf5f8</color>
+    <color name="menu_void_auth_complete_background">#fffff2ef</color>
+    <color name="menu_void_installment_background">#ffe7f3ff</color>
+    <color name="menu_void_pre_auth_background">#ffe7e9f8</color>
+    <color name="menu_void_sale_background">#ffddf5f8</color>
+    <color name="midnightblue">#191970</color>
+    <color name="mintcream">#f5fffa</color>
+    <color name="mistyrose">#ffe4e1</color>
+    <color name="moccasin">#ffe4b5</color>
+    <color name="navajowhite">#ffdead</color>
+    <color name="navy">#000080</color>
+    <color name="oldlace">#fdf5e6</color>
+    <color name="olive">#808000</color>
+    <color name="olivedrab">#6b8e23</color>
+    <color name="orange">#ffa500</color>
+    <color name="orangered">#ff4500</color>
+    <color name="orchid">#da70d6</color>
+    <color name="palegoldenrod">#eee8aa</color>
+    <color name="palegreen">#98fb98</color>
+    <color name="paleturquoise">#afeeee</color>
+    <color name="palevioletred">#db7093</color>
+    <color name="papayawhip">#ffefd5</color>
+    <color name="peachpuff">#ffdab9</color>
+    <color name="peru">#cd853f</color>
+    <color name="pin_shadow">#FF102838</color>
+    <color name="pink">#ffc0cb</color>
+    <color name="plum">#dda0dd</color>
+    <color name="powderblue">#b0e0e6</color>
+    <color name="press_mask">#6FCCCCCC</color>
+    <color name="primaryText">#363842</color>
+    <color name="primary_gradient_end">#78CBF5</color>
+    <color name="primary_gradient_start">#607CFF</color>
+    <color name="purple">#800080</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="red">#FF0000</color>
+    <color name="result_bill_item_amount_color">#FFFF0000</color>
+    <color name="result_bill_item_bg_color">#FFFFFFFF</color>
+    <color name="result_bill_item_failed_text">#EE4DAD</color>
+    <color name="result_bill_item_success_text">#3955EE</color>
+    <color name="result_overlap_bg_color">#FFFFFFFF</color>
+    <color name="rosybrown">#bc8f8f</color>
+    <color name="royalblue">#4169e1</color>
+    <color name="saddlebrown">#8b4513</color>
+    <color name="salmon">#fa8072</color>
+    <color name="sandybrown">#f4a460</color>
+    <color name="seaShell">#fff5ee</color>
+    <color name="seagreen">#2e8b57</color>
+    <color name="secondaryText">#656569</color>
+    <color name="settle_item_gray">#F4F5F9</color>
+    <color name="sienna">#a0522d</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="skyblue">#87ceeb</color>
+    <color name="slateblue">#6a5acd</color>
+    <color name="slategray">#708090</color>
+    <color name="slategrey">#708090</color>
+    <color name="snow">#fffafa</color>
+    <color name="springgreen">#00ff7f</color>
+    <color name="steelblue">#4682b4</color>
+    <color name="tan">#d2b48c</color>
+    <color name="teal">#008080</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="thistle">#d8bfd8</color>
+    <color name="tomato">#ff6347</color>
+    <color name="translucent">#9000</color>
+    <color name="turquoise">#40e0d0</color>
+    <color name="violet">#ee82ee</color>
+    <color name="warning">#FF554C</color>
+    <color name="wheat">#f5deb3</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="whitesmoke">#f5f5f5</color>
+    <color name="windowBackground">#ededed</color>
+    <color name="yellow">#ffff00</color>
+    <color name="yellow_ffb940">#ffb940</color>
+    <string name="_1_n_2_n_3_n_4">1. 运行所有案例 \n 2. 运行部分案例 \n 3. 运行某个案例 \n 4. 查看所有案例详情</string>
+    <string name="app_name">auto-test</string>
+    <string name="auto_test">Auto Test</string>
+    <string name="base_function">基础功能</string>
+    <string name="begin_id">"起始案例号 : "</string>
+    <string name="begin_id_not_allowed">输入的起始案例号不符合</string>
+    <string name="cancel">取消</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="child_clean_records">清空测试记录</string>
+    <string name="child_files_path">文件地址: </string>
+    <string name="child_load_files">加载测试应用文件</string>
+    <string name="child_output_xlsx_report">输出 .xlsx 测试报告</string>
+    <string name="child_recording">实时记录测试 (../report.txt) </string>
+    <string name="child_report_path">报告地址: </string>
+    <string name="child_view_report_name">查看测试报告名称</string>
+    <string name="clean_records_title">您确定要清空测试记录吗？</string>
+    <string name="current_item">"当前查看项 ： "</string>
+    <string name="debug_mode">调试模式</string>
+    <string name="edit_files_path">您可以自定义应用测试文件的加载地址</string>
+    <string name="edit_report_path">您可以自定义测试报告的输出地址</string>
+    <string name="end_id">"结束案例号 : "</string>
+    <string name="end_id_not_allowed">输入的结束案例号不符合</string>
+    <string name="execution_begin_id">点击输入起始案例号</string>
+    <string name="execution_details_item">当前测试项 ： </string>
+    <string name="execution_details_line2_message">当前测试的案例号 ：</string>
+    <string name="execution_end_id">点击输入结束案例号</string>
+    <string name="execution_item">当前测试项 ：</string>
+    <string name="execution_line2">请输入测试案例号 ：</string>
+    <string name="exit_application_title">您确定要退出应用吗？</string>
+    <string name="group_load_files">加载应用文件</string>
+    <string name="group_test_report">测试报告</string>
+    <string name="home_welcome">欢迎使用自动化测试框架</string>
+    <string name="input_begin_id_hint">请输入起始案例号</string>
+    <string name="input_end_id_hint">请输入结束案例号</string>
+    <string name="item_description">这是案例项描述信息</string>
+    <string name="item_name">这是案例项名字</string>
+    <string name="list_item">测试项目</string>
+    <string name="no_cases_found">未找到任何案例</string>
+    <string name="no_editting">不可编辑</string>
+    <string name="no_read_write_permission">没有对外读写存储权限</string>
+    <string name="pause_positive">此案例结束后中断测试</string>
+    <string name="pause_tes">您确定要中断测试吗</string>
+    <string name="permission_can_not_accept">权限被拒绝，无法进行文件操作</string>
+    <string name="permission_dialog_title">请选择你需要开启的权限</string>
+    <string name="please_input_correct_case_id">请输入正确的案例号</string>
+    <string name="select_report_format_dialog_title">请选择输出报告的格式</string>
+    <string name="success">Success</string>
+    <string name="sure">确定</string>
+    <style name="TabLayoutTextStyle" parent="Widget.Design.TabLayout">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="ontextoff" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="scstyle" parent="Theme.AppCompat.Light">
+        
+        <item name="colorControlActivated">@color/green</item>
+        
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        
+        
+    </style>
+    <declare-styleable name="NumberKeyboardView">
+
+        
+        <attr format="reference" name="xnkv_deleteDrawable"/>
+
+        
+        <attr format="dimension|reference" name="xnkv_deleteWidth"/>
+
+        
+        <attr format="dimension|reference" name="xnkv_deleteHeight"/>
+
+        
+        <attr format="color|reference" name="xnkv_deleteBackgroundColor"/>
+
+    </declare-styleable>
+</resources>
