@@ -1,0 +1,40 @@
+package com.newland.nsdk.core.external.command.message.functionId;
+
+public class EmvFunctionId {
+    public static final byte UPDATE_TERMINAL_CONFIG = 0x01;
+    public static final byte GET_TERMINAL_CONFIG = 0x02;
+    public static final byte UPDATE_AID_CONFIG = 0x03;
+    public static final byte GET_AID_CONFIG = 0x04;
+    public static final byte REMOVE_A_AID_CONFIG = 0x05;
+    public static final byte REMOVE_ALL_AID_CONFIG = 0x06;
+    public static final byte UPDATE_CAPK = 0x07;
+    public static final byte GET_CAPK = 0x08;
+    public static final byte REMOVE_A_CAPK = 0x09;
+    public static final byte REMOVE_ALL_CAPK = 0x0A;
+    public static final byte UPDATE_REVOCATION_LIST = 0x0B;
+    public static final byte GET_REVOCATION_LIST = 0x0C;
+    public static final byte REMOVE_A_REVOCATION_LIST = 0x0D;
+    public static final byte REMOVE_ALL_REVOCATION_LIST = 0x0E;
+    public static final byte UPDATE_EXCEPTION_LIST = 0x0F;
+    public static final byte GET_EXCEPTION_LIST = 0x10;
+    public static final byte REMOVE_AN_EXCEPTION_LIST = 0x11;
+    public static final byte REMOVE_ALL_EXCEPTION_LIST = 0x12;
+    public static final byte GET_AID_NUM = 0x13;
+    public static final byte GET_CAPK_NUM = 0x14;
+    public static final byte REMOVE_TERMINAL_CONFIGURATION = 0x15;
+    public static final byte SEND_DEBUG_MESSAGE = 0x21;
+    public static final byte INIT_EMV = 0x22;
+    public static final byte SET_DATA = 0x23;
+    public static final byte GET_DATA = 0x24;
+    public static final byte SET_TLV_LIST_DATA = 0x25;
+    public static final byte GET_TLV_LIST_DATA = 0x26;
+    public static final byte SET_DEBUG_MODE = 0x27;
+    public static final byte GET_VERSION = 0x28;
+    public static final byte SET_CONFIG = 0x2A;
+    public static final byte GET_CONFIG = 0x2B;
+    public static final byte PERFORM_TRANSACTION = 0x31;
+    public static final byte COMPLETE_TRANSACTION = 0x32;
+    public static final byte TERMINATE_TRANSACTION = 0x33;
+    public static final byte TRANSACTION_PREPROCESS = 0X34;
+    public static final byte CALLBACK = 0x36;
+}

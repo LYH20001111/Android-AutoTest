@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="orange">#FF7F24</color>
+    <color name="preference">#a7b9f0</color>
+    <color name="preference_sel">#b9c2dd</color>
+    <color name="yellow">#eee1a3</color>
+    <color name="gray">#DCDCDC</color>
+    <color name="blue">#6DAEFF</color>
+    <color name="msgbg">#fafafa</color>
+
+    <color name="pinpad_p5_bg_color">#485565</color>
+    <color name="poyntBlue0">#133247</color>
+    <color name="poyntWhite">#f7f7f7</color>
+    <color name="color_ada_cancel">#e51c42</color>
+    <color name="color_ada_back">#e0b917</color>
+    <color name="color_ada_enter">#22b573</color>
+
+</resources>

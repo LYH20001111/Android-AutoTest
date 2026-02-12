@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.newland.nsdk.core.common">
+
+    <application>
+        <activity
+            android:name="com.newland.nsdk.core.common.NSDKSystemAlertActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:launchMode="singleTop"/>
+    </application>
+
+</manifest>

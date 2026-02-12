@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.kezong.fat-aar'
+apply from: 'version.gradle'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode appVersionCode
+        versionName appVersionName
+        setProperty("archivesBaseName", "Newland-NSDK-Ext-$versionName")
+//        setProperty("archivesBaseName", "Newland-NSDK-Plugin-Ext-$versionName")
+
+        buildConfigField "int", 'VERSION_CODE', String.valueOf(appVersionCode)
+        buildConfigField 'String', 'VERSION_NAME', "\"" + appVersionName + "\""
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+def NEW_NAME = "Newland-NSDK-Ext-"+appVersionName
+//def NEW_NAME = "Newland-NSDK-Plugin-Ext-"+appVersionName
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    // 需要根据 aar 是否包含 common 来选择是否要嵌入 common
+    embed project(path: ':nsdkcommon', configuration: 'default')
+//    api project(path: ':nsdkcommon')
+}
+
+task unzipAar(dependsOn: ['assembleRelease'], type: Copy) {
+    def zipFile = file("build/outputs/aar/"+NEW_NAME+"-release.aar")
+    def outputDir = file("build/temp/aar")
+    FileTree fileTree = zipTree(zipFile)
+    from fileTree
+    into outputDir
+}
+
+task addSourcesToClassesJar(dependsOn: ['unzipAar'], type: Jar) {
+    archiveName "classes.jar"
+    destinationDir file("build/temp")
+    from zipTree("build/temp/aar/classes.jar")
+    // 需要根据 aar 是否包含 common 来选择是否要打包 common 部分源码
+    from ("../nsdkcommon/src/main/java"){
+        include('com/newland/nsdk/core/api/**/*.java')
+    }
+    from ("src/main/java"){
+        include('com/newland/nsdk/core/api/**/*.java')
+    }
+}
+
+task addSourcesToAar(dependsOn: ['addSourcesToClassesJar'], type: Jar) {
+    archiveName NEW_NAME+".aar"
+    destinationDir file("build")
+    from fileTree("build/temp/aar").exclude("classes.jar")
+    from fileTree("build/temp").include("classes.jar")
+}

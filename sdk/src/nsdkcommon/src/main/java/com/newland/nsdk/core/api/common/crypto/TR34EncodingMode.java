@@ -1,0 +1,11 @@
+package com.newland.nsdk.core.api.common.crypto;
+
+public enum TR34EncodingMode {
+    TR34_BLOCK_ENCODING_ASN1,
+    TR34_BLOCK_ENCODING_RAW1,
+    TR34_BLOCK_ENCODING_XML,
+    TR34_BLOCK_ENCODING_RAW2,
+    TR34_BLOCK_ENCODING_RAW3,
+    TR34_BLOCK_ENCODING_RAW4,
+    TR34_BLOCK_ENCODING_C1,
+}

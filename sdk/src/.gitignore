@@ -1,0 +1,10 @@
+/**/.gradle
+/**/.idea
+/**/.svn
+/**/build
+/**/*.bat
+/**/*.iml
+/**/*.properties
+/**/.externalNativeBuild
+./output/*
+.cxx/

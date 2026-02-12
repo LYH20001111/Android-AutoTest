@@ -1,0 +1,652 @@
+(Internal Release)version:2.18.0 time20260112
+1.Added:
+(1)[Internal] Added the following methods into "KeyManager" module:
+      * "exportKey", which can be used to export targeted session key.
+      * "injectPubKey", which can used for inject the public key information obtained from server.
+(2)[Internal] Added the following methods into "Crypto" module:
+      * "createCryptogram", which can be used to concatenate the subsequent encrypted information blocks to be sent to the server.
+      * "verifyCert", which can be used to specify the verification of external incoming certificate data for the certificate.
+      * Refactor "encrypt" and "decrypt", on the basis of supporting the original encryption and decryption functions, the AES-GCM encryption and decryption function is also supported.
+(3)[Internal]  Added "isSupportContactlessCard" to replace the ambiguity name of the "isSupportQuickPass" interface into "DeviceInfo" module.
+(4)[Internal]  Added "ONLY_EXPAND" to specify the expansion procedure is used when deriving HKDF keys.
+(5)[Internal]  Added "NAPIEMVL2UseExternalReader" to support specify whether to use external card reader in the EMV process.
+
+2. Fixed:
+(1)[Internal]  Fixed the issue with the N750P dual-magnetic-track device in "CardReader" module, when using cards in JISII magnetic track format, the problem occurred where the application failed to properly filter the 0x7E flag bit, resulting in abnormal data being obtained for the empty magnetic track.
+(2)[Internal]  Add a delay within the "startOnlinePINEntry" and "startOnlinePINEntry" interfaces of the RNIB-related parameters, so that the "cancelPINEntry" function can quickly cancel the PIN entry process in "PINEntry" module.
+(3)[Internal]  Add a delay within the loops of the "startOnlinePINEntry" and "startOfflinePINEntry" interfaces, so that the "cancelPINEntry" process can quickly cancel the PIN entry procedure in "PINEntry2" module.
+(4)[Internal]  Fixed the issue where incorrect error codes -1121 (for too short listening) and -1141 (for too long listening) were not returned properly when the listening was enabled for too long or too short a duration in "PINEntry2" module.
+(5)[Internal]  Fixed the issue of abnormal paper feeding quantity for S90 devices in the "feedPaper" interface in "Printer" module.
+
+
+(Internal Release)version:2.17.0 time20251117
+1.Added:
+(1)[Internal] Added the following enumerations:
+      * "TR34_ENCODING_MODE_C1" in "TR34EncodingMode", which can support ASN1 format TR34 key block extraction.
+	  * "SELECT" in "PINCustomizedAction", which can support to set the detail selected pin key event.
+(2)[Internal] Added the following method into "DeviceManager" module:
+      * "setDeviceLightMode", which can support to set the device light mode, like mag strip light on N750J devices.
+
+2.Changed:
+(1)[Internal] Updated the logic of "initCSR" in "Crypto" module, the extension info about "oidList" and "valueList" defined as optional.
+(2)[Internal] Updated the logic of "createInstance" in "SerialPortManager" module, which can support serial port adaption without NSDK version update.
+(3)[Internal] Updated the logic of "isSupport232Port" in "DeviceInfo" module, which can support U200 to operate serialPort.
+
+3.Fixed：
+(1)[Internal] Fixed the issue that the printing line spacing configuration would not be saved in TTF_V1.0.34(updated to TTF_V1.0.38).
+(2)[Internal] Fixed the issue where the non-contact card search type was inconsistent when re-opening the event after the first regular card search and before re-registering the event under the openCardReader event mechanism.
+(3)[Internal] Fixed the issue where at least one read or write was not performed when the read/write timeout was 0 in blocking mode.
+(4)[Internal] Fixed the issue where the receive data more than 257 bytes cause the overflow crash in "performAPDU" in "CPUContactlessCard" module.
+
+(Internal Release)version:2.16.0 time20250915
+1. Added:
+(1)[Internal] Added the following member variable into the "MagCardInfo" in the "CardReaderListener":
+      * "trackFormats", which returns the format of the tracks
+      * "trackStatus" expanded to six digits, for adapting the dual magstrip function of the "N750J" devices.
+(2)[Internal] Added the following interface into "PINEntry" module:
+      * "ExtendedPINEntryListener", synchronized the processing logic of the RNIB keyboard regarding onPINLengthInsufficient, onPINLengthExceeded
+	  * "convertPINBlock", used to convert the PIN block generated in the external pinpad device.
+(3)[Internal] Added the "PINEntry2" module, in order to support more special PIN functions like accessiblity PIN entry.
+(4)[Internal] Added the following method into "DeviceInfo":
+      * "isDualMsr", which can detect whether the current device can support dual magStripe detection.
+(5)[Internal] Added the following enumerations:
+      * "KDFType.PEER", which is used in the session key negotiation process.
+	  * "KeyUsage.PAN_ENC_ONLY", which is used for the limited PAN encryption mode.
+
+2. Changed:
+(1)[Internal] Updated the version of "newland.jar" and "N81.jar" to adapt the interfaces in "appNetworkManager", like "allowPing", "disablePing".
+(2)[Internal] Synchronized the paper feed volume of the driver interfaces of each model to ensure the same paper feed volume on the old firmware in the "feedPaper" interface.
+(3)[Internal] Updated the version of "TTF" library to V1.0.37, which can support the double check of the hash file of the ECR devices when the abnormal power cut down occurred.
+
+3.Fixed:
+(1)[Internal] Fixed the bug that abnormal duration of the last shutdown of the U2000 "blink" interface when count is greater than 0.
+(2)[Internal] Fixed the bug that "set", "openLight", "closeLight", and "releaseScan" failed to identify the issue of null Pointers resulting from calls made after initialization.
+(3)[Internal] Fixed the bug that the symmetryKey of the "processTR34KeyBlock" interface does not properly throw parameter exceptions when the KeyType or KeyUsage is set to null.
+(4)[Internal] Fixed the bug that "encryptAsym" "dataIn" parameter crashing when passing in new byte[0].
+
+
+(Internal Release)version:2.15.0 time20250627
+1.Added:
+(1)[Internal] Added the following methods into "LED" module:
+      * "setDisplayParameters", which can set the display configuration of the LED.
+      * "blink", which can support to set different on and off duration time for blinking process.
+(2)[Internal] Added the following methods into "Printer" module:
+      * "printImage", which can support to input a bitmap object for printing for higher printing effectiveness.
+      * "printImage", which can support to input the absolute path of the image in the device for printing for higher
+effectiveness.
+(3)[Internal] Added "RF_LPCD" into "CardSearchMode" enumeration in "CardReaderParameters", which can support to detect contactless card with LPCD mode for reducing power consumption in "openCardReader" method.
+(4)[Internal] Added "isSupportLPCD" method into "DeviceInfo" module to get whether current device can support to use LPCD card detection mode.
+(5)[Internal] Added the following method and enumerations into "KeyManager" module:
+      * Added "TR34_ENCODING_MODE_RAW3" and "TR34_ENCODING_MODE_RAW4" into "TR34EncodingMode" enumerations.
+      * Added "processTR34KeyBlock", which has an "additionalData" for the further expension and support to return the expected data for the following key injection step.
+(6)[Internal] Added the following method into "DeviceManager" module:
+      * Added "getBatteryProperty", which can support to get the device's battery information.
+
+2. Fixed:
+(1)[Internal] Fixed the bug that "setNativeDebugMode" in "NSDKModuleManager" can not affect the logcats in "SerialPort" module.
+
+(Internal Release)version:2.14.0 time20250414
+1.Added:
+(1)[Internal] Added "setVolume" to "Beeper" module, which can support setting volume of the beeper.
+(2)[Internal] Added the following methods into "DeviceManager" module:
+      * "setEthernetMode", which can support to set the ethernet mode of the device.
+      * "getEthernetMode", which can support to get the ethernet mode of the current device.
+(3)[Internal] Added "feedPaper" to "Printer" module,  which can support to feed paper.
+
+(External Release)version:2.6.0 time20250115
+1.Added:
+(1)[External] Added the following parameters and methods into "ExtPINEntry" module:
+    * "startOfflinePINEntry", which can support to initiate an offline PIN entry process on the salve devices.
+    * "checkIcPresent" into "ExtendedPINEntryParameters", which can support to check whether IC is present when processing online PIN entry.
+
+(Internal Release)version:2.13.0 time20250303
+1.Added:
+(1)[Internal] Added "ExtendRNIBPINEntryListener" to support to invoke the according callbacks when PIN block is too short or too long, and continue to perform PIN entry process.
+(2)[Internal] Added "PUP_2" into "KeyGenerateMethod" to support according key generation method.
+(3)[Internal] Supported "DEVICE" port on N950SU-C devices with "serialPortManager" by creating an port with "SerialPortType.RS232".
+
+2.Fixed:
+(1)[Internal] Fixed an issue where IC transactions went wrong due to thread execution issues in "PINEntry" module.
+
+
+(Internal Release)version:2.12.1 time20250211
+1.Added:
+(1)[Internal] Added the following method into "CardReader" module:
+      * "isCardPresent", which parameter is supported to be set when detect whether there is a target card presented.
+
+
+(Internal Release)version:2.12.0 time20250106
+1. Added:
+(1)[Internal] Added the following method into "Printer" module:
+      * "setParams", which can support to set the printer driver parameters about high-quality printing.
+(2)[Internal] Added the following methods and parameters into "CardReader" module:
+      * Added "CardSearchMode" into "CardReaderParameters", which can support to use event mechanism to decrease power consume.
+      * Added "TRACK_STATUS_ERROR"(-32) and "TRACK_FORMAT_ERROR"(-31) when error occurred in magstrip swiping.
+(3)[Internal] Added the following functions and parameters into "PINEntry" module:
+      * Added "customButtons" into "PINEntryParameters" to support set the custom functions of "Cancel" and "Backspace" key of P300 devices.
+      * Added the control of the "PINEntry" thread status, throw an exception when there is a running thread.
+(4)[Internal] Added the following method into "CPUContactCard" module:
+      * "setConfig", which can support to set the clock frequecy of the SAM slot in the series of the N750 devices who owns two SAM slots.
+
+2. Fixed:
+(1)[Internal] Fixed the bug that when enabled IC detection function on PIN entry process, IC pulled out cannot immediately return the exception to applications.
+(2)[Internal] Fixed the bug that the devices whose hardware config shows not supported IC function but support SAM cannot call the interfaces in "ContactCard" with SAM slots.
+
+
+(Internal Release)version:2.11.1 time20241230
+1.Changed:
+(1)[Internal] Updated libemvl2jni.so to adapt the latest payment framework in some devices.
+
+
+(Internal Release)version:2.11.0 time20241205
+1.Added:
+(1)[Internal] Added the following methods into "DeviceManager" module:
+      * "getTamperStatuses", which can support to get all the tamper statuses in the current device.
+      * "setAntiRemovalStatus", which can set to enable or disable the anti-removal function.
+      * "getAntiRemovalStatus", which can get the anti-removal function status of the current device.
+(2)[Internal] Added the following method into "KeyManager" module:
+      * "generateKeyWithSymmKey", which can support to generate the target key with a Symmetric protected key with "RANDOM_OUT" method.
+(3)[Internal] Added the following parameters into "ScanParameters" in "BarcodeScanner" module:
+      * "ScannerType", to set the detailed scanner type for the scanning process, which includes "FRONT_CAMERA", "BACK_CAMERA", "PAYMENT_CAMERA" and "HARDWARE_SCANNER".
+      * "SurfaceView", to support to set the expected suface view for the scanning process.
+2.Fixed:
+(1)[Internal] Fixed the bug that "RouteManager" cannot be used on some types of devices whose model version is above A12.
+(2)[Internal] Fixed the bug that "startScan" interface returned "onError" when the process timed out abnormally in "BarcodeScanner" module.
+
+(Internal Release)version:2.10.0 time20240806
+1. Added:
+(1)[Internal] Added the following methods into "Printer" module:
+     * "print", which can support to save the print content to the target file when printing with an ECR application.
+     * "verifyLast", which can used to detected the consistency of the content saving file before and after the power shut down.
+     * "setFont", which can used to set the custom font to print.
+(2)[Internal] Added the following methods into "Crypto" module:
+     * "initCSR", which can used to init CSR process handle and set relative parameters for the generation process.
+     * "generateCSR", which can generate CSR file data according to the given type.
+     * "releaseCSR", which is to release CSR handle.
+     * Added "ECC_ASN1" enumeration into "AsymEncodingMode", which can support to return the ASN.1 format sign result.
+(3)[Internal] Added the following methods to "CardReader" module:
+     * "openRf", which is used to initial and open the RF field.
+     * "closeRf", which is used to close the RF field.
+     * Added "cardSlots" into "CardReaderParameters", which can support to set the IC1/IC2 interfaces to be detect.
+     * Added "isMagRaw" into "CardReaderParameters", which is to set whether to obtain the raw magnetic track data.
+     * Refactor an "ExtendedCardReaderListener" using to detect the interfaces include IC2.
+(4)[Internal] Added the following methods to "SerialPort" module:
+     * "readLen", which can obtain the available data len in the serial buffer.
+(5)[Internal] Added "checkIcPresent" into "PINEntryParameters", which can support to check whether IC card is inserted during online PIN entry process.
+(6)[Internal] Added the following methods into "DeviceManager" module:
+     * "enableRadarAndHeater", which can be used to enable/disable radar or heater function of U2000 devices.
+
+2.Fixed:
+(1)[Internal] Fixed an issue where EMV transactions are downgraded due to IC2.
+(2)[Internal] Fixed an issue where read array overreach caused by PINPAD serial port not open.
+
+3. Changed:
+(1)[Internal] Updated the newland.jar and N81.jar version to V54.1, which added "appNetworkManager" class.
+
+
+(Internal Release)version:2.9.3 time20240801
+1. Added:
+(1)[Internal] Supported eftpos kernel and 350 AID items.
+2. Fixed:
+(1)[Internal] Fixed the bug that CPOS X5 A7 devices whose print config is 0x02 can not call "Printer" module normally.
+
+(Plugin Card Release)version:1.3.0 time20240703
+1.Added:
+(1)[Internal] Added the following method into "FelicaCard" module:
+     * "transmit", which can support to set retry times and retry to send APDU commands again when communication error occurred.
+
+(Internal Release)version:2.9.2 time20240703
+1.Fixed:
+(1)[Internal] Fixed the bug that N950S-C PINPAD serial port can not communicate to successfully.
+(2)[Internal] Fixed the bug where blind keyboard events were out of order leading to abnormal callbacks.
+
+(Internal Release)version:2.9.1 time20240524
+1. Fixed:
+(1)[Internal] Fixed the bug that N750P can not obtain operable object by "createInstance" method.
+
+(Plugin Card Release)version: 1.2.0 time20240506
+1. Added:
+(1)[Internal]  Added the following methods into "FelicaCard" module:
+    * "transmit", which can support to set the communication timeout before sending transport command.
+    * "polling", which can support to send "POLLING" command to polling felica cards.
+
+(Internal Release)version:2.9.0 time20240506
+1.Added:
+(1)[Internal] Added "GuestDisplayManager" module.
+(2)[Internal] Added the following enumerations into the following classes:
+   * "HMAC" in "KeyType"
+   * "HMAC_SHA1", "HMAC_SHA256" in "MACType"
+   * "HKDF_GOOGLE_SMART_TAP" in "KDFType
+(3)[Internal]  Added the following methods into "PINEntry" module:
+   * "initKeyLayout", which is to input the coordination of  the screen and the buttons of the keyboards for the blind to init the layout.
+   * "startOnlinePINEntry", which is used for initiating the online pin entry and addressing the slid events about the keyboard for the blind.
+   * "startOfflinePINEntry", which is used for initiating the offline pin entry and addressing the slid events about the keyboard for the blind.
+
+2.Fixed:
+(1)[Internal] Fixed the bug that the IC2 status detection is abnormal after IC1 is powered on.
+
+
+(Internal Release)version:2.8.1 time20240308
+1.Added:
+(1)[Internal] Added "TR34_BLOCK_ENCODING_RAW2" for Revolut RKI process.
+(2)[Internal] Added the detection logic whether "RouteManager" is supported on N950 A12 devices.
+
+2.Changed:
+(1)[Internal] Renamed "TR34_BLOCK_ENCODING_SIBS" to "TR43_BLOCK_ENCODING_RAW1" for SIBS RKI process.
+
+
+(Internal Release)version:2.8.0 time20240226
+1.Added:
+(1)[Internal] Added the following methods to "CardReader" module:
+   * "checkCardSlotStatus", which can check certain card slot status.
+(2)[Internal] Added the following methods to "DeviceManager" module:
+   * "getTamperReason", which can get the reason when security triggered.
+   * "isPhysicalKeyboard" in "DeviceInfo" class, which can get whether current device possesses a physical keyboard.
+(3)[Internal] Added the following methods to "SerialPortManager" module:
+   * "createInstance", which the first parameter is a node name in "String" type, can open targeted port with its name.
+(4)[Internal] Added "USB_HOST" enumeration into "SerialPortType", which is used to operate extended USB type-A interface on N750 devices.
+
+2.Fixed:
+(1)[Internal] Fixed the bug that "SerialPort" cannot set "DataBits" to 5 or 6.
+
+(External Release)version:2.4.0 time20240117
+1.Added:
+(1)[External] Added "ExtSettingsManager" module.
+(2)[External] The "LEDColor" enumeration has been updated to include four new options: "FIRST", "SECOND", "THIRD", and "FOURTH".
+
+
+(Internal Release)version: 2.7.0 time20231205
+1.Added:
+(1)[Internal] Added the following methods to "KeyManager" module:
+   * "clearSymmetricKeys", which can clear the all symmetric keys whose index ranges from 1 to 250.
+(2)[Internal] Added the following methods to "SerialPort" module:
+   * "setHardwareFlowControl", which can set the hardware flow control configuration with RS232 serial port.
+   * "awakeExternalDevice", which can support U2000 devices to awake external device with RS232B serial port.
+   * "getExternalPowerSupply", which can support U2000 devices to get external power supply configuration.
+(3)[Internal] Added the following methods to "DeviceManager" module:
+   * "setKeyVolume", which can support the devices with physical keyboard to open or close key tone.
+   * "getNonDeletableAppList", which can get the non-deletable application name list on devices.
+(4)[Internal] Added the following enumerations in the following calss:
+   * "AES_CTR", "DES_CTR" in "CipherType"
+   * "ANSI_X9143" in "KeyGenerateMethod"
+   * "ETHERNET" in "NetWorkType"
+
+2.Changed:
+(1)[Internal] Changed the inner logic of "openCardReader" in "CardReader" module, which can throw the exceptions made by magnetic card data error.
+(2)[Internal] Changed the annotation of "generateKey" in "KeyManager" module about Pro devices.
+
+3.Fixed:
+(1)[Internal] Fixed the bug that CPOS X5 A10 devices cannot call "getPrintStatus" in "Printer" module normally.
+(2)[Internal] Fixed the bug that CPOS X5 A10 devices crashed when relight the screen.
+
+(External Release)version: 2.3.0 time20231113
+1.Added:
+(1)[External] Added "ExtECDHE" module.
+(2)[External] Added "ExtFutureX" module.
+(3)[External] Added the following methods to "ExtCPUContactlessCard" module:
+   * "performAPDU", which can support cipher text input.
+(4)[External] Added the following methods to "ExtCPUContactCard" module:
+   * "performAPDU", which can support cipher text input.
+(5)[External] Added the following methods to "ExtNSDKModuleManager" module:
+   * "setCommunicationTimeout"
+(6)[External] Added the following methods to "ExtCommunicator" module:
+   * "clear"
+
+2.Changed:
+(1)[External] Changed the inner logic of firmware detection of "ME30SU", which means only formal version of NSDK external aar can be used in "V" type ME30SU.
+(2)[External] Changed the parameters sequence of "startOnlinePINEntry" and "startOfflinePINEntry" in "ExtPINEntry" module to be the same with the namesake methods in "PINEntry" module.
+(3)[External] Removed the parameter of "powerUp" method in "ExtContactCard" module.
+(4)[External] Deprecated the "setCommunicationTimeout" in ExternalCommunicator" module, and move it to the "ExtNSDKModuleManager" module.
+
+3.Fixed:
+(1)[External] Fixed buges in "ExternalEmvL3Module" module:
+   * "onCandidateAIDList" has an incorrect length when parsing "1F811F" to obtain tag length.
+   * "ExternalExceptionListModule" internal problems about PAN length error.
+
+
+
+(Internal Release)version: 2.6.0 time20231007
+1.Added:
+(1)[Internal] Added the following methods to "KeyManager" module:
+   * "generateAsymKey"
+(2)[Internal] Added the following enumerations to "UART3Type" and "SerialPortType" to support "RS232B" in U2000 device:
+   * "UART3Type.RS232B"
+   * "SerialPortType.RS232B"
+(3)[Internal] Added the following enumerations to "TR34EncodingMode":
+   * "TR34_BLOCK_ENCODING_XML"
+
+2.Changed:
+(1)[Internal] Changed the internal logic of "set" in "SettingsManager" module to support direct input of properties and values.
+(2)[Internal] Changed the parameter's value range in "read" method in both "AnalogSerialManager" and "USBSerialPort" module:
+   * "maxLength" range changed from [0,2048) to (0,2048)
+
+3.Fixed:
+(1)[Internal] Fixed the bug where "setConfig" in "AnalogSerialManager" and "USBSerialPort" modules didn't throw an exception when return value was -12 or -13.
+(2)[Internal] Fixed the bug where "read" in "UART3Port" module occurred insufficient data when P300 device read 2048 data.
+
+
+(Internal Release)version: 2.5.0 time20230808
+1.Added:
+(1)[Internal] Added "BarcodeScanner" module.
+(2)[Internal] Added "SerialPortManager" module.
+(3)[Internal] Added "SerialPort" module.
+(4)[Internal] Added "USBSerialPort" module.
+(5)[Internal] Added "QUIT, CLEAR, ENTER" combination into "PINEntry" module when "initKeyLayout".
+
+2.Changed:
+(1).[Internal] Adapted the following features to "DeviceInfo" module:
+    * N950U 3SAM
+    * N750 Hard-Scanning Decode.
+(2)[Internal] Updated "EmvConst" and "EmvConfig".
+(3)[Internal] The parameter in "setDecodingCallback" in "BarcodeDecoder" module:
+    * void setDecodingCallback(DecodingCallback callback) -> void setDecodingCallback(IDecodingCallback callback)
+Note: "IDecodingCallback" is parent interface, the following interfaces extends "IDecodingCallback",which returns different types of result:
+   * "DecodingCallback" returned the scan result of type "String"
+   * "DecodingByteCallback" returned the scan result of type "byte[]",which is the original data of scan result.
+
+3.Deleted:
+(1).[Internal] Discard "AnalogSerialManager" and "UART3Port" module. SerialPort related classes  provided features instead.
+
+(Internal Release)version: 2.4.2 time20230629
+1.Added:
+(1)[Internal] Added the following methods to "KeyManager" module:
+    * "generateTR34Random"
+    * "processTR34KeyBlock"
+
+(Internal Release)version: 2.4.1 time20230613
+1.Added:
+(1) [Internal] Added the following methods to "KeyManager" module:
+    * "getSymmKeyNums"
+    * "getSymmKeyInfoByID"
+(2) [Internal] Added "DeviceStatistics" module.
+(3) [Internal] Added "Recovery" module.
+(4) [Internal] Added "BootProvider" module.
+2.Changed：
+(1) [Internal] Added "SETTING_LAUNCHER" to "Settings" module in order to set custom Default Launcher by:
+    * SettingManager.set(Settings.SETTING_LAUNCHER, packageName)
+3.Deleted:
+(1) [Internal] Discarded M0,M1 interfaces, the Mifare interfaces are provided by the Newland RFIC library.
+
+(Internal Release)version: 2.4.0 time20230321
+1.Fixed:
+(1) [Internal] Fixed getting abnormal PAN data when mag card only has track-one data.
+(2) [Internal] Fixed unable to enter PIN when perform 'StartOfflinePINEntry' with null PINEntryParameters.
+2.Changed:
+(1) [Internal] Update EMV L2 jni library.
+(2) [Internal] Update TTF library to version 2.0.28
+(3) [Internal] Modified the judgment of NSDKModuleManager on the initialization of an Ethernet module.
+(4) [Internal] Modify the method of opening logs in NSDKModuleManager:
+    * Added "void setNativeDebugMode(NativeDebugLevel nativeDebugLevel)"
+    * Deprecated "void enableNativeLog(boolean isEnable)"
+(5) [Internal] Modify the following aspects of "FutureX" module:
+    * The FutureX interfaces returns an error message.
+    * Define the error codes of FutureX.
+3.Added:
+(1) [Internal] Added "RouteManager" module.
+(2) [Internal] Added "AnalogSerialManager" module.
+(3) [Internal] Added "generateKeyWithHKDF" method to "KeyManager" module, BDK of the AES type is supported.
+(4) [Internal] Added the following methods to "DeviceInfo" module:
+    * "getLEDConfig"
+    * "getPN"
+(5) [Internal] Added the following method to manipulate the LED lights of P300:
+    * "void setState(LEDLight[] lights)""
+(6) [Internal] Added the following enums to "Settings" module:
+    * "Settings.SETTING_PROTECTED_CHARGE_CAPACITY"
+    * "Settings.SETTING_PROTECTED_CHARGE_ENABLE"
+    * "Settings.SETTING_PROTECTED_RECHARGE_CAPACITY"
+
+
+(Internal Release)version: 2.3.2 time20230104
+1.Fixed:
+(1) [Internal] Crashed when calling "Printer.setGray" method continuously.
+
+(Internal Release)version: 2.3.1 time20221115
+1.Fixed:
+(1) [Internal] Crashed when initializing Ethernet not in main thread.
+(2) [Internal] Fixed password too short problem when inputting offline PIN.
+(3) [Internal] Fixed message is empty when NSDKException thrown.
+2. Changed:
+(1) [Internal] Updated EMV L2 jni library.
+(2) [Internal] Refactored DUKPTDerivateUsage's "ENC_BOTH" to "DATA_BOTH".
+(3) [Internal] "KeyManager.setKeyOwner" method supported passing in null(result is same as empty string).
+(4) [Internal] "startOnlinePINEntry" method supported finishing PIN input automatically when password reaches max len.
+(5) [Internal] Error code value are showed with description in API doc.
+3. Added:
+(1) [Internal] Added "getContactlessVer" method to DeviceManager.
+(2) [Internal] Added SETTINGS_RECENT_APPS_KEY_CODE to Settings.
+(3) [Internal] Supported SM algorithm.
+(4) [Internal] Added the following methods to NSDKModuleManager:
+    * getErrMsg
+    * enableNativeLog
+
+(Internal Release)version: 2.3.0 time20220401
+1.Changed:
+(1)[Internal] Supported AES DUKPT. DUKPT derived key (DUKPTDerivateKey) can be used for encryption, decryption and PIN Entry.
+(2)[Internal] Supported AES DUKPT KSN increment.
+    * Added void increaseKSN(SymmetricKey key) (Both DES and AES are supported).
+    * Deprecated void increaseKSN(byte groupId) (Only supported DES).
+(3)[Internal] Added "getScannerConfig()" method to DeviceInfo.
+(4)[Internal] Added "EthernetManager" module.
+(5)[Internal] Added "ECDHE" module.
+
+(Internal Release)version: 2.2.0 time20220308
+1. Fixed:
+(1) [Internal] Fixed PIN events missing problem.
+(2) [Internal] Fixed "byPass" support for PIN entry.
+(3) [Internal] Fixed "EMVErrorCode.EMV_ERR_Cancel" to "EMVErrorCode.EMV_ERR_CANCEL".
+(4) [Internal] Fixed re-init problem of NSDK.
+2. Changed:
+(1) [Internal] Added "Settings.NAVIGATION_BAR_CONFIG" to support navigation bar setting for N910 Pro device.
+(2) [Internal] Updated error codes.
+(3) [Internal] Alpha version of NSDK only can be used on DEV devices.
+(4) [Internal] Calling "cancelCardReader" method will close card reader if not searching card.
+3. Added:
+(1) [Internal] Added "getTamperStatus()" method to "DeviceManager" module.
+(2) [Internal] Added "FutureX" module.
+(3) [Internal] EMV L2 service supports Capce and Bancomat kernel.
+(4) [Internal] Added a new "initKeyLayout" method to "PINEntry" module.
+
+(Internal Release)version: 2.1.0 + (External Release)version: 2.2.0 time20211111
+1. Changed:
+(1) Namespace refactor: "com.newland.nsdk.core.api.common.EMVErrorCode" -> "com.newland.nsdk.core.api.common.emv.EMVErrorCode"
+(2) [Internal] Checked if the device module is supported before calling its methods. "ErrorCode.UNSUPPORTED" will be thrown if the device module is unsupported.
+(3) [Internal] Deprecated settings:
+    * Settings.PRINTER_GREY_LEVEL: Replaced by "Printer.setGray" method.
+    * Settings.SETTING_PRODUCT_MODEL: Replaced by "DeviceManager.getDeviceInfo" method.
+(4) [External] KSN shall be increased manually after DUKPT PIN entry.
+(5) [External] ExtDeviceManager module:
+    * Added the following methods:
+      * getDeviceInfo
+      * setDatetime
+      * getDatetime
+      * setBluetoothName
+      * getBluetoothInfo
+      * setConnectMode
+      * setLogoIcon
+      * setLanguage
+      * getLanguage
+      * update
+      * clearSymmetricKeys
+      * setTimeConfiguration
+      * getTimeConfiguration
+    * Deprecated the following methods:
+      * loadFirmwareOrAppFile
+      * updateFirmwareOrApp
+(6) [External] Removed "displayMessages" parameter of "powerUp" method.
+2. Fixed:
+(1) [Internal] Supported CPOS X5 device with non-security modules, e.g., printer, settings.
+(2) [Internal] Fixed PIN max and min length did not work if length range was not set.
+(3) [Internal] Fixed spelling: "DeviceInfo.isSupportOffLine" -> "DeviceInfo.isSupportOffline"
+(4) [External] Extracted response message of unsupported commands.
+3. Added:
+(1) Supported quick documentation of NSDK methods in AS.
+(2) [Internal] Added "CashBox" module.
+(3) [Internal] Added the following method to Printer module:
+    * cutPaper
+    * setGray
+(4) [Internal] Added "getErrorMessage" method to EMVL2Service module.
+(5) [External] Supported inner error code.
+
+(Internal Release)version: 2.0.1 + (External Release)version: 2.1.1 time20210908
+1. Changed:
+(1) Unified internal and external UART3 interface to(This requires external library version shall be >=2.1.1 for internal library):
+    * com.newland.nsdk.core.api.common.UART3Port
+    * com.newland.nsdk.core.common.UART3PortImpl
+(2) [Internal] Updated Newland jar libraries.
+(3) [Internal] Namespace refactor:
+    * "com.newland.nsdk.core.api.common.NSDKModuleManager" -> "com.newland.nsdk.core.api.internal.NSDKModuleManager"
+    * "com.newland.nsdk.core.common.NSDKModuleManagerImpl" -> "com.newland.nsdk.core.internal.NSDKModuleManagerImpl"
+(4) [External] Added parameter "LoadFileListener" to "loadFirmwareOrAppFile" method of "ExtDeviceManager".
+2. Fixed:
+(1) [Internal] Customer ID was not correct.
+(2) [Internal] Crashed when searching card on A10 device.
+(3) [Internal] UID was null when activating M1 card on A10 device.
+3. Added:
+(1) [Internal] Added "printRGBAImage" method to printer module.
+(2) [External] Added "ping" method to "ExtNSDKModuleManager".
+4. Removed:
+(1) [Internal] Removed “com.newland.nsdk.core.api.common.communication” to external namespace.
+(2) [External] Removed "setSerialNumber" method of "ExtDeviceManager".
+
+(External Release)version: 2.1.0 time20210729
+1. Changed:
+(1) [External] Enabled KCV mode setting when generating key.
+(2) [External] Optimized BLE communication.
+2. Fixed:
+(1) [External] Fixed key type and usage when deleting key.
+(2) [External] Not be able to receive data after configuration was set for USB communication.
+(3) [External] Failed to generate key when KCV mode was not set with KCV.
+3. Added:
+(1) [External] Supported RKI.
+4. Removed:
+(1) [External] EMV L3 interfaces are removed from NSDK to L3 library.
+
+(External Release)version: 2.0.0 time20210618
+1. Changed:
+(1) [External] Modified parameters of PIN entry APIs.
+2. Fixed:
+(1) [External] Fixed some bugs.
+3. Added:
+(1) [External] Added EMV L3 module.
+
+(Internal Release)version: 2.0.0 time20210528
+1. Changed:
+(1) Applied "Core Package + Plugin Packages" pattern to NSDK. Core package only supports the cards for EMV/Financial transaction (Magnetic stripe card/EMV Contact card/EMV Contactless card) while other cards(e.g., M1, Felica card) supported by plugin card package.
+(2) Refactored NSDK package namespace as below:
+    * For Core Package:
+      * com.newland.nsdk.core.api.common.*
+      * com.newland.nsdk.core.api.internal.*
+      * com.newland.nsdk.core.api.external.*
+    * For Plugin XXX Package:
+      * com.newland.nsdk.plugin.xxx.api.common.*
+      * com.newland.nsdk.plugin.xxx.api.internal.*
+      * com.newland.nsdk.plugin.xxx.api.external.*
+(3) Refactored card module as below:
+    * "CardReader" is responsible for card searching.
+    * Instances of concrete card types shall be created directly or after card searching to communicate with cards.
+(4) Followed some naming conventions, e.g.:
+    * Rename "DeviceBasic" to "DeviceManager", "PinInput" to "PINEntry", "SmartCard" to "ContactCard".
+    * All uppercase or lowercase letters for abbreviations, e.g., rename "EmvL2Service" to "EMVL2Service", "PinBlock" to "PINBlock", "generateMac" to "generateMAC".
+    * Plural form for parameter class, e.g., "PINEntryParameters", "CardReaderParameters".
+(5) Supported firmware version check when initializing NSDK modules. "ErrorCode.NEED_UPDATE" will be thrown if the version is too low to use NSDK.
+(6) "NSDKModuleManager" to manage internal modules, "ExtNSDKModuleManager" to manage external modules.
+(7) [Internal] Allowed PIN length of 0 to support ByPass.
+(8) [Internal] Updated EMV L2 JNI library.
+(9) [Internal] Used "RSAKey" instead of "modulus" and "exponent" for "startOfflinePINEntry" method.
+2. Fixed:
+(1) [Internal] Fixed some settings bugs.
+3. Added:
+(1) [Internal] Added UART3Port for RS232 and PINPAD port communication.
+4. Removed:
+(1) Removed SM algorithm.
+
+version: 1.3.0 time20210402
+1. Changed:
+(1) [Internal] "initKeyLayout" method supports whether to display a random numerical keypad layout or not.
+(2) [Internal] Beep by calling NAPI method.
+(3) [Internal] Rename "setDeviceDate" to "setPOSDate", "getDeviceDate" to "getPOSDate".
+(4) [External] Refactored external modules, e.g., refactored ExtPinpad module to ExtCipher, ExtKeyManager, ExtPinInput.
+(5) [External] Defined external APIs in accordance with internal APIs.
+2. Fixed
+(1) [Internal] Some settings were not set correctly.
+(2) [Internal] Failed to power up 7816 card with -5 error code returned.
+3. Added:
+(1) Supported "CLEAR" method of key generation.
+(2) [Internal] Added "increaseKSN" method.
+(3) [Internal] Added asymmetric key related APIs to support RKI.
+(4) [Internal] Added "CMAC" KCV mode.
+(5) [External] Supported bluetooth communication.
+(6) [External] Supported NAPI security related commands.
+(7) [External] Added "getBatteryPercentage" method.
+4. Removed:
+(1) [Internal] Removed some unsupported settings, e.g., APK_VERIFY, SETTING_SOUND_OTHER_SOUND_DISPLAY.
+
+version: 1.2.4 time20201126
+1. Changed:
+(1) Defined error codes of internal and external modules in "ErrorCode".
+
+version: 1.2.3 time20201103
+1. Changed:
+(1) Supported log level control.
+(2) [External] Return the length of plain track data when the track data is encrypted.
+2. Fixed:
+(1) [External] No response when calling "startScan" if "stopScan" was called before.
+3. Added:
+(1) [External] Added "displayColorImage" method.
+
+version: 1.2.3-alpha time20201026
+1. Changed:
+(1) Defined parameter type with "byte" when its value is less than 255.
+(2) Used "CipherType" for "encrypt/decrypt" methods and "MacType" for "generateMac" method.
+(3) Removed unnecessary prefix of enum items(E.g., rename "SEC_MAC_TDES_LAST" to "TDES_LAST").
+(4) [Internal] Refactored "initKeyLayout" to return numbers for keyboard display.
+(5) [Internal] Added time parameter to "deactivate" method, and removed time parameter from "close" method of contactless card module.
+(6) [External] Improved external modules.
+2. Fixed:
+(1) [Internal] Garbled text was returned when QR code was GBK encoding.
+(2) [Internal] Failed to decode Code128 image.
+
+version: 1.2.2 time20200930
+1. Fixed:
+(1) [Internal] "isCardExist" method could not check Felica card.
+(2) [Internal] "onError" was triggered instead of "onTimeout" when PIN entry was timeout.
+(3) [Internal] Error code was not returned when failed to decode barcode image.
+(4) [Internal] Failed to start PIN entry with error code -4007 returned.
+
+version: 1.2.1 time20200923
+1. Changed:
+(1) Set -6 as default error code of NSDKIllegalParameterException.
+(2) [Internal] Get slots according to hardware configuration.
+2. Fixed:
+(1) [Internal] KCV length was not allowed to be more than 3 bytes.
+(2) [Internal] Key generation method was being incorrectly set as "CLEAR" method was removed.
+(3) [Internal] SN was unable to obtain.
+(4) [Internal] It would crash when getting POS datetime.
+(5) [Internal] Stopping scanning repeatedly would be failed.
+3. Removed:
+(1) [Internal] PinOutput.
+
+version: 1.2.0 time20200908
+1. Changed:
+(1) Renamed ForthSDK to NSDK.
+(2) Removed "Spi" suffix of all module names.
+(3) Used exceptions to notify API errors.
+(4) Applied a set of naming conventions. E.g.:
+    * Renamed "RF card" to "Contactless card", "Light" to "LED", "IC card" to "Smart card".
+    * Removed unnecessary prefix of enum items, e.g., rename "NAPI_SEC_KCV_NONE" to "NONE".
+(5) Callback/listener parameter shall be the last parameter of an API.
+2. Added:
+(1) Added external modules.
+3. Removed:
+(1) Moved "generateMac" method from "MacGenerator" module to "Cipher" module, and removed "MacGenerator" module.
+(2) Removed "CLEAR" method of key generation.
+   
+version: 1.0.6 time20200508
+1. Improved UI.
+2. Removed "cashbox" module.
+3. Supported converting text to picture.
+4. Enabled preview for scanning.
+5. Modified EMV L2 interfaces.
+
+version: 1.0.5 time20200418
+1. Initial release.

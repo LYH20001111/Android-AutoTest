@@ -1,0 +1,87 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=CN, ST=FJ, L=FZ, O=Newland Payment Technology Co.,Ltd, OU=Newland Payment CA, CN=Newland Payment Production CA v1
+        Validity
+            Not Before: Jan 30 01:49:07 2013 GMT
+            Not After : Jan 28 01:49:07 2023 GMT
+        Subject: C=CN, ST=FJ, L=FZ, O=Newland Payment Technology Co.,Ltd, OU=Newland Payment MFG, CN=Newland Payment Manufacturing CA
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+            RSA Public Key: (2048 bit)
+                Modulus (2048 bit):
+                    00:ad:2f:37:a3:2b:26:01:32:77:0d:fb:8f:da:2a:
+                    e1:fb:92:0b:ab:9a:36:e1:af:ed:59:45:8c:8e:65:
+                    27:c1:48:1d:77:d6:48:d0:46:94:5a:d1:74:47:b4:
+                    87:4c:99:17:1e:e4:50:46:92:21:12:5b:c5:94:e7:
+                    55:89:15:d3:29:d4:d5:89:51:d9:28:12:99:ad:46:
+                    9f:47:a6:55:ad:30:cf:6c:a3:02:97:c2:57:09:3a:
+                    b2:80:5b:85:48:63:e0:8d:07:86:c9:86:58:00:d1:
+                    6b:ff:de:c1:f6:87:70:bf:db:fb:19:ae:af:20:61:
+                    58:64:08:8c:63:3b:55:b3:28:c4:3c:12:7d:22:84:
+                    6b:40:63:80:42:ae:1c:5d:8f:d0:48:34:82:4a:ea:
+                    a5:26:81:7e:6f:59:8c:fe:c6:28:57:2a:8a:e9:94:
+                    bb:34:19:ac:de:51:ef:84:89:3f:a5:d7:18:fa:6a:
+                    89:35:58:fb:2e:6c:92:f1:d0:da:f9:03:94:66:7b:
+                    53:95:48:69:54:01:93:5e:c6:02:9f:c8:fd:b0:1a:
+                    f1:8e:9f:87:a2:dc:07:4a:4d:96:95:37:68:cc:6c:
+                    a6:8f:7d:36:b1:a4:d8:36:b4:e3:54:ea:84:ef:0e:
+                    9a:e6:ff:91:9a:15:b1:26:87:77:25:4f:9a:e7:f7:
+                    bc:73
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                97:BB:5A:06:C4:5A:89:D2:F7:6A:EA:FA:A4:BF:72:C1:54:70:23:11
+            X509v3 Authority Key Identifier: 
+                keyid:B5:CA:CA:0E:62:4A:B6:9D:4F:23:FE:CB:54:88:85:D1:79:75:6D:A4
+                DirName:/C=CN/ST=FJ/L=FZ/O=Newland Payment Technology Co.,Ltd/OU=Newland Payment CA/CN=Newland Payment Root CA v1
+                serial:01
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+    Signature Algorithm: sha256WithRSAEncryption
+        28:ab:1d:dc:ae:09:40:4e:6a:0e:0d:b9:d9:69:3c:57:d8:9a:
+        67:ad:26:13:73:cc:e3:5e:72:4d:4e:48:40:e9:56:ec:e6:6a:
+        69:8f:4f:7d:39:dc:22:70:0d:81:c2:c3:f0:80:d0:26:2d:0b:
+        5a:20:a4:de:39:c1:72:70:be:e3:60:c0:f0:45:25:49:72:af:
+        16:34:4d:d6:d1:d5:68:de:0f:84:95:95:93:a9:90:96:09:f7:
+        be:8c:a3:73:bd:0f:4c:ac:42:a6:2f:ee:ca:48:b9:56:42:58:
+        04:40:5f:70:d0:e0:e3:99:15:f3:3a:4c:03:18:28:f0:8f:cc:
+        26:01:d9:01:f4:af:aa:db:6e:5a:dc:3b:3a:b0:81:c5:8a:18:
+        6e:62:bb:1c:3a:bd:29:36:a7:8c:4b:f1:4d:29:19:eb:99:64:
+        cc:ed:c6:64:2f:fa:d6:0c:ea:c3:5f:9a:7c:c3:dd:18:24:10:
+        66:f6:9e:dc:0a:d6:34:b6:1b:47:91:aa:5c:11:ae:57:74:40:
+        ae:16:a7:98:21:ed:1d:92:50:47:9a:90:8b:e5:e8:e4:3f:27:
+        a6:d8:10:97:df:39:2f:d5:93:58:15:8d:f4:a1:01:7b:9e:fc:
+        e8:0c:5c:dd:2d:0e:eb:57:67:df:b7:56:50:cf:62:6e:2b:ef:
+        84:2d:95:f1
+-----BEGIN CERTIFICATE-----
+MIIErTCCA5WgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBnDELMAkGA1UEBhMCQ04x
+CzAJBgNVBAgTAkZKMQswCQYDVQQHEwJGWjErMCkGA1UEChMiTmV3bGFuZCBQYXlt
+ZW50IFRlY2hub2xvZ3kgQ28uLEx0ZDEbMBkGA1UECxMSTmV3bGFuZCBQYXltZW50
+IENBMSkwJwYDVQQDEyBOZXdsYW5kIFBheW1lbnQgUHJvZHVjdGlvbiBDQSB2MTAe
+Fw0xMzAxMzAwMTQ5MDdaFw0yMzAxMjgwMTQ5MDdaMIGdMQswCQYDVQQGEwJDTjEL
+MAkGA1UECBMCRkoxCzAJBgNVBAcTAkZaMSswKQYDVQQKEyJOZXdsYW5kIFBheW1l
+bnQgVGVjaG5vbG9neSBDby4sTHRkMRwwGgYDVQQLExNOZXdsYW5kIFBheW1lbnQg
+TUZHMSkwJwYDVQQDEyBOZXdsYW5kIFBheW1lbnQgTWFudWZhY3R1cmluZyBDQTCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK0vN6MrJgEydw37j9oq4fuS
+C6uaNuGv7VlFjI5lJ8FIHXfWSNBGlFrRdEe0h0yZFx7kUEaSIRJbxZTnVYkV0ynU
+1YlR2SgSma1Gn0emVa0wz2yjApfCVwk6soBbhUhj4I0HhsmGWADRa//ewfaHcL/b
++xmuryBhWGQIjGM7VbMoxDwSfSKEa0BjgEKuHF2P0Eg0gkrqpSaBfm9ZjP7GKFcq
+iumUuzQZrN5R74SJP6XXGPpqiTVY+y5skvHQ2vkDlGZ7U5VIaVQBk17GAp/I/bAa
+8Y6fh6LcB0pNlpU3aMxspo99NrGk2Da041TqhO8Omub/kZoVsSaHdyVPmuf3vHMC
+AwEAAaOB9jCB8zAdBgNVHQ4EFgQUl7taBsRaidL3aur6pL9ywVRwIxEwgcMGA1Ud
+IwSBuzCBuIAUtcrKDmJKtp1PI/7LVIiF0Xl1baShgZykgZkwgZYxCzAJBgNVBAYT
+AkNOMQswCQYDVQQIEwJGSjELMAkGA1UEBxMCRloxKzApBgNVBAoTIk5ld2xhbmQg
+UGF5bWVudCBUZWNobm9sb2d5IENvLixMdGQxGzAZBgNVBAsTEk5ld2xhbmQgUGF5
+bWVudCBDQTEjMCEGA1UEAxMaTmV3bGFuZCBQYXltZW50IFJvb3QgQ0EgdjGCAQEw
+DAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAKKsd3K4JQE5qDg252Wk8
+V9iaZ60mE3PM415yTU5IQOlW7OZqaY9PfTncInANgcLD8IDQJi0LWiCk3jnBcnC+
+42DA8EUlSXKvFjRN1tHVaN4PhJWVk6mQlgn3voyjc70PTKxCpi/uyki5VkJYBEBf
+cNDg45kV8zpMAxgo8I/MJgHZAfSvqttuWtw7OrCBxYoYbmK7HDq9KTanjEvxTSkZ
+65lkzO3GZC/61gzqw1+afMPdGCQQZvae3ArWNLYbR5GqXBGuV3RArhanmCHtHZJQ
+R5qQi+Xo5D8nptgQl985L9WTWBWN9KEBe5786Axc3S0O61dn37dWUM9ibivvhC2V
+8Q==
+-----END CERTIFICATE-----

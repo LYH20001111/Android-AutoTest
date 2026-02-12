@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_recycleviewitem"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/recyclerview_item_styles">
+    <TextView
+        android:id="@+id/id_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text=""/>
+    <RelativeLayout
+        android:id="@+id/id_btnlayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/id_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_oval"
+            android:gravity="center"
+            android:scaleType="center"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/id_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/id_number"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

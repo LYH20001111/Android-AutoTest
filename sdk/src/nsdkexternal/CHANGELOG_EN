@@ -1,0 +1,179 @@
+version:2.6.0 time20250115
+1.Added:
+(1) Added the following parameters and methods into "ExtPINEntry" module:
+    * "startOfflinePINEntry", which can support to initiate an offline PIN entry process on the salve devices.
+    * "checkIcPresent" into "ExtendedPINEntryParameters", which can support to check whether IC is present when processing online PIN entry.
+
+version:2.5.0 time20240819
+1.Added:
+(1) Added "ExtESignature" module.
+(2) Added "ExtCardEmulator" module.
+(3) Added the following methods into "ExtBeeper" module:
+    * "beep", which can perform beep operation with target frequency and duration.
+(4) Added the following methods into "ExtDeviceManager"
+    * "getFileList", which can search for the files matched with target keyword in the lower device.
+    * added "DeviceAttribute" object into "ExtDeviceInfo" to obtain some functional configuration of the lower dvice.
+(5) Added the following methods into "ExtDisplay" module:
+    * "displayMenu", which can support to display custom menu list on the lower device.
+    * "displayButtons", which can support to display custom series of button on the lower device.
+    * "displayView", which can support to display custom textes and pictures by disposable instruct on lower device.
+    * "setReturnToHome", which can support to set the return home page configuration of some display functions and whether to use "Cancel" key to back main page.
+    * "setUIMode", which can support to set whether to use custom UI interfaces during some operations, like searching cards, entering PIN and so on.
+    * "displayVersion", which can support to display or hide the version shown on the button.
+(6) Added the following methods into "ExtKeyboard" module:
+    * "inputData", which can support to intiates once or more times request to lower device for entering data required in disposable instruct.
+    * "inputAmount", which can support to initates a request to lower device for entering the amount data.
+(7) Added the following objects into "ExtPINEntry" module:
+    * added "pinLengthRange" and "pinMaskAlignment" into "ExtPINEntryParameters", which can support to set the pin entry digits and pin mask alignment configuration.
+    * added "ExtendedExtPINEntryParameters" and "ExtendedCipherPAN", which can support to use the advanced "New PIN Entry" instruct.
+(8) Added some system properties name into "ExtSettings".
+
+
+version: 2.4.0 time20240226
+1.Added:
+(1) Added "ExtSettingsManager" module.
+(2) The "LEDColor" enumeration has been updated to include four new options: "FIRST", "SECOND", "THIRD", and "FOURTH".
+
+
+version: 2.3.0 time20231113
+1.Added:
+(1) Added "ExtECDHE" module.
+(2) Added "ExtFutureX" module.
+(3) Added the following methods to "ExtCPUContactlessCard" module:
+   * "performAPDU", which can support cipher text input.
+(4) Added the following methods to "ExtCPUContactCard" module:
+   * "performAPDU", which can support cipher text input.
+(5) Added the following methods to "ExtNSDKModuleManager" module:
+   * "setCommunicationTimeout"
+(6) Added the following methods to "ExtCommunicator" module:
+   * "clear"
+
+2.Changed:
+(1)[External] Changed the inner logic of firmware detection of "ME30SU", which means only formal version of NSDK external aar can be used in "V" type ME30SU.
+(2)[External] Changed the parameters sequence of "startOnlinePINEntry" and "startOfflinePINEntry" in "ExtPINEntry" module to be the same with the namesake methods in "PINEntry" module.
+(3)[External] Removed the parameter of "powerUp" method in "ExtContactCard" module.
+(4)[External] Deprecated the "setCommunicationTimeout" in ExternalCommunicator" module, and move it to the "ExtNSDKModuleManager" module.
+
+3.Fixed:
+(1)[External] Fixed buges in "ExternalEmvL3Module" module:
+   * "onCandidateAIDList" has an incorrect length when parsing "1F811F" to obtain tag length.
+   * "ExternalExceptionListModule" internal problems about PAN length error.
+
+
+version: 2.2.0 time20211111
+1.Changed:
+(1) KSN shall be increased manually after DUKPT PIN entry.
+(2) ExtDeviceManager module:
+    * Added the following methods:
+      * getDeviceInfo
+      * setDatetime
+      * getDatetime
+      * setBluetoothName
+      * getBluetoothInfo
+      * setConnectMode
+      * setLogoIcon
+      * setLanguage
+      * getLanguage
+      * update
+      * clearSymmetricKeys
+      * setTimeConfiguration
+      * getTimeConfiguration
+    * Deprecated the following methods:
+      * loadFirmwareOrAppFile
+      * updateFirmwareOrApp
+(3) Namespace refactor: "com.newland.nsdk.core.api.common.EMVErrorCode" -> "com.newland.nsdk.core.api.common.emv.EMVErrorCode"
+(4) Removed "displayMessages" parameter of "powerUp" method.
+2. Fixed:
+(1) Extracted response message of unsupported commands.
+3. Added:
+(1) Supported quick documentation of NSDK methods in AS.
+(2) Supported inner error code.
+
+version: 2.1.1 time20210908
+1. Changed:
+(1) Namespace refactor:
+    * "com.newland.nsdk.core.api.external.ExtUART3Port" -> "com.newland.nsdk.core.api.common.UART3Port”.
+    * "com.newland.nsdk.core.external.ExtUART3PortImpl" -> "com.newland.nsdk.core.common.UART3PortImpl".
+(2) Added parameter "LoadFileListener" to "loadFirmwareOrAppFile" of "ExtDeviceManager".
+2. Added:
+(1) Added "ping" method to "ExtNSDKModuleManager".
+3. Removed:
+(1) Removed "setSerialNumber" method of "ExtDeviceManager".
+
+version: 2.1.0 time20210729
+1. Changed:
+(1) Enabled KCV mode setting when generating key.
+(2) Optimized BLE communication.
+2. Fixed:
+(1) Fixed key type and usage when deleting key.
+(2) Not be able to receive data after configuration was set for USB communication.
+(3) Failed to generate key when KCV mode was not set with KCV.
+3. Added:
+(1) Supported RKI.
+4. Removed:
+(1) EMV L3 interfaces are removed from NSDK to L3 library.
+
+version: 2.0.0 time20210618
+1. Changed:
+(1) Applied "Core Package + Plugin Packages" pattern to NSDK. Core package only supports the cards for EMV/Financial transaction (Magnetic stripe card/EMV Contact card/EMV Contactless card) while other cards(e.g., M1, Felica card) supported by plugin card package.
+(2) Refactored NSDK package namespace as below:
+    * For Core Package:
+      * com.newland.nsdk.core.api.common.*
+      * com.newland.nsdk.core.api.internal.*
+      * com.newland.nsdk.core.api.external.*
+    * For Plugin XXX Package:
+      * com.newland.nsdk.plugin.xxx.api.common.*
+      * com.newland.nsdk.plugin.xxx.api.internal.*
+      * com.newland.nsdk.plugin.xxx.api.external.*
+(3) Refactored card module as below:
+    * "CardReader" is responsible for card searching.
+    * Instances of concrete card types shall be created directly or after card searching to communicate with cards.
+(4) Followed some naming conventions, e.g.:
+    * Rename "DeviceBasic" to "DeviceManager", "PinInput" to "PINEntry", "SmartCard" to "ContactCard".
+    * All uppercase or lowercase letters for abbreviations, e.g., rename "EmvL2Service" to "EMVL2Service", "PinBlock" to "PINBlock", "generateMac" to "generateMAC".
+    * Plural form for parameter class, e.g., "PINEntryParameters", "CardReaderParameters".
+(5) Supported firmware version check when initializing NSDK modules. "ErrorCode.NEED_UPDATE" will be thrown if the version is too low to use NSDK.
+(6) "NSDKModuleManager" to manage internal modules, "ExtNSDKModuleManager" to manage external modules.
+(7) Modified parameters of PIN entry APIs.
+2. Added:
+(1) Added EMV L3 module.
+3. Removed:
+(1) Removed SM algorithm.
+
+
+version: 1.3.0 time20210402
+1. Changed:
+(1) Refactored external modules, e.g., refactored ExtPinpad module to ExtCipher, ExtKeyManager, ExtPinInput.
+(2) Defined external APIs in accordance with internal APIs.
+2. Added:
+(1) Supported "CLEAR" method of key generation.
+(2) Supported bluetooth communication.
+(3) Supported NAPI security related commands.
+(4) Added "getBatteryPercentage" method.
+
+version: 1.2.4 time20201126
+1. Changed:
+(1) Defined error codes of internal and external modules in "ErrorCode".
+
+version: 1.2.3 time20201103
+1. Changed:
+(2) Return the length of plain track data when the track data is encrypted.
+2. Fixed:
+(1) No response when calling "startScan" if "stopScan" was called before.
+3. Added:
+(1) Added "displayColorImage" method.
+
+version: 1.2.3-alpha time20201026
+1. Changed:
+(1) Defined parameter type with "byte" when its value is less than 255.
+(2) Used "CipherType" for "encrypt/decrypt" methods and "MacType" for "generateMac" method.
+(3) Removed unnecessary prefix of enum items(E.g., rename "SEC_MAC_TDES_LAST" to "TDES_LAST").
+(4) Improved external modules.
+
+version: 1.2.1 time20200923
+1. Changed:
+(1) Set -6 as default error code of NSDKIllegalParameterException.
+
+version: 1.2.0 time20200908
+1. Added:
+(1) Added external modules.

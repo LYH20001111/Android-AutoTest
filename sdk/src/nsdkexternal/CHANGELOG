@@ -1,0 +1,157 @@
+version:2.6.0 time20250115
+1.【增加】ExtPINEntry 模块：
+      * 新增 void startOfflinePINEntry 方法用于在下位机上进行脱机输 PIN 操作
+      * ExtendedExtPINEntryParameters 内新增一个  checkIcPresent 变量，用于支持联机输 PIN 校验 IC 卡在位功能
+
+version:2.5.0 time20240819
+1.【增加】ExtESignature 模块:
+      * 新增 start 方法，用于向下位机发起签名请求，并接受完整的签名图片数据
+2.【增加】ExtCardEmulator 模块：
+      * 新增 init 方法，用于初始化卡模拟功能
+      * 新增 start 方法，用于开启卡模拟模式
+      * 新增 getStatus 方法，用于获取当前设备卡模拟的状态
+      * 新增 setConfig 方法，用于设置卡模拟卡片的配置，如 UID 和 NDEF 空间等
+      * 新增 writeData 方法，用于写入卡模拟卡片 NDEF/CFG 文件数据
+      * 新增 readData 方法，用于读取卡模拟卡片 NDEF/CFG 文件内的数据
+      * 新增 getConfig 方法，用于获取卡模拟卡片的配置信息，如 UID 和 NDEF 空间等
+      * 新增 finish 方法，用于关闭卡模拟模式
+      * 新增 getEvent 方法，用于获取当前卡模拟具体某个行为的当前状态
+3.【新增】 ExtBeeper 模块：
+      * 新增 beep 方法，用于按照传入的频率和持续时间进行蜂鸣
+4.【新增】 ExtDeviceManager 模块：
+      * ExtDeviceInfo 内新增一个 DeviceAttribute 对象，用于获取下位机设备一些功能属性的配置
+      * 新增 getFileList 方法，用于获取下位机设备文件夹下指定关键词相关的所有文件
+5.【新增】ExtDisplay 模块：
+      * 新增 displayMenu 方法，用于在下位机显示自定义菜单项
+      * 新增 displayButtons 方法，用于在下位机显示自定义文本和按钮
+      * 新增 displayView 方法，支持一次性显示文本和图片
+      * 新增 setReturnToHome 方法，用于设置返回主界面的配置，包括是否在某些显示操作后返回主界面和是否使用 Cancel 键返回主界面
+      * 新增 setUIMode 方法，用于设置是否在某些流程内使用自定义 UI 界面，如寻卡，输 PIN 界面等
+      * 新增 displayVersion 方法，用于打开/关闭底部版本号
+6.【新增】ExtKeyboard 模块：
+      * 新增 inputData 方法，用于向下位发起一次或多次输入信息请求
+      * 新增 inputAmount 方法，用于向下位机发起金额信息输入请求
+7.【新增】ExtPINEntry 模块：
+      * ExtPINEntryParameters 内新增 pinLengthRange 和 pinMaskAlignment，支持设置输 PIN 密码长度范围和掩码显示位置配置
+      * 新增 ExtendedExtPINEntryParameters 和 ExtendedCipherPAN 适配 "New PIN Entry" 指令
+8.【新增】ExtSettingsManager 模块：
+      * ExtSettings 内新增部分系统属性名称
+
+version:2.4.0 time20240117
+1.【增加】ExtSettingsManager模块：
+       * 新增 set 方法用于设置外置设备属性，包含LEDColor灯颜色设置等，具体Key见ExtSettings定义。
+       * 新增 get 方法用于获取外置设备属性，具体Key见ExtSettings定义。
+2.【增加】LEDColor新增枚举
+       * 新增FIRST、SECOND、THIRD、FORTH四个选项，便于外置设备为纯绿色灯时的使用。
+
+version: 2.3.0 time20231113
+1.【修复】修复 NSDK 重复初始化问题
+2.【修改】调整 startOnlinePINEntry 的卡号和超时时间参数顺序内置接口保持一致
+3.【修改】修改包名为 com.newland.nsdk.external
+4.【增加】增加 FutureX 模块接口
+
+version: 2.2.0 time20211111
+1.【优化】支持在 AS 中显示 NSDK 接口说明
+2.【修改】ExtDeviceManager 模块：
+   * 增加以下接口：
+     * getDeviceInfo
+     * setDatetime
+     * getDatetime
+     * setBluetoothName
+     * getBluetoothInfo
+     * setConnectMode
+     * setLogoIcon
+     * setLanguage
+     * getLanguage
+     * update
+     * clearSymmetricKeys
+     * setTimeConfiguration
+     * getTimeConfiguration
+   * 废弃以下接口：
+     * loadFirmwareOrAppFile
+     * updateFirmwareOrApp
+3.【修改】DUKPT 输 PIN 以后需要手动增加 KSN
+4.【优化】解析返回更具体的错误码
+5.【优化】添加不支持的指令判断
+6.【修改】接触上电接口去掉 messages 参数
+7.【修改】命名空间修改：com.newland.nsdk.core.api.common.EMVErrorCode 改成 com.newland.nsdk.core.api.common.emv.EMVErrorCode
+
+version: 2.1.1 time20210908
+1.【修改】命名空间修改：
+   * ExtUART3Port 从“com.newland.nsdk.core.api.external”挪到“com.newland.nsdk.core.api.common”
+   * ExtUART3PortImpl 从“com.newland.nsdk.core.external”挪到“com.newland.nsdk.core.common”
+2.【修改】ExtDeviceManager 的“loadFirmwareOrAppFile”方法增加“LoadFileListener”参数
+3.【增加】ExtNSDKModuleManager 增加 ping 方法
+4.【删除】删除设置 SN 接口（ExtDeviceManager.setSerialNumber）
+
+version: 2.1.0 time20210729
+1.【修改】下装密钥接口 generateKey 增加 KCV mode 的支持
+2.【修复】修复 deleteKey 接口密钥参数设置不对的问题
+3.【修复】修复 USB 通讯方式下设置通讯配置后无法接收数据的问题
+4.【修复】修复 generateKey 接口传入 KCV 但没有设置 KCV Mode 导致失败的问题
+5.【优化】优化 BLE 通讯
+6.【增加】添加 RKI 相关接口
+7.【删除】将 EMV L3 接口从 NSDK 移除，改为由 L3 库提供
+
+version: 2.0.0 time20210618
+
+1.【优化】采用核心包+扩展包方案，核心包只支持金融卡（磁卡，CPU 接触/非接卡），其他卡（M0，M1，Felica 等）都挪到扩展包中
+2.【优化】重构工程包名结构：
+   * 核心包:
+     * com.newland.nsdk.core.api.common.*
+     * com.newland.nsdk.core.api.internal.*
+     * com.newland.nsdk.core.api.external.*
+   * 扩展包:
+     * com.newland.nsdk.plugin.xxx.api.common.*
+     * com.newland.nsdk.plugin.xxx.api.internal.*
+     * com.newland.nsdk.plugin.xxx.api.external.*
+3.【优化】重构卡模块接口：
+   * 由 CardReader 模块负责三界面寻卡
+   * 对于需要做寻卡的卡槽（IC1，磁卡，非接），在寻到卡以后，根据当前寻到的卡类型创建具体的卡类对象进行操作
+   * 对于不需要做寻卡的卡槽（SAM 卡槽），可直接根据需要创建具体的卡对象进行操作
+4.【优化】规范命名，如：
+   * DeviceBasic 改成 DeviceManager，PinInput 改为 PINEntry，接触卡统一为 contact card 等
+   * 缩写保持统一大写或小写，如 PinBlockMode 改成 PINBlockMode，generateMac 改成 generateMAC 等
+   * 参数对象类统一命名为复数，如 PINEntryParameters，CardReaderParameters 等
+5.【删除】删除国密算法枚举项
+6.【增加】添加内外置 UART3Port 接口（适用于 RS232 和 PINPAD 口），允许用户设置串口配置
+7.【增加】内外置模块初始化增加版本判断功能，需要升级固件则抛出错误码 ErrorCode.NEED_UPDATE
+8.【修改】内外置模块管理分开，内置使用 NSDKModuleManager，外置使用 ExtNSDKModuleManager
+9.【优化】整改输 PIN 接口
+10.【增加】添加 EMV L3 接口
+
+version: 1.3.0 time20210402
+1.【修改】NSDK 下装密钥方式支持明文，由固件控制是否允许明文密钥下装
+2.【优化】将密钥划分为对称密钥（SymmetricKey）和非对称密钥（AsymmetricKey）
+3.【增加】支持蓝牙通讯方式
+4.【增加】支持基于 NAPI 的安全相关指令
+5.【增加】ExtDeviceBasic 增加获取外设电池电量接口 getBatteryPercentage
+6.【优化】规范模块划分，与内置模块划分保持一致，比如 ExtPinPad 拆分为 ExtCipher，ExtKeyManager，ExtPinInput 等
+7.【优化】规范接口定义，尽量保持与内置接口定义一致
+
+version: 1.2.4 time20201126
+1.【优化】规范内外置错误码，统一定义在 ErrorCode 类中
+
+version: 1.2.3 time20201103
+1.【修改】三界面寻卡读磁道数据，如果磁道数据是加密的，则会返回明文磁道数据的长度
+2.【修复】修复不在扫码期间调用 stopScan 方法后再启动扫码无响应问题
+3.【增加】增加显示彩色图片的接口
+
+version: 1.2.3-alpha time20201026
+1.【优化】取值不会超过 255 的参数使用 byte 类型进行定义
+2.【优化】加解密和计算 MAC 接口的参数由原先需要多个参数组合判断改成只需传递一个 CipherType 和 MacType 参数（保持跟底层接口定义一致）
+3.【优化】各个枚举类里面的枚举项名称去掉多余的前缀（如去掉 MacType 枚举类中每个枚举项的前缀 SEC_MAC_），让代码更简洁明了
+4.【优化】各模块指令接口经过详细测试调整，首个比较完善的版本
+
+version: 1.2.0 time20200908
+1. 外置模块
+   【新增】com.newland.nsdk.external.cardreader
+   【新增】com.newland.nsdk.external.smartcard
+   【新增】com.newland.nsdk.external.contactlesscard
+   【新增】com.newland.nsdk.external.devicebasic
+   【新增】com.newland.nsdk.external.display
+   【新增】com.newland.nsdk.external.keyboard
+   【新增】com.newland.nsdk.external.magcard
+   【新增】com.newland.nsdk.external.pinpad
+   【新增】com.newland.nsdk.external.scan
+   【新增】com.newland.nsdk.external.signature

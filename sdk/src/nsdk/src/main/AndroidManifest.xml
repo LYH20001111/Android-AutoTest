@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.newland.nsdk">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application>
+        <provider
+            android:name=".core.internal.NSDKInitProvider"
+            android:authorities="com.newland.nsdk.core.internal.nsdkinitprovider"
+            android:enabled="true"
+            android:exported="false"
+            android:initOrder="100"/>
+    </application>
+
+</manifest>

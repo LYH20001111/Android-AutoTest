@@ -1,0 +1,6 @@
+ext {
+    appVersionCode =30
+//    appVersionName = "2.12.0-beta11"
+    appVersionName = "2.19.0-beta07"
+//    appVersionName = "2.17.0"
+}

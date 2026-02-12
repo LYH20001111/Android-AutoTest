@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <!-- Common -->
+    <string name="app_name">NSDKDemo</string>
+    <string name="inputPassWord">Please enter password</string>
+    <string name="dialog_ok">Confirm</string>
+    <string name="msg_check_first">Please finish or cancel current operation first...</string>
+    <string name="msg_common_succ">Exec Success</string>
+    <string name="msg_common_failed">Exec Failed</string>
+    <string name="common_exception">Exception</string>
+    <string name="common_slot">Slot:</string>
+    <string name="no_card_in_slot">No card in slot</string>
+    <string name="card_in_slot">A card inserted</string>
+    <string name="common_card_type">Card Type:</string>
+    <!-- Base Activity-->
+    <!-- KeyPad -->
+    <!-- Device -->
+    <!-- EMVListener -->
+    <!-- MainActivity -->
+    <string name="tv_ma_clean_msg">Clean messages</string>
+    <!-- ScanView activity -->
+    <!-- Todo: There are pictures(Chinese) in layout, to be replaced-->
+
+    <!-- ExtSmartcard fragment-->
+    <string name="tv_extsmartcard_apdu">Send APDU</string>
+    <string name="tv_extsmartcard_crypto_apdu">Send Crypto APDU</string>
+    <string name="tv_extsmartcard_powerdown">Power Down</string>
+
+    <!--external display Fragment-->
+    <string name="tv_display_text">Display Text</string>
+    <string name="tv_display_image1">Display Loaded Image</string>
+    <string name="tv_display_image2">Display Image</string>
+    <string name="tv_display_picture">Display Picture</string>
+    <string name="tv_display_loaded_picture">Display Loaded Picture</string>
+    <string name="tv_display_qr">Display QR</string>
+    <string name="tv_display_loadimage">Load Image</string>
+    <string name="tv_display_loadcolorimage">Load Color Image</string>
+    <string name="tv_display_clean">Clean Screen</string>
+    <string name="tv_display_backhome">Back Home</string>
+    <string name="tv_display_autoclean">Automatic Screen Cleaning</string>
+    <string name="tv_display_cancelautoclean">Cancel Automatic Screen Cleaning</string>
+    <string name="tv_display_exception">Display image exception：</string>
+    <string name="tv_display_success">Display image success</string>
+
+    <!--external communication Fragment-->
+    <string name="tv_extcomm_connect_device">Connect Device</string>
+    <string name="tv_extcomm_disconnect">Disconnect</string>
+    <string name="tv_extcomm_refresh">Refresh</string>
+    <string name="tv_extcomm_disconnect_the_device">Disconnect this device?</string>
+    <string name="tv_extcomm_forget_the_device">Forget this device?</string>
+    <string name="tv_extcomm_pair_the_device">Pair this device?</string>
+    <string name="tv_extcomm_pairing">Paring...</string>
+    <string name="tv_extcomm_ping">Ping</string>
+    <string name="tv_extcomm_pair_switch_on">On</string>
+    <string name="tv_extcomm_pair_switch_off">Off</string>
+    <string name="tv_extcomm_connected_devices">Connected Devices</string>
+    <string name="tv_extcomm_available_devices">Available Devices</string>
+
+    <!--external device basic Fragment-->
+    <string name="tv_extdevicebasic_getversionnumber">Get Version Number</string>
+    <string name="tv_extbeeper_beep">Beep</string>
+    <string name="tv_extdevicebasic_getserialnumber">Get Serial Number</string>
+    <string name="tv_extdevicebasic_getconfiguration">Get Configuration</string>
+    <string name="tv_extdevicebasic_setconfiguration">Set Configuration</string>
+    <string name="tv_extdevicebasic_setconnectmode">Set Connect Mode</string>
+    <string name="tv_extdevicebasic_updateapp">Update APP</string>
+    <string name="tv_extdevicebasic_updatefirmware">Update Firmware</string>
+    <string name="tv_extdevicebasic_reboot">Reboot</string>
+    <string name="tv_extdevicebasic_getbattery">Battery Percentage</string>
+    <string name="tv_extdevicebasic_setdatetime">Set Datetime</string>
+    <string name="tv_extdevicebasic_getdatetime">Get Datetime</string>
+    <string name="tv_extdevicebasic_getdeviceinfo">Get Device Info</string>
+    <string name="tv_extdevicebasic_setbtname">Set BT Name</string>
+    <string name="tv_extdevicebasic_setfullychargedicon">Set Fully Charged Icon</string>
+    <string name="tv_extdevicebasic_setpowerofficon">Set Power Off Icon</string>
+    <string name="tv_extdevicebasic_setchargingicon">Set Charging Icon</string>
+    <string name="tv_extdevicebasic_settimeconfig">Set Time Config</string>
+    <string name="tv_extdevicebasic_gettimeconfig">Get Time Config</string>
+    <string name="tv_extdevicebasic_setlanguage">Set Language</string>
+    <string name="tv_extdevicebasic_getlanguage">Get Language</string>
+    <string name="tv_extdevicebasic_getfilelist">Get File List</string>
+    <string name="tv_bt_name">BT Name</string>
+    <string name="tv_extdevicebasic_getbtinfo">Get BT Info</string>
+    <string name="msg_extdevicebasic_getversionsuccess">Get version number success:</string>
+    <string name="msg_extdevicebasic_getversionfail">Get version number failed!</string>
+    <string name="msg_extdevicebasic_getconfigurationsuccess">Get configuration success:</string>
+    <string name="msg_extdevicebasic_getserialnumbersuccess">Get serial number success:</string>
+    <string name="msg_extdevicebasic_getbaudrate">Baud rate:</string>
+    <string name="msg_extdevicebasic_getbeepcontrol">Beep control:</string>
+    <string name="msg_extdevicebasic_getdecryptionmodel">Decryption model:</string>
+    <string name="msg_extdevicebasic_beepsuccess">Beep success</string>
+    <string name="msg_extdevicebasic_beepfail">Beep failed</string>
+
+    <!-- CardReaderImpl Fragment-->
+    <string name="tv_open_card">Open CardReader</string>
+    <string name="tv_open_card_optional">Open CardReader(Optional)</string>
+    <string name="tv_open_card_encrypt_track">Open CardReader(encrypt track)</string>
+    <string name="tv_revocate_card">Cancel Card Reading</string>
+    <string name="tv_display_rfid_logo">Display Rfid Logo</string>
+    <string name="tv_cancel_rfid_logo">Cancel Rfid Logo</string>
+    <string name="msg_swipe_insert_rf_card">Please swipe, insert or tap a card...</string>
+    <string name="msg_cardreader_swiper">Mag card swiped</string>
+    <string name="msg_cradreader_insert">Card inserted</string>
+    <string name="msg_cardreader_rfcard">Card tapped</string>
+    <string name="msg_cancel_open_reader">Cancel to open card reader</string>
+    <string name="msg_timeout">Timeout</string>
+    <string name="msg_reader_open_exception">CardReader open exception：</string>
+    <string name="msg_revocate_reader">Cancel card reading:</string>
+    <string name="msg_succ">Success</string>
+    <string name="msg_revocate_reader_exception">Cancel card reading, exception:</string>
+    <string name="dialog_check_status">Check the selected slot status</string>
+    <string name="dialog_select_card_slot">Select the card slot:</string>
+    <string name="dialog_ic1">IC1</string>
+    <string name="dialog_ic2">IC2</string>
+    <string name="dialog_contactless_card">Contactless Card</string>
+    <string name="dialog_mag_card">Mag Card</string>
+    <string name="dialog_card_search_mode">Card Search Mode:</string>
+    <string name="dialog_card_polling">Polling Mode</string>
+    <string name="dialog_card_event">Event Mode(Power-Saving)</string>
+    <!--Menu Fragment-->
+    <string name="msg_device_conn_first">Device is not connected, please connect it first!</string>
+    <string name="msg_internal_init_error">Failed to init internal modules.</string>
+    <string name="msg_internal_update_error">Please update firmware.</string>
+
+    <!-- Childmenu Fragment-->
+    <string name="tv_cardreader_f">CardReader</string>
+    <string name="tv_cipher_f">Crypto</string>
+    <string name="tv_keyManager_f">KeyManager</string>
+    <string name="tv_pinInput_f">PINEntry</string>
+    <string name="tv_iccard_f">ContactCard</string>
+    <string name="tv_rfcard_f">ContactlessCard</string>
+    <string name="tv_light_f">LED</string>
+    <string name="tv_terminalmanage_f">DeviceManager</string>
+    <string name="tv_printer_f">Printer</string>
+    <string name="tv_guest_display_manager">GuestDisplayManager</string>
+    <string name="tv_extkeyboard">ExtKeyboard</string>
+    <string name="tv_extscan_f">ExtScanner</string>
+    <string name="tv_extcardreader_f">ExtCardReader</string>
+    <string name="tv_extsmartcard_f">ExtContactCard</string>
+    <string name="tv_extcipher_f">ExtCryto</string>
+    <string name="tv_extkeymanager_f">ExtKeyManager</string>
+    <string name="tv_extpininput_f">ExtPINEntry</string>
+    <string name="tv_extlight_f">ExtLED</string>
+    <string name="tv_extrki_f">ExtRKI</string>
+    <string name="tv_extbeeper_f">ExtBeeper</string>
+    <string name="tv_buzzer_f">Beeper</string>
+    <string name="tv_scanner_f">Scanner</string>
+    <string name="tv_cashbox_f">CashBox</string>
+    <string name="tv_uart3port_f">SerialPort</string>
+    <string name="tv_ethernet">Ethernet</string>
+    <string name="tv_extcontactlesscard_f">ExtContactlessCard</string>
+    <string name="tv_extdisplay_f">ExtDisplay</string>
+    <string name="tv_extdevicebasic_f">ExtDeviceManager</string>
+    <!-- Consume Fragment-->
+    <!-- EMV Fragment-->
+    <string name="msg_card_vaild_date">Card expiry date:</string>
+    <string name="msg_service_code">Service code:</string>
+    <!--SmartCardImpl Fragment-->
+    <string name="tv_iccard_is_inserted">Is Card Inserted</string>
+    <string name="tv_iccard_poweron">Power Up</string>
+    <string name="tv_iccard_transation">Send APDU</string>
+    <string name="tv_iccard_powerof">Power Down</string>
+    <string name="tv_iccard_set_config">Set Config</string>
+    <string name="msg_iccard_type">Contact Card type:</string>
+    <string name="msg_send_data">Send data:</string>
+    <string name="msg_receive_data">Receive data:</string>
+    <string name="msg_iccard_comm_succ">Contact Card communication request success</string>
+    <string name="msg_iccard_comm_ex">Contact Card communication exception:</string>
+    <string name="msg_poweroff_end">Power off finish</string>
+    <string name="msg_slot_poweroff_ex">Slot power off exception:</string>
+    <string name="msg_poweron_result">Power on result:</string>
+    <string name="msg_poweron_end">Power on finish</string>
+    <string name="msg_slot_poweron_ex">Slot power on exception:</string>
+    <string name="msg_set_config">Set config success.</string>
+    <string name="msg_power_off_tip">This shall be called after contact card is power down.</string>
+    <string name="dialog_tv_set_config">Config:</string>
+    <!--Light Fragment-->
+    <string name="tv_light_operate_more">Blink Lights</string>
+    <string name="tv_light_powerof">Turn off Lights</string>
+    <string name="tv_light_poweron">Turn on Lights</string>
+    <string name="msg_mul_light_flash">Blink multiple lights:</string>
+    <string name="msg_byr_light_open">Keep all lights on:</string>
+    <string name="msg_light_off">Turn off lights:</string>
+    <string name="mag_p300_light_test">Turn on LEDs of P300:</string>
+    <string name="mag_p300_light_off">Turn off LEDs of P300:</string>
+    <string name="msg_light_test">LED Test</string>
+    <string name="msg_light_test_auto">LED Auto Test</string>
+    <string name="msg_light_open">Turn on Seleed Lights：</string>
+    <!-- Pin Fragment -->
+    <string name="tv_pin_pininput_online">Online PIN</string>
+    <string name="tv_pin_pininput_online_normal">Online PIN(Normal)</string>
+    <string name="tv_pin_pininput_online_aes">AES Online PIN</string>
+    <string name="tv_pin_pininput_online_aes_dukpt">AES DUKPT Online PIN</string>
+    <string name="tv_pin_pininput_online_dukpt">DUKPT Online PIN</string>
+    <string name="tv_pin_pininput_online_start">Start Online PIN</string>
+    <string name="tv_pin_pininput_online_start_rnib">Start RNIB Online PIN</string>
+    <string name="tv_pin_cal_mac">Generate MAC</string>
+    <string name="tv_pin_aes_ctr_encrypy">Encrypt AES CTR</string>
+    <string name="tv_pin_cal_hmac_sha_256_mac">Generate SHA256 HMAC</string>
+    <string name="tv_pin_cal_mac_aes_dukpt">MAC(AES DUKPT)</string>
+    <string name="tv_pin_encrypt_big_data_aes_ecb">Encrypt Big Data(AES ECB)</string>
+    <string name="tv_pin_encrypt_big_data_aes_cbc">Encrypt Big Data(AES CBC)</string>
+    <string name="tv_pin_encrypt_big_data_des_ecb">Encrypt Big Data(DES ECB)</string>
+    <string name="tv_pin_encrypt_big_data_des_cbc">Encrypt Big Data(DES CBC)</string>
+    <string name="tv_pin_decrypt_big_data_aes_ecb">Decrypt Big Data(AES ECB)</string>
+    <string name="tv_pin_decrypt_big_data_aes_cbc">Decrypt Big Data(AES CBC)</string>
+    <string name="tv_pin_decrypt_big_data_des_ecb">Decrypt Big Data(DES ECB)</string>
+    <string name="tv_pin_decrypt_big_data_des_cbc">Decrypt Big Data(DES CBC)</string>
+    <string name="tv_pin_decrypt">Decrypt</string>
+    <string name="tv_pin_aes_decrypt">AES Decrypt</string>
+    <string name="tv_pin_dukpt_decrypt">DUKPT Decrypt</string>
+    <string name="tv_pin_asym_sign_verify">Asym Sign-Verify</string>
+    <string name="tv_pin_increase_ksn">Increase KSN</string>
+    <string name="tv_pin_increase_aes_ksn">Increase AES KSN</string>
+    <string name="tv_pin_delete_key">Delete Key</string>
+    <string name="tv_pin_reset_cert_status">Reset Cert Status</string>
+    <string name="tv_pin_load_trusted_cert">Load Trusted Cert</string>
+    <string name="tv_pin_asym_distribution_key">Load Asym Distribution Key</string>
+    <string name="tv_pin_asym_data_key">Load Asym Data Key</string>
+    <string name="tv_pin_asym_auth_key">Load Asym Auth Key</string>
+    <string name="tv_pin_load_session_key">Load Session Key</string>
+    <string name="tv_pin_get_device_cert">Get Device Cert</string>
+    <string name="tv_pin_init_atomic">Init Atomic</string>
+    <string name="tv_pin_commit_atomic">Commit Atomic</string>
+    <string name="tv_pin_clear_symm_keys">Clear Symm Keys</string>
+    <string name="tv_pin_pininput_offline">Offline PIN</string>
+    <string name="tv_pin_pininput_offline_aes">AES Offline PIN</string>
+    <string name="tv_pin_load_des_wk">Load DES Working Keys</string>
+    <string name="tv_pin_load_aes_wk">Load AES Working Keys</string>
+    <string name="tv_pin_load_des_tr31">Load DES TR31 Key</string>
+    <string name="tv_pin_load_aes_tr31">Load AES TR31 Key</string>
+    <string name="tv_pin_load_giske_key">Load GISKE Key</string>
+    <string name="tv_pin_load_des_hkdf">Derive DES HKDF</string>
+    <string name="tv_pin_load_dukpt">Load DUKPT Key</string>
+    <string name="tv_pin_load_aes_dukpt">Load AES DUKPT Key</string>
+    <string name="tv_pin_load_ecc_key">Load ECC Key</string>
+    <string name="tv_pin_load_hmac_key">Load HMAC Key</string>
+    <string name="tv_pin_load_key_with_symm_key">Load Random Key With Symmetric Key</string>
+    <string name="tv_pin_load_pup_2_key">Load Key With PUP_2 Method</string>
+    <string name="tv_pin_aes_dukpt_derive">AES DUKPT Derivate Key</string>
+    <string name="tv_pin_update_aes_dukpt_ik">Update AES DUKPT IK</string>
+    <string name="tv_pin_getkcv">Get KCV</string>
+    <string name="tv_pin_getdukptksn">Get DUKPT KSN</string>
+    <string name="tv_pin_get_aes_dukpt_ksn">Get AES DUKPT KSN</string>
+    <string name="tv_pin_canle_pininput">Cancel PIN Entry</string>
+    <string name="tv_pin_encry">Encrypt</string>
+    <string name="tv_pin_asym_encry">Asym Encrypt</string>
+    <string name="tv_pin_asym_decry">Asym Decrypt</string>
+    <string name="tv_pin_aes_encry">AES Encrypt</string>
+    <string name="tv_pin_aes_dukpt_encry">AES DUKPT Encrypt</string>
+    <string name="tv_pin_aes_dukpt_decry">AES DUKPT Decrypt</string>
+    <string name="tv_pin_dukpt_encry">DUKPT Encrypt</string>
+    <string name="tv_pin_encrypt_test">Encrypt(Optional)</string>
+    <string name="tv_pin_decrypt_test">Decrypt(Optional)</string>
+    <string name="tv_pin_generate_mac_test">Generate MAC(Optional)</string>
+    <string name="tv_pin_generate_cmac_aes_dukpt">Generate AES DUKPT CMAC</string>
+    <string name="tv_pin_init_csr">Init CSR</string>
+    <string name="tv_pin_generate_csr_data">Generate CSR Data</string>
+    <string name="tv_pin_release_csr">Release CSR</string>
+    <string name="tv_pin_get_symm_key_num">Get Installed Key Number of the Targeted Symmetric Key</string>
+    <string name="tv_pin_get_symm_key_by_id">Get Symmetric Key info of the Targeted KeyID</string>
+    <string name="tv_pin_genearte_asym_key_pair">Generate RSA Key Pair</string>
+    <string name="tv_pin_clear_symmetric_keys">Clear Symmetric Keys(1-250)</string>
+    <string name="tv_pin_inject_kek_check">Please Inject KEK Key first!</string>
+    <string name="msg_pin_pininput_first_display_tv_state_inputpin">State: Inputting Pin......</string>
+    <string name="msg_pin_pininput_first_display_tv_state_onclear">State: onClear</string>
+    <string name="msg_pin_pininput_first_display_tv_state_onbackspace">State: onBackspace</string>
+    <string name="msg_pin_pininput_first_display_tv_onclear">PinInput onClear</string>
+    <string name="msg_pin_pininput_timeout">onTimeOut</string>
+    <string name="msg_pin_pininput_oncancel">onCancel</string>
+    <string name="msg_pin_pininput_onclear">onClear</string>
+    <string name="msg_pin_pininput_oncancel_tip">PinInput onCancel,if needed,please restart pinInput.</string>
+    <string name="msg_pin_pininput_inputkey_tip">Input a pinBlock</string>
+    <string name="msg_pin_pininput_deletekey_tip">Delete a pin input</string>
+    <string name="msg_pin_pininput_check_ksn"> Please increase KSN before next DUKPT PIN entry</string>
+    <string name="msg_pin_input_datain_tip">Please input data for decryption first.</string>
+    <!--PrinterFragment-->
+    <string name="msg_print_by_ttfscript">Print</string>
+    <string name="msg_print_by_ttfscript_compress">PrintRGBA(Compress)</string>
+    <string name="msg_print_by_ttfscript_rgba">PrintRGBA</string>
+    <string name="msg_print_by_ttfscript_cut">PrintCutPaper</string>
+    <string name="msg_print_by_ttfscript_set_gray">Set Print Gray</string>
+    <string name="msg_print_by_ttfscript_pdf">Print PDF Document</string>
+    <string name="msg_print_feed_paper">Feed Paper</string>
+    <string name="dialog_select_print_file">Select PDF File in SD Card:</string>
+    <string name="status">Status</string>
+    <string name="msg_extkeyboard_input">Start Input</string>
+    <string name="msg_extkeyboard_input_crypto">Start Encrypted Input</string>
+
+    <!--rf Fragment-->
+    <!--power on dialog-->
+    <string name="dialog_rf_power_on_type">Card type</string>
+
+    <string name="tv_m1_transfer">M1 Transfer</string>
+    <string name="tv_m1_restore">M1 Restore</string>
+    <string name="tv_rf_power_on">Activate</string>
+    <string name="tv_rf_power_off">Deactivate</string>
+    <string name="tv_rf_is_induct">Is Card Tapped</string>
+    <string name="tv_ic_is_insert">Is Card Inserted</string>
+    <string name="msg_rf_poweroff_finished">RF card deactivation result:</string>
+    <string name="msg_rf_poweroff_error">RF card deactivation exception:</string>
+    <string name="msg_rf_isInducted">A contactless card is inducted.</string>
+    <string name="msg_rf_is_not_inducted">No contactless card tapped.</string>
+
+    <string name="tv_a_card_transmit">A-Card Transmit</string>
+    <string name="tv_a_card_crypto_transmit">A-Card Crypto Transmit</string>
+    <string name="tv_felica_card_transmit">Felica Card Transmit</string>
+    <string name="tv_felica_card_polling">Felica Card Polling</string>
+    <string name="msg_card_transmit_error">transmit exception</string>
+    <string name="msg_felica_card_transmit_power_on_first">Please activate the Felica card and get IDm and PMm.</string>
+    <string name="msg_card_activate_first">Please activate card first.</string>
+    <string name="msg_card_reader_open_first">Please open card reader to search card first.</string>
+
+    <string name="tv_m1_authorization">M1 Auth</string>
+    <string name="tv_m1_increment">M1 Increment</string>
+    <string name="tv_m1_write_block">M1 Write Block</string>
+    <string name="tv_m1_decrement">M1 Decrement</string>
+    <string name="tv_m1_read_block">M1 Read Block</string>
+    <string name="msg_get_data">Receive data:</string>
+
+    <string name="msg_rf">Please tap the card!</string>
+
+    <string name="msg_cancel">Cancel</string>
+
+    <string name="msg_storage_block">Storage block:</string>
+    <string name="msg_write_block_data_result">Block writing result:</string>
+    <string name="msg_write_block_data">Data written to the block:</string>
+    <string name="msg_write_illegal">Invalid input</string>
+    <string name="msg_write_block_data_error">Block writing exception:</string>
+    <string name="msg_check_rf_isPoweredon">Please check the RF card has been activated</string>
+    <string name="msg_data">Data:</string>
+    <string name="msg_read_block_finished">Block reading finished</string>
+    <string name="msg_input_illegal">Invalid input</string>
+    <string name="msg_read_block_error">Block reading exception:</string>
+    <string name="msg_check_rf_poweron_or_block_data_input">Please check the RF card has been activated or the data has been written into this block</string>
+    <string name="msg_data_4byte">Data(4 byte):</string>
+    <string name="msg_decrease_operation_finished">Decrement result：</string>
+    <string name="msg_decrease_operation_error">Decrement exception:</string>
+    <string name="msg_error">Exception:</string>
+    <string name="msg_increase_operation_finished">Increment result:</string>
+    <string name="msg_increase_operation_error">Increment exception:</string>
+    <string name="msg_key_mode">KEY model:</string>
+    <string name="msg_UID_SN_NO">UID SN:</string>
+    <string name="msg_security_block_NO">Security block No.:</string>
+    <string name="msg_external_key">External keys:</string>
+    <string name="msg_rf_external_key_auth_finished">External key auth result:</string>
+    <string name="tv_m0_card_auth">M0 Authenticate</string>
+    <string name="tv_mo_card_read">M0 Read Data</string>
+    <string name="tv_m0_card_write">M0 Write Data</string>
+
+    <!--signaturefragment-->
+
+    <!--Scannerfragment-->
+    <string name="tv_start_scanner">Start Scanning</string>
+    <string name="tv_stop_scanner">Stop Scanning</string>
+    <!--SecurityFragment-->
+    <!--SwipFragment-->
+    <string name="msg_check_mainkey_workingkey_AID_RID">Whether the main key, working key, AID and CAPK have been loaded！</string>
+    <string name="msg_check_cardReader_and_swipe_again">Whether the card reader has been opened and card swiped！</string>
+    <string name="msg_card_NO">PAN:</string>
+    <string name="msg_get_trackdata_plain_error">Get plain track data exception：</string>
+    <!--DeviceBasicFragment-->
+    <!--dialog-->
+    <string name="tv_time_and_date_set">Set Device Datetime</string>
+    <string name="tv_time_and_date_get">Get Device Datetime</string>
+    <string name="msg_time_set_success">Set device date success</string>
+    <string name="msg_time_set_error">Set device date exception:</string>
+    <string name="msg_date_set_success">The date of device:</string>
+    <string name="msg_time_get_error">Get device date exception:</string>
+    <string name="tv_get_device_info">Get Device Information</string>
+    <string name="tv_get_tamper_status">Get Tamper Status</string>
+    <string name="tv_get_error_message">Get Error Message</string>
+    <string name="tv_get_device_statistics_info">Get Device Statistics Info</string>
+    <string name="tv_get_device_statistics_info_by_tag">Get Device Statistics Info by Tag</string>
+    <string name="tv_get_nonDeleteAppName">Get Non-delete Applications package name</string>
+    <string name="tv_set_key_volume">Set Physical KeyBoard Volume(P300)</string>
+    <string name="tv_set_ethernet_mode">Set Ethernet Mode</string>
+    <string name="tv_get_ethernet_mode">Get Ethernet Mode</string>
+    <string name="tv_get_random_num">Get random number</string>
+    <string name="msg_get_device_info_begin">Start to get device information...</string>
+    <string name="msg_devcie_SN_NO">Device SN NO:</string>
+    <string name="msg_devcie_PN_NO">Device PN NO:</string>
+    <string name="msg_device_led_config">LED Configs:</string>
+    <string name="msg_devcie_model">Device Model:</string>
+    <string name="msg_devcie_firmware_ver">Firmware version:</string>
+    <string name="msg_devcie_contactless_ver">Contactless version:</string>
+    <string name="msg_devcie_android_ver">Android version:</string>
+    <string name="msg_device_isSupport_ICcard">Contact Card Support:</string>
+    <string name="msg_device_isSupport_MagCard">Magnetic Card Support:</string>
+    <string name="msg_device_isSupport_Offline">Offline Transactions Support:</string>
+    <string name="msg_device_isSupport_Printe">Printer Support:</string>
+    <string name="msg_device_isSupport_RFCard">RF Card Support:</string>
+    <string name="msg_device_isSupport_HCE">HCE Function Support:</string>
+    <string name="msg_device_isSupport_USB">USB Support:</string>
+    <string name="msg_get_device_info_error">Get device information exception</string>
+    <string name="is_sup_gps">GPS Support:</string>
+    <string name="is_sup_pinpad">PINPAD Port Support:</string>
+    <string name="is_sup_rs232">RS232 Port Support:</string>
+    <string name="is_sup_ethernet">Ethernet Support:</string>
+    <string name="is_sup_sam">SAM Card Support:</string>
+    <string name="is_sup_cashbox">CashBox Support:</string>
+    <string name="is_sup_carama">Camera Support:</string>
+    <string name="is_sup_beep">Beep Support:</string>
+    <string name="msg_custom_id">Custom ID:</string>
+    <string name="msg_random_result">Random number result:</string>
+    <!-- Dialog -->
+    <string name="dialog_btn_cancel">Cancel</string>
+    <string name="dialog_tv_key_index">Key index：</string>
+    <string name="dialog_tv_sent_data">Send data</string>
+    <string name="dialog_tv_qccard_block">Storage block(0-255):</string>
+    <string name="dialog_tv_qccard_data">Data (16 byte):</string>
+    <string name="dialog_tv_mifarecard_block">Storage block:</string>
+    <string name="dialog_tv_mifarecard_data">Data:</string>
+    <string name="dialog_tv_key">Key (6 byte):</string>
+    <string name="dialog_tv_kdh_url">KDH URL:</string>
+    <string name="dialog_tv_kdh_port">KDH Port:</string>
+    <string name="dialog_tv_errorcode">Error Code：</string>
+    <string name="dialog_tv_beeper_frequency">Beeper Frequency(0-4000Hz)：</string>
+    <string name="dialog_tv_beeper_duration">Beeper Duration(ms):</string>
+    <string name="dialog_tv_beeper_title">Set Beeper Parameters</string>
+    <string name="dialog_tv_settings_brightness">Set Screen Brightness[0-255]:</string>
+    <string name="dialog_tv_settings_screen_off_timeout">Set Screen Off Timeout(s):</string>
+    <string name="dialog_tv_settings_printer_paper_size">Set Printer Paper Size:</string>
+    <string name="dialog_tv_contactcard_slot">Card Slot:</string>
+    <string name="dialog_tv_contactcard_type">Card Type</string>
+    <string name="dialog_tv_pin_pininput_test_item">online PIN:</string>
+    <string name="dialog_tv_pin_pininput_pan">PAN:</string>
+    <string name="dialog_tv_uart3port_set_config_baudrate">BaudRate:</string>
+    <string name="dialog_tv_uart3port_set_config_databits">DataBit:</string>
+    <string name="dialog_tv_uart3port_set_config_paritybit">ParityBit:</string>
+    <string name="dialog_tv_uart3port_set_config_stopbit">StopBit:</string>
+    <string name="dialog_tv_uart3port_send_receive_data_maxlen">Data maxLen：</string>
+    <string name="dialog_tv_uart3port_send_receive_data_timeout">TimeOut(ms)：</string>
+    <string name="dialog_tv_crypto_set_random_data_len">Random Data Len:</string>
+    <string name="dialog_tv_crypto_sign_verify_original_data">Original Data：</string>
+    <string name="dialog_tv_iv_data">Initial Vector：</string>
+    <string name="dialog_tv_led_colors">LED lights to control：</string>
+    <string name="dialog_tv_led_blink_times">LED lights blink times:</string>
+    <string name="dialog_tv_led_blink_timeInterval">LED lights blink time interval(ms):</string>
+    <string name="dialog_tv_led_mode">LED Mode：</string>
+    <string name="dialog_tv_led_open">LED On</string>
+    <string name="dialog_tv_led_off">LED Off</string>
+    <string name="dialog_tv_led_blink">LED Blink</string>
+    <string name="dialog_tv_led_red">Red</string>
+    <string name="dialog_tv_led_blue">Blue</string>
+    <string name="dialog_tv_led_yellow">Yellow</string>
+    <string name="dialog_tv_led_green">Green</string>
+    <string name="dialog_tv_keymanager_load_symmetric_keys">Load Symmetric Keys </string>
+    <string name="dialog_tv_keymanager_load_asymmetric_keys">Load Asymmetric Keys</string>
+    <string name="dialog_tv_keymanager_load_keys">Load Keys</string>
+    <string name="dialog_tv_keymanager_generate_asym_key">Generate Asym Key</string>
+    <string name="dialog_tv_keymanager_load_kek_keys">KEK Keys</string>
+    <string name="dialog_tv_keymanager_load_keys_by_kek">Load Keys with KEK</string>
+    <string name="dialog_tv_keymanager_load_asym_session_key">Load Session Key</string>
+    <string name="dialog_tv_keymanager_load_asym_other_keys">Load Other Asymmetric Keys</string>
+    <string name="dialog_tv_keymanager_get_ksn">Get KSN</string>
+    <string name="dialog_tv_keymanager_get_kcv">Get KCV</string>
+    <string name="dialog_tv_keymanager_get_keyinfo">Get KeyInfo</string>
+    <string name="dialog_ext_tv_devicemanager_baudrate_mode">BaudRate Mode:</string>
+    <string name="dialog_ext_tv_devicemanager_decryption_mode">Decryption Mode：</string>
+    <string name="dialog_ext_tv_devicemanager_beeper_control">Beeper Control：</string>
+    <string name="dialog_ext_tv_pin_pininput_online_pin">OnlinePin</string>
+    <string name="dialog_ext_tv_pin_pininput_offline_pin">OfflinePin</string>
+    <string name="dialog_tv_defaultkeyid_switch">Use Default Key Cases ID?</string>
+    <string name="dialog_tv_check_ic_present">Check IC Card Present?</string>
+    <string name="dialog_tv_check_pin_range">Return when pin range error?</string>
+    <string name="dialog_tv_enable_custom_function_key">Enable Custom function key(Physical Keyboard only)</string>
+    <string name="dialog_tv_crypto_use_default_sign_case">Use Default Key Case to Sign-Verify？</string>
+    <string name="input_params_detect">KeyID or Input Data shall not be null！</string>
+    <string name="dialog_tv_ecdhe_generateSK">Generate PublicKey：</string>
+    <string name="dialog_tv_is_set_keyboard_volume">Physical KeyBoard Volume:</string>
+    <string name="dialog_tv_felica_polling_system_code">System Code(2 bytes):</string>
+    <string name="dialog_tv_felica_polling_request_code">Request Code(1 byte):</string>
+    <string name="dialog_tv_felica_polling_time_slot">Timeslot(1 byte):</string>
+    <string name="dialog_tv_felica_polling_timeout">Timeout(ms):</string>
+    <string name="dialog_tv_felica_transmit_command">Command(over 10 bytes):</string>
+    <string name="dialog_tv_felica_transmit_timeout">Timeout(ms):</string>
+    <string name="dialog_tv_felica_transmit_retry_times">Retry Times:</string>
+
+    <string name="dialog_tv_key_id">KeyID：</string>
+    <string name="dialog_tv_key_usage">KeyUsage：</string>
+    <string name="dialog_tv_key_type">KeyType：</string>
+    <string name="dialog_tv_key_len">KeyLen：</string>
+    <string name="dialog_tv_cipher_mode">CipherMode：</string>
+    <string name="dialog_tv_cipher_type">CipherType：</string>
+    <string name="dialog_tv_padding_mode">PaddingMode：</string>
+    <string name="dialog_tv_kcv_mode">KCV Mode：</string>
+    <string name="dialog_tv_kcv_data">KCV Data：</string>
+    <string name="dialog_tv_key_data">Key Data：</string>
+    <string name="dialog_tv_asym_encoding_mode">AsymEncodingMode：</string>
+    <string name="dialog_tv_message_digest_type">MessageDigestType：</string>
+    <string name="dialog_tv_asymmetric_keys">Asymmetric Keys：</string>
+    <string name="dialog_tv_symmetric_keys">Symmetric Keys:</string>
+    <string name="dialog_tv_mac_type">MACType：</string>
+    <string name="dialog_tv_derivate_key_type">Derivate KeyType：</string>
+    <string name="dialog_tv_derivate_key_usage">Derivate KeyUsage：</string>
+    <string name="dialog_tv_derivate_key_len">Derivate KeyLen：</string>
+    <string name="dialog_tv_dukpt_derivate_usage">DUKPTDerivateUsage:</string>
+    <string name="dialog_tv_dukpt_derivate_type">DUKPTDerivateType:</string>
+    <string name="dialog_tv_dukpt_derivate_len">DUKPTDerivateLen:</string>
+    <string name="dialog_tv_bdk_id">BDK ID:</string>
+    <string name="dialog_tv_hkdf_key_id">HKDF KeyID:</string>
+    <string name="dialog_tv_hkdf_salt">Salt(Optional):</string>
+    <string name="dialog_tv_asym_key_id">AsymKeyID：</string>
+    <string name="dialog_tv_asym_key_type">AsymKeyType：</string>
+    <string name="dialog_tv_asym_key_usage">AsymKeyUsage：</string>
+    <string name="dialog_tv_asym_crypto_mode">AsymCryptoMode：</string>
+    <string name="dialog_tv_decrypt_data">Data for Decrypt:</string>
+    <string name="dialog_tv_encrypt_data">Data for Encrypt:</string>
+    <string name="dialog_tv_ecc_type">ECC Type:</string>
+    <string name="dialog_tv_kdf_type">KDFType：</string>
+    <string name="dialog_tv_keyboard_mode">KeyBoardMode:</string>
+    <string name="dialog_tv_max_len">maxLen:</string>
+    <string name="dialog_tv_min_len">minLen:</string>
+    <string name="dialog_beeper_tone">Beeper Tone：</string>
+    <string name="dialog_set_date">Set Date：</string>
+    <string name="dialog_set_time">Set Time：</string>
+    <string name="dialog_ext_dukpt_check">isDUKPT?</string>
+    <string name="dialog_ext_random_protect_mode_check">isRandonProtectMode？</string>
+    <string name="dialog_ext_cipher_pan">CipherPan：</string>
+
+
+    <!-- AnalogSerialFragment -->
+    <string name="tv_analog_serial">USBSerialPort</string>
+    <string name="tv_analog_serial_open">Open Device</string>
+    <string name="tv_analog_serial_open_designated">Open Designated Device</string>
+    <string name="tv_analog_serial_get_port_name">Get Available Port Name</string>
+    <string name="tv_analog_serial_get_version">Get JNI Version</string>
+    <string name="tv_analog_serial_set_configuration">Set Serial Configuration</string>
+    <string name="tv_analog_serial_ioctl">IOCTL</string>
+    <string name="tv_analog_serial_read">Read Serial Data</string>
+    <string name="tv_analog_serial_write">Write Serial Data</string>
+    <string name="tv_analog_serial_close">Close Device</string>
+    <string name="tv_analog_serial_set_mac_mode">Set Serial to Mac Mode</string>
+    <string name="tv_analog_serial_set_windows_mode">Set Serial to Windows Mode</string>
+    <string name="tv_analog_serial_is_mac_mode">IsMacMode?</string>
+    <string name="dialog_tv_serial_analog_port_name">Designated port:</string>
+    <string name="dialog_tv_serial_analog_infrared_reflection">Infrared Reflection?</string>
+    <string name="dialog_tv_serial_analog_block_enable">Read|Write Block Enable?</string>
+    <string name="dialog_tv_serial_port_flow_control_enable">Flow Control Enable?</string>
+    <string name="tv_analog_serial_read_len">ReadLen</string>
+    <string name="tv_serial_port_read_len">Read len in port buffer: </string>
+    <string name="tv_analog_serial_flush">Flush</string>
+    <string name="dialog_tv_serial_analog_command">Command:</string>
+    <string name="dialog_tv_serial_analog_max_length">Max Length:</string>
+    <string name="dialog_tv_serial_analog_time_out">Time Out(ms):</string>
+    <string name="dialog_tv_setting_charge_capacity">Charge Capacity:</string>
+    <string name="dialog_tv_setting_recharge_capacity">Recharge Capacity:</string>
+
+
+    <!-- RouteManagerFragment -->
+    <string name="tv_route_manager">Route Manager</string>
+    <string name="tv_route_manager_enable_multi_path">Enable Route Multi-Path</string>
+    <string name="tv_route_manager_disable_multi_path">Disable Route Multi-Path</string>
+    <string name="tv_route_manager_add_route">Add Route</string>
+    <string name="tv_route_manager_remove_route">Delete Designated Route</string>
+    <string name="tv_route_manager_query_route_by_ip">Query Route By IP</string>
+    <string name="tv_route_manager_remove_all_routes">Remove All Routes</string>
+    <string name="tv_route_manager_get_route_list">Get Route List</string>
+    <string name="dialog_tv_route_manager_network_type">NetworkType:</string>
+    <string name="msg_get_network">Get NetworkType:</string>
+    <string name="msg_get_address">Get Address:</string>
+    <string name="msg_remove_all_routes">Delete All Routes Successfully.</string>
+
+    <!-- GuestDisplayManagerFragment -->
+    <string name="tv_guestdisplay_manager_set_backlight_on">Set Backlight On</string>
+    <string name="tv_guestdisplay_manager_set_backlight_off">Set Backlight Off</string>
+    <string name="tv_guestdisplay_manager_display_string">Display String</string>
+    <string name="tv_guestdisplay_manager_display_bitmap">Display Bitmap</string>
+    <string name="tv_guestdisplay_manager_clear_screen">Clear Screen</string>
+
+    <!-- BarcodeDecoderFragment -->
+<!--    <string name="dialog_tv_hard_scan_mode">Mode:</string>-->
+<!--    <string name="dialog_tv_hard_scan_timeout">Timeout(ms):</string>-->
+<!--    <string name="dialog_tv_hard_scan_focusMode">FocusMode:</string>-->
+<!--    <string name="dialog_tv_hard_scan_sound_switcher">SoundSwitcher:</string>-->
+<!--    <string name="dialog_tv_hard_scan_continuous_times">Continuous Times:</string>-->
+<!--    <string name="mode_once">Once</string>-->
+<!--    <string name="mode_continually">Continually</string>-->
+<!--    <string name="focus_mode_on">On</string>-->
+<!--    <string name="focus_mode_off">Off</string>-->
+<!--    <string name="focus_mode_reading">While reading</string>-->
+
+
+    <!--    <string name="dialog_tv_pin_encrypt_normal">Others</string>-->
+    <!--    <string name="dialog_tv_pin_encrypt_aes_dukpt">AES DUKPT</string>-->
+    <!--PrinterImpl Manager-->
+    <!--ViewfinderView-->
+
+    <!---SM-->
+
+
+    <string name="m0_power_on">Power on</string>
+
+    <!--MessageCaseFragment-->
+    <!-- N900KeyBoardNumberActivity -->
+    <!-- N900PinKeyBoard -->
+    <string name="keyboard_confirm">ENTER</string>
+    <string name="keyboard_cancel">CANCEL</string>
+    <string name="keyboard_backspace">BACK</string>
+    <!-- SimpleTransferExtListener -->
+    <!--ExternalScanBoxFragment-->
+
+    <!--Guest display-->
+    <!-- ExternalPinInputFragment -->
+
+    <!--sp 10-->
+
+    <string name="buzzer_play">Play</string>
+    <string name="buzzer_set_volume">Set Volume</string>
+    <string name="dialog_buzzer_set_volume">Set Volume(1-5):</string>
+
+    <string name="cashbox_open">Open</string>
+    <string name="cashbox_open_delay">Open(24v-10s)</string>
+    <string name="uart3port_ioctl">ioctl</string>
+    <string name="uart3port_open">Open</string>
+    <string name="uart3port_close">close</string>
+    <string name="uart3port_send">Send</string>
+    <string name="uart3port_receive">Receive</string>
+    <string name="uart3port_flush">Flush</string>
+    <string name="uart3port_set_config">Set Config</string>
+    <string name="uart3port_get_port_type">Get Current Port Type</string>
+    <string name="uart3port_set_flow_control">Set Flow Control</string>
+    <string name="uart3port_awake_external_device">Awake external device(Only U2000)</string>
+    <string name="uart3port_get_external_power_supply">Get External Power Supply Configuration(Only U2000)</string>
+    <string name="device_manager_enable_radar_heater">Enable radar and heater(Only U2000)</string>
+    <string name="device_manager_get_anti_removal_status">Get Anti-Removal Status</string>
+    <string name="device_manager_set_anti_removal_status">Set Anti-Removal Status</string>
+    <string name="dialog_device_manager_enable_radar">Enable Radar Function?</string>
+    <string name="dialog_device_manager_enable_heater">Enable Heater Function?</string>
+    <string name="uart3port_set_node_name">Set Node Name</string>
+    <string name="msg_tamper_reason">Tamper Reason:</string>
+    <string name="msg_get_tamper_reason">Get Tamper Reason</string>
+    <string name="msg_uart3port_current_serial_port_type">Current serial port type:</string>
+    <string name="msg_uart3port_open_detect">Please open port first</string>
+    <string name="msg_uart3port_none_type">Opened with node name, not serial port type.</string>
+    <string name="decode_barcode">Decode Barcode Picture</string>
+    <string name="start_scan">Start Scanning</string>
+    <string name="front_scan">Front Scanning </string>
+    <string name="rear_scan">Rear Scanning</string>
+    <string name="payment_scan">Payment Scanning</string>
+    <string name="hardware_scanner">Hardware Scanner</string>
+    <string name="stop_hardware_scanning">Stop Hardware Scanning</string>
+    <string name="stop_scan">Stop Scanning</string>
+    <string name="release_scan">Release Hard Scanning Camera</string>
+    <string name="dialog_set_scan_timeout">Scan Timeout(s):</string>
+    <string name="dialog_set_scan_focusMode">FocusMode:</string>
+    <string name="dialog_set_scan_continuous">Continuous Scanning?</string>
+    <string name="dialog_set_preview_mode">Set Preview Mode:</string>
+    <string name="dialog_set_preview_mode_normal">Normal Mode</string>
+    <string name="dialog_set_preview_mode_scan">Scan Mode</string>
+
+    <string name="msg_get_serial_port_manager_module_failed">Failed to get SerialPortManager Module.</string>
+        <string name = "tv_settings_f">System Settings</string>
+    <string name="tv_rki_f">RKI</string>
+    <string name="set_rki_settings">RKI Settings</string>
+    <string name="process_rki">Process RKI</string><![CDATA[
+
+        ]]>
+    <string name = "set_screen_bright">Set Screen Brightness </string>
+        <string name = "set_screen_off_timeout">Set Screen-off Timeout </string><![CDATA[
+    
+    
+    ]]>
+    <string name = "setting_app_display_on">Show Applications </string>
+        <string name = "setting_app_display_off">Hide Applications </string>
+        <string name = "setting_storage_display_off">Hide Storage Setting </string>
+        <string name = "setting_storage_display_on">Show Storage Setting </string>
+        <string name = "setting_home_display_on">Show Home Page Setting </string>
+        <string name = "setting_home_display_off">Hide Home Page Setting</string>
+        <string name = "setting_vpn_display_off">Hide VPN Setting </string>
+        <string name = "setting_vpn_display_on">Show VPN Setting</string>
+        <string name = "lockscreen_enable">Enable and Show Screen Lock </string>
+        <string name = "lockscreen_disabled">Disable and Hide Screen Lock </string>
+        <string name = "setting_wallpaper_display_on">Show Wallpaper Setting</string>
+        <string name = "setting_wallpaper_display_off">Hide Wallpaper Setting</string>
+        <string name = "setting_notification_items_display_on">Show Sound Notification Item </string>
+        <string name = "setting_notification_items_display_off">Hide Sound Notification Item </string>
+        <string name = "setting_privacy_display_on">Show Backup and Reset </string>
+        <string name = "setting_privacy_display_off">Hide Backup and Reset </string>
+        <string name = "status_bar_show_battery_percent_on">Show Battery Power Percentage on Status Bar</string>
+        <string name = "status_bar_show_battery_percent_off">Hide Battery Power Percentage on Status Bar</string>
+        <string name = "setting_apk_need_login_on">Free to Launch Settings App </string>
+        <string name = "setting_apk_need_login_off">Login Required to Launch Settings App </string>
+        <string name = "setting_data_usage_display_on">Show Data Usage </string>
+        <string name = "setting_data_usage_display_off">Hide Traffic Usage </string>
+        <string name = "setting_battery_display_on">Show Battery Options </string>
+        <string name = "setting_battery_display_off">Hide Battery Options </string>
+        <string name = "setting_accessibility_settings_display_on">Show Accessibility Options </string>
+        <string name = "setting_accessibility_settings_display_off">Hide Accessibility Options </string>
+        <string name = "setting_development_settings_display_on">Show Developer Options</string>
+        <string name = "setting_development_settings_display_off">Hide Developer Options</string>
+        <string name = "setting_location_settings_display_on">Show Location Options </string>
+        <string name = "setting_location_settings_display_off">Hide Location Options </string>
+        <string name = "setting_security_settings_display_on">Show Security Options </string>
+        <string name = "setting_security_settings_display_off">Hide Security Options </string>
+        <string name = "setting_print_settings_display_on">Show Printing Options </string>
+        <string name = "setting_print_settings_display_off">Hide Printing Options </string>
+        <string name = "setting_apk_login_passwd">Set Administrator Login Password </string>
+        <string name = "setting_disable_app_switch_key_on">Enable Multitasking Switch Key </string>
+        <string name = "setting_disable_app_switch_key_off">Disable Multitasking Switch Key </string>
+        <string name = "relayout_navigation_bar">Back Button on Left </string>
+    <string name="relayout_navigation_bar_right">Back Button on Right </string>
+    <string name="relayout_navigation_bar_910_pro">Set N910Pro Navigation Bar</string>
+    <string name="reboot_required">Reboot device to check if it works</string>
+    <string name = "setting_processor_display_on">Show Processor Info </string>
+        <string name = "setting_processor_display_off">Hide Processor Info </string>
+        <string name = "setting_ota_update_on">Show System Updates </string>
+        <string name = "setting_ota_update_off">Hide System Updates </string>
+    <string name = "setting_language_user_dictionary_display_on">Show Personal Dictionary</string>
+        <string name = "setting_language_user_dictionary_display_off">Hide Personal Dictionary</string>
+        <string name = "status_bar_enabled_on">Enable Status Bar Pull-down</string>
+        <string name = "status_bar_enabled_off">Disable Status Bar Pull-down </string>
+        <string name = "status_bar_adb_notify_on">Show ADB Debug Info in Status Bar</string>
+        <string name = "status_bar_adb_notify_off">Hide ADB Debug Info in Status Bar</string>
+        <string name = "status_bar_setting_enabled_on">Show Settings Icon on Status Bar </string>
+        <string name = "status_bar_setting_enabled_off">Hide Settings Icon on Status Bar </string>
+        <string name = "tether_display_on">Show Network Sharing Setting</string>
+        <string name = "tether_display_off">Hide Network Sharing Setting</string>
+        <string name = "wifi_install_credentials_display_on">Show WIFI Installation Credentials </string>
+        <string name = "wifi_install_credentials_display_off">Hide WIFI Installation Credentials </string>
+        <string name = "setting_bluetooth_file_transfer_on">Enable Bluetooth File Transfer </string>
+        <string name = "setting_bluetooth_file_transfer_off">Disable Bluetooth File Transfer </string>
+        <string name = "setting_payment_cert_update_display_on">Show Payment Certificate Update Setting</string>
+        <string name = "setting_payment_cert_update_display_off">Hide Payment Certificate Update Setting</string>
+        <string name = "setting_disable_home_key_on">Enable Home Key </string>
+        <string name = "setting_disable_home_key_off">Disable Home Key </string>
+        <string name = "setting_device_info_items_display_on">Show Device Status Info </string>
+
+    <string name = "setting_device_info_items_display_off">Hide Device Status Info </string><![CDATA[
+    
+     ]]>
+    <string name = "settings_app_signature_scheme">Set APP Signature Verification Scheme </string>
+         <string name = "status_bar_qs_tile"> Set Quick Settings Tiles </string>
+    <string name="settings_enable_charge_protection">Enable Charge Protection</string>
+    <string name="settings_disable_charge_protection">Disabled Charge Protection</string>
+    <string name="settings_charge_capacity">Set Charge Capacity</string>
+    <string name="settings_recharge_capacity">Set Recharge Capacity</string>
+    <string name="settings_set_boot_animation">Set Boot Animation</string>
+    <string name="settings_set_boot_logo">Set Boot Logo</string>
+    <string name="settings_remove_boot_animation">Remove Boot Animation</string>
+    <string name="settings_remove_boot_logo">Remove Boot Logo</string>
+    <string name="settings_recovery">Recovery factory data</string>
+    <string name="settings_launcher">Set Launcher</string>
+    <string name="settings_set_auto_timezone_without_sim">Set Auto Timezone without SIM</string>
+    <string name="dialog_set_auto_timezone_without_sim">Set Auto Timezone without SIM function?</string>
+         <string name = "setting_locales"> Set Locales </string>
+         <string name = "default_input_method_pinyin"> Set Pinyin Input Method </string>
+         <string name = "default_input_method_latin"> Set Latin Input Method </string>
+         <string name = "printer_grey_level">Set Printing Grayscale </string>
+         <string name = "printer_paper_size">Set Printing Paper Size</string>
+
+    <string name="server_response_code0">Success</string>
+    <string name="server_response_code1">There are still keys undownloaded</string>
+    <string name="server_response_code2">Device is not registered</string>
+    <string name="server_response_code3">All keys had been loaded</string>
+    <string name="server_response_code4">Device is locked (3 or more failures)</string>
+    <string name="server_response_code5">Invalid device SN (wrong length)</string>
+    <string name="server_response_code6">RKI initiation failed</string>
+    <string name="server_response_code7">Device is disabled</string>
+    <string name="server_response_code10">Invalid request parameter</string>
+    <string name="server_response_code11">Unsupported RKI protocol version</string>
+    <string name="server_response_code12">Token is null</string>
+    <string name="server_response_code13">Token is expired</string>
+    <string name="server_response_code14">Invalid token</string>
+    <string name="server_response_code15">Certificate verification failed</string>
+    <string name="server_response_code16">Faild to save certificate</string>
+    <string name="server_response_code17">Backend error (IPEK generation failed)</string>
+    <string name="server_response_code18">Key injection failed</string>
+    <string name="server_response_code19">Wrong session key type(Stronger key type is required, e.g. AES)</string>
+    <string name="server_response_code20">Signature verification failed</string>
+    <string name="server_response_code30">Host encryption failed</string>
+    <string name="server_response_code40">CA chain verification failed</string>
+    <string name="server_response_code41">The common name of certificate mismatched with SN</string>
+    <string name="server_response_code99">Unknown error</string>
+
+    <string name="connect_type">Connect Type</string>
+    <string name="no_camera">No camera</string>
+    <string name="no_front_camera">No front camera</string>
+    <string name="no_back_camera">No back camera</string>
+    <string name="no_payment_camera">No payment camera</string>
+    <string name="no_hard_scanner">No N750 Hard Scanner </string>
+    <string name="no_scanner_config">Failed to get scanner config</string>
+    <string name="camera_init_failed">Failed to init camera</string>
+    <string name="scanning_result">Scanning result</string>
+    <string name="scanning_error">Scanning error</string>
+    <string name="scanning_timeout">Scanning timeout</string>
+    <string name="invalid_camera_id">Invalid camera ID</string>
+    <string name="set_decoding_callback_error">Failed to set decoding callback</string>
+
+    <string name="ethernet_enable">Enable Ethernet</string>
+    <string name="ethernet_disable">Disable Ethernet</string>
+    <string name="ethernet_get_status">Get Ethernet Status</string>
+    <string name="ethernet_get_config">Get Ethernet Config</string>
+
+    <string name="ecdhe">ECDHE</string>
+    <string name="ext_ecdhe">ExtECDHE</string>
+    <string name="ecdhe_init">ECDHE Init</string>
+    <string name="ecdhe_release">ECDHE Release</string>
+    <string name="ecdhe_generate_key_pair">ECDHE Generate Key Pair</string>
+    <string name="ecdhe_generate_sk">ECDHE Generate SK</string>
+    <string name="ecdhe_generate">ECDHE Generate</string>
+    <string name="ecdhe_process_google_smart_pay">Google Smart Pay ECDHE Process</string>
+
+
+    <string name="setting_please_enable_login_password">This password is used when login is required to launch Settings App</string>
+
+    <string name="ext_settingsManger">ExtSettingsManager</string>
+    <!-- ExtESignatureFragment-->
+    <string name="ext_esignatureFragment">ExtESignatureFragment</string>
+    <string name="start_esignature">Start Signature</string>
+    
+
+    <string name="ext_display_menu_option">Display Menu Option</string>
+    <string name="ext_display_view">Display View</string>
+    <string name="ext_display_set_return_home">Set Return Home Configuration</string>
+    <string name="ext_display_set_ui_mode">Set UI MOde</string>
+    <string name="ext_display_version">Version Display</string>
+    <string name="ext_display_get_button_option">Display Buttons</string>
+    <string name="ext_keyboard_input_data">Input Data</string>
+    <string name="ext_keyboard_input_amount">Input Amount</string>
+
+
+    <string name="dialog_ext_display_is_clear_screen">isClearScreen?</string>
+    <string name="dialog_ext_display_enable_cancel_key">enableCancelKey?</string>
+    <string name="dialog_ext_display_ui_mode">Use Default UI Mode?</string>
+    <string name="dialog_ext_display_pin_mode">Use Default PIN Mode?</string>
+    <string name="dialog_ext_display_version">Display Version?</string>
+
+    <!-- ExtCardEmulatorFragment -->
+    <string name="ext_card_emulator_fragment">ExtCardEmulatorFragment</string>
+    
+    <string name="ext_card_emulator_init">Init</string>
+    <string name="ext_card_emulator_start">Start</string>
+    <string name="ext_card_emulator_getStatus">Get Status</string>
+    <string name="ext_card_emulator_writeConfig">Write Config</string>
+    <string name="ext_card_emulator_writeData">Write Data</string>
+    <string name="ext_card_emulator_readData">Read Data</string>
+    <string name="ext_card_emulator_readConfig">Read Config</string>
+    <string name="ext_card_emulator_end">End</string>
+    <string name="ext_card_emulator_getEvent">Get Event</string>
+    
+    <string name="dialog_ext_card_emulator_type">Emulate Card Type:</string>
+    <string name="dialog_ext_card_emulator_config">Emulate Card Config:</string>
+    <string name="dialog_ext_card_emulator_uid">UID(4 bytes):</string>
+    <string name="dialog_ext_card_emulator_memorySize">Memory Size:</string>
+    <string name="dialog_ext_card_emulator_file_type">Emulate File Type:</string>
+    <string name="dialog_ext_card_emulator_write_data">Write Data:</string>
+    <string name="dialog_ext_card_emulator_read_data_length">Read Data Length:</string>
+    <string name="dialog_ext_card_emulator_event_type">Emulate Event Type:</string>
+
+    <!-- ExtPINEntryFragment -->
+    <string name="ext_pin_enhanced_pininput">Start Online PINEntry(Enhanced)</string>
+    <string name="ext_pin_verify_offline_pin">Verify Offline PINEntry</string>
+
+    <!-- ExtSettingsFragment-->
+    <string name="ext_settings_get_property">Get Property</string>
+    <string name="ext_settings_set_property">Set Property</string>
+    <string name="ext_settings_property_key">Property Key:</string>
+    <string name="ext_settings_property_value">Property Value:</string>
+
+</resources>

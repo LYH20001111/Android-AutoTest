@@ -1,0 +1,17 @@
+version:1.3.0 time20240703
+1.Added:
+(1) Added the following method into "FelicaCard" module:
+     * transmit, which can support to set retry times and retry to send APDU commands again when communication error occurred.
+
+version: 1.2.0 time20240506
+1. Added:
+(1) Added the following methods into "FelicaCard" module:
+    * transmit, which can support to set the communication timeout before sending transport command.
+    * polling, which can support to send "POLLING" command to polling felica cards.
+
+version: 1.1.0 time2021101111
+1. Added:
+(1) Supported quick documentation of NSDK methods in AS.
+
+version: 1.0.0
+1. Initial release.

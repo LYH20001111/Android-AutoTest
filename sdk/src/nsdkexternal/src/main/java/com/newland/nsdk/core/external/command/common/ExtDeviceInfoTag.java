@@ -1,0 +1,42 @@
+package com.newland.nsdk.core.external.command.common;
+
+public class ExtDeviceInfoTag {
+    public static final String SW_VERSION = "1F00";
+    public static final String POS_SN = "1F01";
+    public static final String POS_PN = "1F02";
+    public static final String BUILD_OS_VERSION = "1F03";
+    public static final String POS_HW = "1F04";
+    public static final String NAPI_API_VERSION = "1F05";
+    public static final String NAPI_LIB_VERSION = "1F06";
+    public static final String BUILD_BOOT_VERSION = "1F07";
+    public static final String BUILD_DEVCFG_VERSION = "1F08";
+    public static final String BUILD_MODEL = "1F09";
+    public static final String BUILD_PCI_FW_VERSION = "1F0A";
+    public static final String BUILD_PCI_HW_VERSION = "1F0B";
+    public static final String POS_CPU_TYPE = "1F0C";
+    public static final String POS_BOARD_VER = "1F0D";
+    public static final String POS_BOARD_NUM = "1F0E";
+    public static final String RFID_TYPE = "1F0F";
+    public static final String RFID_VERSION = "1F10";
+    public static final String WIFI_DRV_VERSION = "1F11";
+//    public static final String POS_CUSTOMERID = "1F12";
+//    public static final String SYS_LANGUAGE = "1F13";
+//    public static final String SYS_PRINTER_GREY_LEVEL = "1F14";
+//    public static final String SYS_AUTORUN = "1F15";
+//    public static final String SYS_AUTOSLEEP = "1F16";
+//    public static final String SYS_BRIGHTNESS = "1F17";
+//    public static final String SYS_BACKLIGHT_ONOFF = "1F18";
+//    public static final String SYS_KEYVOL = "1F19";
+//    public static final String SYS_BOOTUP_PROMPT_BMP = "1F1A";
+//    public static final String SYS_SHUTDOWN_PROMPT_BMP = "1F1B";
+//    public static final String SYS_SHUTDOWN_PROMPT_BMP_IN_CHARGING = "1F1C";
+//    public static final String SYS_SHUTDOWN_PROMPT_BMP_IN_FULLCHARGING = "1F1D";
+//    public static final String SYS_SHUTDOWN_PROMPT_BMP_IN_LOWPOWER = "1F1E";
+//    public static final String POWER_MODE = "1F1F";
+//    public static final String BATTERY_STATUS = "1F20";
+//    public static final String BATTERY_LEVEL = "1F21";
+//    public static final String POWER_AUTO_POWEROFF = "1F22";
+//    public static final String POWER_AUTO_WAKEUP = "1F23";
+//    public static final String PRINT_LEN = "1F24";
+//    public static final String POWER_RUN_TIME = "1F25";
+}
