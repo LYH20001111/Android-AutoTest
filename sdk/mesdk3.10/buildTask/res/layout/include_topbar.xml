@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_top_bg"
+    >
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:src="@drawable/main_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="30dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="10dp"
+        android:layout_marginRight="14dp"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:textSize="28sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_back"
+        android:layout_centerVertical="true"
+        android:textColor="#ffffff"
+        android:text="@string/bluetooth"
+         />
+</RelativeLayout>

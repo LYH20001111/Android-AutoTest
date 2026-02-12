@@ -1,0 +1,42 @@
+package com.newland.sdk.me.module.printerPro.meimpl;
+
+public class EM_PRN_ZM_FONT {
+    public static final int PRN_ZM_FONT_8x16 = 1;
+    public static final int PRN_ZM_FONT_16x16 = 2;
+    public static final int PRN_ZM_FONT_16x32 = 3;
+    public static final int PRN_ZM_FONT_24x32 = 4;
+    public static final int PRN_ZM_FONT_6x8 = 5;
+    public static final int PRN_ZM_FONT_8x8 = 6;
+    public static final int PRN_ZM_FONT_5x7 = 7;
+    public static final int PRN_ZM_FONT_5x16 = 8;
+    public static final int PRN_ZM_FONT_10x16 = 9;
+    public static final int PRN_ZM_FONT_10x8 = 10;
+    public static final int PRN_ZM_FONT_12x16A = 11;
+    public static final int PRN_ZM_FONT_12x24A = 12;
+    public static final int PRN_ZM_FONT_16x32A = 13;
+    public static final int PRN_ZM_FONT_12x16B = 14;
+    public static final int PRN_ZM_FONT_12x24B = 15;
+    public static final int PRN_ZM_FONT_16x32B = 16;
+    public static final int PRN_ZM_FONT_12x16C = 17;
+    public static final int PRN_ZM_FONT_12x24C = 18;
+    public static final int PRN_ZM_FONT_16x32C = 19;
+    public static final int PRN_ZM_FONT_24x24A = 20;
+    public static final int PRN_ZM_FONT_32x32A = 21;
+    public static final int PRN_ZM_FONT_24x24B = 22;
+    public static final int PRN_ZM_FONT_32x32B = 23;
+    public static final int PRN_ZM_FONT_24x24C = 24;
+    public static final int PRN_ZM_FONT_32x32C = 25;
+    public static final int PRN_ZM_FONT_12x12 = 26;
+    public static final int PRN_ZM_FONT_12x12A = 27;
+    public static final int PRN_ZM_FONT_12x12B = 28;
+    public static final int PRN_ZM_FONT_12x12C = 29;
+    public static final int PRN_ZM_FONT_8x12 = 30;
+    public static final int PRN_ZM_FONT_8x24 = 31;
+    public static final int PRN_ZM_FONT_8x32 = 32;
+    public static final int PRN_ZM_FONT_12x32A = 33;
+    public static final int PRN_ZM_FONT_12x32B = 34;
+    public static final int PRN_ZM_FONT_12x32C = 35;
+    public static final int PRN_ZM_FONT_8x16BL = 36;
+    public static final int PRN_ZM_FONT_16x16BL = 37;
+    public static final int PRN_ZM_FONT_12x24BL = 38;
+}

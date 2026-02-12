@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_index_is"
+                    />
+                <EditText
+                    android:id="@+id/edt_index"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="key len:"
+                    />
+                <EditText
+                    android:id="@+id/edt_keylen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2048"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prik_mod"
+                    />
+                <EditText
+                    android:id="@+id/edt_module"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C1ED9B344A294EC5C75DB7B2D18C04DCC8FC0CD06350463C698C4232F289D24E0EC0CD05BC6E59B0001F2EA77C7793CDBC755BD475B159CF00FF6A05ED21444AFAB612972C9DE0EFF7182973839D2C7828587FA3B85359FEB5F2F8717052467D412F1F4E74A986FFFF094E97700D192623840AAEBF6C3F34273B7B900F1585818CB1696243E81045730FB3933C3575F11401C6B3A8799F13D79740E109A91957604D47658F7203D33C6A2E23302AB9679E1EFC8CFF4332C707DBFEE0BFD30BB6A625E52F9BE8BEA1195F572967ABC426ECA8C1B62190E75D1322722A0F3B4DED5A2FD4BD512F2F452835C24D8015CF4BCF94291D88BFD5C5CC81DE124EA1BC5D"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prik_mod_exponent"
+                    />
+                <EditText
+                    android:id="@+id/edt_exponent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8BA6696FBC4006E3D1EFA10B7A6ED44991CA4008089C9417890261E1825AD14138CA8A59A919E62821CE52B075A73E9E972A0418F92FDFB67BC77238164D307AB6144B4AE5EC43414AB4F194A7A0959769A661342AD68B262B2C6ED071CC2DCAA11827F93D759F2BD622839FF626D8876867FBB15F53BA27FA6091586A245B606F44831599FA60C7B4ABD78E8F06562354F151E174997AAD2A9338058FD5E009ECB5A818F86A9B96CD0859DA61E165921A6EC774220BAC9CB9AB6B0868D2EEF500B659D191DB97DA4663B4E5386BA98C423D46FA7ABA53CF91D414EA21D784D3CC9A6078C82D1D3700038B77EBE7B219A02E71E361E2ECE802CC4D377A929419"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

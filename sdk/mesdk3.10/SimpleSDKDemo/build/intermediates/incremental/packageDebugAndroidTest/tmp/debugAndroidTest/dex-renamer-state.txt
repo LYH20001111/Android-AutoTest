@@ -1,0 +1,4 @@
+#Mon Feb 09 16:09:52 CST 2026
+base.0=E\:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

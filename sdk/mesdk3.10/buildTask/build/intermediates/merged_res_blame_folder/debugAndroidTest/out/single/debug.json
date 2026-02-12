@@ -1,0 +1,1738 @@
+[
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_screen_simple.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_support_simple_spinner_dropdown_item.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_list_selector_holo_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_x5_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_x5_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_btn_colored_text_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_expanded_menu_layout.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_popup_enter.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_list_menu_item_layout.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_activity_chooser_view_list_item.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_switch_thumb_material_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_910_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_910_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_tint_seek_thumb.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_abc_edit_text_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_voice_search_api_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23_abc_control_background_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_list_menu_item_checkbox.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_550_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_550_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_presentation_rnib_pin_layout.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\presentation_rnib_pin_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_primary_text_material_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_f10_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_f10_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_scan2.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\scan2.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_item_background_holo_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_btn_check_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_cascading_menu_item_layout.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_cascading_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_screen_simple_overlay_action_mode.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_900_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_900_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_primary_text_disable_only_material_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_search_url_text.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_850_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_850_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-hdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-hdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_nl_scan_switch_bg.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\nl_scan_switch_bg.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_switch_track.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_activity_pin_layout.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\activity_pin_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_tooltip_enter.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_menu_overflow_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_spinner_textfield_background_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_activity_scanner_view.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\activity_scanner_view.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_search_dropdown_item_icons_2line.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ratingbar_indicator_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_activity_chooser_view.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_activity_bluetooth.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\activity_bluetooth.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_tint_default.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_tint_default.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_error.mp3.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\raw\\error.mp3"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_select_dialog_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_screen_content_include.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_click.wav.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\raw\\click.wav"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_activity_rnib_pin_layout.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\activity_rnib_pin_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_bluetooth_item.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\bluetooth_item.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_tab_indicator_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_seekbar_tick_mark_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_slide_out_top.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_u2000_3.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_u2000_3.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_alert_dialog_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tooltip_frame_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_lighton_w.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\lighton_w.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_u2000_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_u2000_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_850_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_850_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_700_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_700_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_u2000_2.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_u2000_2.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_secondary_text_material_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_list_selector_holo_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_popup_exit.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_menu_item_layout.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_tooltip_exit.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_cab_background_top_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_textfield_search_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_tint_switch_track.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_btn_checkable.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_beep.ogg.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\raw\\beep.ogg"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_910_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_910_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_edittext.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_activity_bluetoothbase.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\activity_bluetoothbase.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_mode_bar.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_tint_spinner.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_700_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_700_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_850_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_850_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_550_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_550_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_550_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_550_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_alert_dialog_title_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_dialog_title_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_list_selector_background_transition_holo_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_saoma_houzhi.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_saoma_houzhi.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_x5_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_x5_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_part_time.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_menu_layout.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_main_back_btn.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\main_back_btn.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_bluetooth_device.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\bluetooth_device.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_sdk.properties.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\mesdk\\build\\intermediates\\packaged_res\\debug\\raw\\sdk.properties"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_ab_back_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_x3_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_x3_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_main_top_bg.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\main_top_bg.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_u2000_1.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_u2000_1.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_seekbar_track_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_scan1.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\scan1.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_fade_out.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_slide_in_bottom.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_list_menu_item_radio.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_default.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_tint_default.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_test.jpg.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\test.jpg"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_bg_low.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-watch-v20_abc_alert_dialog_title_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_btn_radio_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_vector_test.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_bluetooth_list_item.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\bluetooth_list_item.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_900_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_900_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_background_cache_hint_selector_material_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_color_highlight_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_select_dialog_item_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_scan3.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\scan3.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_shrink_fade_out_from_bottom.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_scan.properties.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\scanmodule\\build\\intermediates\\packaged_res\\debug\\raw\\scan.properties"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_item_background_holo_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_default_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_default_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_cab_background_internal_bg.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_bluetooth.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\bluetooth.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_tile_bg.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_900_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_900_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_presentation_pin_layout.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\presentation_pin_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_action_tombstone.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_910_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_910_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_abc_list_divider_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_list_divider_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_grow_fade_in_from_bottom.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_icon_background.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_secondary_text_material_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_seekbar_thumb_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_lightoff_w.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\lightoff_w.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_mode_close_item_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_saoma_qianzhi.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_saoma_qianzhi.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_popup_menu_item_layout.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ratingbar_small_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_search_view.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_hint_foreground_material_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_tint_btn_checkable.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_action.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_switch_thumb_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_f7_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_f7_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_fade_in.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_x3_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_x3_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_btn_colored_text_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_x5_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_x5_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_screen_toolbar.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_u2000_4.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_u2000_4.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_popup_menu_header_item_layout.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_go_search_api_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_bar_title_item.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_700_1.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_700_1.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_include_topbar.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\layout\\include_topbar.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_switch_thumb_material_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_background_cache_hint_selector_material_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tooltip_frame_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\tooltip_frame_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_f10_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_f10_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_f10_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_f10_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_select_dialog_multichoice_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_search_api_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ratingbar_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_tint_edittext.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_part_chronometer.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_tooltip.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_tooltip.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_hard_scan.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_hard_scan.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_bg.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_hint_foreground_material_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_slide_in_top.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_x3_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_x3_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_bar_up_container.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_btn_borderless_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v26_abc_screen_toolbar.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout-v26\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_text_cursor_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_primary_text_material_light.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_primary_text_disable_only_material_dark.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_nl_f7_2.webp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable-xhdpi-v4\\nl_f7_2.webp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_alert_dialog_button_bar_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_scan_f7_list.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\packaged_res\\debug\\drawable\\scan_f7_list.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_notification_action_background.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_spinner.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_abc_dialog_material_background.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_seek_thumb.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\color-v23\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-watch-v20_abc_dialog_material_background.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-watch-v20\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_list_menu_item_icon.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-watch-v20_abc_alert_dialog_button_bar_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-hdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_slide_out_bottom.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_clear_material.xml.flat",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable\\abc_ic_clear_material.xml"
+    }
+]

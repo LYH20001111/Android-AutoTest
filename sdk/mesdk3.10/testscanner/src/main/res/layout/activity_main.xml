@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+        <TextView
+            android:id="@+id/id_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dip"
+            android:textSize="15sp"
+            android:text=""/>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/id_issupport_scanner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_enable_bacground"
+            android:text="@string/issupport_scanner"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/id_clear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/btn_enable_bacground"
+            android:text="@string/tv_ma_clean_msg"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/id_startscan"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_enable_bacground"
+            android:text="@string/startscan"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <Button
+            android:id="@+id/id_decode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_enable_bacground"
+            android:text="@string/decode"
+            android:visibility="invisible"
+            android:textColor="@color/white" />
+        <Button
+            android:id="@+id/id_openlight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_enable_bacground"
+            android:text="@string/openlight"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            />
+        <Button
+            android:id="@+id/id_closelight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_enable_bacground"
+            android:text="@string/closelight"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:visibility="invisible"
+            />
+    </LinearLayout>
+
+</LinearLayout>

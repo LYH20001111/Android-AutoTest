@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_print_logo.bmp.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\drawable-xhdpi\\print_logo.bmp"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_dialog_rfcard_power_on.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\dialog_rfcard_power_on.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\drawable_shape_cornor.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\drawable\\shape_cornor.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_fragment_pinpad.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\fragment_pinpad.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_dialog_iccard_communication.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\dialog_iccard_communication.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_dialog_m1_external_auth.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\dialog_m1_external_auth.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_dialog_m1_operate.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\dialog_m1_operate.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_pboc.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\pboc.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\drawable_btn_bg_confirm.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\drawable\\btn_bg_confirm.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_dialog_m1_write.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\dialog_m1_write.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\res\\merged\\debug\\layout_dialog_edittext.xml.flat",
+        "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\layout\\dialog_edittext.xml"
+    }
+]

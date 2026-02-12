@@ -1,0 +1,57 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
+                    }
+                },
+                {
+                    "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\355178caba5f69d7869ce0943daf9a14\\base-1.1\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "408"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "687",
+                        "endLines": "15",
+                        "endColumns": "12",
+                        "endOffsets": "1040"
+                    }
+                },
+                {
+                    "source": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\SimpleSDKDemo\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "452"
+                    },
+                    "to": {
+                        "startLines": "16",
+                        "startColumns": "4",
+                        "startOffsets": "1045",
+                        "endLines": "22",
+                        "endColumns": "12",
+                        "endOffsets": "1389"
+                    }
+                }
+            ]
+        }
+    ]
+}

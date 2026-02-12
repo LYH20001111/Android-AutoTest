@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    defaultConfig {
+        minSdkVersion 19
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 22
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    //api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')//单独打包扫码模块，要拷贝mnjs和devicemodule的jar包拷贝到扫码模块的libs下
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation project(':libraryModule')
+    implementation project(':nmjs-api')
+}
+
+////*****************************************************//
+//def version = "3.10.82"
+//def mesdkScannerName = "MESDK-Scanner-"+version+"-RELEASE.aar"
+//
+////打包只有扫码和打印功能的包
+//task aarScannerSDK(type:Copy,dependsOn:["build"]){
+//    println(">>>start aarScannerSDK")
+//    delete("../OUTPUT/MESDK-Scanner/aar/")
+//    from("./build/outputs/aar/scanmodule-release.aar")
+//    into("../OUTPUT/MESDK-Scanner/aar/")
+//    rename("scanmodule-release.aar",mesdkScannerName)
+//}

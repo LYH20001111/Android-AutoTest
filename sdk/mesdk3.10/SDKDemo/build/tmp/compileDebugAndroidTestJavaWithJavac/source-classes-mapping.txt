@@ -1,0 +1,2 @@
+com/newland/sdkdemo/test/BuildConfig.java
+ com.newland.sdkdemo.test.BuildConfig

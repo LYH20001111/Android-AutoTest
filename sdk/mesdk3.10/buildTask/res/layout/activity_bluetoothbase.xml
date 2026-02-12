@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<include
+		android:id="@+id/include_top"
+		android:layout_width="match_parent"
+		android:layout_height="70dp"
+		layout="@layout/include_topbar" />
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:background="@color/colorPrimary"
+		>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/bluetooth_open"
+			android:layout_gravity="center_vertical"
+			android:paddingLeft="15dp"
+			android:textColor="@android:color/white"
+			android:textSize="20sp" />
+
+
+		<Switch
+			android:id="@+id/swt_bluetooth"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical|end"
+			android:paddingRight="15dp"
+			android:theme="@style/SwitchTheme"  />
+	</FrameLayout>
+
+	<TextView 
+	    android:id="@+id/text_connected_devices_title"
+        android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:text="@string/connected_device"
+   		android:textSize="15sp"
+   		android:padding="10dp"
+   		android:visibility="gone" />
+	
+	<ListView 
+	    android:id="@+id/list_connected_devices"
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content" >
+	</ListView>
+	
+	<TextView 
+	    android:id="@+id/text_bonded_devices_title"
+        android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:text="@string/bonded_devices"
+   		android:textSize="15sp"
+   		android:padding="10dp"
+   		android:visibility="gone" />
+	
+	<ListView 
+	    android:id="@+id/list_bonded_devices"
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content" >
+	</ListView>
+	
+	<TextView 
+	    android:id="@+id/text_valid_devices_title"
+        android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:text="@string/valid_devices"
+   		android:textSize="15sp"
+   		android:padding="10dp"
+   		 />
+	
+	<ListView 
+	    android:id="@+id/list_valid_devices"
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content" >
+	</ListView>
+</LinearLayout>

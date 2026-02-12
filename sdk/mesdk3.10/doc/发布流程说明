@@ -1,0 +1,66 @@
+针对mesdk的配置管理请遵循以下管理规则（试行）
+
+######关于主干和分支######
+1、主干(01-Trunk)演进一律定义为快照版本(SNAPSHOT)，主干的sdk打包并不保证通过严格的版本测试。
+2、主干可以允许新特性的提交，或者bug的更新直接提交。
+3、分支包含两类：1、某些大规模的特性变更，不适合直接在主干上进行开发的。2、产品线的分支。
+4、特性变更分支，请尽快完成特性开发，并合并主干。请根据需要决定是否要在进行主干复兴后进行合并。合并完成后，请删除分支。
+5、各个产品线，由各自项目组自行维护，主干开发团队不关心各个项目组的演进需要，仅关心和主干特性相关的合并或者维护需求（如:bug问题的解决。）
+6、各种产品线不允许直接提交特性给主干。相关决定，请和主干负责团队协商后确定。
+
+######关于主干版本的演进######
+1、主干在一段时间演进后，可能会提升版本，并正式发布。
+2、发布时，需要进行一段时间的严格测试。需要由测试小组正式确认测试计划。测试分支由当时主干版本输出（例如：1.1.2-SNAPSHOT,则正式版本为1.1.2)。在此期间，分支对主干的新维护需求将不做同步，仅合并和发布版本相关的bug解决。
+3、测试完成后，分支将直接标记（03-Tag/01-Release)出给定正式版本（1.1.2)。如果不存在测试分支，则由主干直接标记出正式版本。
+4、主干版本演进(1.1.3-SNAPSHOT)
+
+######关于产品版本的演进######
+1、产品线版本库的路径为03-Tag/02-Product
+2、在客户应用发布后，由相关开发经理（人员）生成产品库版本。遵循如下规则：版本号：1.0.0。
+3、在还未明确产品线的groupId命名规则前，产品线的jar包只允许本地安装，不允许发布到私服（可能会覆盖正式发布的主干版本）。
+4、对于产品线的bug，类似主干的发布机制，可以允许长期存在产品线分支，但需要根据客户实际的开发维护情况发布新的tag，并提升相应的版本号。
+例如：
+>客户提出一个新的需求
+>开发人员在产品线版本(1.0.0)上进行分支
+>在产品分支上开发，并提供客户测试
+>客户测试完成，并发布新的版本
+>产品线提交新的版本tag(1.0.1)
+>删除开发分支。(根据实际情况)
+
+
+######打包不含newland.jar的配置说明######
+1、OUTPUT\compatibleEMV\pom.xml文件添加如下
+<dependency>
+<groupId>com.newland</groupId>
+<artifactId>newland</artifactId>
+<scope>provided</scope>
+</dependency>
+
+2、nmjs工程下的pom文件
+ <dependency>
+	    <groupId>com.newland</groupId>
+	    <artifactId>newland</artifactId>
+          <scope>provided</scope>
+<!--          <scope>provided</scope>可以不打包newland jar-->
+	  </dependency>
+	  
+3、devicemodule下的pom文件添加如下配置
+<dependency>
+                    <groupId>com.newland</groupId>
+                    <artifactId>newland</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+				
+4、scanmodule下的pom文件添加如下配置
+<dependency>
+                    <groupId>com.newland</groupId>
+                    <artifactId>newland</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+5、meemvmoduled pom文件，添加如下配置
+<dependency>
+                    <groupId>com.newland</groupId>
+                    <artifactId>newland</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+

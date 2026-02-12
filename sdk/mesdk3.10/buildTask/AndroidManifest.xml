@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    package="com.newland.buildtask"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <!--<application android:label="@string/app_name" >-->
+    <!--</application>-->
+    <uses-permission android:name="android.permission.MANAGE_NEWLAND" />
+    <uses-permission android:name="android.permission.MANAGE_ANALOG_SERIAL" />
+    <uses-permission android:name="android.permission.MANAGE_NEWLANDUART3" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <uses-permission android:name="android.permission.MANAGE_NEWLAND_CASHBOX" />
+    <uses-permission android:name="android.permission.MANAGE_NEWLAN_CASHBOX" />
+
+    <application>
+        <activity android:name="com.newland.sdk.pininput.KeyBoardActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.newland.sdk.pininput.RNIBKeyBoardActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity
+            android:name="com.newland.sdk.scanner.ScanViewActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <activity android:name="com.newland.sdk.module.bluetooth.BluetoothActivity" />
+        <activity
+            android:name="com.newland.sdk.ble.BluetoothBaseActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
+
+    </application>
+
+</manifest> 

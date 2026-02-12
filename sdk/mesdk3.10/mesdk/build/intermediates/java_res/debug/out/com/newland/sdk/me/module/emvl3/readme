@@ -1,0 +1,53 @@
+1.针对公钥AID终端参数SDK特殊处理的未移植
+1.getAllCAPublicKey
+2.List<AID> getAID
+3.getCardInformation
+4.getEMVTransLogs
+5.getECTransLogs
+6.getICCdata
+7.交互过程中不能设置和获取TAG
+8.脱机PIN的时间不能设置、PINBLOCK没有返回、PIN类型(OFFLINE/LAST_OFFLINE/ONLINE/EC_ONLINE)
+
+需求:
+1.执行perform中的回调可以获取和设置tag/tags
+2.Pin回调的是否要改成由上端发起调用,结束后导入PINBLCOK,这样EMV可以不用实现输密码相关的;
+  或者是PIN输完直接返回PINBLOCK【(bypass（全0）,脱机PIN（9000）,联机PIN)】,脱机密码剩余次数.
+3.原来内置的EMV多应用选择回调有带一个【剩余次数的参数】,外接指令没有,是否可以添加
+4.获取所有AID和CAPK
+5.读应用数据步骤结束就是L3_CALLBACK_CARDNUM_CONFIRM回调吗？
+
+问题:
+1.Demo中的AID5安装会失败.
+2.see phone未完成
+3.Candidate与智能的区别 缺少extendAid/tag9F0A.
+4.密码类型原来的为OFFLINE、LAST_OFFLINE、ONLINE、EC_ONLINE；  指令返回的为ONLINE、OFFLINE、OFFLINE_ENCIPHERED;
+  返回脱机的密钥未处理
+5.EMV finish转码的未处理
+6.checkCredentials/cardInfoConfirm应答ErrorCode未处理
+7.多应用选择有问题
+8.init 是每次键盘重启都需要调用还是只要使用过程中有调用一次即可.
+9.最终应用选择ID实际为A 文档为0x10
+
+
+需要修改:
+1.卡信息确认单独一个接口.
+
+//======2020-11-02=======
+1.PINBLOCK onFinish 回调KSN未返回
+2.timeOut时间未处理.
+3.(PAYWAVE)DrlData(DF3F) 安装AID失败.
+4.取消问题.
+5.日志和圈存.
+6.二次授权导入的
+7.DF24 外置不能转DF64
+8.获取emvinfo的.
+9.验证isCancel是不是不同线程不一样.deviceLogger.debug("FunctionDesc="+getFunctionDesc(funId)+" isCancel="+isCancel);
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="server_response_code0">Success</string>
+    <string name="server_response_code1">There are still keys undownloaded</string>
+    <string name="server_response_code10">Invalid request parameter</string>
+    <string name="server_response_code11">Unsupported RKI protocol version</string>
+    <string name="server_response_code12">Token is null</string>
+    <string name="server_response_code13">Token is expired</string>
+    <string name="server_response_code14">Invalid token</string>
+    <string name="server_response_code15">Certificate verification failed</string>
+    <string name="server_response_code16">Faild to save certificate</string>
+    <string name="server_response_code17">Backend error (IPEK generation failed)</string>
+    <string name="server_response_code18">Key injection failed</string>
+    <string name="server_response_code19">Wrong session key type(Stronger key type is required, e.g. AES)</string>
+    <string name="server_response_code2">Device is not registered</string>
+    <string name="server_response_code20">Signature verification failed</string>
+    <string name="server_response_code3">All keys had been loaded</string>
+    <string name="server_response_code30">Host encryption failed</string>
+    <string name="server_response_code4">Device is locked (3 or more failures)</string>
+    <string name="server_response_code40">CA chain verification failed</string>
+    <string name="server_response_code41">The common name of certificate mismatched with SN</string>
+    <string name="server_response_code5">Invalid device SN (wrong length)</string>
+    <string name="server_response_code6">RKI initiation failed</string>
+    <string name="server_response_code7">Device is disabled</string>
+    <string name="server_response_code99">Unknown error</string>
+</resources>

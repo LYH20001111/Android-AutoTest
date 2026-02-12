@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_list_divider_material.xml",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_list_divider_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\06f6df44c76c4a181cad1895980d5a87\\support-compat-28.0.0\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "E:\\MESDK\\Pre mesdk\\mesdk3.10\\buildTask\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_dialog_material_background.xml",
+        "source": "D:\\Android\\Gradle\\caches\\transforms-2\\files-2.1\\eab914ae2b0ae69bba8b5cdf1163eae3\\appcompat-v7-28.0.0\\res\\drawable-v21\\abc_dialog_material_background.xml"
+    }
+]

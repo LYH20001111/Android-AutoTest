@@ -1,0 +1,1 @@
+package com.newland.sdk.module.serialport;public enum PortType {    RS232,    MIN_USB,    PINPAD,    USB,    BLEBASE_USB2,    BLEBASE_USB1,    BLEBASE_RS232,}

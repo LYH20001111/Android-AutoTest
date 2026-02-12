@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rf_power_on_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_rf_power_on_type" />
+
+        <CheckBox
+            android:id="@+id/checkbox_rf_A_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_a_card" />
+
+        <CheckBox
+            android:id="@+id/checkbox_rf_B_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_b_card" />
+
+        <CheckBox
+            android:id="@+id/checkbox_rf_M1_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_m1_card" />
+
+        <CheckBox
+            android:id="@+id/checkbox_rf_M0_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_m0_card" />
+
+        <CheckBox
+            android:id="@+id/checkbox_rf_felic_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_felica_card" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rf_power_on_time_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_rf_power_on_time_out" />
+
+        <EditText
+            android:id="@+id/edit_rf_power_on_timeout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp5"
+            android:hint="60(s)" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

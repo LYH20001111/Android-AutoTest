@@ -1,0 +1,29 @@
+package com.newland.ndk.h;
+
+public enum EM_PORT_NUM {
+	PORT_NUM_COM1,
+
+	PORT_NUM_COM2,
+
+	PORT_NUM_WIRELESS,
+
+	PORT_NUM_MUX1,
+
+	PORT_NUM_MUX2,
+
+	PORT_NUM_MUX3,
+
+	PORT_NUM_MODEM,
+
+	PORT_NUM_WIFI,
+
+	PORT_NUM_USB,
+
+	PORT_NUM_SCAN,
+
+	PORT_NUM_BT,
+
+	PORT_NUM_AUDIO,
+
+	PORT_NUM_CCID
+}

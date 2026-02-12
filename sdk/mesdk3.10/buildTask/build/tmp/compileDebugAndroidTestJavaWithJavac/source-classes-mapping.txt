@@ -1,0 +1,2 @@
+com/newland/buildtask/test/BuildConfig.java
+ com.newland.buildtask.test.BuildConfig

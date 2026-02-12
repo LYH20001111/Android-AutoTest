@@ -1,0 +1,14 @@
+{
+  "VERSION": "01",
+  "PRODUCTION_TYPE": "PRO",
+  "PROTOCAL_TYPE": "NLRKI",
+  "ENCODE_FORMAT": "JSON",
+  "LOCATION_TYPE": "BASE",
+  "MAX_KEYNUM_PERTIME": 10,
+  "SESSION_KEY_ID": 250,
+  "KDH_AUTH_ID": 250,
+  "KDH_ENC_ID": 250,
+  "KRD_AUTH_ID": 255,
+  "URL": "flykey.newlandpayment.com",
+  "PORT": "7443"
+}

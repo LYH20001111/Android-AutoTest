@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request Receive FTL"
+            android:id="@+id/rb_requestReceiveFtl"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request Send FTL"
+            android:id="@+id/rb_requestSendFtl"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Response OK to Send"
+            android:id="@+id/rb_responseOkToSend"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Response FTL Retry Deny"
+            android:id="@+id/rb_responseFtlRetryDeny"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send FTL Block Data"
+            android:id="@+id/rb_sendFtlBlockData"/>
+    </RadioGroup>
+</LinearLayout>

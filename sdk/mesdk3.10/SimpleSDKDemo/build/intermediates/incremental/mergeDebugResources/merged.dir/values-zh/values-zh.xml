@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="as_pictured">如图示</string>
+    <string name="available_device">可用的设备</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="bluetooth_discovering">发现中...</string>
+    <string name="bluetooth_name_length_tip">名字长度不能超过29字节(一个汉字2字节)</string>
+    <string name="bluetooth_open">开启</string>
+    <string name="bluetooth_rename">重命名</string>
+    <string name="bluetooth_renaming">正在重命名...</string>
+    <string name="bluetooth_reset">复位</string>
+    <string name="bluetooth_title">蓝牙</string>
+    <string name="bluetooth_turn_on">请先开启蓝牙</string>
+    <string name="bonded_devices">已配对的设备</string>
+    <string name="bt_not_enable">蓝牙未打开</string>
+    <string name="cancel_save">取消保存</string>
+    <string name="connect">连接</string>
+    <string name="connect_device">已连接的设备</string>
+    <string name="connect_error">连接异常</string>
+    <string name="connect_failed">连接失败</string>
+    <string name="connect_success">连接成功</string>
+    <string name="connected">已连接</string>
+    <string name="connected_device">已连接的设备</string>
+    <string name="connecting">正在连接...</string>
+    <string name="device_name">名称：</string>
+    <string name="device_not_disconnect">设备未连接,请先连接设备</string>
+    <string name="disconnect">断开</string>
+    <string name="disconnecting">正在断开...</string>
+    <string name="enable_bt">正在打开蓝牙</string>
+    <string name="keyboard_amount">金额</string>
+    <string name="keyboard_backspace">退 格</string>
+    <string name="keyboard_cancel">取 消</string>
+    <string name="keyboard_confirm">确 认</string>
+    <string name="keyboard_enterpwd">请输入密码</string>
+    <string name="keyboard_tip">输入密码时请注意遮挡</string>
+    <string name="paired_device">已配对的设备</string>
+    <string name="position_phone_pos">请将手机靠近POS机</string>
+    <string name="swit_back_scanner">切换后置扫码</string>
+    <string name="swit_front_scanner">切换前置扫码</string>
+    <string name="valid_devices">可用的设备</string>
+    <string name="view_put_qrcode">将二维码放入框内, 即可自动扫描</string>
+</resources>

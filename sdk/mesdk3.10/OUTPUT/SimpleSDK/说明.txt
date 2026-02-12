@@ -1,0 +1,12 @@
+打包简易版本mesdk,仅包含打印和扫码
+1、执行sdk3.10_standard根目录下的install.bat
+2、执行sdk3.10_standard/OUTPUT/SimpleSDK/下的prod.bat
+3、执行buildTask工程的aarSimpleSDK，在OUTPUT/SimpleSDK/aar/目录下生成MESDK-SIMPLE-3.10.67-RELEASE.aar
+
+
+注意
+自动打包生成的MESDK-SIMPLE-3.10.67-RELEASE.aar，可能so文件没打包进去，打包完要检查下
+若没打包进去，手动拷贝mesdk的jar和so文件到buildtask工程的libs目录，
+把buildtask工程里build.gradle里的打包脚本注释，然后手动build buildtask工程，生成的aar包再手动重新命名
+
+

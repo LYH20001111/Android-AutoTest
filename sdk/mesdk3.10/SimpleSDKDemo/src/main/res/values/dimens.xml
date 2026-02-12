@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title">30sp</dimen>
+    <dimen name="normal">18sp</dimen>
+    <dimen name="middle">22sp</dimen>
+    <dimen name="small">16sp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+</resources>

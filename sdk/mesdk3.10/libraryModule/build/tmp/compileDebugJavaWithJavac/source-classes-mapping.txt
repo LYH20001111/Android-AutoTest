@@ -1,0 +1,2 @@
+com/newland/mesdk/libraryModule/BuildConfig.java
+ com.newland.mesdk.libraryModule.BuildConfig

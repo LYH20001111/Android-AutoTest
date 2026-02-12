@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="as_pictured">as pictured</string>
+    <string name="available_device">available devices</string>
+    <string name="bluetooth">bluetooth</string>
+    <string name="bluetooth_discovering">discovering...</string>
+    <string name="bluetooth_name_length_tip">The length of the name cannot exceed 29 bytes.(2 bytes for a Chinese character)</string>
+    <string name="bluetooth_open">open</string>
+    <string name="bluetooth_rename">rename</string>
+    <string name="bluetooth_renaming">renaming...</string>
+    <string name="bluetooth_reset">reset</string>
+    <string name="bluetooth_title">bluetooth</string>
+    <string name="bluetooth_turn_on">Please turn on bluetooth</string>
+    <string name="bonded_devices">bonded devices</string>
+    <string name="bt_not_enable">bluetooth not enable</string>
+    <string name="cancel_save">cancel</string>
+    <string name="connect">connect</string>
+    <string name="connect_device">connected devices</string>
+    <string name="connect_error">connect error</string>
+    <string name="connect_failed">failed</string>
+    <string name="connect_success">success</string>
+    <string name="connected">connected</string>
+    <string name="connected_device">connected device</string>
+    <string name="connecting">connecting...</string>
+    <string name="device_name">name：</string>
+    <string name="device_not_disconnect">device not disconnect,Please connect the device</string>
+    <string name="disconnect">disconnect</string>
+    <string name="disconnecting">disconnecting</string>
+    <string name="enable_bt">bluetooth opening</string>
+    <string name="keyboard_amount">Amount</string>
+    <string name="keyboard_backspace">BACKSPACE</string>
+    <string name="keyboard_cancel">CANCEL</string>
+    <string name="keyboard_confirm">CONFIRM</string>
+    <string name="keyboard_enterpwd">Please enter the password</string>
+    <string name="keyboard_tip">Please hide it with your hand when inputting the password in order to prevent leakage</string>
+    <string name="paired_device">paired devices</string>
+    <string name="position_phone_pos">please put your phone close to POS</string>
+    <string name="swit_back_scanner">switch back scanner</string>
+    <string name="swit_front_scanner">switch front scanner</string>
+    <string name="valid_devices">valid devices</string>
+    <string name="view_put_qrcode">Put the QR code in the box</string>
+</resources>

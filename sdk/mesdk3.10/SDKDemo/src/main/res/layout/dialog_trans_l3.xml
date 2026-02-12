@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:text="@string/dialog_tv_is_external_emv"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup_is_external_emv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="5sp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/inner_emv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="inner emv"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:id="@+id/external_emv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="external emv"
+            android:textColor="@android:color/black" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:text="@string/dialog_tv_transtype"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/radiogroup_transtype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginTop="5sp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio_sale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Sale"
+                android:textColor="@android:color/black" />
+
+            <RadioButton
+                android:id="@+id/radio_cashback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cashback"
+                android:textColor="@android:color/black" />
+
+
+            <RadioButton
+                android:id="@+id/radio_refund"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Refund"
+                android:textColor="@android:color/black" />
+
+            <RadioButton
+                android:id="@+id/radio_simple_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Simple Flow"
+                android:textColor="@android:color/black" />
+        </RadioGroup>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingRight="15sp"
+            android:text="@string/dialog_tv_amount"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edit_amt_trans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8sp"
+            android:layout_weight="1"
+            android:text="0.01"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_l3_mag_checkunioncard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingRight="15sp"
+            android:text="磁条卡："
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup_checkunion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginTop="5sp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_mag_checkunioncard_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="校验二磁道"
+                android:textColor="@android:color/black" />
+
+            <RadioButton
+                android:id="@+id/radio_mag_checkunioncard_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="不校验二磁道"
+                android:textColor="@android:color/black" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>
