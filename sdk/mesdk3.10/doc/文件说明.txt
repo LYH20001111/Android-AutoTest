@@ -1,3 +1,0 @@
-1.k21.jar 由 N81-v1.0.2_addEth.jar 得到.
--Pdev 编译非k21环境sdk包，默认执行
--Pprod 编译非k21环境sdk包

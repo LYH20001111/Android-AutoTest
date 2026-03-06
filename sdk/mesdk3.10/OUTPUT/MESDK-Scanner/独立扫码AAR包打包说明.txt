@@ -1,3 +1,0 @@
-1、扫码模块的AndroidManifest.xml权限放开
-2、扫码模块的build.gradle， 放开api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-3、拷贝mnjs和devicemodule的jar包拷贝到扫码模块的libs下

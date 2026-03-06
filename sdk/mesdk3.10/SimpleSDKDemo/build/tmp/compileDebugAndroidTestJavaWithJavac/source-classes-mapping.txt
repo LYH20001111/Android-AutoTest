@@ -1,2 +1,0 @@
-com/newland/mesdk/simple/demo/test/BuildConfig.java
- com.newland.mesdk.simple.demo.test.BuildConfig

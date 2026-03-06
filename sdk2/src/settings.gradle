@@ -1,7 +1,0 @@
-include ':dukptmacverification'
-include ':nsdkexternal'
-include ':nsdkcommon'
-include ':nsdkplugincard'
-include  ':nsdk'
-include  ':nsdkdemo'
-include  ':nsdkextdemo'
