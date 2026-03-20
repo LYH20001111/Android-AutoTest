@@ -124,8 +124,9 @@ public abstract class BaseTestCase {
                                 throw new RuntimeException(e);
                             }
                         } else {
-                            resultData.setResult("测试通过");
-                            postValue(Color.MAGENTA, "\n！ 废弃案例 ！\n");
+                            resultData.setResult("废弃案例");
+                            postValue(Color.MAGENTA, "\n！ 废弃案例  ！\n");
+                            postValue(Color.MAGENTA, "\n废弃案例说明：" + testCaseAnnotation.abandonDes() + "\n");
                         }
 
                     } catch (Exception e) {
@@ -341,7 +342,7 @@ public abstract class BaseTestCase {
         }
         if (targetItem != null) {
             for (ResultData resultData : targetItem.getResultDataList()) {
-                if ("测试通过".equals(resultData.getResult())) {
+                if ("测试通过".equals(resultData.getResult()) || "废弃案例".equals(resultData.getResult())) {
                     passCount++;
                 } else {
                     failCount++;

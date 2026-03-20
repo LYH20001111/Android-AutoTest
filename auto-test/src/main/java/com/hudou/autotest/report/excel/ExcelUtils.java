@@ -127,14 +127,15 @@ public class ExcelUtils {
 
 
                 WritableSheet summarySheet = writebook.getSheet(0);
-                summarySheet.setColumnView(0, 50); //设置列宽
+                summarySheet.setColumnView(0, 40); //设置列宽
                 summarySheet.setColumnView(1, 25);
                 summarySheet.setColumnView(2, 25);
                 summarySheet.setColumnView(3, 25);
-                summarySheet.setColumnView(4, 50);
-                summarySheet.setColumnView(5, 25);
-                summarySheet.setColumnView(6, 25);
-                summarySheet.setColumnView(7, 25);
+                summarySheet.setColumnView(4, 25);
+                summarySheet.setColumnView(5, 50);
+                summarySheet.setColumnView(6, 20);
+                summarySheet.setColumnView(7, 20);
+                summarySheet.setColumnView(8, 20);
 
 
                 WritableSheet detailSheet = writebook.getSheet(1);
@@ -153,17 +154,18 @@ public class ExcelUtils {
                     summarySheet.addCell(new Label(0, row, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
                     summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
                     summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
-                    summarySheet.addCell(new Label(3, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
-                    summarySheet.addCell(new Label(4, row, percentageCalculator(countPass(item.getResultDataList()), item.getResultDataList().size()), contentFormat));
-                    summarySheet.addCell(new Label(5, row, String.valueOf(item.getStartTime()), contentFormat));
-                    summarySheet.addCell(new Label(6, row, String.valueOf(item.getEndTime()), contentFormat));
-                    summarySheet.addCell(new Label(7, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
+                    summarySheet.addCell(new Label(3, row, String.valueOf(countAbandon(item.getResultDataList())), contentFormat));
+                    summarySheet.addCell(new Label(4, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
+                    summarySheet.addCell(new Label(5, row, percentageCalculator(countPass(item.getResultDataList()) + countAbandon(item.getResultDataList()), item.getResultDataList().size()), contentFormat));
+                    summarySheet.addCell(new Label(6, row, String.valueOf(item.getStartTime()), contentFormat));
+                    summarySheet.addCell(new Label(7, row, String.valueOf(item.getEndTime()), contentFormat));
+                    summarySheet.addCell(new Label(8, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
                     totalSize += item.getResultDataList().size();
                     totalTime += ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime());
                     row++;
                 }
                 summarySheet.addCell(new Label(1, row + 1, "Total Num : " + String.valueOf(totalSize), contentFormat));
-                summarySheet.addCell(new Label(7, row + 1, "Total Time : " + formatTotalTime(totalTime), contentFormat));
+                summarySheet.addCell(new Label(8, row + 1, "Total Time : " + formatTotalTime(totalTime), contentFormat));
 
                 int r = 1;
                 for (ResultItem item : resultItemList) {
@@ -174,6 +176,8 @@ public class ExcelUtils {
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));
                         if ("测试通过".equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "PASS" : item.getResultDataList().get(i).getResult(), contentFormat));
+                        } else if ("废弃案例".equals(item.getResultDataList().get(i).getResult())) {
+                            detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "NA" : item.getResultDataList().get(i).getResult(), contentFormat));
                         } else {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "FAIL" : item.getResultDataList().get(i).getResult(), failResultFormat));
                         }
@@ -305,6 +309,16 @@ public class ExcelUtils {
         int count = 0;
         for (ResultData resultData : resultDataList) {
             if ("测试失败".equals(resultData.getResult())) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private static int countAbandon(List<ResultData> resultDataList) {
+        int count = 0;
+        for (ResultData resultData : resultDataList) {
+            if ("废弃案例".equals(resultData.getResult())) {
                 count++;
             }
         }

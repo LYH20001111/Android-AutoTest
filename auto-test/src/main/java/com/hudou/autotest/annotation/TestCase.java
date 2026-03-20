@@ -16,10 +16,13 @@ public @interface TestCase {
 
     boolean abandon() default false;
 
+    String abandonDes() default "";
+
     interface Members {
         String name = "name";
         String enDes = "enDes";
         String tip = "tip";
         String abandon = "abandon";
+        String abandonDes = "abandonDes";
     }
 }

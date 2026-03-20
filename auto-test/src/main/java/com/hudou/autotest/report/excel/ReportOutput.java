@@ -18,10 +18,10 @@ public class ReportOutput {
     private static final String INVALID_CHARACTERS_REGEX = "[<>:\"/\\\\|?*]";
     private final LinkedHashMap<String, String[]> sheetMap = new LinkedHashMap<String, String[]>() {{
         if (AutoTestSettingFragment.isEnglishReport()) {
-            put("TestCase Results Summary", new String[]{"Test Item", "Total Num", "Pass Num", "Fail Num", "Pass Rate", "Start Time", "End Time", "Total Time"});
+            put("TestCase Results Summary", new String[]{"Test Item", "Total Num", "Pass Num", "Abandon Num", "Fail Num", "Pass Rate = (Pass + Abandon) / Total", "Start Time", "End Time", "Total Time"});
             put("TestCase Result Details", new String[]{"Test Item", "CaseName", "Result", "Chinese Description", "English Description", "Detail"});
         } else {
-            put("测试案例结果汇总", new String[]{"案例测试项", "案例总数", "案例通过数", "案例失败数", "通过率", "开始时间", "结束时间", "总时长"});
+            put("测试案例结果汇总", new String[]{"案例测试项", "案例总数", "案例通过数", "案例废弃数", "案例失败数", "通过率 = (通过 + 废弃) / 总数", "开始时间", "结束时间", "总时长"});
             put("测试案例结果详情", new String[]{"案例测试项", "案例号", "测试结果", "中文案例描述", "英文案例描述", "案例详情"});
         }
     }};
