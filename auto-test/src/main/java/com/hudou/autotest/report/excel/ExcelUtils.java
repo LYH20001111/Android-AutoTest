@@ -176,7 +176,7 @@ public class ExcelUtils {
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));
                         if ("测试通过".equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "PASS" : item.getResultDataList().get(i).getResult(), contentFormat));
-                        } else if ("废弃案例".equals(item.getResultDataList().get(i).getResult())) {
+                        } else if ("废弃案例".equals(item.getResultDataList().get(i).getResult()) || "设备不支持".equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "NA" : item.getResultDataList().get(i).getResult(), contentFormat));
                         } else {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "FAIL" : item.getResultDataList().get(i).getResult(), failResultFormat));
@@ -318,7 +318,7 @@ public class ExcelUtils {
     private static int countAbandon(List<ResultData> resultDataList) {
         int count = 0;
         for (ResultData resultData : resultDataList) {
-            if ("废弃案例".equals(resultData.getResult())) {
+            if ("废弃案例".equals(resultData.getResult()) || "设备不支持".equals(resultData.getResult())) {
                 count++;
             }
         }

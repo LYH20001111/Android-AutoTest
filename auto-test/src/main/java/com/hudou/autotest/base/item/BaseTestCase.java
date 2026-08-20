@@ -6,6 +6,8 @@ import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemLi
 
 import android.graphics.Color;
 
+import android.os.Build;
+
 import androidx.annotation.RestrictTo;
 
 import com.hudou.autotest.annotation.TestCase;
@@ -106,7 +108,9 @@ public abstract class BaseTestCase {
                     try {
                         TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
                         boolean isAbandon = testCaseAnnotation != null && testCaseAnnotation.abandon();
-                        if (!isAbandon) {
+                        // 检查当前设备型号是否在不支持列表中
+                        boolean isDeviceUnsupported = isDeviceUnsupported(testCaseAnnotation != null ? testCaseAnnotation.unsupportedDevice() : null);
+                        if (!isAbandon && !isDeviceUnsupported) {
                             // 执行前置方法
                             onCaseStart(method);
 
@@ -123,10 +127,16 @@ public abstract class BaseTestCase {
                             } catch (InterruptedException e) {
                                 throw new RuntimeException(e);
                             }
-                        } else {
+                        } else if (isAbandon) {
                             resultData.setResult("废弃案例");
                             postValue(Color.MAGENTA, "\n！ 废弃案例  ！\n");
                             postValue(Color.MAGENTA, "\n废弃案例说明：" + testCaseAnnotation.abandonDes() + "\n");
+                        } else {
+                            // 当前设备型号不支持该案例，跳过执行并提示用户
+                            resultData.setResult("设备不支持");
+                            String currentDevice = Build.MANUFACTURER + " " + Build.MODEL;
+                            postValue(Color.MAGENTA, "\n！ 该案例不支持当前设备型号：" + currentDevice + " ！\n");
+                            postValue(Color.MAGENTA, "\n该案例不支持的设备型号：" + Arrays.toString(testCaseAnnotation.unsupportedDevice()) + "，当前设备型号：" + currentDevice + "，已跳过执行\n");
                         }
 
                     } catch (Exception e) {
@@ -342,7 +352,7 @@ public abstract class BaseTestCase {
         }
         if (targetItem != null) {
             for (ResultData resultData : targetItem.getResultDataList()) {
-                if ("测试通过".equals(resultData.getResult()) || "废弃案例".equals(resultData.getResult())) {
+                if ("测试通过".equals(resultData.getResult()) || "废弃案例".equals(resultData.getResult()) || "设备不支持".equals(resultData.getResult())) {
                     passCount++;
                 } else {
                     failCount++;
@@ -369,6 +379,27 @@ public abstract class BaseTestCase {
             }
         }
         return count;
+    }
+
+
+    /**
+     * 判断当前设备型号是否在不支持列表中
+     *
+     * @param unsupportedDevices 不支持的设备型号列表
+     * @return true 表示当前设备不支持该案例
+     */
+    private boolean isDeviceUnsupported(String[] unsupportedDevices) {
+        if (unsupportedDevices == null || unsupportedDevices.length == 0) {
+            return false;
+        }
+        String model = Build.MODEL;
+        String manufacturerModel = Build.MANUFACTURER + " " + Build.MODEL;
+        for (String device : unsupportedDevices) {
+            if (device != null && (device.equalsIgnoreCase(model) || device.equalsIgnoreCase(manufacturerModel))) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

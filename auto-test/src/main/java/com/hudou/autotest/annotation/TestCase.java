@@ -18,11 +18,18 @@ public @interface TestCase {
 
     String abandonDes() default "";
 
+    /**
+     * 不支持的设备型号列表，默认支持所有设备。
+     * 支持填写 Build.MODEL（如 SM-G9880）或 Build.MANUFACTURER + " " + Build.MODEL（如 samsung SM-G9880），忽略大小写匹配。
+     */
+    String[] unsupportedDevice() default {};
+
     interface Members {
         String name = "name";
         String enDes = "enDes";
         String tip = "tip";
         String abandon = "abandon";
         String abandonDes = "abandonDes";
+        String unsupportedDevice = "unsupportedDevice";
     }
 }

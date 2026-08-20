@@ -47,4 +47,14 @@ public class TestItem1 extends AutoTestTestItem {
             recordMessage("Hello World" + i);
         }
     }
+
+    @TestCase(name = "TestItem1 test1_004", unsupportedDevice = {"P70", "N950", "Newland N950S"})
+    private void test1_004(){
+        recordMessage("Ni Hao Shi Jie");
+    }
+
+    @TestCase(name = "TestItem1 test1_005", abandon = true)
+    private void test1_005(){
+        recordMessage("Ni Hao Shi Jie");
+    }
 }

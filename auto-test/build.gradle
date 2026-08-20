@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def appVersionCode = 78
-def appVersionName = '1.0.78'
+def appVersionCode = 20001
+def appVersionName = '2.0.01'
 
 android {
     namespace 'com.hudou.autotest'
