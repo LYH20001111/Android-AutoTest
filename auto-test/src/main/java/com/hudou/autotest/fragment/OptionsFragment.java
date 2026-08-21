@@ -35,10 +35,11 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
         String RUN_ALL_CASES = "1";
         String RUN_ONE_CASE = "2";
         String RUN_PART_CASES = "3";
-        String VIEW_ALL_CASES = "4";
-        String VIEW_ABANDON_CASES = "5";
-        String VIEW_UNEXECUTED_CASES = "6";
-        String VIEW_FAILED_CASES = "7";
+        String RUN_PART_NONCONTINUOUS_CASES = "4";
+        String VIEW_ALL_CASES = "5";
+        String VIEW_ABANDON_CASES = "6";
+        String VIEW_UNEXECUTED_CASES = "7";
+        String VIEW_FAILED_CASES = "8";
     }
 
     @SuppressLint("DefaultLocale")
@@ -50,10 +51,11 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
                         "1. 运行所有案例 \n " +
                         "2. 运行某个案例 \n " +
                         "3. 运行部分连续案例 \n " +
-                        "4. 查看所有案例详情(%d) \n " +
-                        "5. 查看废弃案例详情(%d) \n " +
-                        "6. 查看未执行案例详情(%d) \n " +
-                        "7. 查看失败案例详情(%d)",
+                        "4. 运行部分不连续案例 \n\n " +
+                        "5. 查看所有案例详情(%d) \n " +
+                        "6. 查看废弃案例详情(%d) \n " +
+                        "7. 查看未执行案例详情(%d) \n " +
+                        "8. 查看失败案例详情(%d)",
                 ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name),
                 testItem.testItemCasesNum(clz),
                 testItem.testItemAbandonCasesNum(clz),
@@ -86,6 +88,7 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
                         break;
                     case Option.RUN_ONE_CASE:
                     case Option.RUN_PART_CASES:
+                    case Option.RUN_PART_NONCONTINUOUS_CASES:
                     case Option.VIEW_ALL_CASES:
                     case Option.VIEW_ABANDON_CASES:
                     case Option.VIEW_UNEXECUTED_CASES:

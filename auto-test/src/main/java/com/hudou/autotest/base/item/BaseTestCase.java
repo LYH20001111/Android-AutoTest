@@ -64,6 +64,23 @@ public abstract class BaseTestCase {
                 .toArray(Method[]::new), beginId, endId + 1));
     }
 
+    public void runPartCases(Class<? extends BaseTestCase> clz, int[] ids) {
+        if (ids == null || ids.length == 0) {
+            return;
+        }
+        Method[] testCaseMethods = Arrays.stream(clz.getDeclaredMethods())
+                .filter(method -> method.isAnnotationPresent(TestCase.class))
+                .sorted(Comparator.comparing(Method::getName))//设置为只根据方法名进行排序，无视方法关键字
+                .toArray(Method[]::new);
+        Method[] runMethods = Arrays.stream(ids)
+                .filter(id -> id >= 0 && id < testCaseMethods.length)//过滤掉越界的案例号
+                .mapToObj(id -> testCaseMethods[id])
+                .toArray(Method[]::new);
+        if (runMethods.length > 0) {
+            runTestCases(clz, runMethods);
+        }
+    }
+
 
     private void runTestCases(Class<? extends BaseTestCase> clz, Method[] testCaseMethods) {
         ExecutorService executor = Executors.newSingleThreadExecutor();

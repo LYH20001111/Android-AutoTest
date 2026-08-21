@@ -23,6 +23,7 @@ import com.hudou.autotest.constant.TableItem;
 import com.hudou.autotest.report.excel.ReportOutput;
 import com.hudou.autotest.ui.dialog.listener.CustomDialogListener;
 import com.hudou.autotest.ui.dialog.listener.EditDialogListener;
+import com.hudou.autotest.ui.dialog.listener.ListActionDialogListener;
 import com.hudou.autotest.ui.dialog.listener.MultiChoiceDialogListener;
 import com.hudou.autotest.ui.dialog.listener.NewCustomDialogListener;
 import com.hudou.autotest.ui.dialog.listener.NotifyDialogListener;
@@ -426,6 +427,56 @@ class Dialog {
         loadingAlertDialog.setCanceledOnTouchOutside(false); // 设置点击外部区域是否取消对话框
         loadingAlertDialog.setCancelable(false);
         loadingAlertDialog.show();
+    }
+
+    /**
+     * 创建列表 + 操作按钮对话框（取消/删除/修改）
+     *
+     * @param context
+     * @param titleId  对话框标题
+     * @param items    选项
+     * @param callback 回调（selectedIndex：选中项索引 0 开始，取消为 -1；actionIndex：0=取消、1=删除、2=修改）
+     */
+    public static void listActionDialog(final Context context, @StringRes int titleId, final String[] items, final ListActionDialogListener callback) {
+        final Handler handler = new Handler(Looper.getMainLooper());
+        final AtomicBoolean dialogShown = new AtomicBoolean(false);
+
+        new Thread(() -> {
+            if (items == null || items.length < 1) {
+                return;
+            }
+            yourChoice = 0;
+            Looper.prepare();
+            singleDialog = new AlertDialog.Builder(context)
+                    .setTitle(titleId)
+                    .setSingleChoiceItems(items, 0, (dialog, which) -> yourChoice = which)
+                    .setNeutralButton(R.string.cancel, (dialog, which) -> {
+                        dialog.dismiss();
+                        handler.post(() -> callback.onResult(-1, 0));
+                    })
+                    .setNegativeButton(R.string.execution_operation_delete, (dialog, which) -> {
+                        dialog.dismiss();
+                        handler.post(() -> callback.onResult(yourChoice, 1));
+                    })
+                    .setPositiveButton(R.string.execution_operation_modify, (dialog, which) -> {
+                        dialog.dismiss();
+                        handler.post(() -> callback.onResult(yourChoice, 2));
+                    })
+                    .setCancelable(false)
+                    .create();
+            singleDialog.show();
+            dialogShown.set(true);
+            Looper.loop();
+        }).start();
+
+        // 等待对话框显示
+        while (!dialogShown.get()) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void loadingFilesDialog(Activity activity, List<String> fileDirList, String loadedDirectory) {

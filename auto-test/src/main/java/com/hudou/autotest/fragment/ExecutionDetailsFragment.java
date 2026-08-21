@@ -4,6 +4,7 @@ import static com.hudou.autotest.fragment.OptionsFragment.INVALID_VALUE;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_ALL_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_ONE_CASE;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_PART_CASES;
+import static com.hudou.autotest.fragment.OptionsFragment.Option.RUN_PART_NONCONTINUOUS_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_ABANDON_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_ALL_CASES;
 import static com.hudou.autotest.fragment.OptionsFragment.Option.VIEW_FAILED_CASES;
@@ -38,6 +39,7 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     private int testId = INVALID_VALUE;
     private int beginId = INVALID_VALUE;
     private int endId = INVALID_VALUE;
+    private int[] testIds;
     private boolean returnAllowed = false;
     private OnBackPressedCallback onBackPressedCallback;
     private String option;
@@ -50,6 +52,13 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
         this.testId = testId;
         this.beginId = beginId;
         this.endId = endId;
+    }
+
+    public ExecutionDetailsFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, @NonNull String option, int[] testIds) {
+        this.clz = clz;
+        this.testItem = testItem;
+        this.option = option;
+        this.testIds = testIds;
     }
 
     @Override
@@ -111,6 +120,10 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
                 viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + beginId + "  ~  " + endId);
                 testItem.runPartContinueCases(clz, beginId, endId);
                 break;
+            case RUN_PART_NONCONTINUOUS_CASES:
+                viewBinding.tvLine2Message.setText(viewBinding.tvLine2Message.getText().toString() + joinCaseIds(testIds));
+                testItem.runPartCases(clz, testIds);
+                break;
             case VIEW_ALL_CASES:
             case VIEW_ABANDON_CASES:
             case VIEW_UNEXECUTED_CASES:
@@ -135,6 +148,20 @@ public class ExecutionDetailsFragment extends BaseFragment<AutoTestExcutionDetai
     public void onDestroy() {
         super.onDestroy();
         onBackPressedCallback.remove();
+    }
+
+    private String joinCaseIds(int[] ids) {
+        if (ids == null || ids.length == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < ids.length; i++) {
+            if (i > 0) {
+                sb.append(", ");
+            }
+            sb.append(ids[i]);
+        }
+        return sb.toString();
     }
 
     public void onBackPressedLongPress() {

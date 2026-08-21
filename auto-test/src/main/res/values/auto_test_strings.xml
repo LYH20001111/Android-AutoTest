@@ -6,6 +6,12 @@
     <string name="execution_line2">请输入测试案例号 ：</string>
     <string name="execution_begin_id">点击输入起始案例号</string>
     <string name="execution_end_id">点击输入结束案例号</string>
+    <string name="execution_select_edit_title">选择要编辑的案例号</string>
+    <string name="execution_operation_delete">删除</string>
+    <string name="execution_operation_modify">修改</string>
+    <string name="execution_input_new_case_id_hint">请输入新的案例号</string>
+    <string name="execution_selected_ids">已选案例(%1$d) ：</string>
+    <string name="execution_need_add_case_first">请先输入案例号并点击确认加入待执行列表</string>
     <string name="auto_test">Auto Test</string>
     <string name="home_welcome">欢迎使用自动化测试框架</string>
     <string name="item_name">这是案例项名字</string>

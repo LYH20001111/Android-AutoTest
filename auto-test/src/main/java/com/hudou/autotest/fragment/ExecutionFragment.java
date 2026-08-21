@@ -27,6 +27,9 @@ import com.hudou.autotest.ui.keyboard.NumberKeyBoardView;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SuppressLint("SetTextI18n")
 public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBinding> {
 
@@ -36,6 +39,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
     private int testId = INVALID_VALUE;
     private int beginId = INVALID_VALUE;
     private int endId = INVALID_VALUE;
+    private final List<Integer> selectedIds = new ArrayList<>();
 
     public ExecutionFragment(Class<? extends BaseTestCase> clz, BaseTestCase testItem, String option) {
         this.clz = clz;
@@ -68,6 +72,10 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
             @Override
             public void onOK() {
+                if (OptionsFragment.Option.RUN_PART_NONCONTINUOUS_CASES.equals(option)) {
+                    handleNonContinuousCaseOnOK();
+                    return;
+                }
                 if (!"".equals(viewBinding.tvCaseId.getText().toString())) {
                     try {
                         testId = Integer.parseInt(viewBinding.tvCaseId.getText().toString());
@@ -145,6 +153,50 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 }));
             }
         });
+        viewBinding.tvSelectedIds.setOnClickListener(new MyOnClickListener() {
+            @Override
+            public void dealClick(View v) {
+                if (selectedIds.isEmpty()) {
+                    return;
+                }
+                Dialog.listActionDialog(getContext(), R.string.execution_select_edit_title,
+                        selectedIds.stream().map(String::valueOf).toArray(String[]::new),
+                        (targetIndex, actionIndex) -> {
+                            if (targetIndex == -1 || targetIndex >= selectedIds.size()) {
+                                return;
+                            }
+                            if (actionIndex == 1) {
+                                // 删除
+                                getActivity().runOnUiThread(() -> {
+                                    int removed = selectedIds.remove(targetIndex);
+                                    refreshSelectedIds();
+//                                    AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "已从待执行列表删除案例号：" + removed));
+                                });
+                            } else if (actionIndex == 2) {
+                                // 修改
+                                Dialog.editDialog(getContext(), R.string.execution_input_new_case_id_hint, true, message -> getActivity().runOnUiThread(() -> {
+                                    int newId;
+                                    try {
+                                        newId = Integer.parseInt(message);
+                                    } catch (NumberFormatException ignored) {
+                                        newId = INVALID_VALUE;
+                                    }
+                                    int oldId = selectedIds.get(targetIndex);
+                                    if (newId >= testItem.testItemCasesNum(clz) || newId == INVALID_VALUE) {
+                                        Toast.makeText(getContext(), R.string.please_input_correct_case_id, Toast.LENGTH_SHORT).show();
+                                    } else if (newId != oldId && selectedIds.contains(newId)) {
+//                                        AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.RED, "！ 案例号 " + newId + " 已在待执行列表中 ！"));
+                                        Dialog.notifyDialog(getContext(),"！ 案例号 " + newId + " 已在待执行列表中 ！");
+                                    } else {
+                                        selectedIds.set(targetIndex, newId);
+                                        refreshSelectedIds();
+//                                        AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "已将案例号 " + oldId + " 修改为 " + newId + "，当前待执行列表：" + formatSelectedIds()));
+                                    }
+                                }));
+                            }
+                        });
+            }
+        });
     }
 
 
@@ -160,6 +212,13 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 viewBinding.llLine3.setVisibility(View.VISIBLE);
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                break;
+            case OptionsFragment.Option.RUN_PART_NONCONTINUOUS_CASES:
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.tvSelectedIds.setVisibility(View.VISIBLE);
+                refreshSelectedIds();
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.GRAY, "\n点击上方待执行列表可编辑已选案例\n"));
                 break;
             case OptionsFragment.Option.VIEW_ALL_CASES:
                 viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
@@ -189,6 +248,52 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 break;
         }
 
+    }
+
+    private void handleNonContinuousCaseOnOK() {
+        String input = viewBinding.tvCaseId.getText().toString();
+        if (!"".equals(input)) {
+            int id;
+            try {
+                id = Integer.parseInt(input);
+            } catch (NumberFormatException ignored) {
+                id = INVALID_VALUE;
+            }
+            viewBinding.tvCaseId.setText("");
+            if (id >= testItem.testItemCasesNum(clz) || id == INVALID_VALUE) {
+                Dialog.notifyDialog(getContext(), getString(R.string.please_input_correct_case_id));
+            } else if (selectedIds.contains(id)) {
+//                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "！ 案例号 " + id + " 已在待执行列表中 ！"));
+                Dialog.notifyDialog(getContext(),"！ 案例号 " + id + " 已在待执行列表中 ！");
+            } else {
+                selectedIds.add(id);
+                refreshSelectedIds();
+//                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "已添加案例号 ：" + id + "; 当前待执行列表 ：" + formatSelectedIds() + ""));
+            }
+        } else if (!selectedIds.isEmpty()) {
+            viewBinding.getRoot().postDelayed(() -> {
+                ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, OptionsFragment.Option.RUN_PART_NONCONTINUOUS_CASES,
+                        selectedIds.stream().mapToInt(Integer::intValue).toArray());
+                getActivity().runOnUiThread(() -> {
+                    FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
+                    supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_layout, executionDetailsFragment, EXECUTION_DETAIL_TAG)
+                            .addToBackStack(executionDetailsFragment.getClass().getSimpleName())
+                            .commit();
+                    supportFragmentManager.executePendingTransactions();
+                });
+            }, 100);//让事件系统先消化掉残留事件
+        } else {
+            Dialog.notifyDialog(getContext(), getString(R.string.execution_need_add_case_first));
+        }
+    }
+
+    private void refreshSelectedIds() {
+        viewBinding.tvSelectedIds.setText(getString(R.string.execution_selected_ids, selectedIds.size()) + formatSelectedIds());
+    }
+
+    private String formatSelectedIds() {
+        return String.join(", ", selectedIds.stream().map(String::valueOf).toArray(String[]::new));
     }
 
     @Override
