@@ -14,6 +14,7 @@ import com.hudou.autotest.MainActivity;
 import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.Function;
 import com.hudou.autotest.annotation.Navigation;
+import com.hudou.autotest.constant.FunctionType;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
 import com.hudou.autotest.ui.dialog.NoSynDialogUtils;
 
@@ -65,5 +66,10 @@ public class SettingFragment extends AutoTestSettingFragment {
     @Function(title = "额外功能 1 ")
     private void function1() {
 
+    }
+
+    @Function(title = "额外功能 2 开关", type = FunctionType.SWITCH, isChecked = false)
+    private boolean function2() {
+        return false;
     }
 }

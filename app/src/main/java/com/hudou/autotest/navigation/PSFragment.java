@@ -2,7 +2,6 @@ package com.hudou.autotest.navigation;
 
 
 import android.os.Bundle;
-;
 import androidx.annotation.Nullable;
 
 import com.hudou.autotest.fragment.AutoTestTestListFragment;
