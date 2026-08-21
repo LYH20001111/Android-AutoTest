@@ -129,6 +129,10 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
             @Override
             public void dealClick(View v) {
                 Dialog.editDialog(getContext(), R.string.input_end_id_hint, true, message -> getActivity().runOnUiThread(() -> {
+                    if (beginId == INVALID_VALUE) {
+                        Toast.makeText(getContext(), R.string.input_begin_id_first, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     try {
                         endId = Integer.parseInt(message);
                     } catch (NumberFormatException ignored) {
@@ -147,6 +151,11 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                                         .addToBackStack(executionDetailsFragment.getClass().getSimpleName())
                                         .commit();
                                 supportFragmentManager.executePendingTransactions();
+                                // 开始执行后清空本次输入，返回本页时不再残留
+                                beginId = INVALID_VALUE;
+                                endId = INVALID_VALUE;
+                                viewBinding.btnBeginId.setText(getString(R.string.begin_id));
+                                viewBinding.btnEndId.setText(getString(R.string.end_id));
                             });
                         }
                     }
@@ -170,7 +179,6 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                                 getActivity().runOnUiThread(() -> {
                                     int removed = selectedIds.remove(targetIndex);
                                     refreshSelectedIds();
-//                                    AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "已从待执行列表删除案例号：" + removed));
                                 });
                             } else if (actionIndex == 2) {
                                 // 修改
@@ -185,12 +193,10 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                                     if (newId >= testItem.testItemCasesNum(clz) || newId == INVALID_VALUE) {
                                         Toast.makeText(getContext(), R.string.please_input_correct_case_id, Toast.LENGTH_SHORT).show();
                                     } else if (newId != oldId && selectedIds.contains(newId)) {
-//                                        AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.RED, "！ 案例号 " + newId + " 已在待执行列表中 ！"));
-                                        Dialog.notifyDialog(getContext(),"！ 案例号 " + newId + " 已在待执行列表中 ！");
+                                        Dialog.notifyDialog(getContext(),getString(R.string.selected_id_in_selected_ids, newId));
                                     } else {
                                         selectedIds.set(targetIndex, newId);
                                         refreshSelectedIds();
-//                                        AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "已将案例号 " + oldId + " 修改为 " + newId + "，当前待执行列表：" + formatSelectedIds()));
                                     }
                                 }));
                             }
@@ -218,7 +224,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 viewBinding.tvSelectedIds.setVisibility(View.VISIBLE);
                 refreshSelectedIds();
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
-                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.GRAY, "\n点击上方待执行列表可编辑已选案例\n"));
+                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.GRAY, getString(R.string.edit_selected_id_hint)));
                 break;
             case OptionsFragment.Option.VIEW_ALL_CASES:
                 viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
@@ -263,12 +269,10 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
             if (id >= testItem.testItemCasesNum(clz) || id == INVALID_VALUE) {
                 Dialog.notifyDialog(getContext(), getString(R.string.please_input_correct_case_id));
             } else if (selectedIds.contains(id)) {
-//                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "！ 案例号 " + id + " 已在待执行列表中 ！"));
-                Dialog.notifyDialog(getContext(),"！ 案例号 " + id + " 已在待执行列表中 ！");
+                Dialog.notifyDialog(getContext(),getString(R.string.selected_id_in_selected_ids, id));
             } else {
                 selectedIds.add(id);
                 refreshSelectedIds();
-//                AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, "已添加案例号 ：" + id + "; 当前待执行列表 ：" + formatSelectedIds() + ""));
             }
         } else if (!selectedIds.isEmpty()) {
             viewBinding.getRoot().postDelayed(() -> {
@@ -281,6 +285,10 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                             .addToBackStack(executionDetailsFragment.getClass().getSimpleName())
                             .commit();
                     supportFragmentManager.executePendingTransactions();
+                    // 开始执行后清空本次输入，返回本页时不再残留
+                    selectedIds.clear();
+                    refreshSelectedIds();
+                    viewBinding.tvCaseId.setText("");
                 });
             }, 100);//让事件系统先消化掉残留事件
         } else {
@@ -304,7 +312,6 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
             viewBinding.llLine2.setFocusableInTouchMode(true);
             viewBinding.llLine2.requestFocus();
             viewBinding.llLine2.setOnKeyListener((v, keyCode, event) -> {
-                Log.d("AutoTest", "keyCode = " + keyCode);
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     switch (keyCode) {
                         case KeyEvent.KEYCODE_0:

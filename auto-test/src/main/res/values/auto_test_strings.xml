@@ -11,6 +11,8 @@
     <string name="execution_operation_modify">修改</string>
     <string name="execution_input_new_case_id_hint">请输入新的案例号</string>
     <string name="execution_selected_ids">已选案例(%1$d) ：</string>
+    <string name="edit_selected_id_hint">\n点击上方待执行列表可编辑已选案例\n</string>
+    <string name="selected_id_in_selected_ids">案例号 %d 已在待执行列表中</string>
     <string name="execution_need_add_case_first">请先输入案例号并点击确认加入待执行列表</string>
     <string name="auto_test">Auto Test</string>
     <string name="home_welcome">欢迎使用自动化测试框架</string>
@@ -53,6 +55,7 @@
     <string name="cancelled">Cancelled</string>
     <string name="begin_id_not_allowed">输入的起始案例号不符合</string>
     <string name="end_id_not_allowed">输入的结束案例号不符合</string>
+    <string name="input_begin_id_first">请先输入起始案例号</string>
     <string name="end_id">"结束案例号 : "</string>
     <string name="input_end_id_hint">请输入结束案例号</string>
     <string name="input_begin_id_hint">请输入起始案例号</string>
