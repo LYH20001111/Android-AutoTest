@@ -18,6 +18,7 @@ import com.hudou.autotest.constant.ShowMessage;
 import com.hudou.autotest.database.entity.ResultDataEntity;
 import com.hudou.autotest.database.entity.ResultItemEntity;
 import com.hudou.autotest.report.excel.ExcelUtils;
+import com.hudou.autotest.util.DeviceUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.IOException;
@@ -406,17 +407,7 @@ public abstract class BaseTestCase {
      * @return true 表示当前设备不支持该案例
      */
     private boolean isDeviceUnsupported(String[] unsupportedDevices) {
-        if (unsupportedDevices == null || unsupportedDevices.length == 0) {
-            return false;
-        }
-        String model = Build.MODEL;
-        String manufacturerModel = Build.MANUFACTURER + " " + Build.MODEL;
-        for (String device : unsupportedDevices) {
-            if (device != null && (device.equalsIgnoreCase(model) || device.equalsIgnoreCase(manufacturerModel))) {
-                return true;
-            }
-        }
-        return false;
+        return DeviceUtils.isDeviceUnsupported(unsupportedDevices);
     }
 
 

@@ -3,6 +3,7 @@ package com.hudou.autotest.fragment;
 import static com.hudou.autotest.constant.FragmentTag.EXECUTION_DETAIL_TAG;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,6 +19,7 @@ import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.BaseTestCase;
 import com.hudou.autotest.databinding.AutoTestOptionsFragmentBinding;
 import com.hudou.autotest.ui.keyboard.NumberKeyBoardView;
+import com.hudou.autotest.util.DeviceUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
 
@@ -66,6 +68,31 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // 当前设备命中测试项不支持设备列表时，进入选项页即弹窗提示不适用
+        if (isItemUnsupportedOnCurrentDevice()) {
+            Dialog.notifyDialog(getContext(), buildItemUnsupportedMessage(R.string.test_item_unsupported_device_entry));
+        }
+    }
+
+    /**
+     * 判断当前设备是否命中该测试项注解声明的不支持设备列表
+     */
+    private boolean isItemUnsupportedOnCurrentDevice() {
+        TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
+        return testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
+    }
+
+    /**
+     * 拼装不适用提示文案：默认设备型号提示 + 宿主应用设置的原因说明（非空时）
+     */
+    private String buildItemUnsupportedMessage(int messageRes) {
+        String message = getString(R.string.circle_navigation) + getString(messageRes, Build.MANUFACTURER + " " + Build.MODEL);
+        TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
+        if (testItemAnnotation != null && !"".equals(testItemAnnotation.unsupportedDeviceDes())) {
+            message = message + "\n"
+                    + getString(R.string.circle_navigation) + testItemAnnotation.unsupportedDeviceDes();
+        }
+        return message;
     }
 
     @Override
@@ -75,6 +102,11 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
             public void onInsertKeyEvent(String text) {
                 switch (text) {
                     case Option.RUN_ALL_CASES:
+                        // 测试项不适用当前设备时，拦截运行类选项并弹窗提示，不进入执行流程
+                        if (isItemUnsupportedOnCurrentDevice()) {
+                            Dialog.notifyDialog(getContext(), buildItemUnsupportedMessage(R.string.test_item_unsupported_device_run_blocked));
+                            break;
+                        }
                         ExecutionDetailsFragment executionDetailsFragment = new ExecutionDetailsFragment(clz, testItem, Option.RUN_ALL_CASES, INVALID_VALUE, INVALID_VALUE, INVALID_VALUE);
                         getActivity().runOnUiThread(() -> {
                             FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
@@ -89,16 +121,33 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
                     case Option.RUN_ONE_CASE:
                     case Option.RUN_PART_CASES:
                     case Option.RUN_PART_NONCONTINUOUS_CASES:
-                    case Option.VIEW_ALL_CASES:
-                    case Option.VIEW_ABANDON_CASES:
-                    case Option.VIEW_UNEXECUTED_CASES:
-                    case Option.VIEW_FAILED_CASES:
+                        // 测试项不适用当前设备时，拦截运行类选项并弹窗提示，不进入执行流程
+                        if (isItemUnsupportedOnCurrentDevice()) {
+                            Dialog.notifyDialog(getContext(), buildItemUnsupportedMessage(R.string.test_item_unsupported_device_run_blocked));
+                            break;
+                        }
                         ExecutionFragment executionFragment = new ExecutionFragment(clz, testItem, text);
                         getActivity().runOnUiThread(() -> {
                             FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
                             supportFragmentManager.beginTransaction()
                                     .replace(R.id.main_layout, executionFragment)
                                     .addToBackStack(executionFragment.getClass().getSimpleName())
+                                    .commit();
+                            supportFragmentManager.executePendingTransactions();
+
+                        });
+                        break;
+                    // 查看类选项不受不支持设备拦截影响，正常放行
+                    case Option.VIEW_ALL_CASES:
+                    case Option.VIEW_ABANDON_CASES:
+                    case Option.VIEW_UNEXECUTED_CASES:
+                    case Option.VIEW_FAILED_CASES:
+                        ExecutionFragment viewFragment = new ExecutionFragment(clz, testItem, text);
+                        getActivity().runOnUiThread(() -> {
+                            FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
+                            supportFragmentManager.beginTransaction()
+                                    .replace(R.id.main_layout, viewFragment)
+                                    .addToBackStack(viewFragment.getClass().getSimpleName())
                                     .commit();
                             supportFragmentManager.executePendingTransactions();
 

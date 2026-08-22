@@ -8,8 +8,8 @@ import com.hudou.autotest.base.item.AutoTestTestItem;
 import java.lang.reflect.Method;
 
 
-@TestItem(name = "Test1", description = "测试项目1", unsupportedDevice = {"DUK-AL20"})
-public class TestItem1 extends AutoTestTestItem {
+@TestItem(name = "Test1", description = "测试项目1")
+public class TestItem3 extends AutoTestTestItem {
 
     @Override
     public void onCaseStart(Method method) {

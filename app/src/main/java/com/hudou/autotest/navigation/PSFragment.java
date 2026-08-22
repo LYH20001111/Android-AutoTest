@@ -9,10 +9,12 @@ import com.hudou.autotest.item.TestItem1;
 import com.hudou.autotest.item.TestItem2;
 import com.hudou.autotest.annotation.Navigation;
 import com.hudou.autotest.annotation.TestItemClass;
+import com.hudou.autotest.item.TestItem3;
+import com.hudou.autotest.item.TestItem4;
 
 
 @Navigation(name = "AutoTest")
-@TestItemClass(clz = {TestItem1.class, TestItem2.class})
+@TestItemClass(clz = {TestItem1.class, TestItem2.class, TestItem3.class, TestItem4.class})
 public class PSFragment extends AutoTestTestListFragment {
 
     @Override

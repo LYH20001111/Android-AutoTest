@@ -4,13 +4,10 @@ import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.item.AutoTestTestItem;
 
-
 import java.lang.reflect.Method;
 
-@TestItem(name = "Test2", description = "测试项目2",
-        unsupportedDevice = {"HUAWEI DUK-AL20"},
-        unsupportedDeviceDes = "该设备缺少本测试项所需的外设，无法进行测试")
-public class TestItem2 extends AutoTestTestItem {
+@TestItem(name = "Test2", description = "测试项目2")
+public class TestItem4 extends AutoTestTestItem {
     @Override
     public void onCaseStart(Method method) {
         super.onCaseStart(method);
