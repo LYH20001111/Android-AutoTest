@@ -83,6 +83,10 @@
     <color name="Transparent">#000000</color>
 
 
+    <!--unsupported test item-->
+    <color name="test_item_unsupported_bg">#F0F0F0</color>
+    <color name="test_item_unsupported_text">#AAAAAA</color>
+
     <color name="ivory">#fffff0</color><!--象牙色 -->
     <color name="lightyellow">#ffffe0</color><!--亮黄色 -->
     <color name="yellow">#ffff00</color><!--黄色 -->

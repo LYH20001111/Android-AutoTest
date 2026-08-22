@@ -2,6 +2,7 @@ package com.hudou.autotest.constant;
 
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.item.BaseTestCase;
+import com.hudou.autotest.util.DeviceUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
 public class Item {
@@ -25,6 +26,11 @@ public class Item {
 
     public Class<? extends BaseTestCase> getClz() {
         return clz;
+    }
+
+    public boolean isUnsupportedOnCurrentDevice() {
+        TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
+        return testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
     }
 
 }

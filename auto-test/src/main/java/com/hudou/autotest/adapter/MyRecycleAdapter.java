@@ -39,8 +39,9 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.Recy
 
     @Override
     public void onBindViewHolder(@NonNull MyRecycleAdapter.RecycleViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.tvItem.setText(itemList.get(position).getName());
-        holder.tvDescription.setText(itemList.get(position).getDescription());
+        Item item = itemList.get(position);
+        holder.tvItem.setText(item.getName());
+        holder.tvDescription.setText(item.getDescription());
         holder.llItemType.setOnClickListener(new MyOnClickListener() {
             @Override
             public void dealClick(View v) {
@@ -49,6 +50,13 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.Recy
         });
 //        holder.imgBtnDetail.setOnClickListener(v -> { if (!isFastClick()) enterOptionFragment(position);});
         //holder.imgBtnDetail.setOnClickListener(v -> holder.llItemType.performClick());// 两行代码相同的效果
+
+        if (item.isUnsupportedOnCurrentDevice()) {
+            holder.llItemType.setBackgroundColor(holder.itemView.getContext().getColor(R.color.test_item_unsupported_bg));
+            holder.tvItem.setTextColor(holder.itemView.getContext().getColor(R.color.test_item_unsupported_text));
+            holder.tvDescription.setTextColor(holder.itemView.getContext().getColor(R.color.test_item_unsupported_text));
+            holder.tvUnsupportedHint.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -60,6 +68,7 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.Recy
         LinearLayout llItemType;
         TextView tvItem;
         TextView tvDescription;
+        TextView tvUnsupportedHint;
         ImageButton imgBtnDetail;
 
         public RecycleViewHolder(@NonNull View itemView) {
@@ -67,6 +76,7 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.Recy
             llItemType = itemView.findViewById(R.id.ll_item_type);
             tvItem = itemView.findViewById(R.id.tv_item);
             tvDescription = itemView.findViewById(R.id.tv_description);
+            tvUnsupportedHint = itemView.findViewById(R.id.tv_unsupported_hint);
             imgBtnDetail = itemView.findViewById(R.id.imgbtn_detail);
         }
     }

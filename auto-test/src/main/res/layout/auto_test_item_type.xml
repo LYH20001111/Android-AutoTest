@@ -49,6 +49,19 @@
                 android:text="@string/item_description"
                 android:textColor="#422A2A" />
 
+            <TextView
+                android:id="@+id/tv_unsupported_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="left"
+                android:layout_gravity="left"
+                android:textSize="12sp"
+                android:text="@string/test_item_unsupported_hint"
+                android:textColor="@color/test_item_unsupported_text"
+                android:visibility="gone" />
+
         </LinearLayout>
 
 
