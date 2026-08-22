@@ -211,8 +211,6 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
         return finalFragmentList;
     }
 
-    public abstract void addNavigationFragment(List<Fragment> list);
-
     private int getWindowWidth() {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
