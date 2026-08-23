@@ -1,6 +1,7 @@
 package com.hudou.autotest.adapter;
 
 import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,7 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.Recy
         //holder.imgBtnDetail.setOnClickListener(v -> holder.llItemType.performClick());// 两行代码相同的效果
 
         if (item.isUnsupportedOnCurrentDevice()) {
-            holder.llItemType.setBackgroundColor(holder.itemView.getContext().getColor(R.color.test_item_unsupported_bg));
+            holder.llItemType.setBackgroundTintList(ColorStateList.valueOf(holder.itemView.getContext().getColor(R.color.test_item_unsupported_bg)));
             holder.tvItem.setTextColor(holder.itemView.getContext().getColor(R.color.test_item_unsupported_text));
             holder.tvDescription.setTextColor(holder.itemView.getContext().getColor(R.color.test_item_unsupported_text));
             holder.tvUnsupportedHint.setVisibility(View.VISIBLE);
