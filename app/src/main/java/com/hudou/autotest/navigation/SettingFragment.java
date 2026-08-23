@@ -41,7 +41,7 @@ public class SettingFragment extends AutoTestSettingFragment {
     @Override
     public String onSetReportPath() {
         //changeEditPathCap(EditCap.ON);
-        setIsEnglishReport(true);
+//        setIsEnglishReport(true);
         return super.onSetReportPath();
     }
 

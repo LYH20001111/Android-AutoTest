@@ -67,6 +67,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
     public static FileOutputStream fos;
     private static AppDatabase db;
     private static final Map<Class<? extends BaseTestCase>, String> CASE_DETAILS = new ConcurrentHashMap<>();// 缓存容器
+    public static Class<?>[] allTestItemClasses;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

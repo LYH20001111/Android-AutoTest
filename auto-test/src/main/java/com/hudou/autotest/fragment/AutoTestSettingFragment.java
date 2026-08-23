@@ -45,6 +45,7 @@ import com.hudou.autotest.fragment.listener.SettingInterface;
 import com.hudou.autotest.listener.MyOnClickListener;
 import com.hudou.autotest.report.excel.ReportOutput;
 import com.hudou.autotest.ui.dialog.listener.NotifyOptionDialogListener;
+import com.hudou.autotest.util.DeviceUtils;
 import com.hudou.autotest.util.PermissionUtil;
 import com.hudou.autotest.util.ReflectionUtils;
 import com.hudou.autotest.util.SharedPreferencesUtil;
@@ -245,9 +246,34 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                 break;
                             case ReportChild.RECORD_SUMMARY:
                                 List<TableItem> items = new ArrayList<>();
-                                for (ResultItem resultItem : resultItemList) {
-                                    items.add(new TableItem(ReflectionUtils.getAnnotationValue(resultItem.getClz(), TestItem.class, TestItem.Members.name),
-                                            countFail(resultItem.getResultDataList()), resultItem.getResultDataList().size()));
+                                Class<?>[] allClasses = AutoTestMainActivity.allTestItemClasses;
+                                if (allClasses != null) {
+                                    for (Class<?> clz : allClasses) {
+                                        String name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name);
+                                        TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
+                                        boolean unsupported = testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
+                                        if (unsupported) {
+                                            items.add(new TableItem(name, "不支持", "不支持"));
+                                        } else {
+                                            ResultItem found = null;
+                                            for (ResultItem ri : resultItemList) {
+                                                if (ri.getClz().equals(clz)) {
+                                                    found = ri;
+                                                    break;
+                                                }
+                                            }
+                                            if (found != null) {
+                                                items.add(new TableItem(name, String.valueOf(countFail(found.getResultDataList())), String.valueOf(found.getResultDataList().size())));
+                                            } else {
+                                                items.add(new TableItem(name, "0", "0"));
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    for (ResultItem resultItem : resultItemList) {
+                                        items.add(new TableItem(ReflectionUtils.getAnnotationValue(resultItem.getClz(), TestItem.class, TestItem.Members.name),
+                                                String.valueOf(countFail(resultItem.getResultDataList())), String.valueOf(resultItem.getResultDataList().size())));
+                                    }
                                 }
                                 Dialog.createTableDialog(getContext(), getString(R.string.record_summary), items);
                                 break;

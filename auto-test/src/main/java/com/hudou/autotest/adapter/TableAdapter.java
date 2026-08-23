@@ -31,8 +31,8 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TableItem item = items.get(position);
         holder.caseItem.setText(item.getCaseItem());
-        holder.failCount.setText(String.valueOf(item.getFailCount()));
-        holder.totalCount.setText(String.valueOf(item.getTotalCount()));
+        holder.failCount.setText(item.getFailCount());
+        holder.totalCount.setText(item.getTotalCount());
     }
 
     @Override

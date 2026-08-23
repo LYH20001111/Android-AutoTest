@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hudou.autotest.adapter.MyRecycleAdapter;
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.annotation.TestItemClass;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
 import com.hudou.autotest.base.item.AutoTestTestItem;
 import com.hudou.autotest.base.item.BaseTestCase;
@@ -40,6 +41,7 @@ public abstract class AutoTestTestListFragment extends BaseFragment<AutoTestTest
                     ((BaseTestCase) ReflectionUtils.createInstance(testItemClass)).viewCaseDetails(testItemClass);
                 }
             }
+            AutoTestMainActivity.allTestItemClasses = testItems;
         }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);

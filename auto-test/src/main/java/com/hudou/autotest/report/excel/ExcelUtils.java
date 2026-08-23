@@ -3,11 +3,14 @@ package com.hudou.autotest.report.excel;
 import android.content.Context;
 import android.os.Environment;
 
+import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.TestItem;
+import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
 import com.hudou.autotest.util.ATLoggerUtils;
+import com.hudou.autotest.util.DeviceUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
 import java.io.File;
@@ -149,20 +152,73 @@ public class ExcelUtils {
                 int row = 1;
                 long totalSize = 0;
                 long totalTime = 0;
-                for (ResultItem item : resultItemList) {
-                    ATLoggerUtils.d("item = " + item.getClz().getName());
-                    summarySheet.addCell(new Label(0, row, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
-                    summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
-                    summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
-                    summarySheet.addCell(new Label(3, row, String.valueOf(countAbandon(item.getResultDataList())), contentFormat));
-                    summarySheet.addCell(new Label(4, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
-                    summarySheet.addCell(new Label(5, row, percentageCalculator(countPass(item.getResultDataList()) + countAbandon(item.getResultDataList()), item.getResultDataList().size()), contentFormat));
-                    summarySheet.addCell(new Label(6, row, String.valueOf(item.getStartTime()), contentFormat));
-                    summarySheet.addCell(new Label(7, row, String.valueOf(item.getEndTime()), contentFormat));
-                    summarySheet.addCell(new Label(8, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
-                    totalSize += item.getResultDataList().size();
-                    totalTime += ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime());
-                    row++;
+                Class<?>[] allClasses = AutoTestMainActivity.allTestItemClasses;
+                if (allClasses != null) {
+                    for (Class<?> clz : allClasses) {
+                        ATLoggerUtils.d("item = " + clz.getName());
+                        String name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name);
+                        TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
+                        boolean unsupported = testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
+                        if (unsupported) {
+                            summarySheet.addCell(new Label(0, row, name, contentFormat));
+                            summarySheet.addCell(new Label(1, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(2, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(3, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(4, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(5, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(6, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(7, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(8, row, context.getString(R.string.unsupported_message), contentFormat));
+                        } else {
+                            ResultItem found = null;
+                            for (ResultItem ri : resultItemList) {
+                                if (ri.getClz().equals(clz)) {
+                                    found = ri;
+                                    break;
+                                }
+                            }
+                            if (found != null) {
+                                summarySheet.addCell(new Label(0, row, name, contentFormat));
+                                summarySheet.addCell(new Label(1, row, String.valueOf(found.getResultDataList().size()), contentFormat));
+                                summarySheet.addCell(new Label(2, row, String.valueOf(countPass(found.getResultDataList())), contentFormat));
+                                summarySheet.addCell(new Label(3, row, String.valueOf(countAbandon(found.getResultDataList())), contentFormat));
+                                summarySheet.addCell(new Label(4, row, String.valueOf(countFail(found.getResultDataList())), contentFormat));
+                                summarySheet.addCell(new Label(5, row, percentageCalculator(countPass(found.getResultDataList()) + countAbandon(found.getResultDataList()), found.getResultDataList().size()), contentFormat));
+                                summarySheet.addCell(new Label(6, row, String.valueOf(found.getStartTime()), contentFormat));
+                                summarySheet.addCell(new Label(7, row, String.valueOf(found.getEndTime()), contentFormat));
+                                summarySheet.addCell(new Label(8, row, String.valueOf(ExcelUtils.timeDifference(found.getStartTime(), found.getEndTime()) + " s"), contentFormat));
+                                totalSize += found.getResultDataList().size();
+                                totalTime += ExcelUtils.timeDifference(found.getStartTime(), found.getEndTime());
+                            } else {
+                                summarySheet.addCell(new Label(0, row, name, contentFormat));
+                                summarySheet.addCell(new Label(1, row, "0", contentFormat));
+                                summarySheet.addCell(new Label(2, row, "0", contentFormat));
+                                summarySheet.addCell(new Label(3, row, "0", contentFormat));
+                                summarySheet.addCell(new Label(4, row, "0", contentFormat));
+                                summarySheet.addCell(new Label(5, row, "0%", contentFormat));
+                                summarySheet.addCell(new Label(6, row, "-", contentFormat));
+                                summarySheet.addCell(new Label(7, row, "-", contentFormat));
+                                summarySheet.addCell(new Label(8, row, "0 s", contentFormat));
+                            }
+                        }
+                        row++;
+                    }
+                } else {
+                    for (ResultItem item : resultItemList) {
+                        ATLoggerUtils.d("item = " + item.getClz().getName());
+                        summarySheet.addCell(new Label(0, row, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
+                        summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
+                        summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
+                        summarySheet.addCell(new Label(3, row, String.valueOf(countAbandon(item.getResultDataList())), contentFormat));
+                        summarySheet.addCell(new Label(4, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
+                        summarySheet.addCell(new Label(5, row, percentageCalculator(countPass(item.getResultDataList()) + countAbandon(item.getResultDataList()), item.getResultDataList().size()), contentFormat));
+                        summarySheet.addCell(new Label(6, row, String.valueOf(item.getStartTime()), contentFormat));
+                        summarySheet.addCell(new Label(7, row, String.valueOf(item.getEndTime()), contentFormat));
+                        summarySheet.addCell(new Label(8, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
+                        totalSize += item.getResultDataList().size();
+                        totalTime += ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime());
+                        row++;
+                    }
                 }
                 summarySheet.addCell(new Label(1, row + 1, "Total Num : " + String.valueOf(totalSize), contentFormat));
                 summarySheet.addCell(new Label(8, row + 1, "Total Time : " + formatTotalTime(totalTime), contentFormat));

@@ -2,12 +2,12 @@ package com.hudou.autotest.constant;
 
 public class TableItem {
     private String caseItem;
-    private int failCount;
-    private int totalCount;
+    private String failCount;
+    private String totalCount;
 
-    public TableItem(String caseItem, int passCount, int totalCount) {
+    public TableItem(String caseItem, String failCount, String totalCount) {
         this.caseItem = caseItem;
-        this.failCount = passCount;
+        this.failCount = failCount;
         this.totalCount = totalCount;
     }
 
@@ -15,11 +15,11 @@ public class TableItem {
         return caseItem;
     }
 
-    public int getFailCount() {
+    public String getFailCount() {
         return failCount;
     }
 
-    public int getTotalCount() {
+    public String getTotalCount() {
         return totalCount;
     }
 }

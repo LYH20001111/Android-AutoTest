@@ -231,7 +231,8 @@
                 android:background="@drawable/auto_test_rounded_background"
                 android:padding="4dp"
                 android:visibility="gone"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
+            </LinearLayout>
 
         </LinearLayout>
 
