@@ -39,6 +39,7 @@ import com.hudou.autotest.constant.GroupModel;
 import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.constant.SettingFunction;
+import com.hudou.autotest.constant.TestResult;
 import com.hudou.autotest.constant.TableItem;
 import com.hudou.autotest.databinding.AutoTestBaseSettingFragmentBinding;
 import com.hudou.autotest.fragment.listener.SettingInterface;
@@ -57,14 +58,16 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-@Navigation(name = "设置")
+@Navigation(name = AutoTestSettingFragment.NAV_NAME)
 public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFragmentBinding> implements SettingInterface {
+    static final String NAV_NAME = "设置";
     private static String REPORT_PATH;
     private String TESTFILES_PATH;
     private static EditCap editCap = EditCap.OFF;
     private static boolean isEnglishReport = false;
     private List<String> fileDirList;
-    private String[] permission = new String[]{"读写外部存储权限"};
+    private static final String PERMISSION_STORAGE = "读写外部存储权限";
+    private String[] permission = new String[]{PERMISSION_STORAGE};
 
     @Nullable
     @Override
@@ -253,7 +256,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                         TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
                                         boolean unsupported = testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
                                         if (unsupported) {
-                                            items.add(new TableItem(name, "不支持", "不支持"));
+                                            items.add(new TableItem(name, TestResult.RESULT_DEVICE_UNSUPPORTED, TestResult.RESULT_DEVICE_UNSUPPORTED));
                                         } else {
                                             ResultItem found = null;
                                             for (ResultItem ri : resultItemList) {
@@ -383,7 +386,7 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
     private static int countFail(List<ResultData> resultDataList) {
         int count = 0;
         for (ResultData resultData : resultDataList) {
-            if ("测试失败".equals(resultData.getResult())) {
+            if (TestResult.RESULT_FAIL.equals(resultData.getResult())) {
                 count++;
             }
         }

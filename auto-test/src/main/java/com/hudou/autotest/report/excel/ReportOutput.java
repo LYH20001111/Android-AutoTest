@@ -2,6 +2,7 @@ package com.hudou.autotest.report.excel;
 
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 
+import com.hudou.autotest.R;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
 
@@ -18,11 +19,41 @@ public class ReportOutput {
     private static final String INVALID_CHARACTERS_REGEX = "[<>:\"/\\\\|?*]";
     private final LinkedHashMap<String, String[]> sheetMap = new LinkedHashMap<String, String[]>() {{
         if (AutoTestSettingFragment.isEnglishReport()) {
-            put("TestCase Results Summary", new String[]{"Test Item", "Total Num", "Pass Num", "Abandon Num", "Fail Num", "Pass Rate = (Pass + Abandon) / Total", "Start Time", "End Time", "Total Time"});
-            put("TestCase Result Details", new String[]{"Test Item", "CaseName", "Result", "Chinese Description", "English Description", "Detail"});
+            put(AutoTestMainActivity.getContext().getString(R.string.report_summary_sheet_title_en), new String[]{
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_test_item_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_total_num_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_pass_num_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_abandon_num_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_fail_num_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_pass_rate_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_start_time_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_end_time_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_total_time_en)});
+            put(AutoTestMainActivity.getContext().getString(R.string.report_detail_sheet_title_en), new String[]{
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_test_item_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_case_name_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_result_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_chinese_description_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_english_description_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_detail_en)});
         } else {
-            put("测试案例结果汇总", new String[]{"案例测试项", "案例总数", "案例通过数", "案例废弃数", "案例失败数", "通过率 = (通过 + 废弃) / 总数", "开始时间", "结束时间", "总时长"});
-            put("测试案例结果详情", new String[]{"案例测试项", "案例号", "测试结果", "中文案例描述", "英文案例描述", "案例详情"});
+            put(AutoTestMainActivity.getContext().getString(R.string.report_summary_sheet_title), new String[]{
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_test_item),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_total_num),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_pass_num),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_abandon_num),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_fail_num),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_pass_rate),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_start_time),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_end_time),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_total_time)});
+            put(AutoTestMainActivity.getContext().getString(R.string.report_detail_sheet_title), new String[]{
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_test_item),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_case_name),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_result),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_chinese_description),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_english_description),
+                    AutoTestMainActivity.getContext().getString(R.string.report_detail_detail)});
         }
     }};
 

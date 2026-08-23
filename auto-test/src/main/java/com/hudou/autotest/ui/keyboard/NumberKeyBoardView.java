@@ -69,7 +69,7 @@ public class NumberKeyBoardView extends KeyboardView implements KeyboardView.OnK
         for (Keyboard.Key key : keys) {
             if (key.codes[0] == KEYCODE_EMPTY) {
                 if (showOK) {
-                    key.label = "确定";
+                    key.label = getContext().getString(R.string.keyboard_confirm);
                 } else {
                     drawKeyBackground(key, canvas, mDeleteBackgroundColor);
                 }

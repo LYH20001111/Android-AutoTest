@@ -534,7 +534,7 @@ class Dialog {
 
         builder.setTitle(title)
                 .setView(view)
-                .setPositiveButton("确定", null)
+                .setPositiveButton(R.string.dialog_confirm, null)
                 .setCancelable(false);
 
         AlertDialog dialog = builder.create();

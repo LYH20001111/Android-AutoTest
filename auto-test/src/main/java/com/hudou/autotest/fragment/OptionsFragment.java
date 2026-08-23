@@ -47,17 +47,7 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
     @SuppressLint("DefaultLocale")
     @Override
     public void onInitData() {
-        viewBinding.tvOptions.setText(String.format("当前测试项 ： %s" +
-                        "\n" +
-                        "\n " +
-                        "1. 运行所有案例 \n " +
-                        "2. 运行某个案例 \n " +
-                        "3. 运行部分连续案例 \n " +
-                        "4. 运行部分不连续案例 \n\n " +
-                        "5. 查看所有案例详情(%d) \n " +
-                        "6. 查看废弃案例详情(%d) \n " +
-                        "7. 查看未执行案例详情(%d) \n " +
-                        "8. 查看失败案例详情(%d)",
+        viewBinding.tvOptions.setText(String.format(getString(R.string.options_menu),
                 ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name),
                 testItem.testItemCasesNum(clz),
                 testItem.testItemAbandonCasesNum(clz),
@@ -179,7 +169,6 @@ public class OptionsFragment extends BaseFragment<AutoTestOptionsFragmentBinding
             view.setFocusableInTouchMode(true);
             view.requestFocus();
             view.setOnKeyListener((v, keyCode, event) -> {
-                Log.d("AutoTest", "keyCode = " + keyCode);
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     switch (keyCode) {
                         case KeyEvent.KEYCODE_0:

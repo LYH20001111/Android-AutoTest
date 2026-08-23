@@ -74,5 +74,67 @@
     <string name="test_item_unsupported_device_run_blocked">该测试项不适用当前设备型号：%1$s，无法运行案例</string>
     <string name="circle_navigation">●\u0020</string>
 
+    <string name="unsupported_message">不支持</string>
+    <string name="zero_message">0</string>
+    <string name="zero_percent_message">0%</string>
+    <string name="dash_message">-</string>
+    <string name="zero_second_message">0 s</string>
+    <string name="total_number">Total Num : %s</string>
+    <string name="total_time">Total Time : %s</string>
 
+    <string name="nav_home">首页</string>
+    <string name="nav_settings">设置</string>
+    <string name="permission_storage">读写外部存储权限</string>
+    <string name="dialog_confirm">确定</string>
+    <string name="keyboard_confirm">确定</string>
+
+    <string name="options_menu">当前测试项 ： %1$s\n\n 1. 运行所有案例 \n 2. 运行某个案例 \n 3. 运行部分连续案例 \n 4. 运行部分不连续案例 \n\n 5. 查看所有案例详情(%2$d) \n 6. 查看废弃案例详情(%3$d) \n 7. 查看未执行案例详情(%4$d) \n 8. 查看失败案例详情(%5$d)</string>
+    <string name="post_value_executing">开始执行案例：%1$s\n</string>
+    <string name="post_value_case_tip">\n案例提示：%1$s</string>
+    <string name="post_value_abandoned">\n！ 废弃案例  ！\n</string>
+    <string name="post_value_abandon_desc">\n废弃案例说明：%1$s\n</string>
+    <string name="post_value_device_unsupported">\n！ 该案例不支持当前设备型号：%1$s ！\n</string>
+    <string name="post_value_device_unsupported_skip">\n该案例不支持的设备型号：%1$s，当前设备型号：%2$s，已跳过执行\n</string>
+    <string name="post_value_exception">测试案例抛出异常未捕获，测试框架捕获：%1$s：%2$s</string>
+    <string name="post_value_case_end">案例：%1$s，执行结束</string>
+    <string name="post_value_execution_complete">案例执行完毕，可点击返回按钮继续\n</string>
+
+    <string name="report_summary_sheet_title">测试案例结果汇总</string>
+    <string name="report_summary_test_item">案例测试项</string>
+    <string name="report_summary_total_num">案例总数</string>
+    <string name="report_summary_pass_num">案例通过数</string>
+    <string name="report_summary_abandon_num">案例废弃数</string>
+    <string name="report_summary_fail_num">案例失败数</string>
+    <string name="report_summary_pass_rate">通过率 = (通过 + 废弃) / 总数</string>
+    <string name="report_summary_start_time">开始时间</string>
+    <string name="report_summary_end_time">结束时间</string>
+    <string name="report_summary_total_time">总时长</string>
+    <string name="report_detail_sheet_title">测试案例结果详情</string>
+    <string name="report_detail_test_item">案例测试项</string>
+    <string name="report_detail_case_name">案例号</string>
+    <string name="report_detail_result">测试结果</string>
+    <string name="report_detail_chinese_description">中文案例描述</string>
+    <string name="report_detail_english_description">英文案例描述</string>
+    <string name="report_detail_detail">案例详情</string>
+
+    <string name="report_not_output_yet">还未输出测试报告</string>
+
+    <!-- English report strings -->
+    <string name="report_summary_sheet_title_en">TestCase Results Summary</string>
+    <string name="report_summary_test_item_en">Test Item</string>
+    <string name="report_summary_total_num_en">Total Num</string>
+    <string name="report_summary_pass_num_en">Pass Num</string>
+    <string name="report_summary_abandon_num_en">Abandon Num</string>
+    <string name="report_summary_fail_num_en">Fail Num</string>
+    <string name="report_summary_pass_rate_en">Pass Rate = (Pass + Abandon) / Total</string>
+    <string name="report_summary_start_time_en">Start Time</string>
+    <string name="report_summary_end_time_en">End Time</string>
+    <string name="report_summary_total_time_en">Total Time</string>
+    <string name="report_detail_sheet_title_en">TestCase Result Details</string>
+    <string name="report_detail_test_item_en">Test Item</string>
+    <string name="report_detail_case_name_en">CaseName</string>
+    <string name="report_detail_result_en">Result</string>
+    <string name="report_detail_chinese_description_en">Chinese Description</string>
+    <string name="report_detail_english_description_en">English Description</string>
+    <string name="report_detail_detail_en">Detail</string>
 </resources>

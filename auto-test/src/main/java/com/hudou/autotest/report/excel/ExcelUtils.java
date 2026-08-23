@@ -10,6 +10,8 @@ import com.hudou.autotest.constant.ResultData;
 import com.hudou.autotest.constant.ResultItem;
 import com.hudou.autotest.fragment.AutoTestSettingFragment;
 import com.hudou.autotest.util.ATLoggerUtils;
+import static com.hudou.autotest.constant.TestResult.*;
+
 import com.hudou.autotest.util.DeviceUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
@@ -155,7 +157,6 @@ public class ExcelUtils {
                 Class<?>[] allClasses = AutoTestMainActivity.allTestItemClasses;
                 if (allClasses != null) {
                     for (Class<?> clz : allClasses) {
-                        ATLoggerUtils.d("item = " + clz.getName());
                         String name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name);
                         TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
                         boolean unsupported = testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
@@ -191,21 +192,20 @@ public class ExcelUtils {
                                 totalTime += ExcelUtils.timeDifference(found.getStartTime(), found.getEndTime());
                             } else {
                                 summarySheet.addCell(new Label(0, row, name, contentFormat));
-                                summarySheet.addCell(new Label(1, row, "0", contentFormat));
-                                summarySheet.addCell(new Label(2, row, "0", contentFormat));
-                                summarySheet.addCell(new Label(3, row, "0", contentFormat));
-                                summarySheet.addCell(new Label(4, row, "0", contentFormat));
-                                summarySheet.addCell(new Label(5, row, "0%", contentFormat));
-                                summarySheet.addCell(new Label(6, row, "-", contentFormat));
-                                summarySheet.addCell(new Label(7, row, "-", contentFormat));
-                                summarySheet.addCell(new Label(8, row, "0 s", contentFormat));
+                                summarySheet.addCell(new Label(1, row, context.getString(R.string.zero_message), contentFormat));
+                                summarySheet.addCell(new Label(2, row, context.getString(R.string.zero_message), contentFormat));
+                                summarySheet.addCell(new Label(3, row, context.getString(R.string.zero_message), contentFormat));
+                                summarySheet.addCell(new Label(4, row, context.getString(R.string.zero_message), contentFormat));
+                                summarySheet.addCell(new Label(5, row, context.getString(R.string.zero_percent_message), contentFormat));
+                                summarySheet.addCell(new Label(6, row, context.getString(R.string.dash_message), contentFormat));
+                                summarySheet.addCell(new Label(7, row, context.getString(R.string.dash_message), contentFormat));
+                                summarySheet.addCell(new Label(8, row, context.getString(R.string.zero_second_message), contentFormat));
                             }
                         }
                         row++;
                     }
                 } else {
                     for (ResultItem item : resultItemList) {
-                        ATLoggerUtils.d("item = " + item.getClz().getName());
                         summarySheet.addCell(new Label(0, row, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
                         summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
                         summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
@@ -220,8 +220,8 @@ public class ExcelUtils {
                         row++;
                     }
                 }
-                summarySheet.addCell(new Label(1, row + 1, "Total Num : " + String.valueOf(totalSize), contentFormat));
-                summarySheet.addCell(new Label(8, row + 1, "Total Time : " + formatTotalTime(totalTime), contentFormat));
+                summarySheet.addCell(new Label(1, row + 1, context.getString(R.string.total_number, String.valueOf(totalSize)), contentFormat));
+                summarySheet.addCell(new Label(8, row + 1, context.getString(R.string.total_time, formatTotalTime(totalTime)), contentFormat));
 
                 int r = 1;
                 for (ResultItem item : resultItemList) {
@@ -230,9 +230,9 @@ public class ExcelUtils {
                     for (int i = 0; i < item.getResultDataList().size(); i++) {
                         detailSheet.addCell(new Label(0, r, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
                         detailSheet.addCell(new Label(1, r, item.getResultDataList().get(i).getId(), contentFormat));
-                        if ("测试通过".equals(item.getResultDataList().get(i).getResult())) {
+                        if (RESULT_PASS.equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "PASS" : item.getResultDataList().get(i).getResult(), contentFormat));
-                        } else if ("废弃案例".equals(item.getResultDataList().get(i).getResult()) || "设备不支持".equals(item.getResultDataList().get(i).getResult())) {
+                        } else if (RESULT_ABANDON.equals(item.getResultDataList().get(i).getResult()) || RESULT_DEVICE_UNSUPPORTED.equals(item.getResultDataList().get(i).getResult())) {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "NA" : item.getResultDataList().get(i).getResult(), contentFormat));
                         } else {
                             detailSheet.addCell(new Label(2, r, AutoTestSettingFragment.isEnglishReport() ? "FAIL" : item.getResultDataList().get(i).getResult(), failResultFormat));
@@ -354,7 +354,7 @@ public class ExcelUtils {
     private static int countPass(List<ResultData> resultDataList) {
         int count = 0;
         for (ResultData resultData : resultDataList) {
-            if ("测试通过".equals(resultData.getResult())) {
+            if (RESULT_PASS.equals(resultData.getResult())) {
                 count++;
             }
         }
@@ -364,7 +364,7 @@ public class ExcelUtils {
     private static int countFail(List<ResultData> resultDataList) {
         int count = 0;
         for (ResultData resultData : resultDataList) {
-            if ("测试失败".equals(resultData.getResult())) {
+            if (RESULT_FAIL.equals(resultData.getResult())) {
                 count++;
             }
         }
@@ -374,7 +374,7 @@ public class ExcelUtils {
     private static int countAbandon(List<ResultData> resultDataList) {
         int count = 0;
         for (ResultData resultData : resultDataList) {
-            if ("废弃案例".equals(resultData.getResult()) || "设备不支持".equals(resultData.getResult())) {
+            if (RESULT_ABANDON.equals(resultData.getResult()) || RESULT_DEVICE_UNSUPPORTED.equals(resultData.getResult())) {
                 count++;
             }
         }

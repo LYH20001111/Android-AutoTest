@@ -3,6 +3,7 @@ package com.hudou.autotest.base.item;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.fos;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
+import static com.hudou.autotest.constant.TestResult.*;
 
 import android.graphics.Color;
 
@@ -10,6 +11,7 @@ import android.os.Build;
 
 import androidx.annotation.RestrictTo;
 
+import com.hudou.autotest.R;
 import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ResultData;
@@ -119,9 +121,9 @@ public abstract class BaseTestCase {
                     resultData.setEnglishDescription(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.enDes));
                     resultData.setDetail("XX=============" + method.getName() + "=============XX");
 
-                    postValue(Color.BLUE, "开始执行案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "\n");
+                    postValue(Color.BLUE, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_executing), ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name)));
                     if (!"".equals(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip))) {
-                        postValue(Color.GRAY, "\n" + "案例提示：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip));
+                        postValue(Color.GRAY, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_case_tip), ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip)));
                     }
                     try {
                         TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
@@ -146,26 +148,26 @@ public abstract class BaseTestCase {
                                 throw new RuntimeException(e);
                             }
                         } else if (isAbandon) {
-                            resultData.setResult("废弃案例");
-                            postValue(Color.MAGENTA, "\n！ 废弃案例  ！\n");
-                            postValue(Color.MAGENTA, "\n废弃案例说明：" + testCaseAnnotation.abandonDes() + "\n");
+                            resultData.setResult(RESULT_ABANDON);
+                            postValue(Color.MAGENTA, AutoTestMainActivity.getContext().getString(R.string.post_value_abandoned));
+                            postValue(Color.MAGENTA, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_abandon_desc), testCaseAnnotation.abandonDes()));
                         } else {
                             // 当前设备型号不支持该案例，跳过执行并提示用户
-                            resultData.setResult("设备不支持");
+                            resultData.setResult(RESULT_DEVICE_UNSUPPORTED);
                             String currentDevice = Build.MANUFACTURER + " " + Build.MODEL;
-                            postValue(Color.MAGENTA, "\n！ 该案例不支持当前设备型号：" + currentDevice + " ！\n");
-                            postValue(Color.MAGENTA, "\n该案例不支持的设备型号：" + Arrays.toString(testCaseAnnotation.unsupportedDevice()) + "，当前设备型号：" + currentDevice + "，已跳过执行\n");
+                            postValue(Color.MAGENTA, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_device_unsupported), currentDevice));
+                            postValue(Color.MAGENTA, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_device_unsupported_skip), Arrays.toString(testCaseAnnotation.unsupportedDevice()), currentDevice));
                         }
 
                     } catch (Exception e) {
                         e.printStackTrace();
-                        resultData.setResult("测试失败");
+                        resultData.setResult(RESULT_FAIL);
                         // 解开反射包装，拿到根因
                         Throwable root = e.getCause() != null ? e.getCause() : e;
-                        postValue(Color.RED, "测试失败" + ("\n"
-                                +  "测试案例抛出异常未捕获，测试框架捕获：" + root.getClass().getSimpleName() + "：" + root.getMessage()));
+                        postValue(Color.RED, RESULT_FAIL + ("\n"
+                                +  String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_exception), root.getClass().getSimpleName(), root.getMessage())));
                     } finally {
-                        postValue(Color.BLUE, "案例：" + ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name) + "，执行结束");
+                        postValue(Color.BLUE, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_case_end), ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name)));
                     }
 
                     //Add storage start
@@ -241,7 +243,7 @@ public abstract class BaseTestCase {
             try {
                 latch.await(); // 等待所有任务完成
                 isCompleted = true;
-                postValue(Color.YELLOW, "案例执行完毕，可点击返回按钮继续\n");
+                postValue(Color.YELLOW, AutoTestMainActivity.getContext().getString(R.string.post_value_execution_complete));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -328,7 +330,7 @@ public abstract class BaseTestCase {
         if (targetItem == null) return "";
         StringBuilder details = new StringBuilder();
         for (ResultData data : targetItem.getResultDataList()) {
-            if ("测试失败".equalsIgnoreCase(data.getResult())) {
+            if (RESULT_FAIL.equalsIgnoreCase(data.getResult())) {
                 int index = methodList.indexOf(data.getId());
                 if (index != -1) {
                     details.append(index)
@@ -370,7 +372,7 @@ public abstract class BaseTestCase {
         }
         if (targetItem != null) {
             for (ResultData resultData : targetItem.getResultDataList()) {
-                if ("测试通过".equals(resultData.getResult()) || "废弃案例".equals(resultData.getResult()) || "设备不支持".equals(resultData.getResult())) {
+                if (RESULT_PASS.equals(resultData.getResult()) || RESULT_ABANDON.equals(resultData.getResult()) || RESULT_DEVICE_UNSUPPORTED.equals(resultData.getResult())) {
                     passCount++;
                 } else {
                     failCount++;
@@ -391,7 +393,7 @@ public abstract class BaseTestCase {
         }
         if (targetItem != null) {
             for (ResultData resultData : targetItem.getResultDataList()) {
-                if ("测试失败".equals(resultData.getResult())) {
+                if (RESULT_FAIL.equals(resultData.getResult())) {
                     count++;
                 }
             }

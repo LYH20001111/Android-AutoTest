@@ -2,6 +2,7 @@ package com.hudou.autotest.base.item;
 
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
+import static com.hudou.autotest.constant.TestResult.*;
 
 import android.graphics.Color;
 
@@ -30,17 +31,17 @@ public class AutoTestTestItem extends BaseTestCase {
 
     public void recordPass(@Nullable String message) {
         synchronized (resultData) { // 确保线程安全
-            if ("测试失败".equals(resultData.getResult())) {
+            if (RESULT_FAIL.equals(resultData.getResult())) {
 
             } else {
-                resultData.setResult("测试通过");
+                resultData.setResult(RESULT_PASS);
             }
         }
         synchronized (lock) {
             isResultRecorded = true;
             lock.notify(); // 通知等待的线程
         }
-        postValue(Color.GREEN, "测试通过" + (message == null ? "" : ("\n" + message)));
+        postValue(Color.GREEN, RESULT_PASS + (message == null ? "" : ("\n" + message)));
     }
 
     /**
@@ -52,13 +53,13 @@ public class AutoTestTestItem extends BaseTestCase {
 
     public void recordFail(@Nullable String message) {
         synchronized (resultData) {
-            resultData.setResult("测试失败");
+            resultData.setResult(RESULT_FAIL);
         }
         synchronized (lock) {
             isResultRecorded = true;
             lock.notify(); // 通知等待的线程
         }
-        postValue(Color.RED, "测试失败" + (message == null ? "" : ("\n" + message)));
+        postValue(Color.RED, RESULT_FAIL + (message == null ? "" : ("\n" + message)));
     }
 
     /**
