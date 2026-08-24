@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.ViewStub;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.splashscreen.SplashScreen;
@@ -56,6 +57,8 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
 
         // 仅当使用默认布局时设置品牌图标
         if (customLayoutId == 0) {
+            TextView splashTitle = findViewById(R.id.splash_title);
+            splashTitle.setText(getSplashTitle());
             ImageView splashIcon = findViewById(R.id.splash_icon);
             splashIcon.setImageResource(getSplashIconResId());
         }
@@ -125,6 +128,11 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
     @Override
     public void onPreloadData() {
 
+    }
+
+    @Override
+    public String getSplashTitle() {
+        return this.getString(R.string.auto_test);
     }
 
     @Override

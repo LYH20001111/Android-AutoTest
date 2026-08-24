@@ -27,6 +27,17 @@ public interface IAutoTestSplash {
     void onPreloadData();
 
     /**
+     * 获取启动页品牌名。
+     *  <p>
+     * 宿主可重写此方法返回自定义品牌名。
+     * 默认返回 {@link R.string#auto_test}。
+     * </p>
+     *
+     * @return 定义品牌名
+     */
+    String getSplashTitle();
+
+    /**
      * 获取启动页品牌图标资源 ID。
      * <p>
      * 宿主可重写此方法返回自定义图标 drawable 资源 ID。

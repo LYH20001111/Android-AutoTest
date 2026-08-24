@@ -21,6 +21,11 @@ public class SplashActivity extends AutoTestSplashActivity {
         return 10000;
     }
 
+//    @Override
+//    public String getSplashTitle() {
+//        return "PaymentService";
+//    }
+
     @Override
     public int getSplashIconResId() {
         return super.getSplashIconResId();
