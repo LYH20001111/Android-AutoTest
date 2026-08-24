@@ -1,0 +1,155 @@
+package com.hudou.autotest.base.activity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
+
+import com.hudou.autotest.R;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+/**
+ * 启动页抽象类。
+ * <p>
+ * 宿主应用通过继承此类并实现 {@link #getTargetActivity()} 来启用启动加载反馈。
+ * 每次冷/温启动必经启动页，显示品牌画面 + 加载动画，后台预热关键配置，
+ * 预热完成后自动跳转宿主主界面。
+ * </p>
+ */
+public abstract class AutoTestSplashActivity extends AppCompatActivity implements IAutoTestSplash{
+
+    /** 预热完成标志 */
+    private final AtomicBoolean preloadDone = new AtomicBoolean(false);
+
+    /** 预热异常标志 */
+    private final AtomicBoolean preloadError = new AtomicBoolean(false);
+
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // 在 super.onCreate() 之前安装 SplashScreen，冷启动时与系统启动画面衔接
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
+        splashScreen.setKeepOnScreenCondition(() -> !isPreloadDone());
+
+        super.onCreate(savedInstanceState);
+
+        setTheme(R.style.Theme_AutoTest_SplashScreen);
+        setContentView(R.layout.auto_test_splash_layout);
+
+        // 设置启动页图标（允许宿主自定义）
+        ImageView splashIcon = findViewById(R.id.splash_icon);
+        splashIcon.setImageResource(getSplashIconResId());
+
+        // 启动后台预热线程
+        startPreload();
+    }
+
+    private void startPreload() {
+        new Thread(() -> {
+            try {
+                onPreloadData();
+            } catch (Exception e) {
+                preloadError.set(true);
+                e.printStackTrace();
+            } finally {
+                preloadDone.set(true);
+            }
+        }).start();
+
+        // 主线程等待预热完成且满足最小展示时长
+        waitForPreload();
+    }
+
+    private void waitForPreload() {
+        new Thread(() -> {
+            long startTime = System.currentTimeMillis();
+            long minDuration = getMinDisplayDuration();
+
+            // 等待预热完成
+            while (!isPreloadDone()) {
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+
+            // 确保最小展示时长
+            long elapsed = System.currentTimeMillis() - startTime;
+            if (elapsed < minDuration) {
+                try {
+                    Thread.sleep(minDuration - elapsed);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+
+            // 在主线程跳转目标 Activity
+            mainHandler.post(this::navigateToTarget);
+        }).start();
+    }
+
+    private void navigateToTarget() {
+        if (isFinishing()) return;
+
+        Class<?> targetClass = getTargetActivity();
+        if (targetClass != null) {
+            Intent intent = new Intent(this, targetClass);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        finish();
+    }
+
+    @Override
+    public void onPreloadData() {
+
+    }
+
+    @Override
+    public int getSplashIconResId() {
+        return R.drawable.auto_test_ic_launcher_foreground;
+    }
+
+    /**
+     * 获取最小展示时长。
+     * <p>
+     * 启动页至少展示此时长（毫秒），保证动画可见一轮。
+     * 宿主可重写自定义时长。
+     * </p>
+     *
+     * @return 最小展示时长（毫秒），默认 1200ms
+     */
+    protected long getMinDisplayDuration() {
+        return 1200L;
+    }
+
+    /**
+     * 查询预热是否完成。
+     * <p>
+     * 宿主可重写此方法添加额外的完成条件。
+     * </p>
+     *
+     * @return 预热完成返回 true
+     */
+    protected boolean isPreloadDone() {
+        return preloadDone.get();
+    }
+
+    /**
+     * 查询预热是否发生异常。
+     *
+     * @return 预热异常返回 true
+     */
+    protected boolean isPreloadError() {
+        return preloadError.get();
+    }
+}

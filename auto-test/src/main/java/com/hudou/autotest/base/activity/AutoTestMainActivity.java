@@ -54,7 +54,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public abstract class AutoTestMainActivity extends AppCompatActivity implements AutoTestInterface {
+public abstract class AutoTestMainActivity extends AppCompatActivity implements IAutoTestCore {
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout llMessage;
     private static SynchronizedMutableLiveData<ShowMessage> mShowMessage = new SynchronizedMutableLiveData<>();

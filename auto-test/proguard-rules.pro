@@ -45,6 +45,7 @@ public static *;
 # 保留对外暴露的类和方法
 -keep public class com.hudou.autotest.** {
     public *;
+    protected *;
 }
 
 -keepclassmembers class * {
