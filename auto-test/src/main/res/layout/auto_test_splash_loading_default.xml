@@ -39,7 +39,7 @@
             android:id="@+id/splash_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:text="@string/loading_config_message"
             android:textColor="#0E61AC"
             android:textStyle="bold"
