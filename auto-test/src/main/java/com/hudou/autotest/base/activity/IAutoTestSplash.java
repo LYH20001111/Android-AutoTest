@@ -36,4 +36,16 @@ public interface IAutoTestSplash {
      * @return 图标 drawable 资源 ID
      */
     int getSplashIconResId();
+
+    /**
+     * 获取启动页自定义加载布局资源 ID。
+     * <p>
+     * 宿主可重写此方法返回自定义布局资源 ID，替换默认的品牌图标 + 进度条 + 文案加载区域。
+     * 返回 0 或未重写时使用默认加载布局。
+     * 使用自定义布局时，宿主需自行管理布局内的所有视图（如图标、动画等）。
+     * </p>
+     *
+     * @return 自定义布局资源 ID，默认返回 0（使用默认加载布局）
+     */
+    int getSplashLoadingLayoutResId();
 }

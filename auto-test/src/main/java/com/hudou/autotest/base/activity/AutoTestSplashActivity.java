@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.ViewStub;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,9 +44,21 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
         setTheme(R.style.Theme_AutoTest_SplashScreen);
         setContentView(R.layout.auto_test_splash_layout);
 
-        // 设置启动页图标（允许宿主自定义）
-        ImageView splashIcon = findViewById(R.id.splash_icon);
-        splashIcon.setImageResource(getSplashIconResId());
+        // 处理自定义加载布局
+        ViewStub loadingContainer = findViewById(R.id.splash_loading_container);
+        int customLayoutId = getSplashLoadingLayoutResId();
+        if (customLayoutId != 0) {
+            // 使用自定义加载布局
+            loadingContainer.setLayoutResource(customLayoutId);
+        }
+        // 无论自定义还是默认布局，都 inflate 到 ViewStub
+        loadingContainer.inflate();
+
+        // 仅当使用默认布局时设置品牌图标
+        if (customLayoutId == 0) {
+            ImageView splashIcon = findViewById(R.id.splash_icon);
+            splashIcon.setImageResource(getSplashIconResId());
+        }
 
         // 启动后台预热线程
         startPreload();
@@ -117,6 +130,11 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
     @Override
     public int getSplashIconResId() {
         return R.drawable.auto_test_ic_launcher_foreground;
+    }
+
+    @Override
+    public int getSplashLoadingLayoutResId() {
+        return 0;
     }
 
     /**
