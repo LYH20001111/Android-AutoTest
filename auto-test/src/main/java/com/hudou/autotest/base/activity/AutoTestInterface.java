@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.List;
 
-interface AutoTestInterface {
+public interface AutoTestInterface {
     void addNavigationFragment(List<Fragment> list);
     boolean isPhysicalKeyboard();
 }
