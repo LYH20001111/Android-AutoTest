@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * 预热完成后自动跳转宿主主界面。
  * </p>
  */
-public abstract class AutoTestSplashActivity extends AppCompatActivity implements IAutoTestSplash{
+public abstract class AutoTestSplashActivity extends AppCompatActivity implements IAutoTestSplash {
 
     /** 预热完成标志 */
     private final AtomicBoolean preloadDone = new AtomicBoolean(false);
@@ -137,16 +137,8 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
         return 0;
     }
 
-    /**
-     * 获取最小展示时长。
-     * <p>
-     * 启动页至少展示此时长（毫秒），保证动画可见一轮。
-     * 宿主可重写自定义时长。
-     * </p>
-     *
-     * @return 最小展示时长（毫秒），默认 1200ms
-     */
-    protected long getMinDisplayDuration() {
+    @Override
+    public long getMinDisplayDuration() {
         return 1200L;
     }
 

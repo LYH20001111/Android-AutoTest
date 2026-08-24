@@ -15,4 +15,19 @@ public class SplashActivity extends AutoTestSplashActivity {
     public Class<?> getTargetActivity() {
         return MainActivity.class;
     }
+
+    @Override
+    public long getMinDisplayDuration() {
+        return 10000;
+    }
+
+    @Override
+    public int getSplashIconResId() {
+        return super.getSplashIconResId();
+    }
+
+//    @Override
+//    public int getSplashLoadingLayoutResId() {
+//        return R.layout.activity_main;
+//    }
 }

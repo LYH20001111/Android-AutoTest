@@ -48,4 +48,15 @@ public interface IAutoTestSplash {
      * @return 自定义布局资源 ID，默认返回 0（使用默认加载布局）
      */
     int getSplashLoadingLayoutResId();
+
+    /**
+     * 获取最小展示时长。
+     * <p>
+     * 启动页至少展示此时长（毫秒），保证动画可见一轮。
+     * 宿主可重写自定义时长。
+     * </p>
+     *
+     * @return 最小展示时长（毫秒），默认 1200ms
+     */
+    long getMinDisplayDuration();
 }
