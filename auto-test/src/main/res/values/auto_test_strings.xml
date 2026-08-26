@@ -75,12 +75,13 @@
     <string name="loading_config_message">正在加载配置，请稍候…</string>
     <string name="circle_navigation">●\u0020</string>
 
-    <string name="unsupported_message">不支持</string>
+    <string name="unsupported_message">✘</string>
     <string name="zero_message">0</string>
     <string name="zero_percent_message">0%</string>
     <string name="dash_message">-</string>
     <string name="zero_second_message">0 s</string>
     <string name="total_number">Total Num : %s</string>
+    <string name="executed_total_number">Executed Num : %s</string>
     <string name="total_time">Total Time : %s</string>
 
     <string name="nav_home">首页</string>
@@ -102,11 +103,12 @@
 
     <string name="report_summary_sheet_title">测试案例结果汇总</string>
     <string name="report_summary_test_item">案例测试项</string>
-    <string name="report_summary_total_num">案例总数</string>
+    <string name="report_summary_case_total_num">案例总数</string>
+    <string name="report_summary_total_num">测试数</string>
     <string name="report_summary_pass_num">案例通过数</string>
     <string name="report_summary_abandon_num">案例废弃数</string>
     <string name="report_summary_fail_num">案例失败数</string>
-    <string name="report_summary_pass_rate">通过率 = (通过 + 废弃) / 总数</string>
+    <string name="report_summary_pass_rate">通过率 = (通过 + 废弃) / 测试数</string>
     <string name="report_summary_start_time">开始时间</string>
     <string name="report_summary_end_time">结束时间</string>
     <string name="report_summary_total_time">总时长</string>
@@ -123,11 +125,12 @@
     <!-- English report strings -->
     <string name="report_summary_sheet_title_en">TestCase Results Summary</string>
     <string name="report_summary_test_item_en">Test Item</string>
-    <string name="report_summary_total_num_en">Total Num</string>
+    <string name="report_summary_case_total_num_en">Case Total</string>
+    <string name="report_summary_total_num_en">Executed Num</string>
     <string name="report_summary_pass_num_en">Pass Num</string>
     <string name="report_summary_abandon_num_en">Abandon Num</string>
     <string name="report_summary_fail_num_en">Fail Num</string>
-    <string name="report_summary_pass_rate_en">Pass Rate = (Pass + Abandon) / Total</string>
+    <string name="report_summary_pass_rate_en">Pass Rate = (Pass + Abandon) / Executed</string>
     <string name="report_summary_start_time_en">Start Time</string>
     <string name="report_summary_end_time_en">End Time</string>
     <string name="report_summary_total_time_en">Total Time</string>

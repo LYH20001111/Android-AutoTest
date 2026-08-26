@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.hudou.autotest.R;
+import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.constant.ResultData;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -119,6 +121,12 @@ public class ExcelUtils {
         }
     }
 
+    private static int getCaseTotalCount(Class<?> clz) {
+        return (int) Arrays.stream(clz.getDeclaredMethods())
+                .filter(m -> m.isAnnotationPresent(TestCase.class))
+                .count();
+    }
+
     @SuppressWarnings("unchecked")
     public static <T> boolean writeDataToExcel(List<ResultItem> resultItemList, String fileName, Context context) {
         if (resultItemList != null) {
@@ -132,15 +140,16 @@ public class ExcelUtils {
 
 
                 WritableSheet summarySheet = writebook.getSheet(0);
-                summarySheet.setColumnView(0, 40); //设置列宽
-                summarySheet.setColumnView(1, 25);
-                summarySheet.setColumnView(2, 25);
-                summarySheet.setColumnView(3, 25);
-                summarySheet.setColumnView(4, 25);
-                summarySheet.setColumnView(5, 50);
-                summarySheet.setColumnView(6, 20);
+                summarySheet.setColumnView(0, 30); //设置列宽
+                summarySheet.setColumnView(1, 20);
+                summarySheet.setColumnView(2, 20);
+                summarySheet.setColumnView(3, 20);
+                summarySheet.setColumnView(4, 20);
+                summarySheet.setColumnView(5, 20);
+                summarySheet.setColumnView(6, 40);
                 summarySheet.setColumnView(7, 20);
                 summarySheet.setColumnView(8, 20);
+                summarySheet.setColumnView(9, 20);
 
 
                 WritableSheet detailSheet = writebook.getSheet(1);
@@ -153,6 +162,7 @@ public class ExcelUtils {
 
                 int row = 1;
                 long totalSize = 0;
+                long executedSize = 0;
                 long totalTime = 0;
                 Class<?>[] allClasses = AutoTestMainActivity.allTestItemClasses;
                 if (allClasses != null) {
@@ -160,16 +170,19 @@ public class ExcelUtils {
                         String name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name);
                         TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
                         boolean unsupported = testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
+                        int caseTotal = getCaseTotalCount(clz);
                         if (unsupported) {
                             summarySheet.addCell(new Label(0, row, name, contentFormat));
-                            summarySheet.addCell(new Label(1, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(1, row, String.valueOf(caseTotal), contentFormat));
                             summarySheet.addCell(new Label(2, row, context.getString(R.string.unsupported_message), contentFormat));
                             summarySheet.addCell(new Label(3, row, context.getString(R.string.unsupported_message), contentFormat));
                             summarySheet.addCell(new Label(4, row, context.getString(R.string.unsupported_message), contentFormat));
                             summarySheet.addCell(new Label(5, row, context.getString(R.string.unsupported_message), contentFormat));
-                            summarySheet.addCell(new Label(6, row, context.getString(R.string.unsupported_message), contentFormat));
-                            summarySheet.addCell(new Label(7, row, context.getString(R.string.unsupported_message), contentFormat));
-                            summarySheet.addCell(new Label(8, row, context.getString(R.string.unsupported_message), contentFormat));
+                            summarySheet.addCell(new Label(6, row, context.getString(R.string.zero_percent_message), contentFormat));
+                            summarySheet.addCell(new Label(7, row, context.getString(R.string.dash_message), contentFormat));
+                            summarySheet.addCell(new Label(8, row, context.getString(R.string.dash_message), contentFormat));
+                            summarySheet.addCell(new Label(9, row, context.getString(R.string.zero_second_message), contentFormat));
+                            totalSize += caseTotal;
                         } else {
                             ResultItem found = null;
                             for (ResultItem ri : resultItemList) {
@@ -180,48 +193,55 @@ public class ExcelUtils {
                             }
                             if (found != null) {
                                 summarySheet.addCell(new Label(0, row, name, contentFormat));
-                                summarySheet.addCell(new Label(1, row, String.valueOf(found.getResultDataList().size()), contentFormat));
-                                summarySheet.addCell(new Label(2, row, String.valueOf(countPass(found.getResultDataList())), contentFormat));
-                                summarySheet.addCell(new Label(3, row, String.valueOf(countAbandon(found.getResultDataList())), contentFormat));
-                                summarySheet.addCell(new Label(4, row, String.valueOf(countFail(found.getResultDataList())), contentFormat));
-                                summarySheet.addCell(new Label(5, row, percentageCalculator(countPass(found.getResultDataList()) + countAbandon(found.getResultDataList()), found.getResultDataList().size()), contentFormat));
-                                summarySheet.addCell(new Label(6, row, String.valueOf(found.getStartTime()), contentFormat));
-                                summarySheet.addCell(new Label(7, row, String.valueOf(found.getEndTime()), contentFormat));
-                                summarySheet.addCell(new Label(8, row, String.valueOf(ExcelUtils.timeDifference(found.getStartTime(), found.getEndTime()) + " s"), contentFormat));
-                                totalSize += found.getResultDataList().size();
+                                summarySheet.addCell(new Label(1, row, String.valueOf(caseTotal), contentFormat));
+                                summarySheet.addCell(new Label(2, row, String.valueOf(found.getResultDataList().size()), contentFormat));
+                                summarySheet.addCell(new Label(3, row, String.valueOf(countPass(found.getResultDataList())), contentFormat));
+                                summarySheet.addCell(new Label(4, row, String.valueOf(countAbandon(found.getResultDataList())), contentFormat));
+                                summarySheet.addCell(new Label(5, row, String.valueOf(countFail(found.getResultDataList())), contentFormat));
+                                summarySheet.addCell(new Label(6, row, percentageCalculator(countPass(found.getResultDataList()) + countAbandon(found.getResultDataList()), found.getResultDataList().size()), contentFormat));
+                                summarySheet.addCell(new Label(7, row, String.valueOf(found.getStartTime()), contentFormat));
+                                summarySheet.addCell(new Label(8, row, String.valueOf(found.getEndTime()), contentFormat));
+                                summarySheet.addCell(new Label(9, row, String.valueOf(ExcelUtils.timeDifference(found.getStartTime(), found.getEndTime()) + " s"), contentFormat));
+                                executedSize += found.getResultDataList().size();
                                 totalTime += ExcelUtils.timeDifference(found.getStartTime(), found.getEndTime());
                             } else {
                                 summarySheet.addCell(new Label(0, row, name, contentFormat));
-                                summarySheet.addCell(new Label(1, row, context.getString(R.string.zero_message), contentFormat));
+                                summarySheet.addCell(new Label(1, row, String.valueOf(caseTotal), contentFormat));
                                 summarySheet.addCell(new Label(2, row, context.getString(R.string.zero_message), contentFormat));
                                 summarySheet.addCell(new Label(3, row, context.getString(R.string.zero_message), contentFormat));
                                 summarySheet.addCell(new Label(4, row, context.getString(R.string.zero_message), contentFormat));
-                                summarySheet.addCell(new Label(5, row, context.getString(R.string.zero_percent_message), contentFormat));
-                                summarySheet.addCell(new Label(6, row, context.getString(R.string.dash_message), contentFormat));
+                                summarySheet.addCell(new Label(5, row, context.getString(R.string.zero_message), contentFormat));
+                                summarySheet.addCell(new Label(6, row, context.getString(R.string.zero_percent_message), contentFormat));
                                 summarySheet.addCell(new Label(7, row, context.getString(R.string.dash_message), contentFormat));
-                                summarySheet.addCell(new Label(8, row, context.getString(R.string.zero_second_message), contentFormat));
+                                summarySheet.addCell(new Label(8, row, context.getString(R.string.dash_message), contentFormat));
+                                summarySheet.addCell(new Label(9, row, context.getString(R.string.zero_second_message), contentFormat));
                             }
+                            totalSize += caseTotal;
                         }
                         row++;
                     }
                 } else {
                     for (ResultItem item : resultItemList) {
+                        int caseTotal = getCaseTotalCount(item.getClz());
                         summarySheet.addCell(new Label(0, row, ReflectionUtils.getAnnotationValue(item.getClz(), TestItem.class, TestItem.Members.name), contentFormat));
-                        summarySheet.addCell(new Label(1, row, String.valueOf(item.getResultDataList().size()), contentFormat));
-                        summarySheet.addCell(new Label(2, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
-                        summarySheet.addCell(new Label(3, row, String.valueOf(countAbandon(item.getResultDataList())), contentFormat));
-                        summarySheet.addCell(new Label(4, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
-                        summarySheet.addCell(new Label(5, row, percentageCalculator(countPass(item.getResultDataList()) + countAbandon(item.getResultDataList()), item.getResultDataList().size()), contentFormat));
-                        summarySheet.addCell(new Label(6, row, String.valueOf(item.getStartTime()), contentFormat));
-                        summarySheet.addCell(new Label(7, row, String.valueOf(item.getEndTime()), contentFormat));
-                        summarySheet.addCell(new Label(8, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
-                        totalSize += item.getResultDataList().size();
+                        summarySheet.addCell(new Label(1, row, String.valueOf(caseTotal), contentFormat));
+                        summarySheet.addCell(new Label(2, row, String.valueOf(item.getResultDataList().size()), contentFormat));
+                        summarySheet.addCell(new Label(3, row, String.valueOf(countPass(item.getResultDataList())), contentFormat));
+                        summarySheet.addCell(new Label(4, row, String.valueOf(countAbandon(item.getResultDataList())), contentFormat));
+                        summarySheet.addCell(new Label(5, row, String.valueOf(countFail(item.getResultDataList())), contentFormat));
+                        summarySheet.addCell(new Label(6, row, percentageCalculator(countPass(item.getResultDataList()) + countAbandon(item.getResultDataList()), item.getResultDataList().size()), contentFormat));
+                        summarySheet.addCell(new Label(7, row, String.valueOf(item.getStartTime()), contentFormat));
+                        summarySheet.addCell(new Label(8, row, String.valueOf(item.getEndTime()), contentFormat));
+                        summarySheet.addCell(new Label(9, row, String.valueOf(ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime()) + " s"), contentFormat));
+                        totalSize += caseTotal;
+                        executedSize += item.getResultDataList().size();
                         totalTime += ExcelUtils.timeDifference(item.getStartTime(), item.getEndTime());
                         row++;
                     }
                 }
                 summarySheet.addCell(new Label(1, row + 1, context.getString(R.string.total_number, String.valueOf(totalSize)), contentFormat));
-                summarySheet.addCell(new Label(8, row + 1, context.getString(R.string.total_time, formatTotalTime(totalTime)), contentFormat));
+                summarySheet.addCell(new Label(2, row + 1, context.getString(R.string.executed_total_number, String.valueOf(executedSize)), contentFormat));
+                summarySheet.addCell(new Label(9, row + 1, context.getString(R.string.total_time, formatTotalTime(totalTime)), contentFormat));
 
                 int r = 1;
                 for (ResultItem item : resultItemList) {

@@ -8,7 +8,7 @@ import com.hudou.autotest.base.item.AutoTestTestItem;
 import java.lang.reflect.Method;
 
 @TestItem(name = "Test2", description = "测试项目2",
-        unsupportedDevice = {"HUAWEI DUK-AL20"},
+        unsupportedDevice = {"HUAWEI DUK-AL20", "N950"},
         unsupportedDeviceDes = "该设备缺少本测试项所需的外设，无法进行测试")
 public class TestItem2 extends AutoTestTestItem {
     @Override

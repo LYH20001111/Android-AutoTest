@@ -28,6 +28,7 @@ import com.hudou.autotest.R;
 import com.hudou.autotest.adapter.MyExpandableListAdapter;
 import com.hudou.autotest.annotation.Function;
 import com.hudou.autotest.annotation.Navigation;
+import com.hudou.autotest.annotation.TestCase;
 import com.hudou.autotest.annotation.TestItem;
 import com.hudou.autotest.base.activity.AutoTestMainActivity;
 import com.hudou.autotest.base.fragment.BaseFragment;
@@ -255,8 +256,11 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                         String name = ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name);
                                         TestItem testItemAnnotation = clz.getAnnotation(TestItem.class);
                                         boolean unsupported = testItemAnnotation != null && DeviceUtils.isDeviceUnsupported(testItemAnnotation.unsupportedDevice());
+                                        int caseTotal = (int) Arrays.stream(clz.getDeclaredMethods())
+                                                .filter(m -> m.isAnnotationPresent(TestCase.class))
+                                                .count();
                                         if (unsupported) {
-                                            items.add(new TableItem(name, TestResult.RESULT_DEVICE_UNSUPPORTED, TestResult.RESULT_DEVICE_UNSUPPORTED));
+                                            items.add(new TableItem(name, String.valueOf(caseTotal), "✘", "✘"));
                                         } else {
                                             ResultItem found = null;
                                             for (ResultItem ri : resultItemList) {
@@ -266,15 +270,19 @@ public class AutoTestSettingFragment extends BaseFragment<AutoTestBaseSettingFra
                                                 }
                                             }
                                             if (found != null) {
-                                                items.add(new TableItem(name, String.valueOf(countFail(found.getResultDataList())), String.valueOf(found.getResultDataList().size())));
+                                                items.add(new TableItem(name, String.valueOf(caseTotal), String.valueOf(countFail(found.getResultDataList())), String.valueOf(found.getResultDataList().size())));
                                             } else {
-                                                items.add(new TableItem(name, "0", "0"));
+                                                items.add(new TableItem(name, String.valueOf(caseTotal), "0", "0"));
                                             }
                                         }
                                     }
                                 } else {
                                     for (ResultItem resultItem : resultItemList) {
+                                        int caseTotal = (int) Arrays.stream(resultItem.getClz().getDeclaredMethods())
+                                                .filter(m -> m.isAnnotationPresent(TestCase.class))
+                                                .count();
                                         items.add(new TableItem(ReflectionUtils.getAnnotationValue(resultItem.getClz(), TestItem.class, TestItem.Members.name),
+                                                String.valueOf(caseTotal),
                                                 String.valueOf(countFail(resultItem.getResultDataList())), String.valueOf(resultItem.getResultDataList().size())));
                                     }
                                 }

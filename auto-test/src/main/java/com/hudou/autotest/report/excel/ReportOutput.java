@@ -21,6 +21,7 @@ public class ReportOutput {
         if (AutoTestSettingFragment.isEnglishReport()) {
             put(AutoTestMainActivity.getContext().getString(R.string.report_summary_sheet_title_en), new String[]{
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_test_item_en),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_case_total_num_en),
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_total_num_en),
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_pass_num_en),
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_abandon_num_en),
@@ -39,6 +40,7 @@ public class ReportOutput {
         } else {
             put(AutoTestMainActivity.getContext().getString(R.string.report_summary_sheet_title), new String[]{
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_test_item),
+                    AutoTestMainActivity.getContext().getString(R.string.report_summary_case_total_num),
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_total_num),
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_pass_num),
                     AutoTestMainActivity.getContext().getString(R.string.report_summary_abandon_num),

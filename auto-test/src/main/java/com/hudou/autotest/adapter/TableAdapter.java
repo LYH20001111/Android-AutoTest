@@ -31,6 +31,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TableItem item = items.get(position);
         holder.caseItem.setText(item.getCaseItem());
+        holder.caseTotalCount.setText(item.getCaseTotalCount());
         holder.failCount.setText(item.getFailCount());
         holder.totalCount.setText(item.getTotalCount());
     }
@@ -42,12 +43,14 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView caseItem;
+        TextView caseTotalCount;
         TextView failCount;
         TextView totalCount;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             caseItem = itemView.findViewById(R.id.caseItem);
+            caseTotalCount = itemView.findViewById(R.id.caseTotalCount);
             failCount = itemView.findViewById(R.id.failCount);
             totalCount = itemView.findViewById(R.id.totalCount);
         }
