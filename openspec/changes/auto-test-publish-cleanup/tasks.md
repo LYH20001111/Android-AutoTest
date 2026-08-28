@@ -17,5 +17,5 @@
 
 ## 4. 文档与收尾
 
-- [ ] 4.1 更新 README 发布章节：版本号在根 build.gradle 的 ext 修改、命令改为 `./gradlew publishAutoTest`、移除对 resolutionStrategy 的任何暗示。验证：按 README 步骤可完成一次发布
-- [ ] 4.2 提交全部变更（根/auto-test/app 的 build.gradle、README、local-maven-repo 更新产物）。验证：`git status` 仅包含本次变更相关文件
+- [x] 4.1 更新 README 发布章节：版本号在根 build.gradle 的 ext 修改、命令改为 `./gradlew publishAutoTest`、移除对 resolutionStrategy 的任何暗示。验证：按 README 步骤可完成一次发布
+- [x] 4.2 提交全部变更（根/auto-test/app 的 build.gradle、README、local-maven-repo 更新产物）。验证：`git status` 仅包含本次变更相关文件
