@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.LYH20001111:Android-AutoTest:2.0.04'
+    implementation "com.github.LYH20001111:Android-AutoTest:${rootProject.ext.autotestVersionName}"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
@@ -41,19 +41,15 @@ dependencies {
 
     // app 自有功能依赖（扫码、Excel OOXML、动画），不属于 auto-test
     implementation 'com.google.zxing:core:3.4.0'
-    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
+    implementation('com.journeyapps:zxing-android-embedded:4.2.0') {
+        exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
     implementation 'org.apache.poi:poi:3.16'
     implementation('org.apache.poi:poi-ooxml:3.16') {
         exclude group: 'org.apache.xmlbeans', module: 'xmlbeans'
     }
     implementation 'org.apache.commons:commons-lang3:3.12.0'
-    implementation 'com.airbnb.android:lottie:5.2.0'
-}
-configurations.all {
-    resolutionStrategy {
-        force 'com.google.guava:guava:18.0'
+    implementation('com.airbnb.android:lottie:5.2.0') {
         exclude group: 'com.google.guava', module: 'listenablefuture'
-        exclude group: 'com.google.code.findbugs', module: 'jsr305'
-        exclude group: 'com.google.code.findbugs', module: 'annotations'
     }
 }

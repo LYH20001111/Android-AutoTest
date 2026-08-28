@@ -22,14 +22,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -41,14 +33,6 @@
         <exclusion>
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -62,14 +46,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -81,14 +57,6 @@
         <exclusion>
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -102,14 +70,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -121,14 +81,6 @@
         <exclusion>
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -142,14 +94,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -161,14 +105,6 @@
         <exclusion>
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -182,14 +118,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -201,14 +129,6 @@
         <exclusion>
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -222,14 +142,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -241,14 +153,6 @@
         <exclusion>
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -264,11 +168,7 @@
         </exclusion>
         <exclusion>
           <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
+          <artifactId>*</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -282,14 +182,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -302,14 +194,6 @@
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -321,14 +205,6 @@
         <exclusion>
           <groupId>com.google.guava</groupId>
           <artifactId>listenablefuture</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>annotations</artifactId>
         </exclusion>
       </exclusions>
     </dependency>

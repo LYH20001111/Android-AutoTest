@@ -20,4 +20,4 @@
 
 - [x] 4.1 更新 `README.md`
 - [x] 4.2 清理根 `build.gradle` 中被注释的 `fat-aar` classpath 残留。验证：根 `build.gradle` 无 fat-aar 相关内容，`./gradlew :app:assembleDebug` 仍成功
-- [ ] 4.3 将 `local-maven-repo` 产物与全部构建脚本变更一并提交。验证：`git status` 中 `local-maven-repo/` 下产物已纳入跟踪，干净克隆（或同事拉取）后不重新发布也能直接构建 app
+- [x] 4.3 将 `local-maven-repo` 产物与全部构建脚本变更一并提交。验证：`git status` 中 `local-maven-repo/` 下产物已纳入跟踪，干净克隆（或同事拉取）后不重新发布也能直接构建 app

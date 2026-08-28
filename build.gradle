@@ -15,6 +15,17 @@ buildscript {
     }
 }
 
+ext {
+    autotestVersionCode = 20004
+    autotestVersionName = '2.0.04'
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+tasks.register('publishAutoTest') {
+    group = 'publishing'
+    description = '构建并发布 auto-test AAR 到项目内 local-maven-repo'
+    dependsOn ':auto-test:publishReleasePublicationToLocalMavenRepoRepository'
 }

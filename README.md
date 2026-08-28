@@ -57,14 +57,21 @@ android {
 ## 1.3 发布 AAR（本仓库维护者）
 
 ```
-./gradlew :auto-test:publishReleasePublicationToLocalMavenRepoRepository
+./gradlew publishAutoTest
 ```
 
-产物（aar / pom / .module / 校验和）写入 `local-maven-repo/`，需与版本号一并提交 Git。约定：
+产物（aar / pom / .module / 校验和）写入 `local-maven-repo/`，需与版本号一并提交 Git。发布新版本的完整流程：
 
-- 每次对外发布**递增版本号**（改 `auto-test/build.gradle` 的 `appVersionName` 即可，坐标版本自动跟随）；
+1. 修改根 `build.gradle` 的 `ext` 块：`autotestVersionCode`（版本码）与 `autotestVersionName`（版本名，即 Maven 坐标版本）；
+2. 执行 `./gradlew publishAutoTest`；
+3. 提交 `local-maven-repo/` 产物与版本号变更。
+
+约定：
+
+- 每次对外发布**递增版本号**，坐标版本、BuildConfig 版本、产物文件名均以根 `build.gradle` 的 `ext` 为单一来源，自动跟随；
 - 确需覆盖同版本时，消费方需加 `--refresh-dependencies` 刷新 Gradle 缓存；
-- 修改 auto-test 源码后，必须先执行发布命令，再构建 app（app 以 Maven 坐标消费）。
+- 修改 auto-test 源码后，必须先执行发布命令，再构建 app（app 以 Maven 坐标消费）；
+- 消费方无需任何 `resolutionStrategy` / force / exclude 全局配置，依赖传递与冲突处理由发布的元数据自动完成。
 
 ## 1.4 改造MainActivity 
 

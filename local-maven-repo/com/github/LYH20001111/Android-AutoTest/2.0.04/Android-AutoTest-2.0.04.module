@@ -33,14 +33,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -54,14 +46,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -75,14 +59,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -96,14 +72,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -117,14 +85,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -138,14 +98,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         }
@@ -181,14 +133,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -202,14 +146,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -223,14 +159,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -244,14 +172,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -265,14 +185,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -286,14 +198,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -310,11 +214,7 @@
             },
             {
               "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
+              "module": "*"
             }
           ]
         },
@@ -328,14 +228,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -349,14 +241,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -370,14 +254,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -391,14 +267,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -412,14 +280,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -433,14 +293,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -454,14 +306,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -475,14 +319,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -496,14 +332,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         },
@@ -517,14 +345,6 @@
             {
               "group": "com.google.guava",
               "module": "listenablefuture"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "jsr305"
-            },
-            {
-              "group": "com.google.code.findbugs",
-              "module": "annotations"
             }
           ]
         }
