@@ -67,4 +67,12 @@ public class ResultItem {
     public boolean isStartTimeSet() {
         return isStartTimeSet;
     }
+
+    /**
+     * 直接还原 startTime 已设置标志（用于从数据库恢复历史记录），
+     * 替代原先对私有字段的反射写入。
+     */
+    public void setStartTimeSetFlag(boolean flag) {
+        this.isStartTimeSet = flag;
+    }
 }

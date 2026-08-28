@@ -25,6 +25,9 @@ public interface ResultDao {
     @Query("SELECT * FROM result_items")
     List<ResultItemEntity> getAllResultItems();
 
+    @Query("SELECT * FROM result_data")
+    List<ResultDataEntity> getAllResultData();
+
     @Query("SELECT * FROM result_data WHERE className = :className")
     List<ResultDataEntity> getResultDataForItem(String className);
 

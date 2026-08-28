@@ -47,8 +47,8 @@ import com.hudou.autotest.util.SynchronizedMutableLiveData;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -77,34 +77,39 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
         db = AppDatabase.getInstance(mContext);
         new Thread(() -> {
             List<ResultItemEntity> items = AutoTestMainActivity.getDb().dao().getAllResultItems();
+            // 一次查询全部案例数据后按测试项内存分组，替代原来每个测试项单独查询的 N+1 模式
+            Map<String, List<ResultDataEntity>> dataByClass = new HashMap<>();
+            for (ResultDataEntity de : AutoTestMainActivity.getDb().dao().getAllResultData()) {
+                List<ResultDataEntity> bucket = dataByClass.get(de.className);
+                if (bucket == null) {
+                    bucket = new ArrayList<>();
+                    dataByClass.put(de.className, bucket);
+                }
+                bucket.add(de);
+            }
             List<ResultItem> temp = new ArrayList<>();
             for (ResultItemEntity ie : items) {
                 try {
                     Class<? extends BaseTestCase> clz =
                             (Class<? extends BaseTestCase>) Class.forName(ie.className);
                     CopyOnWriteArrayList<ResultData> rdList = new CopyOnWriteArrayList<>();
-                    for (ResultDataEntity de : AutoTestMainActivity.getDb().dao()
-                            .getDataForItem(ie.className)) {
-                        ResultData d = new ResultData();
-                        d.setId(de.caseName);
-                        d.setTestCaseName(de.methodName);
-                        d.setResult(de.result);
-                        d.setChineseDescription(de.chineseDescription);
-                        d.setEnglishDescription(de.englishDescription);
-                        d.setDetail(de.detail);
-                        rdList.add(d);
+                    List<ResultDataEntity> dataList = dataByClass.get(ie.className);
+                    if (dataList != null) {
+                        for (ResultDataEntity de : dataList) {
+                            ResultData d = new ResultData();
+                            d.setId(de.caseName);
+                            d.setTestCaseName(de.methodName);
+                            d.setResult(de.result);
+                            d.setChineseDescription(de.chineseDescription);
+                            d.setEnglishDescription(de.englishDescription);
+                            d.setDetail(de.detail);
+                            rdList.add(d);
+                        }
                     }
                     ResultItem ri = new ResultItem(clz, rdList);
                     ri.setStartTime(ie.startTime);
                     ri.setEndTime(ie.endTime);
-                    // 把标志位也同步
-                    try {
-                        Field f = ResultItem.class.getDeclaredField("isStartTimeSet");
-                        f.setAccessible(true);
-                        f.setBoolean(ri, ie.isStartTimeSet);
-                    } catch (Exception ignore) {
-                        ignore.printStackTrace();
-                    }
+                    ri.setStartTimeSetFlag(ie.isStartTimeSet);
                     temp.add(ri);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -113,7 +118,7 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
             // 写回主内存
             resultItemList.clear();
             resultItemList.addAll(temp);
-        }).start();
+        }, "AutoTestHistoryLoad").start();
 
         SharedPreferencesUtil.init(getApplicationContext());
         setContentView(R.layout.auto_test_activity_main);
@@ -175,17 +180,28 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
             }
         });
         mShowMessage.observe(this, message -> setLlMessage(message.getColor(), message.getMessage()));
+    }
 
-        String fileName = ReflectionUtils.getConfig(Config.REPORT_PATH);
-        File file = new File(fileName);
-        if (!file.exists()) {
-            file.mkdirs();
+    /**
+     * 懒初始化报告输出流：首次需要写报告时才创建目录与文件，
+     * 避免在主界面 onCreate 的主线程上做文件 IO。
+     * 库内所有报告写入点都必须通过本方法获取流，不得直接使用 {@link #fos}。
+     */
+    public static synchronized FileOutputStream ensureReportStream() {
+        if (fos != null) {
+            return fos;
         }
         try {
+            String fileName = ReflectionUtils.getConfig(Config.REPORT_PATH);
+            File file = new File(fileName);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
             fos = new FileOutputStream(fileName + ReflectionUtils.getConfig(Config.TXT_REPORT_NAME));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return fos;
     }
 
     @Override
@@ -201,10 +217,12 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
 
     private void setLlMessage(int color, String message) {
         runOnUiThread(() -> {
+            LinearLayout container = llMessage;
+            if (container == null) return;
             TextView textView = new TextView(this);
             textView.setText(message);
             textView.setTextColor(color);
-            llMessage.addView(textView, 0);
+            container.addView(textView, 0);
         });
     }
 
@@ -258,10 +276,18 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
     protected void onDestroy() {
         super.onDestroy();
         SharedPreferencesUtil.clear();
-        try {
-            fos.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        llMessage = null;
+        FileOutputStream stream;
+        synchronized (AutoTestMainActivity.class) {
+            stream = fos;
+            fos = null;
+        }
+        if (stream != null) {
+            try {
+                stream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -293,7 +319,10 @@ public abstract class AutoTestMainActivity extends AppCompatActivity implements 
         getRecorder().synchronizedPostValue(new ShowMessage(color, message));
         if (SharedPreferencesUtil.get(SharedPreferencesUtil.DEBUG_MODE, true)) {
             resultData.appendDetail("\n" + message);
-            fos.write((message + "\n").getBytes());
+            FileOutputStream stream = ensureReportStream();
+            if (stream != null) {
+                stream.write((message + "\n").getBytes());
+            }
         }
     }
 

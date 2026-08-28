@@ -83,6 +83,9 @@
     <color name="Transparent">#000000</color>
 
 
+    <!--splash screen: 系统启动窗口、根布局与默认加载布局共用的背景色，避免启动过程颜色跳变-->
+    <color name="auto_test_splash_background">#FAF2E0</color>
+
     <!--unsupported test item-->
     <color name="test_item_unsupported_bg">#F0F0F0</color>
     <color name="test_item_unsupported_text">#AAAAAA</color>

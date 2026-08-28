@@ -49,7 +49,7 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
 
     @Override
     public void onInitData() {
-        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+        viewBinding.tvItem.setText(viewBinding.tvItem.getText() + ReflectionUtils.getAnnotationValueCached(clz, TestItem.class, TestItem.Members.name));
         AutoTestMainActivity.llMessage = viewBinding.llMessage;
         initAction();
     }
@@ -220,32 +220,32 @@ public class ExecutionFragment extends BaseFragment<AutoTestExecutionFragmentBin
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case OptionsFragment.Option.RUN_PART_NONCONTINUOUS_CASES:
-                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValueCached(clz, TestItem.class, TestItem.Members.name));
                 viewBinding.tvSelectedIds.setVisibility(View.VISIBLE);
                 refreshSelectedIds();
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.GRAY, getString(R.string.edit_selected_id_hint)));
                 break;
             case OptionsFragment.Option.VIEW_ALL_CASES:
-                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValueCached(clz, TestItem.class, TestItem.Members.name));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.BLUE, testItem.viewCaseDetails(clz)));
                 break;
             case OptionsFragment.Option.VIEW_ABANDON_CASES:
-                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValueCached(clz, TestItem.class, TestItem.Members.name));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.GRAY, testItem.viewAbandonCaseDetails(clz)));
                 break;
             case OptionsFragment.Option.VIEW_UNEXECUTED_CASES:
-                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValueCached(clz, TestItem.class, TestItem.Members.name));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(0xFF42A5F5, testItem.viewUnexecutedCaseDetails(clz)));
                 break;
             case OptionsFragment.Option.VIEW_FAILED_CASES:
-                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValue(clz, TestItem.class, TestItem.Members.name));
+                viewBinding.tvItem.setText(getString(R.string.current_item) + ReflectionUtils.getAnnotationValueCached(clz, TestItem.class, TestItem.Members.name));
                 viewBinding.llLine2.setVisibility(View.GONE);
                 viewBinding.viewKeyboard.setVisibility(View.GONE);
                 AutoTestMainActivity.getRecorder().postValue(new ShowMessage(Color.RED, testItem.viewFailedCaseDetails(clz)));

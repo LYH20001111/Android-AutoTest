@@ -185,7 +185,38 @@ public class TestItem1 extends AutoTestTestItem {
     }
 ```
 
-## 1.6 页面优化
+## 1.6 Splash 启动页集成（推荐）
+
+​	创建启动页：继承 **AutoTestSplashActivity** 并重写 `getTargetActivity()` 指向主界面：
+
+```java
+public class SplashActivity extends AutoTestSplashActivity {
+    @Override
+    public Class<?> getTargetActivity() {
+        return MainActivity.class;
+    }
+    // 可选：自定义标题/图标/加载布局/最小展示时长
+    // getSplashTitle() / getSplashIconResId() / getSplashLoadingLayoutResId() / getMinDisplayDuration()
+}
+```
+
+​	**必须**在 AndroidManifest 中为该 Activity 声明启动页主题，否则冷启动会先出现空白窗口：
+
+```xml
+<activity
+    android:name=".SplashActivity"
+    android:exported="true"
+    android:theme="@style/Theme.AutoTest.SplashScreen">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
+​	启动页会在后台线程执行 `onPreloadData()`（可重写，用于预热数据库等关键配置），预热完成并满足最小展示时长后自动跳转主界面。
+
+## 1.7 页面优化
 
 ​	要是想希望页面更好看，可更换主题，可以将theme.xml 改为：
 

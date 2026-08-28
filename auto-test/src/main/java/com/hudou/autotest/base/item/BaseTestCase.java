@@ -1,6 +1,5 @@
 package com.hudou.autotest.base.item;
 
-import static com.hudou.autotest.base.activity.AutoTestMainActivity.fos;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultData;
 import static com.hudou.autotest.base.activity.AutoTestMainActivity.resultItemList;
 import static com.hudou.autotest.constant.TestResult.*;
@@ -23,6 +22,7 @@ import com.hudou.autotest.report.excel.ExcelUtils;
 import com.hudou.autotest.util.DeviceUtils;
 import com.hudou.autotest.util.ReflectionUtils;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -116,14 +116,16 @@ public abstract class BaseTestCase {
                         item.setStartTime(ExcelUtils.testCaseDate(String.valueOf(new Date().getTime())));
                         resultItemList.add(item);
                     }
+                    String caseName = ReflectionUtils.getAnnotationValueCached(method, TestCase.class, TestCase.Members.name);
+                    String caseTip = ReflectionUtils.getAnnotationValueCached(method, TestCase.class, TestCase.Members.tip);
                     resultData.setId(method.getName());
-                    resultData.setTestCaseName(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name));
-                    resultData.setEnglishDescription(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.enDes));
+                    resultData.setTestCaseName(caseName);
+                    resultData.setEnglishDescription(ReflectionUtils.getAnnotationValueCached(method, TestCase.class, TestCase.Members.enDes));
                     resultData.setDetail("XX=============" + method.getName() + "=============XX");
 
-                    postValue(Color.BLUE, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_executing), ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name)));
-                    if (!"".equals(ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip))) {
-                        postValue(Color.GRAY, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_case_tip), ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.tip)));
+                    postValue(Color.BLUE, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_executing), caseName));
+                    if (!"".equals(caseTip)) {
+                        postValue(Color.GRAY, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_case_tip), caseTip));
                     }
                     try {
                         TestCase testCaseAnnotation = method.getAnnotation(TestCase.class);
@@ -167,7 +169,7 @@ public abstract class BaseTestCase {
                         postValue(Color.RED, RESULT_FAIL + ("\n"
                                 +  String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_exception), root.getClass().getSimpleName(), root.getMessage())));
                     } finally {
-                        postValue(Color.BLUE, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_case_end), ReflectionUtils.getAnnotationValue(method, TestCase.class, TestCase.Members.name)));
+                        postValue(Color.BLUE, String.format(AutoTestMainActivity.getContext().getString(R.string.post_value_case_end), caseName));
                     }
 
                     //Add storage start
@@ -417,7 +419,10 @@ public abstract class BaseTestCase {
         resultData.appendDetail("\n" + message);
         try {
             AutoTestMainActivity.getRecorder().synchronizedPostValue(new ShowMessage(color, message));
-            fos.write((message + "\n").getBytes());
+            FileOutputStream stream = AutoTestMainActivity.ensureReportStream();
+            if (stream != null) {
+                stream.write((message + "\n").getBytes());
+            }
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -429,7 +434,10 @@ public abstract class BaseTestCase {
         } else {
             resultData.appendDetail("\n" + message);
             try {
-                fos.write((message + "\n").getBytes());
+                FileOutputStream stream = AutoTestMainActivity.ensureReportStream();
+                if (stream != null) {
+                    stream.write((message + "\n").getBytes());
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

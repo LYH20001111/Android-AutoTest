@@ -17,6 +17,16 @@ public class SplashActivity extends AutoTestSplashActivity {
     }
 
     @Override
+    public void onPreloadData() {
+        super.onPreloadData();
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public long getMinDisplayDuration() {
         return 10000;
     }

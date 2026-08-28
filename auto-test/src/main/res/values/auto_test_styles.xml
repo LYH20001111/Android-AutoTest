@@ -2,9 +2,13 @@
 <resources>
 
     <style name="Theme.AutoTest.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenBackground">@color/auto_test_splash_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/auto_test_ic_launcher_foreground</item>
-        <item name="postSplashScreenTheme">@style/Theme.AppCompat.Light.NoActionBar</item>
+        <item name="postSplashScreenTheme">@style/Theme.AutoTest.Main</item>
+    </style>
+
+    <style name="Theme.AutoTest.Main" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/auto_test_splash_background</item>
     </style>
 
     <style name="TabLayoutTextStyle" parent="Widget.Design.TabLayout">

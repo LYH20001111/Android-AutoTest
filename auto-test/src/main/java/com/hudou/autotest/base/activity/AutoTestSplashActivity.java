@@ -1,11 +1,11 @@
 package com.hudou.autotest.base.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.ViewStub;
+import android.os.SystemClock;
+import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.splashscreen.SplashScreen;
 
 import com.hudou.autotest.R;
+import com.hudou.autotest.databinding.AutoTestSplashLayoutBinding;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -22,6 +23,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * 宿主应用通过继承此类并实现 {@link #getTargetActivity()} 来启用启动加载反馈。
  * 每次冷/温启动必经启动页，显示品牌画面 + 加载动画，后台预热关键配置，
  * 预热完成后自动跳转宿主主界面。
+ * </p>
+ * <p>
+ * 集成要求：宿主必须在 AndroidManifest 中为继承本类的 Activity 声明
+ * {@code android:theme="@style/Theme.AutoTest.SplashScreen"}，
+ * 否则系统启动窗口无 splash 背景，冷启动会先出现空白窗口。
  * </p>
  */
 public abstract class AutoTestSplashActivity extends AppCompatActivity implements IAutoTestSplash {
@@ -34,26 +40,27 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
 
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
+    /** 预热开始时间戳，用于计算最小展示时长的剩余部分 */
+    private long preloadStartTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // 在 super.onCreate() 之前安装 SplashScreen，冷启动时与系统启动画面衔接
+        // 在 super.onCreate() 之前安装 SplashScreen，冷启动时与系统启动画面衔接。
+        // 前提是宿主已在 Manifest 声明 Theme.AutoTest.SplashScreen，此处不再做 setTheme 切换
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
-        splashScreen.setKeepOnScreenCondition(() -> !isPreloadDone());
 
         super.onCreate(savedInstanceState);
-
-        setTheme(R.style.Theme_AutoTest_SplashScreen);
-        setContentView(R.layout.auto_test_splash_layout);
+        AutoTestSplashLayoutBinding binding = AutoTestSplashLayoutBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
 
         // 处理自定义加载布局
-        ViewStub loadingContainer = findViewById(R.id.splash_loading_container);
         int customLayoutId = getSplashLoadingLayoutResId();
         if (customLayoutId != 0) {
             // 使用自定义加载布局
-            loadingContainer.setLayoutResource(customLayoutId);
+            binding.splashLoadingContainer.setLayoutResource(customLayoutId);
         }
         // 无论自定义还是默认布局，都 inflate 到 ViewStub
-        loadingContainer.inflate();
+        binding.splashLoadingContainer.inflate();
 
         // 仅当使用默认布局时设置品牌图标
         if (customLayoutId == 0) {
@@ -68,6 +75,7 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
     }
 
     private void startPreload() {
+        preloadStartTime = SystemClock.uptimeMillis();
         new Thread(() -> {
             try {
                 onPreloadData();
@@ -76,45 +84,23 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
                 e.printStackTrace();
             } finally {
                 preloadDone.set(true);
+                mainHandler.post(this::scheduleNavigation);
             }
-        }).start();
-
-        // 主线程等待预热完成且满足最小展示时长
-        waitForPreload();
+        }, "AutoTestSplashPreload").start();
     }
 
-    private void waitForPreload() {
-        new Thread(() -> {
-            long startTime = System.currentTimeMillis();
-            long minDuration = getMinDisplayDuration();
-
-            // 等待预热完成
-            while (!isPreloadDone()) {
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    break;
-                }
-            }
-
-            // 确保最小展示时长
-            long elapsed = System.currentTimeMillis() - startTime;
-            if (elapsed < minDuration) {
-                try {
-                    Thread.sleep(minDuration - elapsed);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-            }
-
-            // 在主线程跳转目标 Activity
-            mainHandler.post(this::navigateToTarget);
-        }).start();
+    /**
+     * 在主线程计算剩余最小展示时长并调度跳转，替代原先的独立线程轮询等待。
+     */
+    private void scheduleNavigation() {
+        if (isFinishing() || isDestroyed()) return;
+        long elapsed = SystemClock.uptimeMillis() - preloadStartTime;
+        long delay = Math.max(0L, getMinDisplayDuration() - elapsed);
+        mainHandler.postDelayed(this::navigateToTarget, delay);
     }
 
     private void navigateToTarget() {
-        if (isFinishing()) return;
+        if (isFinishing() || isDestroyed()) return;
 
         Class<?> targetClass = getTargetActivity();
         if (targetClass != null) {
@@ -123,6 +109,12 @@ public abstract class AutoTestSplashActivity extends AppCompatActivity implement
             startActivity(intent);
         }
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mainHandler.removeCallbacksAndMessages(null);
+        super.onDestroy();
     }
 
     @Override
