@@ -2,6 +2,16 @@ plugins {
     id 'com.android.library'
     id 'maven-publish'
 }
+// fat-aar：把 embed 声明的依赖（含传递依赖）合并进最终 aar，
+// 使接入方只需引入 aar 即可，无需再重复声明这些依赖
+apply plugin: 'com.kezong.fat-aar'
+
+fataar {
+    // embed 依赖的传递依赖也一并打包（如 appcompat 传递的 androidx.core、fragment 等）
+    transitive = true
+    // 关闭 AGP8 的 R8 校验任务，保证 embed 合并后 sync/bundle 通过
+    keepR8Verify = false
+}
 
 def appVersionCode = 20004
 def appVersionName = '2.0.04'
@@ -18,6 +28,9 @@ android {
         versionName = appVersionName
         buildConfigField 'String', 'AUTHOR', '"Liu YiHong"'
         buildConfigField 'String', 'STRUCTURE_VERSION', "\"" + appVersionName + "\""
+
+        // 随 aar 下发给接入方的混淆规则，保护被打进 aar 的第三方库
+        consumerProguardFiles 'consumer-rules.pro'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -77,35 +90,34 @@ afterEvaluate {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.core:core-splashscreen:1.0.0'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-runtime:2.8.8'
+    // embed = 参与编译并合并进最终 aar（fataar.transitive=true 时传递依赖也会一并打入）
+    embed 'androidx.appcompat:appcompat:1.6.1'
+    embed 'androidx.core:core-splashscreen:1.0.0'
+    embed 'com.google.android.material:material:1.9.0'
+    embed 'androidx.constraintlayout:constraintlayout:2.1.4'
+    embed 'androidx.navigation:navigation-runtime:2.8.8'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     annotationProcessor 'com.google.auto.service:auto-service:1.0.1'
-    implementation 'com.google.auto.service:auto-service-annotations:1.0.1'
-    implementation 'com.alibaba:fastjson:1.2.75'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    embed 'com.google.auto.service:auto-service-annotations:1.0.1'
+    embed 'com.alibaba:fastjson:1.2.75'
+    embed 'com.google.code.gson:gson:2.10.1'
 
-    implementation 'androidx.recyclerview:recyclerview:1.3.0'
+    embed 'androidx.recyclerview:recyclerview:1.3.0'
 
-    implementation 'org.reflections:reflections:0.9.10'
-    implementation 'org.slf4j:slf4j-api:1.7.30'
-    implementation 'commons-cli:commons-cli:1.4'
+    embed 'org.reflections:reflections:0.9.10'
+    embed 'org.slf4j:slf4j-api:1.7.30'
+    embed 'commons-cli:commons-cli:1.4'
 
-    api 'net.sourceforge.jexcelapi:jxl:2.6.12' //将该依赖的jar导入到libs，和项目一并打包为aar
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    embed 'net.sourceforge.jexcelapi:jxl:2.6.12' //将该依赖的jar导入到libs，和项目一并打包为aar
+    embed "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     def room_version = "2.5.2"
-    implementation "androidx.room:room-runtime:$room_version"
+    embed "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-    implementation "com.google.code.gson:gson:2.10.1"  // 仅用来把 Class 存成 String
-
 
 }
 

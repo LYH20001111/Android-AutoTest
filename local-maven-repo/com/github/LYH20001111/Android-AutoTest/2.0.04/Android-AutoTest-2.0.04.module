@@ -1,0 +1,422 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.LYH20001111",
+    "module": "Android-AutoTest",
+    "version": "2.0.04",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "net.sourceforge.jexcelapi",
+          "module": "jxl",
+          "version": {
+            "requires": "2.6.12"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.databinding",
+          "module": "viewbinding",
+          "version": {
+            "requires": "8.1.0"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "Android-AutoTest-2.0.04.aar",
+          "url": "Android-AutoTest-2.0.04.aar",
+          "size": 331597,
+          "sha512": "f4712d7fe943cea0300c6450efedf6eb7ac6d7f5f0cfc87622c36dafb6492a027a403d2cfdb10a7ed015e8b8c8fa29d8bcc6c6c6a8bf725851f4975f93b5df49",
+          "sha256": "dc3bad7800e36fe40d5f88d17ecf3bac8d65270d03bfb9522966549d599d9542",
+          "sha1": "1a9f8417097f496e780407c51e6962ea59eb44ab",
+          "md5": "e10cd9b4c1e66ac63374d238a695f78c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.6.1"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-splashscreen",
+          "version": {
+            "requires": "1.0.0"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.9.0"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.constraintlayout",
+          "module": "constraintlayout",
+          "version": {
+            "requires": "2.1.4"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.navigation",
+          "module": "navigation-runtime",
+          "version": {
+            "requires": "2.8.8"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "com.google.auto.service",
+          "module": "auto-service-annotations",
+          "version": {
+            "requires": "1.0.1"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "com.alibaba",
+          "module": "fastjson",
+          "version": {
+            "requires": "1.2.75"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.recyclerview",
+          "module": "recyclerview",
+          "version": {
+            "requires": "1.3.0"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "org.reflections",
+          "module": "reflections",
+          "version": {
+            "requires": "0.9.10"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "requires": "1.7.30"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "commons-cli",
+          "module": "commons-cli",
+          "version": {
+            "requires": "1.4"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.swiperefreshlayout",
+          "module": "swiperefreshlayout",
+          "version": {
+            "requires": "1.0.0"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "com.google.guava",
+          "module": "listenablefuture",
+          "version": {
+            "requires": "9999.0-empty-to-avoid-conflict-with-guava"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.room",
+          "module": "room-runtime",
+          "version": {
+            "requires": "2.5.2"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.10.1"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "net.sourceforge.jexcelapi",
+          "module": "jxl",
+          "version": {
+            "requires": "2.6.12"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        },
+        {
+          "group": "androidx.databinding",
+          "module": "viewbinding",
+          "version": {
+            "requires": "8.1.0"
+          },
+          "excludes": [
+            {
+              "group": "com.google.code.findbugs",
+              "module": "jsr305"
+            },
+            {
+              "group": "com.google.code.findbugs",
+              "module": "annotations"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "Android-AutoTest-2.0.04.aar",
+          "url": "Android-AutoTest-2.0.04.aar",
+          "size": 331597,
+          "sha512": "f4712d7fe943cea0300c6450efedf6eb7ac6d7f5f0cfc87622c36dafb6492a027a403d2cfdb10a7ed015e8b8c8fa29d8bcc6c6c6a8bf725851f4975f93b5df49",
+          "sha256": "dc3bad7800e36fe40d5f88d17ecf3bac8d65270d03bfb9522966549d599d9542",
+          "sha1": "1a9f8417097f496e780407c51e6962ea59eb44ab",
+          "md5": "e10cd9b4c1e66ac63374d238a695f78c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "Android-AutoTest-2.0.04-sources.jar",
+          "url": "Android-AutoTest-2.0.04-sources.jar",
+          "size": 103360,
+          "sha512": "b0f9bde93990520152c2f0858843fe6c291e010b0bcaae624a9532815fcd0ef1c5cece89028c0a6fea70c340aa52983d2fda37ed1b23e5909416bd8be53e816d",
+          "sha256": "e5aadf4535bdd6747865b3b101fafecaf10457709cffbf393c80c9ad7b45bab1",
+          "sha1": "dd7b5c16315a91ce1352837a00b1adc50e56ea05",
+          "md5": "4ffa20887bd1a138f8b1fef240228038"
+        }
+      ]
+    }
+  ]
+}
