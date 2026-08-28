@@ -11,10 +11,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven { url = uri("${rootDir}/local-maven-repo") }
     }
 }
 rootProject.name = "auto-test"
 include ':app'
 include ':auto-test'
-include ':local-repo'
-include ':local-repo:auto-test'

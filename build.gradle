@@ -11,9 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
-        // AGP8 兼容的 fat-aar fork（将依赖打包进 aar），坐标来自 JitPack
-        classpath 'com.github.shenghua-ok:fat-aar-android:1.4.6'
+        classpath 'com.android.tools.build:gradle:8.1.0'
     }
 }
 

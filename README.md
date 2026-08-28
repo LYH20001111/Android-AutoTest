@@ -5,29 +5,68 @@
 
 # 1. 应用使用介绍
 
-## 1.1 build.gradle文件需要加入的
+auto-test 以 AAR 形式发布到本仓库的 `local-maven-repo` 目录，并携带完整的依赖元数据。应用方**无需**手动引入 auto-test 内部使用的任何依赖（material、room、jxl、fastjson 等），Gradle 会按 POM 自动传递解析。
+
+## 1.1 声明 Maven 仓库
+
+将本仓库的 `local-maven-repo` 目录拷贝到你的工程可访问的位置，然后在仓库列表中声明它。
+
+新项目（settings.gradle）：
+
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        // 指向你拷贝的 local-maven-repo 目录
+        maven { url = uri("<local-maven-repo 的路径>") }
+    }
+}
+```
+
+老项目（根 build.gradle）：
+
+```groovy
+allprojects {
+    repositories {
+        maven { url = uri("<local-maven-repo 的路径>") }
+    }
+}
+```
+
+## 1.2 添加依赖坐标
+
+只需一行，版本号以 `auto-test/build.gradle` 中的 `appVersionName` 为准（当前 2.0.04）：
+
+```groovy
+dependencies {
+    implementation 'com.github.LYH20001111:Android-AutoTest:2.0.04'
+}
+```
+
+同时开启 viewBinding：
 
 ```groovy
 android {
-	... ...
     buildFeatures {
         viewBinding = true
     }
 }
-
-dependencies {
-	... ...
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
-}
 ```
 
-## 1.2 导入aar文件
+## 1.3 发布 AAR（本仓库维护者）
 
-​	导入hudou-autotest-x.x.x.aar文件到libs目录下；
+```
+./gradlew :auto-test:publishReleasePublicationToLocalMavenRepoRepository
+```
 
-## 1.3 改造MainActivity 
+产物（aar / pom / .module / 校验和）写入 `local-maven-repo/`，需与版本号一并提交 Git。约定：
+
+- 每次对外发布**递增版本号**（改 `auto-test/build.gradle` 的 `appVersionName` 即可，坐标版本自动跟随）；
+- 确需覆盖同版本时，消费方需加 `--refresh-dependencies` 刷新 Gradle 缓存；
+- 修改 auto-test 源码后，必须先执行发布命令，再构建 app（app 以 Maven 坐标消费）。
+
+## 1.4 改造MainActivity 
 
 ​	(1) . 将extends AppCompatActivity 改为 extends **AutoTestMainActivity**；并重写addNavigationFragment方法
 
@@ -53,7 +92,7 @@ dependencies {
 
 
 
-## 1.4 添加相关页面
+## 1.5 添加相关页面
 
 ```java
 案例设计界面：继承 AutoTestTestListFragment
@@ -109,7 +148,7 @@ public class SettingFragment extends AutoTestSettingFragment {
 
 
 
-## 1.5 添加案例
+## 1.6 添加案例
 
 ​	创建案例item，在 class 中 继承 **AutoTestTestItem**，并注解@TestItem(name = "XXXX", description = "YYYYY");
 
@@ -185,7 +224,7 @@ public class TestItem1 extends AutoTestTestItem {
     }
 ```
 
-## 1.6 Splash 启动页集成（推荐）
+## 1.7 Splash 启动页集成（推荐）
 
 ​	创建启动页：继承 **AutoTestSplashActivity** 并重写 `getTargetActivity()` 指向主界面：
 
@@ -216,7 +255,7 @@ public class SplashActivity extends AutoTestSplashActivity {
 
 ​	启动页会在后台线程执行 `onPreloadData()`（可重写，用于预热数据库等关键配置），预热完成并满足最小展示时长后自动跳转主界面。
 
-## 1.7 页面优化
+## 1.8 页面优化
 
 ​	要是想希望页面更好看，可更换主题，可以将theme.xml 改为：
 
@@ -228,7 +267,7 @@ public class SplashActivity extends AutoTestSplashActivity {
 </resources>
 ```
 
-​	但是需要再build.gradle中加入相关依赖：
+​	material 依赖已随 auto-test 以 api 方式传递提供，无需在 build.gradle 中重复声明；仅当你的工程未接入 auto-test 时才需要自行添加：
 
 ```
 	implementation 'com.google.android.material:material:1.9.0'
