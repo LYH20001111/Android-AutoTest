@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "auto-test"
 include ':app'
 include ':auto-test'
+include ':app-aar'

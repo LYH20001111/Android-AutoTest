@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Autotest" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.AutoTest" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
 </resources>

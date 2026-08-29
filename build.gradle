@@ -1,18 +1,5 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            allowInsecureProtocol = true
-            url'http://192.168.33.231:8081/repository/maven-releases/'
-        }
-        maven {
-            url "https://jitpack.io"
-        }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.0'
-    }
+plugins {
+    id 'com.android.application' version '8.1.0' apply false
 }
 
 ext {
