@@ -73,21 +73,83 @@ android {
 - 修改 auto-test 源码后，必须先执行发布命令，再构建 app（app 以 Maven 坐标消费）；
 - 消费方无需任何 `resolutionStrategy` / force / exclude 全局配置，依赖传递与冲突处理由发布的元数据自动完成。
 
-## 1.4 改造MainActivity 
+## 1.4 通过 JitPack 引入（推荐外部工程使用）
 
-​	(1) . 将extends AppCompatActivity 改为 extends **AutoTestMainActivity**；并重写addNavigationFragment方法
+如果你想引入 auto-test，但不想拷贝 `local-maven-repo` 目录，可以通过 JitPack 直接引入。JitPack 会根据 GitHub tag 自动构建 AAR 并发布。
+
+### 前提条件
+
+- GitHub 仓库公开（当前仓库需设为公开状态）
+- Git tag 已推送到远程仓库（如 v2.0.04）
+
+### 引入步骤
+
+你的工程在 settings.gradle（新项目）或根 build.gradle 的 allprojects 中声明 jitpack.io 仓库：
+
+**settings.gradle**（推荐）：
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+**或者根 build.gradle**（老项目）：
+```groovy
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+然后在 dependencies 中添加一行：
+
+```groovy
+dependencies {
+    implementation 'com.github.LYH20001111:Android-AutoTest:v2.0.04'
+}
+```
+
+同时开启 viewBinding：
+
+```groovy
+android {
+    buildFeatures {
+        viewBinding = true
+    }
+}
+```
+
+### 注意事项
+
+- 版本号格式为 `v2.0.04`，对应 Git tag v2.0.04
+- JitPack 会从源码重新编译，不是读取本地已发布的 aar
+- 首次构建可能较慢，可在 https://jitpack.com/LYH20001111/Android-AutoTest/v2.0.04 查看构建状态
+- 后续发新版本只需递增 autotestVersionName → 打新 tag → push → 消费方更新版本号即可
+
+---
+
+## 1.5 改造 MainActivity 
+
+	(1) . 将 extends AppCompatActivity 改为 extends **AutoTestMainActivity**；并重写 addNavigationFragment 方法
 
 ```java
     @Override
     public void addNavigationFragment(List<Fragment> list) {
-        //如果不想显示首页界面，可以通过removeIf删除,
+        //如果不想显示首页界面，可以通过 removeIf 删除，
         //list.removeIf(fragment -> fragment instanceof HomeFragment);
         list.add(new PSFragment());
         list.add(new SettingFragment());//在这里添加导航相关页面
     }
 ```
 
-​	(2) . 并删除MainActivity中onCreate方法的setContentView(R.layout.activity_main);
+	(2) . 并删除 MainActivity 中 onCreate 方法的 setContentView(R.layout.activity_main);
 
 ```java
     @Override
@@ -99,12 +161,12 @@ android {
 
 
 
-## 1.5 添加相关页面
+## 1.6 添加相关页面
 
 ```java
 案例设计界面：继承 AutoTestTestListFragment
     
-//继承AutoTestTestListFragment的布局，主要是用于测试项的编写，案例开发就在@TestItemClass(clz =)所列的class中设计；
+//继承 AutoTestTestListFragment 的布局，主要是用于测试项的编写，案例开发就在@TestItemClass(clz =) 所列的 class 中设计；
 @Navigation(name = "PS")
 @TestItemClass(clz = {TestItem1.class, TestItem2.class})
 public class PSFragment extends AutoTestTestListFragment {
@@ -155,12 +217,13 @@ public class SettingFragment extends AutoTestSettingFragment {
 
 
 
-## 1.6 添加案例
 
-​	创建案例item，在 class 中 继承 **AutoTestTestItem**，并注解@TestItem(name = "XXXX", description = "YYYYY");
+## 1.7 添加案例
+
+	创建案例 item，在 class 中 继承 **AutoTestTestItem**，并注解@TestItem(name = "XXXX", description = "YYYYY");
 
 ```java
-@TestItem(name = "Test2", description = "测试项目2")
+@TestItem(name = "Test2", description = "测试项目 2")
 public class TestItem2 extends AutoTestTestItem {
     @Override
     public void onCaseStart(Method method) {
@@ -191,12 +254,13 @@ public class TestItem2 extends AutoTestTestItem {
 
 
 
-​     //每个案例通过注解@TestCase来实现；
 
-​    //可通过recordMessage，recordPass，recordFail方法来输出信息在设备界面上；
+     //每个案例通过注解@TestCase 来实现；
+
+    //可通过 recordMessage，recordPass，recordFail 方法来输出信息在设备界面上；
 
 ```java
-@TestItem(name = "Test1", description = "测试项目1")
+@TestItem(name = "Test1", description = "测试项目 1")
 public class TestItem1 extends AutoTestTestItem {
 
     @Override
@@ -219,7 +283,7 @@ public class TestItem1 extends AutoTestTestItem {
 }
 ```
 
-​	可选：在该案例类中可以重写执行案例前后需执行的相关方法：
+	可选：在该案例类中可以重写执行案例前后需执行的相关方法：
 
 ```java
     @Override
@@ -231,9 +295,9 @@ public class TestItem1 extends AutoTestTestItem {
     }
 ```
 
-## 1.7 Splash 启动页集成（推荐）
+## 1.8 Splash 启动页集成（推荐）
 
-​	创建启动页：继承 **AutoTestSplashActivity** 并重写 `getTargetActivity()` 指向主界面：
+	创建启动页：继承 **AutoTestSplashActivity** 并重写 `getTargetActivity()` 指向主界面：
 
 ```java
 public class SplashActivity extends AutoTestSplashActivity {
@@ -246,7 +310,7 @@ public class SplashActivity extends AutoTestSplashActivity {
 }
 ```
 
-​	**必须**在 AndroidManifest 中为该 Activity 声明启动页主题，否则冷启动会先出现空白窗口：
+	**必须**在 AndroidManifest 中为该 Activity 声明启动页主题，否则冷启动会先出现空白窗口：
 
 ```xml
 <activity
@@ -260,11 +324,11 @@ public class SplashActivity extends AutoTestSplashActivity {
 </activity>
 ```
 
-​	启动页会在后台线程执行 `onPreloadData()`（可重写，用于预热数据库等关键配置），预热完成并满足最小展示时长后自动跳转主界面。
+	启动页会在后台线程执行 `onPreloadData()`（可重写，用于预热数据库等关键配置），预热完成并满足最小展示时长后自动跳转主界面。
 
-## 1.8 页面优化
+## 1.9 页面优化
 
-​	要是想希望页面更好看，可更换主题，可以将theme.xml 改为：
+	要是想希望页面更好看，可更换主题，可以将 theme.xml 改为：
 
 ```xml
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -274,7 +338,7 @@ public class SplashActivity extends AutoTestSplashActivity {
 </resources>
 ```
 
-​	material 依赖已随 auto-test 以 api 方式传递提供，无需在 build.gradle 中重复声明；仅当你的工程未接入 auto-test 时才需要自行添加：
+	material 依赖已随 auto-test 以 api 方式传递提供，无需在 build.gradle 中重复声明；仅当你的工程未接入 auto-test 时才需要自行添加：
 
 ```
 	implementation 'com.google.android.material:material:1.9.0'

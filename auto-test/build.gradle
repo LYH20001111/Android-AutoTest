@@ -76,6 +76,30 @@ afterEvaluate {
                 groupId = 'com.github.LYH20001111'
                 artifactId = 'Android-AutoTest'
                 version = appVersionName
+
+                pom {
+                    name = 'Android AutoTest'
+                    description = 'Android automated test framework'
+                    url = 'https://github.com/LYH20001111/Android-AutoTest'
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'LYH20001111'
+                            name = 'Liu YiHong'
+                            email = ''
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git://github.com/LYH20001111/Android-AutoTest.git'
+                        developerConnection = 'scm:git:ssh://git@github.com/LYH20001111/Android-AutoTest.git'
+                        url = 'https://github.com/LYH20001111/Android-AutoTest'
+                    }
+                }
             }
         }
         repositories {
