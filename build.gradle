@@ -16,7 +16,7 @@ buildscript {
 }
 
 ext {
-    autotestVersionCode = 20004
+    autotestVersionCode = 20005
     autotestVersionName = '2.0.04'
 }
 

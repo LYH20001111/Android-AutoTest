@@ -11,6 +11,27 @@
   <artifactId>Android-AutoTest</artifactId>
   <version>2.0.04</version>
   <packaging>aar</packaging>
+  <name>Android AutoTest</name>
+  <description>Android automated test framework</description>
+  <url>https://github.com/LYH20001111/Android-AutoTest</url>
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>LYH20001111</id>
+      <name>Liu YiHong</name>
+      <email></email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/LYH20001111/Android-AutoTest.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/LYH20001111/Android-AutoTest.git</developerConnection>
+    <url>https://github.com/LYH20001111/Android-AutoTest</url>
+  </scm>
   <dependencies>
     <dependency>
       <groupId>androidx.appcompat</groupId>
