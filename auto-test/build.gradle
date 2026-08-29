@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
+    id "com.vanniktech.maven.publish" version "0.34.0"
+    id 'signing'
 }
 
 def appVersionCode = rootProject.ext.autotestVersionCode
@@ -13,9 +14,9 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 34
-        versionCode 1
         versionCode = appVersionCode
         versionName = appVersionName
+
         buildConfigField 'String', 'AUTHOR', '"Liu YiHong"'
         buildConfigField 'String', 'STRUCTURE_VERSION', "\"" + appVersionName + "\""
 
@@ -26,22 +27,11 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }//打包aar时，protected权限的方法自动变为了public。
-        // 这是因为proguard-android-optimize.txt配置-allowaccessmodification，这项配置的作用是“是否允许改变作用域
-        //而proguard-android.txt中没有-allowaccessmodification 配置
+        }
+
         debug {
             minifyEnabled false
         }
-    }
-    android.libraryVariants.all {
-        variant ->
-            variant.outputs.all {
-                if ("debug" == variant.buildType.name) {
-                    outputFileName = "hudou-autotest-" + defaultConfig.versionName + "-" + variant.buildType.name + ".aar"
-                } else {
-                    outputFileName = "hudou-autotest-" + defaultConfig.versionName + ".aar"
-                }
-            }
     }
 
     compileOptions {
@@ -60,107 +50,123 @@ android {
         buildConfig = true
         viewBinding = true
     }
-
-    publishing {
-        singleVariant('release') {
-            withSourcesJar()
-        }
-    }
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.LYH20001111'
-                artifactId = 'Android-AutoTest'
-                version = appVersionName
-
-                pom {
-                    name = 'Android AutoTest'
-                    description = 'Android automated test framework'
-                    url = 'https://github.com/LYH20001111/Android-AutoTest'
-                    licenses {
-                        license {
-                            name = 'The Apache License, Version 2.0'
-                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        }
-                    }
-                    developers {
-                        developer {
-                            id = 'LYH20001111'
-                            name = 'Liu YiHong'
-                            email = ''
-                        }
-                    }
-                    scm {
-                        connection = 'scm:git:git://github.com/LYH20001111/Android-AutoTest.git'
-                        developerConnection = 'scm:git:ssh://git@github.com/LYH20001111/Android-AutoTest.git'
-                        url = 'https://github.com/LYH20001111/Android-AutoTest'
-                    }
-                }
-            }
-        }
-        repositories {
-            maven {
-                name = 'localMavenRepo'
-                url = uri("${rootDir}/local-maven-repo")
-            }
-        }
-    }
 }
 
 dependencies {
-
-    api 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.core:core-splashscreen:1.0.0'
-    api 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // AndroidX 核心和 UI 组件
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation 'androidx.navigation:navigation-runtime:2.8.8'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    annotationProcessor 'com.google.auto.service:auto-service:1.0.1'
-    implementation 'com.google.auto.service:auto-service-annotations:1.0.1'
-    implementation 'com.alibaba:fastjson:1.2.75'
-    implementation 'com.google.code.gson:gson:2.8.6'
-
-    api 'androidx.recyclerview:recyclerview:1.3.0'
-
-    implementation('org.reflections:reflections:0.9.10') {
-        exclude group: 'com.google.code.findbugs'
-    }
-    implementation 'org.slf4j:slf4j-api:1.7.30'
-    implementation 'commons-cli:commons-cli:1.4'
-
-    api 'net.sourceforge.jexcelapi:jxl:2.6.12' //将该依赖的jar导入到libs，和项目一并打包为aar
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-
-    def room_version = "2.5.2"
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+    
+    // RecyclerView
+    api 'androidx.recyclerview:recyclerview:1.3.1'
+    
+    // ViewPager
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    
+    // Room 数据库
+    def room_version = "2.6.1"
     api "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-    implementation "com.google.code.gson:gson:2.10.1"  // 仅用来把 Class 存成 String
-
-
+    implementation "androidx.room:room-common:$room_version"
+    
+    // 日志和工具库
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'commons-cli:commons-cli:1.4'
+    implementation 'org.reflections:reflections:0.10.2'
+    
+    // JSON 解析
+    implementation 'com.alibaba:fastjson:1.2.83'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // Excel 支持 (libs 目录下的 jar)
+    api 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    
+    // SwipeRefreshLayout
+    api 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    
+    // Lifecycle 和 LiveData
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.8.7'
+    implementation 'androidx.activity:activity-ktx:1.9.3'
+    
+    // 测试依赖
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
 
 configurations.all {
     exclude group: 'com.google.guava', module: 'listenablefuture'
 }
 
-task assembleAutoTest {
-    def outputDir = new File(project.buildDir, "outputs/aar")
-    if (outputDir.exists()) {
-        outputDir.listFiles().each { file ->
-            if (file.name.endsWith('.aar')) {
-                file.delete()
+signing {
+    // Temporarily disabled for testing - re-enable when GPG is configured
+    // Use conditional signing based on key availability
+    def gpgKeyId = System.getenv('ORG_GRADLE_PROJECT_signingKey') ?: System.getProperty('signingKey')
+    def gpgPassphrase = System.getenv('ORG_GRADLE_PROJECT_signingPassword') ?: System.getProperty('signingPassword')
+    
+    if (gpgKeyId && gpgPassphrase) {
+        // Use in-memory keys for CI/CD environment
+        useInMemoryPgpKeys(gpgKeyId, gpgPassphrase)
+        println "✓ Using in-memory GPG keys for signing"
+        sign publishing.publications
+    } else {
+        println "ℹ Skipping signing - no GPG keys configured"
+    }
+}
+
+// Configure Maven Publishing with VannikTech plugin (v0.34.0)
+mavenPublishing {
+    // Coordinates can be specified here or automatically derived from plugin configuration
+    coordinates(
+            'com.github.LYH20001111',
+            'Android-AutoTest',
+            appVersionName
+    )
+
+    pom {
+        name = 'Android AutoTest'
+        description = 'Android automated test framework'
+        url = 'https://github.com/LYH20001111/Android-AutoTest'
+
+        licenses {
+            license {
+                name = 'The Apache License, Version 2.0'
+                url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
             }
         }
+
+        developers {
+            developer {
+                id = 'LYH20001111'
+                name = 'Liu YiHong'
+                email = '171115368@qq.com'
+            }
+        }
+
+        scm {
+            connection = 'scm:git:git://github.com/LYH20001111/Android-AutoTest.git'
+            developerConnection = 'scm:git:ssh://git@github.com/LYH20001111/Android-AutoTest.git'
+            url = 'https://github.com/LYH20001111/Android-AutoTest'
+        }
     }
-    dependsOn project(':auto-test').tasks.matching { task ->
-        task.name.contains('assemble') && (task.name.contains('Release') || task.name.contains('Debug'))
+}
+
+// Override repository for local publishing to system Maven repo
+afterEvaluate {
+    publishing {
+        repositories {
+            // Use the actual Windows user profile directory instead of $HOME
+            maven {
+                name = 'systemMavenLocal'
+                def userProfile = System.getenv('USERPROFILE') ?: System.getProperty('user.home')
+                url = uri("${userProfile}/.m2/repository")
+                println "📦 Publishing to: ${url}"
+            }
+        }
     }
 }

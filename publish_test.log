@@ -1,0 +1,19 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :auto-test
+? Using gpg command for signing (local mode)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring project ':auto-test'.
+> Using singleVariant publishing DSL multiple times to publish variant "release" to component "release" is not allowed.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 6s

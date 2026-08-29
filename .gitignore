@@ -15,3 +15,5 @@
 .cxx
 local.properties
 /local-repo/auto-test/build
+
+/app-aar/build

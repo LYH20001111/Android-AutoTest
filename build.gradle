@@ -3,7 +3,7 @@ plugins {
 }
 
 ext {
-    autotestVersionCode = 20005
+    autotestVersionCode = 20004
     autotestVersionName = '2.0.04'
 }
 
