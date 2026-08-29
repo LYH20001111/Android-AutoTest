@@ -17,3 +17,9 @@ local.properties
 /local-repo/auto-test/build
 
 /app-aar/build
+
+# Maven Central publishing secrets
+mavenCentralUsername=
+mavenCentralPassword=
+signing.secretKeyRingFile
+secring.gpg

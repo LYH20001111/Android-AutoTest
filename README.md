@@ -462,3 +462,104 @@ public class SplashActivity extends AutoTestSplashActivity {
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+---
+
+# 3. Maven Central 发布
+
+## 3.1 前提条件
+
+要发布到 Maven Central，你需要：
+
+1. **申请 OSSRH 账户**：
+   - 访问 [https://issues.sonatype.org/](https://issues.sonatype.org/) 创建账号
+   - 创建一个新的 Issue，选择 "Publishing Support" 分类
+   - 描述你要发布的 Group ID（如 `com.github.LYH20001111`）
+   - Sonatype 会验证你是否拥有该域名的所有权
+
+2. **生成 GPG 密钥对**：
+   ```bash
+   # 安装 GPG
+   # macOS: brew install gnupg
+   # Ubuntu: sudo apt-get install gnupg
+   
+   # 生成密钥
+   gpg --full-generate-key
+   
+   # 查看密钥指纹（后面要用）
+   gpg --list-keys
+   
+   # 导出私钥（用于签名）
+   gpg --export-secret-keys <KEY_ID> > ~/.gradle/secring.gpg
+   ```
+
+3. **配置 Gradle 属性**：
+   在项目的 `gradle.properties` 中添加：
+   ```properties
+   mavenCentralUsername=<your-ossrh-username>
+   mavenCentralPassword=<your-ossrh-password>
+   signing.keyId=<last-8-characters-of-key-fingerprint>
+   signing.password=<your-gpg-passphrase>
+   signing.secretKeyRingFile=<path-to-secring.gpg>
+   ```
+   
+   或者使用环境变量（更安全）：
+   ```bash
+   export ORG_GRADLE_PROJECT_mavenCentralUsername=<username>
+   export ORG_GRADLE_PROJECT_mavenCentralPassword=<password>
+   export ORG_GRADLE_PROJECT_signingKey=$(base64 -w 0 ~/.gradle/secring.gpg)
+   export ORG_GRADLE_PROJECT_signingPassword=<passphrase>
+   ```
+
+## 3.2 执行发布
+
+```bash
+# 发布到 OSSRH Staging Repository
+./gradlew :auto-test:publishToMavenCentral
+```
+
+发布成功后，在 [Nexus Repository Manager](https://s01.oss.sonatype.org/) 查看暂存的构件。
+
+## 3.3 验证与正式发布
+
+1. 在 Nexus 中找到你的 Staging Repository
+2. 测试版本（可选但推荐）：
+   ```groovy
+   dependencyResolutionManagement {
+       repositories {
+           google()
+           mavenCentral()
+           // 添加 Staging 仓库用于测试
+           maven { url = uri('https://s01.oss.sonatype.org/content/repositories/comgithublyh20001111-XXXX/') }
+       }
+   }
+   ```
+3. 如果一切正常，在 Nexus 中点击 "Close"，然后点击 "Release"
+
+## 3.4 消费方使用
+
+发布成功后，任何工程都可以直接使用：
+
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+dependencies {
+    implementation 'com.github.LYH20001111:Android-AutoTest:2.0.04'
+}
+```
+
+## 3.5 常见问题
+
+### Q: 如何检查域名所有权？
+A: Sonatype 会在 Issue 中要求你提供 DNS 记录证明，或者让你创建一个临时的 GitHub gist 包含你的 Key ID。
+
+### Q: GPG 密钥过期了怎么办？
+A: 更新密钥并重新上传到 Sonatype。他们需要你手动上传公钥：`gpg --export -a <KEY_ID>`
+
+### Q: 构建时报错 "Signing failed"？
+A: 确保已正确设置 `signing.keyId` 和 `signing.secretKeyRingFile` 属性，且私钥没有被删除。

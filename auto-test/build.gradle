@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.library'
-    id "com.vanniktech.maven.publish" version "0.34.0"
+    id 'maven-publish'
     id 'signing'
 }
 
@@ -49,6 +49,14 @@ android {
     buildFeatures {
         buildConfig = true
         viewBinding = true
+    }
+
+    // Disable automatic component creation for manual publishing control
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
@@ -103,70 +111,74 @@ configurations.all {
     exclude group: 'com.google.guava', module: 'listenablefuture'
 }
 
-signing {
-    // Temporarily disabled for testing - re-enable when GPG is configured
-    // Use conditional signing based on key availability
-    def gpgKeyId = System.getenv('ORG_GRADLE_PROJECT_signingKey') ?: System.getProperty('signingKey')
-    def gpgPassphrase = System.getenv('ORG_GRADLE_PROJECT_signingPassword') ?: System.getProperty('signingPassword')
-    
-    if (gpgKeyId && gpgPassphrase) {
-        // Use in-memory keys for CI/CD environment
-        useInMemoryPgpKeys(gpgKeyId, gpgPassphrase)
-        println "✓ Using in-memory GPG keys for signing"
-        sign publishing.publications
-    } else {
-        println "ℹ Skipping signing - no GPG keys configured"
-    }
-}
-
-// Configure Maven Publishing with VannikTech plugin (v0.34.0)
-mavenPublishing {
-    // Coordinates can be specified here or automatically derived from plugin configuration
-    coordinates(
-            'com.github.LYH20001111',
-            'Android-AutoTest',
-            appVersionName
-    )
-
-    pom {
-        name = 'Android AutoTest'
-        description = 'Android automated test framework'
-        url = 'https://github.com/LYH20001111/Android-AutoTest'
-
-        licenses {
-            license {
-                name = 'The Apache License, Version 2.0'
-                url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
-            }
-        }
-
-        developers {
-            developer {
-                id = 'LYH20001111'
-                name = 'Liu YiHong'
-                email = '171115368@qq.com'
-            }
-        }
-
-        scm {
-            connection = 'scm:git:git://github.com/LYH20001111/Android-AutoTest.git'
-            developerConnection = 'scm:git:ssh://git@github.com/LYH20001111/Android-AutoTest.git'
-            url = 'https://github.com/LYH20001111/Android-AutoTest'
-        }
-    }
-}
-
-// Override repository for local publishing to system Maven repo
 afterEvaluate {
     publishing {
-        repositories {
-            // Use the actual Windows user profile directory instead of $HOME
-            maven {
-                name = 'systemMavenLocal'
-                def userProfile = System.getenv('USERPROFILE') ?: System.getProperty('user.home')
-                url = uri("${userProfile}/.m2/repository")
-                println "📦 Publishing to: ${url}"
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'io.github.lyh20001111'
+                artifactId = 'Android-AutoTest'
+                version = appVersionName
+
+                pom {
+                    name = 'Android AutoTest'
+                    description = 'Android automated test framework'
+                    url = 'https://github.com/LYH20001111/Android-AutoTest'
+
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'LYH20001111'
+                            name = 'Liu YiHong'
+                            email = '171115368@qq.com'
+                        }
+                    }
+
+                    scm {
+                        connection = 'scm:git:git://github.com/LYH20001111/Android-AutoTest.git'
+                        developerConnection = 'scm:git:ssh://git@github.com/LYH20001111/Android-AutoTest.git'
+                        url = 'https://github.com/LYH20001111/Android-AutoTest'
+                    }
+                }
             }
         }
+
+        repositories {
+            maven {
+                name = 'OSSRH'
+                url = uri(
+                        'https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/'
+                )
+
+                credentials {
+                    username = project.findProperty('mavenCentralUsername')
+                            ?: System.getenv('MAVEN_USERNAME')
+
+                    password = project.findProperty('mavenCentralPassword')
+                            ?: System.getenv('MAVEN_PASSWORD')
+                }
+            }
+
+            maven {
+                name = 'systemMavenLocal'
+
+                def userProfile =
+                        System.getenv('USERPROFILE') ?: System.getProperty('user.home')
+
+                url = uri("${userProfile}/.m2/repository")
+            }
+        }
+    }
+
+    signing {
+        useGpgCmd()
+        sign publishing.publications.release
     }
 }
