@@ -34,6 +34,17 @@ android {
         }
     }
 
+    android.libraryVariants.all {
+        variant ->
+            variant.outputs.all {
+                if ("debug" == variant.buildType.name) {
+                    outputFileName = "hudou-autotest-" + defaultConfig.versionName + "-" + variant.buildType.name + ".aar"
+                } else {
+                    outputFileName = "hudou-autotest-" + defaultConfig.versionName + ".aar"
+                }
+            }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -180,5 +191,19 @@ afterEvaluate {
     signing {
         useGpgCmd()
         sign publishing.publications.release
+    }
+}
+
+task assembleAutoTest {
+    def outputDir = new File(project.buildDir, "outputs/aar")
+    if (outputDir.exists()) {
+        outputDir.listFiles().each { file ->
+            if (file.name.endsWith('.aar')) {
+                file.delete()
+            }
+        }
+    }
+    dependsOn project(':auto-test').tasks.matching { task ->
+        task.name.contains('assemble') && (task.name.contains('Release') || task.name.contains('Debug'))
     }
 }
